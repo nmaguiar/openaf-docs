@@ -2,5 +2,5 @@
 
 How-tos:
 
-* [Interact with files](Use-files.md)
-* [Use SBucket](Use-sbucket.md)
+* [Interact with files](/howto/Use-files.md)
+* [Use SBucket](/howto/Use-sbucket.md)
