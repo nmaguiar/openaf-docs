@@ -1,4 +1,4 @@
-# OpenAF documentation
+# OpenAF documentation<a href="/"><img align="right" src="/images/openaf_small.png"></a>
 
 ## Topics
 

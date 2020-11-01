@@ -1,4 +1,4 @@
-# OpenAF How-to
+# OpenAF How-to<a href="/"><img align="right" src="/images/openaf_small.png"></a>
 
 How-tos:
 
