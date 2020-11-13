@@ -4,22 +4,3 @@ title: OpenAF docs
 description: OpenAF guides, concepts and how-tos documentation.
 eading_anchors: true
 nav_sort: case_sensitive
-collections:
-  concepts:
-    permalink: "/:collection/:path/"
-    output: true
-  howto:
-    permalink: "/:collection/:path/"
-    output: true
-  guides:
-    permalink: "/:collection/:path/"
-    output: true
-
-just_the_docs:
-  collections:
-    concepts:
-      name: Concepts
-    howto:
-      name: How to
-    guides:
-      name: Guides
