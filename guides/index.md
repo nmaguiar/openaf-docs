@@ -1,3 +1,9 @@
+---
+layout: default
+title: Guides
+parent: OpenAF docs
+---
+
 # Guides<a href="/"><img align="right" src="/images/openaf_small.png"></a>
 
 ## Beginner

@@ -1,3 +1,9 @@
+---
+layout: default
+title: How To
+parent: OpenAF docs
+---
+
 # OpenAF How-to<a href="/"><img align="right" src="/images/openaf_small.png"></a>
 
 How-tos:
