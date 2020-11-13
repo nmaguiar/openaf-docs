@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Easily add a SSL certificate to access an URL"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Easily add a SSL certificate to access an URL
 
 When accessing an URL that hosts a self-signed SSL certificate you might need to add the certificate to your's Java runtime environment trusted certificates. If you search around the internet you will find several articles explaining how to do this using Java's keytool utility (adding the certificate to the Java's keystore).

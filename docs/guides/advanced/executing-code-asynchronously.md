@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Executing code asynchronously (promises)"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Executing code asynchronously (promises)
 
 The execution of an OpenAF script is inherently sequential. Although it's easy to understand the execution flow (e.g. after a executes b) it might not have the best performance since it needs to wait for the end of the execution of the previous instruction to execute the next. Sometimes it makes sense because there is a dependency but in other cases it could be already executing something else asynchronously. OpenAF, through the Threads plugin, allows you access to the underneath great Java Threads functionality but the code may become hard to understand. An easy way to keep it simple but run asynchronously code is to use "promises". If you know how to use promises in other languages you will find it similar after checking the help information ("help $do"). For those that are not so familiar OpenAF tries to provide a easy and simple implementation.

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: How to copy CLOBs between two databases"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # How to copy CLOBs between two databases
 
 Specially in Oracle is not very easy to get the CLOB field value from a source database and insert/update it on another CLOB field on a target database.

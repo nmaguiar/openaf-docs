@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: oJob exception handling"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # oJob exception handling
 
 When you create an OpenAF's oJob each job runs independently and you are responsible for handling exceptions on each. 

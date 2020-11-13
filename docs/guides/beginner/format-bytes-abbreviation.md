@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Format bytes abbreviation"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Format bytes abbreviation
 
 Whenever dealing with bytes you might want to output an abbreviation for human reading like instead of saying 123456789 bytes saying it's around 118MB. You can do this in OpenAF using the ow.format.toBytesAbbreviation function like this:

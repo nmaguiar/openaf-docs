@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: How to access remote JMX data"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # How to access remote JMX data
 
 JMX, the Java Management Extensions, allows you to monitor/manage any Java based process. Since OpenAF is also a Java process it can be used as a "client" to check other java processes (including other OpenAF processes).

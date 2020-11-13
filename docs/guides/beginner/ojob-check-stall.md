@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: oJob Check for stall"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # oJob Check for stall
 
 When running an oJob there might be situations that you want to ensure that the entire process won't enter into a stall (e.g. being stopped on a "dead-end" waiting for some service or lock or whatever).

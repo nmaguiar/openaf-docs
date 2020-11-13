@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Searching map keys and values"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Searching map keys and values
 
 The main data structure in OpenAF is, of course, javascript maps. We already cover how to easily search on arrays using [$from](https://openafs.blogspot.com/2019/07/making-it-easy-to-read-with-from.html). But what about maps?

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Encode/Decode base64 in OpenAF"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Encode/Decode base64 in OpenAF
 
 [Base64](https://en.wikipedia.org/wiki/Base64) is a enconding scheme used to represent binary data in ASCII strings (using only 6-bit instead of the full 8-bit). It's used in several cases: LDAP's LDIF files character representation; encoding binary email attachments; embeeding images and fonts in HTML/CSS; avoiding delimiters been interpreted as delimiters inside a sequence of characters on a field: etc&#46;&#46;&#46;

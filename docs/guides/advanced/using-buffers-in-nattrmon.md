@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Using buffers in nAttrMon"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using buffers in nAttrMon
 
 If you have a large number of nAttrMon inputs and probably a smaller number of outputs the probability of having sets of inputs that all run at the same time is high.

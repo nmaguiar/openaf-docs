@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Making it easy to read with $from"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Making it easy to read with $from
 
 When you start to write several OpenAF scripts you will usually start to write a log while/for/do cycles to go through an array and perform so task. Take the following example (which might be hard to read for a beginner):

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Get a javascript array from an Excel"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Get a javascript array from an Excel
 
 In the same way you can [write a javascript array to an Excel](adding-array-to-an-excel-spreadsheet.md) it's equally easy to retrieve a javascript array from an existing Excel. Let's take this excel sheet as an example (from test.xlsx):

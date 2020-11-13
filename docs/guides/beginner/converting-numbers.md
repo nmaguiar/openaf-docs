@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Converting numbers"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Converting numbers
 
 Is there a way, in OpenAF, to convert a decimal number to hex? Or to binary? Or to octal? Yes, there is on the ow.format library.

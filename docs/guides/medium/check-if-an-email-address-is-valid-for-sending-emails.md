@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Check if an email address is valid for sending emails"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Check if an email address is valid for sending emails
 
 Whenever you have a list of email addresses you might wonder if the email address provided really exists or if it's a "dummy" email. Since internet email does not provide any delivery guarantees nor there exists any reply standard (or obligation) from target domains to reply back that the email address does not exist what can you check to clean cases like "my.name@you.wont.find.me" automatically?

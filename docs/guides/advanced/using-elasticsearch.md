@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Using ElasticSearch"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using ElasticSearch
 
 OpenAF comes with builtin support for ElasticSearch. So, among other things, it can log directly to ElasticSearch whenever you use the _log*_ functions. Nevertheless there is an oPack to make it all a little easier. Let's start by installing it:

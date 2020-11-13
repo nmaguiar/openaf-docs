@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Using the SNMP plugin"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using the SNMP plugin
 
 In OpenAF there are two main SNMP plugins: SNMP and SNMP server. In this article we are going to focus on the SNMP plugin that provide SNMP client functionality. 

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Date to/from string"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Date to/from string
 
 To help with javascript Date manipulation in OpenAF there are several helper functions in the ow.format library. To use them do load the format library first:

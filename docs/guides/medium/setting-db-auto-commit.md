@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Setting DB auto commit"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Setting DB auto commit
 
 By default OpenAF opens all database connections in *"autocommit=false"* mode. But in some special cases you might need to turn it on. Let's see one of those cases:

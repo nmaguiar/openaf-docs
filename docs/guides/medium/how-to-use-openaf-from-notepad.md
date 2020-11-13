@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: How to use OpenAF from Notepad++"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # How to use OpenAF from Notepad++
 
 It's possible to use Notepad++ to run and debug OpenAF scripts. To set it up just follow the steps:

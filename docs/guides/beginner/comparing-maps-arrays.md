@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Comparing maps and arrays"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Comparing maps and arrays
 
 In javascript it's easy to compare simple types but the same doesn't apply to maps or arrays. Let's take some examples:

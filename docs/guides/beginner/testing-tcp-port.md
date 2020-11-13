@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Testing a TCP port"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Testing a TCP port
 
 When performing TCP connections you always have to deal with the eventual connection failure. For example, if you write a script that will connect to a specific server, you should deal with the issue that when executing the script might not have connectivity to the desire target.

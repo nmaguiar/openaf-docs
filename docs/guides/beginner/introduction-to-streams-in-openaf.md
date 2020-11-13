@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Introduction to streams in OpenAF"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Introduction to streams in OpenAF
 
 Some of the functions you find in OpenAF have the "stream version" and the "non stream version". For example: io.readFileBytes and io.readFileStream; io.writeFileBytes and io.writeFileStream; HTTP.getBytes and HTTP.getStream; etc.

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Using ElasticSearch with nAttrMon"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using ElasticSearch with nAttrMon
 
 [nAttrMon](https://github.com/openaf/nattrmon) captures monitoring inputs to be validated and output to where deem necessary. But you start having more than one instance or you are monitoring a lot of inputs you start having the need to build specific dashboards, visualizations, etc. 

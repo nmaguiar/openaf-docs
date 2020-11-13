@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Sending emails from oJob"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Sending emails from oJob
 
 Sending emails from oJob is made easy due to the oJobEmail.yaml include from the [oJob-common opack](https://github.com/OpenAF/oJob-common). As we other common ojobs the idea is to be easy to use. Let's look at a very simple example:

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Sending emails"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Sending emails
 
 The OpenAF included plugin Email allows to easily send emails from any OpenAF script. Let's check it using a simple example:

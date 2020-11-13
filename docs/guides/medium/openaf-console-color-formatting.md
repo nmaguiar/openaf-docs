@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: OpenAF-console color formatting"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # OpenAF-console color formatting
 
 When using the OpenAF-console if the terminal is ANSI capable some of the output will be "colored" to improve readability:

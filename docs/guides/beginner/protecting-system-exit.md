@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Protecting from system exit"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Protecting from system exit
 
 Whenever running a script you may want to abort/stop the current execution completely exiting the OpenAF process. You can do that using the function _exit_:

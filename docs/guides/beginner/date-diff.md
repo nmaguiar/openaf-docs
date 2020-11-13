@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Date diff"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Date diff
 
 Continuing on the javascript Date manipulation functions available in the OpenAF's ow.format library when it comes to comparing date objects. Usually the question between to dates is how many milliseconds, seconds, minutes, hours, days, weeks, months and/or years the date differ. So there is a set of functions, just for date, under ow.format.dateDiff.in*(dateBefore, dateAfter):

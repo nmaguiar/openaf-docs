@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Accessing XML using E4X"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Accessing XML using E4X
 
 OpenAf uses the Java Mozilla Rhino javascript engine and one of the features that, despite being obsolete, has still been kept is E4X.

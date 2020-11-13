@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Casting values in PostgreSQL and H2 for OpenAF"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Casting values in PostgreSQL and H2 for OpenAF
 
 When performing specific queries in PostgreSQL and H2 although some results are clearly numeric that are returned as strings. This might affect scripts that previously accessed Oracle and now, accessing using the same query in PostgreSQL and H2, have a different behavior.

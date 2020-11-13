@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Making REST service calls from OpenAF"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Making REST service calls from OpenAF
 
 OpenAF includes several ways to make HTTP connections and retrieve data from them. An usually the most usefull connections are to services that expose some kind of REST API "talking" in JSON. To make it easy in OpenAF to make these calls and parse the corresponding output the shortcut _$rest_ was created.

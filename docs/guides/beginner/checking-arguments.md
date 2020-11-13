@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Checking arguments"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Checking arguments
 
 In OpenAF whenever you built a simple function, or you have a piece of code on a oJob that expects arguments or any code block you will eventually need to ensure the type of the input variables/arguments and enforce mandatory arguments.

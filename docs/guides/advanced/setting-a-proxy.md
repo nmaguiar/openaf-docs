@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Setting a proxy"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Setting a proxy
 
 Usually the default java proxy settings cover pretty much all cases. But there are a few cases where it would be helpful to programatically set a proxy.

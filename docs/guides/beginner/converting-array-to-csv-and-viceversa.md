@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Converting an array to a CSV file and vice-versa"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Converting an array to a CSV file and vice-versa
 
 The OpenAF's included CSV object provides some basic functionality for handling CSV files. Althought not intended for handling "huge" CSV files some of these functions are usually handy to quickly convert javascript arrays (composed of javascript map entries) to and from a CSV file. 

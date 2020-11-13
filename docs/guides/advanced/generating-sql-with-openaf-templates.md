@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Generating SQL with OpenAF templates"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Generating SQL with OpenAF templates
 
 Since OpenAF is Java and Javascript it can take advantage of the two languages. The javascript [Handlebars](http://handlebarsjs.com/) library comes already bundled in OpenAF and provides the ability to create any kind of text templates which can be reused and changed without any code changes to a script.

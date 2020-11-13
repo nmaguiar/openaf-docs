@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Using channel peers"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using channel peers
 
 If you use OpenAF channels there are some cases where you would like to connect them across OpenAF scripts.

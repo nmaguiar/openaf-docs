@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Executing code when an OpenAF script execution is terminated"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Executing code when an OpenAF script execution is terminated
 
 Usually there is a need to execute specific code whenever a script is ending/shutting down. Either by normal or forced termination. Examples of this are closing connected sessions to other servers (e.g. databases), deallocate used resources, etc&#49;&#49;&#49;

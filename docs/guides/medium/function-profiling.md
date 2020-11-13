@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Function profiling"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Function profiling
 
 When coding/scripting there are two important things to do depending on the use the code is going to have: debugging and profiling.

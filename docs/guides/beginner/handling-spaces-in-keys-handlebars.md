@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Accessing object keys with spaces in OpenAF templates (Handlebars)"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Accessing object keys with spaces in OpenAF templates (Handlebars)
 
 If you ever came across a similar JSON map to this:

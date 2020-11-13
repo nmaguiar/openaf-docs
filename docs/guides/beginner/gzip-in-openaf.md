@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: gzip/gunzip functionality in OpenAF"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # gzip/gunzip functionality in OpenAF
 
 There are built-in functionality, in OpenAF, to apply gzip or gunzip to files or arrays of bytes. The functionality is available on the object io with the functions: _io.gzip_, _io.gunzip_, _io.readFileGzipStream_ and _io.writeFileGzipStream_. They divide into two ways of using it:

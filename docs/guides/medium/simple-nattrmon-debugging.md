@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Simple nAttrMon debugging"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Simple nAttrMon debugging
 
 One of the common questions when using nAttrMon is: "has my plug even executed?"

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Executing commands remotely via SSH"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Executing commands remotely via SSH
 
 All the functionality to access SSH & SFTP is encapsulated within the OpenAF's SSH plugin. You can use it directly but it might be hard to keep up with methods and function parameters. On oJob definitions it's easy using the [oJob-common functionality](https://github.com/OpenAF/oJob-common#ojob-sh). Directly on OpenAF code to make it easy to use and read there is a shortcut: $ssh

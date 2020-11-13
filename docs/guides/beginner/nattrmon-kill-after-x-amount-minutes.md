@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: nAttrMon kill after an amount of minutes"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # nAttrMon kill after an amount of minutes
 
 On a nAttrMon configuration you might have several inputs, validations and outputs. You might use the _waitForFinish_ parameter to ensure another instance of the same plug doesn't start while the previous is still running.

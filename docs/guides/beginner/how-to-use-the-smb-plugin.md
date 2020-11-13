@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: How to upload/download files from a Window/SMB share folder"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # How to upload/download files from a Window/SMB share folder
 
 The OpenAF's SMB plugin (or the SaMBa plugin, or the [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block) plugin) can be added by installing the "plugin-smb" oPack. It allows scripts to upload, download, remove and list files on a remote Windows/Samba share (depending on the user's permission, of course).

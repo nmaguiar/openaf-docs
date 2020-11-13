@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Using the OpenAF&#x27;s SVN plugin"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using the OpenAF's SVN plugin
 
 There is a built-in SVN client (plugin) in OpenAF that doesn't require any other installed SVN binary to run. Below some examples of commands you can use.

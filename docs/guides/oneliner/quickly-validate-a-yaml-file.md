@@ -1,3 +1,10 @@
+---
+layout: default
+title: "OneLiner: Quickly validate a YAML file"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Quickly validate a YAML file
 
 One of the cons of using YAML (e.g. and any other identation based languages) is forgetting about a tab or a wrong spacing that leads to errors. For example:

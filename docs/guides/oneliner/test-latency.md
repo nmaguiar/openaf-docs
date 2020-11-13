@@ -1,3 +1,10 @@
+---
+layout: default
+title: "OneLiner: Test latency"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Test latency
 
 The usual latency test most of us use if simply execute the _ping_ operating system command from the source to the target we want to measure. But nowadays, [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) packets (what ping really transmits) might be blocked by a firewall or similar.

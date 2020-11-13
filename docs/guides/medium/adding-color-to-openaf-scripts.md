@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Adding color to OpenAF scripts"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Adding color to OpenAF scripts
 
 Black and white scripts can be tedious and many times when something errors out and you are tired you may not even notice it. So color not only helps to make it more "colourful" but also helps errors and warnings to stand out from the rest of the logging or printing.

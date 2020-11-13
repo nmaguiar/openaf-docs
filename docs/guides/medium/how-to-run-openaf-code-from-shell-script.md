@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: How to run OpenAF code from shell script"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # How to run OpenAF code from shell script
 
 To run an OpenAF script you just need to execute: _'openaf -f myScript.js'_. But what if you wanted to include some OpenAF code without having to create a separate file. There are several ways to achived this with OpenAF.

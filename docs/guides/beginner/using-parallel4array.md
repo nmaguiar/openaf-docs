@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Using the function parallel4Array"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using the function parallel4Array
 
 OpenAF allows you to code in javascript while using Java functionality underneath. But there are obvious differences between the two languages.

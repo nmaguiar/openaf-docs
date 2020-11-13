@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Calling an AWS Lambda function"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Calling an AWS Lambda function
 
 If you have an AWS Lambda function that you need to call from OpenAF you can use the [AWS oPack](https://github.com/OpenAF/openaf-opacks/tree/master/AWS). You can call it from within an AWS network or from the Internet (e.g. with the appropriate permissions). To install the AWS oPack execute:

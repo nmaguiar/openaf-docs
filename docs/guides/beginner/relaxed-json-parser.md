@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Relaxed JSON parser"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Relaxed JSON parser
 
 In OpenAF, when using the _jsonParser_ function, the parsing sticks to the strict JSON definition.

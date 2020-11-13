@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Receiving keyboard input"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Receiving keyboard input
 
 In some scripts you might need to request input from an user or you just want to pause and wait for the user to press any key (the famous "Press any key to continue" sentence). In OpenAF you can do this easily with the Console plugin. Here is a quick example:

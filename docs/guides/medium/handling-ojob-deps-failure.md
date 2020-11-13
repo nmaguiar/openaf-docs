@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Handling oJob deps failure"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Handling oJob deps failure
 
 When executing an oJob each job can depend on the successfull execution of other jobs. That means that if a depending job fails the current job execution will fail or stall (if it's an _ojob.sequential = true_).

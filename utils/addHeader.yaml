@@ -1,0 +1,32 @@
+init:
+  header: |
+    ---
+    layout: default
+    title: "{{pre}}: {{title}}"
+    parent: Guides
+    grand_parent: OpenAF docs
+    ---
+
+jobs:
+- name: Add header
+  exec: |
+    _$(args.file, "file").$_();
+    _$(args.pre, "pre").$_();
+
+    if (!String(args.file).endsWith(".md")) return;
+
+    var f = io.readFileString(args.file);
+    var title = f.match(/\# (.+)/)[1];
+
+    var h = templify(global.args.init.header, { pre: args.pre, title: title });
+    if (f.indexOf("---") != 0) {
+      f = h + "\n" + f;
+    } else {
+      f = f.replace(/^---[^---]+---\n/mg, h);
+    }
+    io.writeFileString(args.file, f);
+
+todo:
+- name: Add header
+  args: |
+    io.listFiles(".").files.map(f => ({ file: f.canonicalPath, pre: "Beginner" }));

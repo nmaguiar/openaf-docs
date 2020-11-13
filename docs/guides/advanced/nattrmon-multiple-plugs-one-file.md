@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: nAttrMon multiple plugs in one file"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # nAttrMon multiple plugs in one file
 
 When adding any nAttrMon plug (either inputs, validations or outputs), the advisable setup is to have a structured set of files on a folder hierarchy. In this structure each file is usually a single plug definition.

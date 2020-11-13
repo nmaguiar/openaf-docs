@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Timing executions on OpenAF console"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Timing executions on OpenAF console
 
 When profilling your script or functions you created it's usually helpfull to quickly understand how many ms or seconds it took to execute. Using the OpenAF console you can use the "time" command to provide you the execution time of every console line executed:

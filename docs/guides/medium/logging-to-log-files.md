@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Logging to log files"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Logging to log files
 
 There are several benefits of using the OpenAF's _log*_ functions. One of them is to quickly have a logs folder with automated housekeeping with just a couple of lines of code.

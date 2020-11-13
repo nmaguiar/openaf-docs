@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Using OpenAF thread &quot;boxes&quot;"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using OpenAF thread "boxes"
 
 What is an OpenAF thread-box? It's basically being able to run a block of OpenAF code (a function) on a separate Java thread that will be interrupted either due to a timeout or the specific result of a control function.

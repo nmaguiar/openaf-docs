@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Dynamically adding a custom JDBC driver"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Dynamically adding a custom JDBC driver
 
 The latest OpenAF versions enable the dynamic loading of custom JDBC drivers. 

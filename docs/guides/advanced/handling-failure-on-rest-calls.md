@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Handling failure on REST calls"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Handling failure on REST calls
 
 When calling other services through REST you always need to antecipate failure. It might be a network issue or the failure might be due to the service being down.

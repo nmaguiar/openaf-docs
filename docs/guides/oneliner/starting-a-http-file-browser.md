@@ -1,3 +1,10 @@
+---
+layout: default
+title: "OneLiner: oJob one-liners"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # oJob one-liners
 
 On the article [Micro remote HTTP file browser](https://openafs.blogspot.com/2019/07/micro-remote-http-file-browser.html) we described a fast way to build a micro HTTP server serving files from the current folder. But some (myself included) need faster ways to do it instead of creating an oJob file and executing it.

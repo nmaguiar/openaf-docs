@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: How to connect directly to a local JVM via JMX"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # How to connect directly to a local JVM via JMX
 
 OpenAF's JMX client enables the creation of JMX "client" scripts. To connect the "client" to the target JVM you need an JMX URL.

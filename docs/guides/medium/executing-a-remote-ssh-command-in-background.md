@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Executing a remote SSH command in background"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Executing a remote SSH command in background
 
 Whenever you execute a SSH command on a remote host it will wait until that process ends. Even with Unix targets if you add a "&" on the end of the command and/or add "nohup" on the beginning you will still wait. Same obviously applies in OpenAF:

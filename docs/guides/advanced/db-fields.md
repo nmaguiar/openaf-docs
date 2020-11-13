@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Getting a DB table columns/fields"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Getting a DB table columns/fields
 
 Ever wonder how the OpenAF-console can do commands like _"dsql"_ to list all the columns of a table (or a database object) and quickly? It's all on the JDBC metadata for any query over all columns. No need to go to the specific database column catalog.

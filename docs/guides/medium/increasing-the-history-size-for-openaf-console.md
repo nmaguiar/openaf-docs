@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Increasing the history size for openaf-console"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Increasing the history size for openaf-console
 
 The default history size on the openaf-console is around 500 lines or commands. But there are some users that require a little more for their uses. So can an user increase the history size for openaf-console? Yes, you just set it on the openaf-console_profile file.

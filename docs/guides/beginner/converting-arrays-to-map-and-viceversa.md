@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: How to convert arrays to maps and vice-versa"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # How to convert arrays to maps and vice-versa
 
 When working with javascript maps of maps or arrays of maps you might sometimes think: "if only it was an array instead of an object" or "if only it was an object instead of an array". 

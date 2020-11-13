@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Encrypt/Decrypt with public/private keys"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Encrypt/Decrypt with public/private keys
 
 There are built-in functions to easily encrypt/decrypt text using a single password key (using functions _af.encrypt_ and _af.decrypt_). But if you need better security you might need to encrypt/decrypt using a public and a private keys.

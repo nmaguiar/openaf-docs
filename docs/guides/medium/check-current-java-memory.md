@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Check current OpenAF Java memory"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Check current OpenAF Java memory
 
 Keeping in mind that OpenAF runs on a JVM so you might want to keep an eye on the current heap size.

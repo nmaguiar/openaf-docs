@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Applying selectors to an array"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Applying selectors to an array
 
 Whenever using an array of maps, and specially when analyzing them on OpenAF-console, you probably want to focus just on some map entries and not have all the other map keys on the screen. To make it easier there is a function _mapArray_ in OpenAF for this case and others.

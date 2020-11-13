@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Quick XML to/from JSON conversion"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Quick XML to/from JSON conversion
 
 At a first glance XML and JSON have some similiarities but XML is actually document oriented while JSON is data-oriented. Nevertheless for some cases, specially when processing in Javascript, it's useful to convert XML into JSON and JSON into XML. Let's check some basic examples.

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Creating a ZIP file"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Creating a ZIP file
 
 OpenAF includes a specific plugin to group all the ZIP related functionality trying to make it easy to use it.

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Quickly build a REST service in OpenAF"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Quickly build a REST service in OpenAF
 
 Whenever you need a REST service on a rush you can have a fully functional REST service with OpenAF in a couple of minutes. 

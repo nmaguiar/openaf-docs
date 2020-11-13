@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Adding an array to an Excel spreadsheet"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Adding an array to an Excel spreadsheet
 
 The OpenAF's XLS plugin offers one of the most handy features: the ability to write a simple javascript array of maps to an Excel spreadsheet. But first a warning: it can't be a complex sub maps/arrays, just plain strings/numbers array which usually is enough (although there is an alternative way that will mention on the end of the post).

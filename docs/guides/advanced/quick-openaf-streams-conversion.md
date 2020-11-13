@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Advanced: Quick OpenAF streams conversion"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Quick OpenAF streams conversion
 
 When using input or output streams in OpenAF you might want to quickly "convert them" to string or array of bytes and vice-versa. Usually for testing proposes but you can find the following functions handy any time.

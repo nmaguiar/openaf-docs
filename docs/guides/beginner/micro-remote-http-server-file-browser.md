@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Micro remote HTTP server file browser"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Micro remote HTTP server file browser
 
 There is an emergency! Time is ticking and you need to quickly solve things. You need to copy files from A to B and there isn't any sftp, scp, ftp, shared volumes/drives, etc&#46;&#46;&#46; Security? you just need a minute with a quick http server up and running. Should you install Apache, ngnix, &#46;&#46;&#46;? Well having the OpenAF "swiss army knife" with me it just a couple of YAML lines and running an OpenAF's oJob. Just copy+paste to a httpd.yaml file:

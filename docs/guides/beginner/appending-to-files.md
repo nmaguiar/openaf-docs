@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Appending to files"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Appending to files
 
 Let's start with a simple question: how to append content to an existing file?

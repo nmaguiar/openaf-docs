@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Medium: Using an in memory DB"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Using an in memory DB
 
 OpenAF comes with the [H2 database](http://www.h2database.com) embeeded. The main objective is, of course, to interact with H2 databases. But it also provides other perks (e.g. like the [MVStore](http://www.h2database.com/html/mvstore.html)). One of them is an "in-memory" H2 database.

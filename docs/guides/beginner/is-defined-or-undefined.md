@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Beginner: Is defined or undefined"
+parent: Guides
+grand_parent: OpenAF docs
+---
+
 # Is defined or undefined
 
 Two of the most common functions used in OpenAF are: _isDef_ and _isUnDef_. The reason is because javascript variables, when created, are "undefined" and only become defined after a value is assigned to it. So, before using that javascript variable is common to test if it's defined or not.
