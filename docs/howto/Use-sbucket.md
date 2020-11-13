@@ -1,7 +1,7 @@
 ---
 layout: default
 title: How To - How to SBucket
-parent: How to
+parent: How To
 grand_parent: OpenAF docs
 ---
 # How to SBucket

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: How To - Use ask functions
-parent: How to
+parent: How To
 grand_parent: OpenAF docs
 ---
 # How to - Use ask functions
