@@ -8,9 +8,9 @@ has_children: true
 
 ## Topics
 
-* __[Concepts](concepts/index.md)__ - understand some of the basic concepts
-* __[How to](howto/index.md)__ - core functionality exemplified.
-* __[Guides](guides/index.md)__ - guides with example code from beginner to advanced topics.
+* __[Concepts](docs/concepts/index.md)__ - understand some of the basic concepts
+* __[How to](docs/howto/index.md)__ - core functionality exemplified.
+* __[Guides](docs/guides/index.md)__ - guides with example code from beginner to advanced topics.
 
 ## Installing
 

@@ -2,6 +2,7 @@
 layout: default
 title: Concepts
 parent: OpenAF docs
+nav_order: 1
 ---
 
 # OpenAF concepts<a href="/"><img align="right" src="/images/openaf_small.png"></a>

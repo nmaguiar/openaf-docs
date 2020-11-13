@@ -2,6 +2,7 @@
 layout: default
 title: Guides
 parent: OpenAF docs
+nav_order: 2
 ---
 
 # Guides<a href="/"><img align="right" src="/images/openaf_small.png"></a>

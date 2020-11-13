@@ -1,6 +1,7 @@
 ---
 layout: default
 title: How To
+nav_order: 3
 parent: OpenAF docs
 ---
 
