@@ -1,3 +1,9 @@
+---
+layout: default
+title: oJob
+parent: Concepts
+grand_parent: OpenAF docs
+---
 # oJob  <a href="/"><img align="right" src="images/openaf_small.png"></a>
 
 oJob is an automated OpenAF job executor. It basically tries to modularize and organize script processing hiding most of the complexity of handling execution dependencies, parallel processing, running scripts as daemons, remote coordinated job execution, reusable modules for multiple targets, etc.

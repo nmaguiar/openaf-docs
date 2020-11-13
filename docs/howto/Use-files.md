@@ -1,3 +1,9 @@
+---
+layout: default
+title: How To - Use files
+parent: How to
+grand_parent: OpenAF docs
+---
 # How to - Use files
 
 All the functions to read and write files are organized under the object "IO" that can easily be use throw the variable "io".

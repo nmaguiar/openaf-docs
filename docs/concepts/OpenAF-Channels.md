@@ -1,3 +1,9 @@
+---
+layout: default
+title: OpenAF Channels
+parent: Concepts
+grand_parent: OpenAF docs
+---
 # OpenAF Channels <a href="/"><img align="right" src="images/openaf_small.png"></a>
 
 ## What are channels?
