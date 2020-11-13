@@ -3,7 +3,7 @@
 ## Topics
 
 * __[Concepts](concepts/README.md)__ - understand some of the basic concepts
-* __[How to](howto/README.md)__ - core functionality examplified.
+* __[How to](howto/README.md)__ - core functionality exemplified.
 * __[Guides](guides/README.md)__ - guides with example code from beginner to advanced topics.
 
 ## Installing
