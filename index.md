@@ -2,9 +2,9 @@
 
 ## Topics
 
-* __[Concepts](_concepts/index.md)__ - understand some of the basic concepts
-* __[How to](_howto/index.md)__ - core functionality exemplified.
-* __[Guides](_guides/index.md)__ - guides with example code from beginner to advanced topics.
+* __[Concepts](concepts/index.md)__ - understand some of the basic concepts
+* __[How to](howto/index.md)__ - core functionality exemplified.
+* __[Guides](guides/index.md)__ - guides with example code from beginner to advanced topics.
 
 ## Installing
 
