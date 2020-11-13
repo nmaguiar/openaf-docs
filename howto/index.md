@@ -2,6 +2,6 @@
 
 How-tos:
 
-* [Interact with files](/howto/Use-files.md)
-* [Use SBucket](/howto/Use-sbucket.md)
-* [Use ask functions](/howto/Use-ask.md)
+* [Interact with files](howto/Use-files.md)
+* [Use SBucket](howto/Use-sbucket.md)
+* [Use ask functions](howto/Use-ask.md)
