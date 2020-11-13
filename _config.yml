@@ -1,2 +1,21 @@
 remote_theme: pmarsceill/just-the-docs
-logo: /images/openaf_small.png
+logo: images/openaf_medium.png
+collections:
+  concepts:
+    permalink: "/:collection/:path/"
+    output: true
+  howto:
+    permalink: "/:collection/:path/"
+    output: true
+  guides:
+    permalink: "/:collection/:path/"
+    output: true
+
+just_the_docs:
+  collections:
+    concepts:
+      name: Concepts
+    howto:
+      name: How to
+    guides:
+      name: Guides
