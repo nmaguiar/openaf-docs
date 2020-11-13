@@ -1,5 +1,9 @@
 remote_theme: pmarsceill/just-the-docs
 logo: images/openaf_medium.png
+title: OpenAF docs
+description: OpenAF guides, concepts and how-tos documentation.
+eading_anchors: true
+nav_sort: case_sensitive
 collections:
   concepts:
     permalink: "/:collection/:path/"
