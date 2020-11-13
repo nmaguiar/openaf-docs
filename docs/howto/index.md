@@ -3,9 +3,10 @@ layout: default
 title: How To
 nav_order: 3
 parent: OpenAF docs
+has_children: true
 ---
 
-# OpenAF How-to<a href="/"><img align="right" src="/images/openaf_small.png"></a>
+# OpenAF How-to
 
 How-tos:
 

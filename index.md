@@ -4,7 +4,7 @@ title: OpenAF docs
 has_children: true
 ---
 
-# OpenAF documentation<a href="/"><img align="right" src="/images/openaf_small.png"></a>
+# OpenAF documentation
 
 ## Topics
 

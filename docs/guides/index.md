@@ -2,10 +2,11 @@
 layout: default
 title: Guides
 parent: OpenAF docs
+has_children: true
 nav_order: 2
 ---
 
-# Guides<a href="/"><img align="right" src="/images/openaf_small.png"></a>
+# Guides
 
 ## Beginner
 
@@ -48,13 +49,13 @@ nav_order: 2
   * [Adding color to OpenAF scripts](medium/adding-color-to-openaf-scripts.md)
   * [How to use OpenAF from Notepad++](medium/how-to-use-openaf-from-notepad.md)
   * [Casting values in PostgreSQL and H2 for OpenAF](medium/casting-values-in-postgresql-and-h2-for-openaf.md)
-  * [Executing code when an OpenAF script execution is terminated]guides/(medium/executing-code-when-an-openaf-script-execution-is-terminated.md)
+  * [Executing code when an OpenAF script execution is terminated](medium/executing-code-when-an-openaf-script-execution-is-terminated.md)
   * [Using the OpenAF's SVN plugin](medium/using-the-openafs-svn-plugin.md)
   * [Executing commands remotely via SSH](medium/executing-commands-remotely-via-ssh.md)
   * [Timing executions on OpenAF console](medium/timing-executions-on-openaf-console.md)
   * [OpenAF-console color formatting](medium/openaf-console-color-formatting.md)
   * [Sending emails from oJob](medium/sending-emails-from-ojob.md)
-  * [Check if an email address is valid for sending emails]guides/(medium/check-if-an-email-address-is-valid-for-sending-emails.md)
+  * [Check if an email address is valid for sending emails](medium/check-if-an-email-address-is-valid-for-sending-emails.md)
   * [Setting DB auto commit](medium/setting-db-auto-commit.md)
   * [Searching map keys and values](medium/search-keys-and-values.md)
   * [Applying selectors to an array of maps](medium/applying-selectors-array.md)
