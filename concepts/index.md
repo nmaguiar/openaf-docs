@@ -2,7 +2,7 @@
 
 Main concepts
 
-* __[oJob](concepts/oJob.md)__
-* __[oPack](concepts/oPack.md)__
-* __[Channels](concepts/OpenAF-Channels.md)__
-* __[Promises](concepts/OpenAF-oPromise.md)__
+* __[oJob](oJob.md)__
+* __[oPack](oPack.md)__
+* __[Channels](OpenAF-Channels.md)__
+* __[Promises](OpenAF-oPromise.md)__
