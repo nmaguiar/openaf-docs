@@ -4,7 +4,7 @@ title: oPack
 parent: Concepts
 grand_parent: OpenAF docs
 ---
-# oPack <a href="/"><img align="right" src="images/openaf_small.png"></a>
+# oPack
 
 OpenAF comes with a minimalist and simple package manager. The idea is to enable OpenAF to extend it’s functionalities in a modular way.
 

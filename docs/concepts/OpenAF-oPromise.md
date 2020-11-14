@@ -4,7 +4,7 @@ title: oPromise
 parent: Concepts
 grand_parent: OpenAF docs
 ---
-# oPromise <a href="/"><img align="right" src="images/openaf_small.png"></a>
+# oPromise
 
 ## Introduction
 
