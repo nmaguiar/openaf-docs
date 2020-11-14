@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Making it easy to read with $from"
-parent: Guides
-grand_parent: OpenAF docs
+title: Making it easy to read with $from
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Making it easy to read with $from

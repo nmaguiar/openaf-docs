@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Executing code when an OpenAF script execution is terminated"
-parent: Guides
-grand_parent: OpenAF docs
+title: Executing code when an OpenAF script execution is terminated
+parent: Medium
+grand_parent: Guides
 ---
 
 # Executing code when an OpenAF script execution is terminated

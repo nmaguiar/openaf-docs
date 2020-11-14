@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Searching map keys and values"
-parent: Guides
-grand_parent: OpenAF docs
+title: Searching map keys and values
+parent: Medium
+grand_parent: Guides
 ---
 
 # Searching map keys and values

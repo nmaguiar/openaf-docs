@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: How to run OpenAF code from shell script"
-parent: Guides
-grand_parent: OpenAF docs
+title: How to run OpenAF code from shell script
+parent: Medium
+grand_parent: Guides
 ---
 
 # How to run OpenAF code from shell script

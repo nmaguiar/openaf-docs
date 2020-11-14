@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Using buffers in nAttrMon"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using buffers in nAttrMon
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Using buffers in nAttrMon

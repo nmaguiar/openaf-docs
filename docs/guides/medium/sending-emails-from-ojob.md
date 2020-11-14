@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Sending emails from oJob"
-parent: Guides
-grand_parent: OpenAF docs
+title: Sending emails from oJob
+parent: Medium
+grand_parent: Guides
 ---
 
 # Sending emails from oJob

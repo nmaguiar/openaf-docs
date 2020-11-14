@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Check if an email address is valid for sending emails"
-parent: Guides
-grand_parent: OpenAF docs
+title: Check if an email address is valid for sending emails
+parent: Medium
+grand_parent: Guides
 ---
 
 # Check if an email address is valid for sending emails

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Timing executions on OpenAF console"
-parent: Guides
-grand_parent: OpenAF docs
+title: Timing executions on OpenAF console
+parent: Medium
+grand_parent: Guides
 ---
 
 # Timing executions on OpenAF console

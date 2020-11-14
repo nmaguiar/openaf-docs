@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Using ElasticSearch"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using ElasticSearch
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Using ElasticSearch

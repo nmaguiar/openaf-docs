@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: nAttrMon kill after an amount of minutes"
-parent: Guides
-grand_parent: OpenAF docs
+title: nAttrMon kill after an amount of minutes
+parent: Beginner
+grand_parent: Guides
 ---
 
 # nAttrMon kill after an amount of minutes

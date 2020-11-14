@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Modifying XML using E4X"
-parent: Guides
-grand_parent: OpenAF docs
+title: Modifying XML using E4X
+parent: Medium
+grand_parent: Guides
 ---
 
 # Modifying XML using E4X

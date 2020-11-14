@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Using the OpenAF&#x27;s SVN plugin"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using the OpenAF&#x27;s SVN plugin
+parent: Medium
+grand_parent: Guides
 ---
 
 # Using the OpenAF's SVN plugin

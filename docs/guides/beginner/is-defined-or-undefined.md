@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Is defined or undefined"
-parent: Guides
-grand_parent: OpenAF docs
+title: Is defined or undefined
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Is defined or undefined

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Accessing object keys with spaces in OpenAF templates (Handlebars)"
-parent: Guides
-grand_parent: OpenAF docs
+title: Accessing object keys with spaces in OpenAF templates (Handlebars)
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Accessing object keys with spaces in OpenAF templates (Handlebars)

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Easily add a SSL certificate to access an URL"
-parent: Guides
-grand_parent: OpenAF docs
+title: Easily add a SSL certificate to access an URL
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Easily add a SSL certificate to access an URL

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Introduction to streams in OpenAF"
-parent: Guides
-grand_parent: OpenAF docs
+title: Introduction to streams in OpenAF
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Introduction to streams in OpenAF

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Getting a DB table columns/fields"
-parent: Guides
-grand_parent: OpenAF docs
+title: Getting a DB table columns/fields
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Getting a DB table columns/fields

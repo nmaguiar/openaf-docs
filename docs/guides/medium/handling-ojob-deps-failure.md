@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Handling oJob deps failure"
-parent: Guides
-grand_parent: OpenAF docs
+title: Handling oJob deps failure
+parent: Medium
+grand_parent: Guides
 ---
 
 # Handling oJob deps failure

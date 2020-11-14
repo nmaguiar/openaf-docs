@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Logging to log files"
-parent: Guides
-grand_parent: OpenAF docs
+title: Logging to log files
+parent: Medium
+grand_parent: Guides
 ---
 
 # Logging to log files

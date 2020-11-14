@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Executing commands remotely via SSH"
-parent: Guides
-grand_parent: OpenAF docs
+title: Executing commands remotely via SSH
+parent: Medium
+grand_parent: Guides
 ---
 
 # Executing commands remotely via SSH

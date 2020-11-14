@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: How to copy CLOBs between two databases"
-parent: Guides
-grand_parent: OpenAF docs
+title: How to copy CLOBs between two databases
+parent: Advanced
+grand_parent: Guides
 ---
 
 # How to copy CLOBs between two databases

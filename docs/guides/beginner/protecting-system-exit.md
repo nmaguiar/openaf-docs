@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Protecting from system exit"
-parent: Guides
-grand_parent: OpenAF docs
+title: Protecting from system exit
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Protecting from system exit

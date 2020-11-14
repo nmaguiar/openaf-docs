@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: oJob exception handling"
-parent: Guides
-grand_parent: OpenAF docs
+title: oJob exception handling
+parent: Beginner
+grand_parent: Guides
 ---
 
 # oJob exception handling

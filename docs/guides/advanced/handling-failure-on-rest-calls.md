@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Handling failure on REST calls"
-parent: Guides
-grand_parent: OpenAF docs
+title: Handling failure on REST calls
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Handling failure on REST calls

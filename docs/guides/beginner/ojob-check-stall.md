@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: oJob Check for stall"
-parent: Guides
-grand_parent: OpenAF docs
+title: oJob Check for stall
+parent: Beginner
+grand_parent: Guides
 ---
 
 # oJob Check for stall

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Setting a proxy"
-parent: Guides
-grand_parent: OpenAF docs
+title: Setting a proxy
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Setting a proxy

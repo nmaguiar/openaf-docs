@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Adding color to OpenAF scripts"
-parent: Guides
-grand_parent: OpenAF docs
+title: Adding color to OpenAF scripts
+parent: Medium
+grand_parent: Guides
 ---
 
 # Adding color to OpenAF scripts

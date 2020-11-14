@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Appending to files"
-parent: Guides
-grand_parent: OpenAF docs
+title: Appending to files
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Appending to files

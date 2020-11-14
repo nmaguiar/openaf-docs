@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Dynamically adding a custom JDBC driver"
-parent: Guides
-grand_parent: OpenAF docs
+title: Dynamically adding a custom JDBC driver
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Dynamically adding a custom JDBC driver

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Testing a TCP port"
-parent: Guides
-grand_parent: OpenAF docs
+title: Testing a TCP port
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Testing a TCP port

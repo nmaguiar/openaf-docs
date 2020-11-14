@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Sending emails"
-parent: Guides
-grand_parent: OpenAF docs
+title: Sending emails
+parent: Medium
+grand_parent: Guides
 ---
 
 # Sending emails

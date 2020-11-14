@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Creating a ZIP file"
-parent: Guides
-grand_parent: OpenAF docs
+title: Creating a ZIP file
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Creating a ZIP file

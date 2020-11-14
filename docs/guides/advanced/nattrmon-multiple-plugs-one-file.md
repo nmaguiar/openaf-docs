@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: nAttrMon multiple plugs in one file"
-parent: Guides
-grand_parent: OpenAF docs
+title: nAttrMon multiple plugs in one file
+parent: Advanced
+grand_parent: Guides
 ---
 
 # nAttrMon multiple plugs in one file

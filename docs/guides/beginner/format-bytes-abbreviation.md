@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Format bytes abbreviation"
-parent: Guides
-grand_parent: OpenAF docs
+title: Format bytes abbreviation
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Format bytes abbreviation

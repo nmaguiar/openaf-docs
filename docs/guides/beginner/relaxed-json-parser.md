@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Relaxed JSON parser"
-parent: Guides
-grand_parent: OpenAF docs
+title: Relaxed JSON parser
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Relaxed JSON parser

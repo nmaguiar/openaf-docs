@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Adding an array to an Excel spreadsheet"
-parent: Guides
-grand_parent: OpenAF docs
+title: Adding an array to an Excel spreadsheet
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Adding an array to an Excel spreadsheet

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: How to connect directly to a local JVM via JMX"
-parent: Guides
-grand_parent: OpenAF docs
+title: How to connect directly to a local JVM via JMX
+parent: Advanced
+grand_parent: Guides
 ---
 
 # How to connect directly to a local JVM via JMX

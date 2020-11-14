@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Setting DB auto commit"
-parent: Guides
-grand_parent: OpenAF docs
+title: Setting DB auto commit
+parent: Medium
+grand_parent: Guides
 ---
 
 # Setting DB auto commit

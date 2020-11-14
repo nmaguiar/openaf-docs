@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Simple nAttrMon debugging"
-parent: Guides
-grand_parent: OpenAF docs
+title: Simple nAttrMon debugging
+parent: Medium
+grand_parent: Guides
 ---
 
 # Simple nAttrMon debugging

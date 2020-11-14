@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Executing a remote SSH command in background"
-parent: Guides
-grand_parent: OpenAF docs
+title: Executing a remote SSH command in background
+parent: Medium
+grand_parent: Guides
 ---
 
 # Executing a remote SSH command in background

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Receiving keyboard input"
-parent: Guides
-grand_parent: OpenAF docs
+title: Receiving keyboard input
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Receiving keyboard input

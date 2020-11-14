@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Using ElasticSearch with nAttrMon"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using ElasticSearch with nAttrMon
+parent: Medium
+grand_parent: Guides
 ---
 
 # Using ElasticSearch with nAttrMon

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Generating SQL with OpenAF templates"
-parent: Guides
-grand_parent: OpenAF docs
+title: Generating SQL with OpenAF templates
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Generating SQL with OpenAF templates

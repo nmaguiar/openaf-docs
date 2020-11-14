@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Executing code asynchronously (promises)"
-parent: Guides
-grand_parent: OpenAF docs
+title: Executing code asynchronously (promises)
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Executing code asynchronously (promises)

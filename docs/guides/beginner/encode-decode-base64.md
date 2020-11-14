@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Encode/Decode base64 in OpenAF"
-parent: Guides
-grand_parent: OpenAF docs
+title: Encode/Decode base64 in OpenAF
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Encode/Decode base64 in OpenAF

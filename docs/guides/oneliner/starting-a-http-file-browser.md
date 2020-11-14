@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "OneLiner: oJob one-liners"
-parent: Guides
+title: oJob one-liners
+parent: OneLiner
 grand_parent: OpenAF docs
 ---
 

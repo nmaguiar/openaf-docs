@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Encrypt/Decrypt with public/private keys"
-parent: Guides
-grand_parent: OpenAF docs
+title: Encrypt/Decrypt with public/private keys
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Encrypt/Decrypt with public/private keys

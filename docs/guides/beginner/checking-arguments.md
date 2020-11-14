@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Checking arguments"
-parent: Guides
-grand_parent: OpenAF docs
+title: Checking arguments
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Checking arguments

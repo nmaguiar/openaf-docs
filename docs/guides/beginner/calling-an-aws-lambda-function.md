@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Calling an AWS Lambda function"
-parent: Guides
-grand_parent: OpenAF docs
+title: Calling an AWS Lambda function
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Calling an AWS Lambda function

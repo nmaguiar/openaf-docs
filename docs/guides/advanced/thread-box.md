@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Using OpenAF thread &quot;boxes&quot;"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using OpenAF thread &quot;boxes&quot;
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Using OpenAF thread "boxes"

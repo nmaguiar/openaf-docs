@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "OneLiner: Quickly validate a YAML file"
-parent: Guides
-grand_parent: OpenAF docs
+title: Quickly validate a YAML file
+parent: OneLiner
+grand_parent: Guides
 ---
 
 # Quickly validate a YAML file

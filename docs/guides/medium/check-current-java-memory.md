@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Check current OpenAF Java memory"
-parent: Guides
-grand_parent: OpenAF docs
+title: Check current OpenAF Java memory
+parent: Medium
+grand_parent: Guides
 ---
 
 # Check current OpenAF Java memory

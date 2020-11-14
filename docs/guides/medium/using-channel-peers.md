@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Using channel peers"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using channel peers
+parent: Medium
+grand_parent: Guides
 ---
 
 # Using channel peers

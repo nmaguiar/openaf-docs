@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Converting numbers"
-parent: Guides
-grand_parent: OpenAF docs
+title: Converting numbers
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Converting numbers

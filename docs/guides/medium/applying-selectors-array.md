@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Applying selectors to an array"
-parent: Guides
-grand_parent: OpenAF docs
+title: Applying selectors to an array
+parent: Medium
+grand_parent: Guides
 ---
 
 # Applying selectors to an array

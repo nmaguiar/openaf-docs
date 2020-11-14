@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Get a javascript array from an Excel"
-parent: Guides
-grand_parent: OpenAF docs
+title: Get a javascript array from an Excel
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Get a javascript array from an Excel

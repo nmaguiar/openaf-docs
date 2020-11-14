@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: gzip/gunzip functionality in OpenAF"
-parent: Guides
-grand_parent: OpenAF docs
+title: gzip/gunzip functionality in OpenAF
+parent: Beginner
+grand_parent: Guides
 ---
 
 # gzip/gunzip functionality in OpenAF

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: How to upload/download files from a Window/SMB share folder"
-parent: Guides
-grand_parent: OpenAF docs
+title: How to upload/download files from a Window/SMB share folder
+parent: Beginner
+grand_parent: Guides
 ---
 
 # How to upload/download files from a Window/SMB share folder

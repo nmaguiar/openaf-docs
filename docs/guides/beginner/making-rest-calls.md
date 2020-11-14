@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Making REST service calls from OpenAF"
-parent: Guides
-grand_parent: OpenAF docs
+title: Making REST service calls from OpenAF
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Making REST service calls from OpenAF

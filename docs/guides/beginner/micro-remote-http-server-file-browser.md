@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Micro remote HTTP server file browser"
-parent: Guides
-grand_parent: OpenAF docs
+title: Micro remote HTTP server file browser
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Micro remote HTTP server file browser

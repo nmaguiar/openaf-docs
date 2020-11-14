@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Quickly build a REST service in OpenAF"
-parent: Guides
-grand_parent: OpenAF docs
+title: Quickly build a REST service in OpenAF
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Quickly build a REST service in OpenAF

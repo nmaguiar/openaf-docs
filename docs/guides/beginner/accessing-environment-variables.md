@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Accessing environment variables"
-parent: Guides
-grand_parent: OpenAF docs
+title: Accessing environment variables
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Accessing environment variables

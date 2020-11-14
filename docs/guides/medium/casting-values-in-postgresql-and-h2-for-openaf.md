@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Casting values in PostgreSQL and H2 for OpenAF"
-parent: Guides
-grand_parent: OpenAF docs
+title: Casting values in PostgreSQL and H2 for OpenAF
+parent: Medium
+grand_parent: Guides
 ---
 
 # Casting values in PostgreSQL and H2 for OpenAF

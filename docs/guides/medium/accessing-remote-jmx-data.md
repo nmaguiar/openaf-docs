@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: How to access remote JMX data"
-parent: Guides
-grand_parent: OpenAF docs
+title: How to access remote JMX data
+parent: Medium
+grand_parent: Guides
 ---
 
 # How to access remote JMX data

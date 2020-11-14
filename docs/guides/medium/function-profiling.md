@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Function profiling"
-parent: Guides
-grand_parent: OpenAF docs
+title: Function profiling
+parent: Medium
+grand_parent: Guides
 ---
 
 # Function profiling

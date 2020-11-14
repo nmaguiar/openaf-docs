@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Date to/from string"
-parent: Guides
-grand_parent: OpenAF docs
+title: Date to/from string
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Date to/from string

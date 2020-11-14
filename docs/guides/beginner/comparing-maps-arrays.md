@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Comparing maps and arrays"
-parent: Guides
-grand_parent: OpenAF docs
+title: Comparing maps and arrays
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Comparing maps and arrays

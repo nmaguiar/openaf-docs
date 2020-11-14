@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Using the SNMP plugin"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using the SNMP plugin
+parent: Medium
+grand_parent: Guides
 ---
 
 # Using the SNMP plugin

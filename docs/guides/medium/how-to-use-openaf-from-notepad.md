@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: How to use OpenAF from Notepad++"
-parent: Guides
-grand_parent: OpenAF docs
+title: How to use OpenAF from Notepad++
+parent: Medium
+grand_parent: Guides
 ---
 
 # How to use OpenAF from Notepad++

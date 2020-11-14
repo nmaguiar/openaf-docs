@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Using an in memory DB"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using an in memory DB
+parent: Medium
+grand_parent: Guides
 ---
 
 # Using an in memory DB

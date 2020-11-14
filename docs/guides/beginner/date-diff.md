@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Date diff"
-parent: Guides
-grand_parent: OpenAF docs
+title: Date diff
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Date diff

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Quick XML to/from JSON conversion"
-parent: Guides
-grand_parent: OpenAF docs
+title: Quick XML to/from JSON conversion
+parent: Medium
+grand_parent: Guides
 ---
 
 # Quick XML to/from JSON conversion

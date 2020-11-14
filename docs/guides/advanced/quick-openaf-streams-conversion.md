@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Advanced: Quick OpenAF streams conversion"
-parent: Guides
-grand_parent: OpenAF docs
+title: Quick OpenAF streams conversion
+parent: Advanced
+grand_parent: Guides
 ---
 
 # Quick OpenAF streams conversion

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "OneLiner: Test latency"
-parent: Guides
-grand_parent: OpenAF docs
+title: Test latency
+parent: OneLiner
+grand_parent: Guides
 ---
 
 # Test latency

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Using the function parallel4Array"
-parent: Guides
-grand_parent: OpenAF docs
+title: Using the function parallel4Array
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Using the function parallel4Array
