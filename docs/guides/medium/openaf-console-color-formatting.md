@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: OpenAF-console color formatting"
-parent: Guides
-grand_parent: OpenAF docs
+title: OpenAF-console color formatting
+parent: Medium
+grand_parent: Guides
 ---
 
 # OpenAF-console color formatting

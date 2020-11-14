@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: How to convert arrays to maps and vice-versa"
-parent: Guides
-grand_parent: OpenAF docs
+title: How to convert arrays to maps and vice-versa
+parent: Beginner
+grand_parent: Guides
 ---
 
 # How to convert arrays to maps and vice-versa

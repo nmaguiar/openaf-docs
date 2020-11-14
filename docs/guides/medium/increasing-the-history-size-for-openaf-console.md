@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Medium: Increasing the history size for openaf-console"
-parent: Guides
-grand_parent: OpenAF docs
+title: Increasing the history size for openaf-console
+parent: Medium
+grand_parent: Guides
 ---
 
 # Increasing the history size for openaf-console

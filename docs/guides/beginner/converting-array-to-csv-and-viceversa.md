@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Beginner: Converting an array to a CSV file and vice-versa"
-parent: Guides
-grand_parent: OpenAF docs
+title: Converting an array to a CSV file and vice-versa
+parent: Beginner
+grand_parent: Guides
 ---
 
 # Converting an array to a CSV file and vice-versa
