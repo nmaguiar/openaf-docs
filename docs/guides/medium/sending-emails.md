@@ -76,7 +76,7 @@ If you use HTML content you will probably also want to include images. These are
 
 ````javascript
 email.setHTML("<html>...<img src=\"cid:myimage.png\"/>...</html>");
-email.embedFile("/some/path/myimage.png", "myimage.pn");
+email.embedFile("/some/path/myimage.png", "myimage.png");
 ````
 
 ### Embed image URLs
