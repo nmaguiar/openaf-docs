@@ -1,10 +1,11 @@
 ---
 layout: default
-title: How To - How to SBucket
-parent: How To
+title: SBucket
+parent: Concepts
 grand_parent: OpenAF docs
 ---
-# How to SBucket
+
+# SBucket
 
 OpenAF's SBucket allow you to store secret strings and/or objects and to refer them by specific keys on the code. It can help even to directly create objects (e.g. DB, SSH, etc...) or even execute functions (e.g. ow.obj.pool.DB, ow.obj.pool.SSH, etc...).
 
