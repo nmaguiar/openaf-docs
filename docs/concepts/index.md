@@ -13,5 +13,6 @@ Main concepts
 * __[OpenAF](openaf.md)__
 * __[oJob](oJob.md)__
 * __[oPack](oPack.md)__
+* __[sBuckets](sBuckets.md)__
 * __[Channels](OpenAF-Channels.md)__
 * __[Promises](OpenAF-oPromise.md)__

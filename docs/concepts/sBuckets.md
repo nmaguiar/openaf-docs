@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SBucket
+title: SBuckets
 parent: Concepts
 grand_parent: OpenAF docs
 ---
