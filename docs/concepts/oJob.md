@@ -72,6 +72,10 @@ Each job definition has the following possible entries:
 | to    | _string/array_ | _no_ | _The name of a job (or ordered list) whose execution will be suffixed (like a document footer) with the current job execution (e.g. if you want all job executions to execute another job when they end)._ | 
 | help  | _string_ | _no_ | _A help text to be presented whenever you execute "ojob -jobhelp 'My job'"_ |
 | lang  | _string_ | _no_ | _The executing language for the "exec" entry. By default languages 'js' (default), 'python' and 'shell' can be used but custom languages can be added using the ojob.langs entry or the typeArgs.langs entry. For 'js' and 'python' job arguments will be available in the "args" variable for other shell based languages job arguments will be converted to environment variables._ |
+| catch | _string_ | _no_ | _Code for a try/catch function that will get executed if the main job execution code throws an exception. Receives, as parameters: "args", "job", "id", "deps" and the "exception"._ |
+| help | _map_ | _no_ | _Provides a help message to be used with the help option, as a string, or the oJob help (on a job named "Help" with a "text" string field, an array "expects" field where each entry should be a "name" string, a "desc" string and an "example" string._ |
+| each | _string_ | _no_ | _Can be a string or an array representing other jobs names that will be called whenever the function "each" is used inside the main execution code providing a map (each function will receive the map as args). See the help for $doA2B for more._ |
+| lang | _string_ | _no_ | _Convinient string or map shortcut to job's generic typeArgs langs_ |
 
 ## Job types
 
@@ -81,7 +85,7 @@ The most used type of job is "simple". All job types, including "simple" have th
 |----------------|------|------------|-------------|
 | timeout | _number_ | _no_ | _The time interval, in milliseconds, for the entire job execution or between stopWhen function executions. If no stopWhen function is provided and the timeout time is exceeded the job will fail indicating that it exceed the timeout. _ |
 | stopWhen | _string_ | _no_ | _Function string that will be evaluated continuously or every timeout time interval. If the function returns true the current job execution will be terminated._ |
-| langs | _map_ | _no_ | _Map with lang (language name) and shell (language shell command) to be used as the executing language for the "exec" entry. Job arguments will be available as environment variables._ |
+| langs | _map_ | _no_ | _String with language or Map with lang (language name) and shell (language shell command) to be used as the executing language for the "exec" entry. Job arguments will be available as environment variables._ |
 
 Then for other types there are specific typeArgs available:
 
@@ -282,30 +286,54 @@ todo:
 
 # oJob
 
-This is where you set specific settings on how the ojob should run. Here is a list:
+This is where you set specific settings on how the ojob should run. Here is a set of list of possible entries per category:
+
+## Logging
+
+Funcitonality to control OpenAF and oJob logging:
 
 | Entry | Type | Description |
 |-------|------|-------------|
 | logToFile | _map_ | _Map with the same options as ow.ch.utils.setLogToFile_ |
 | log | _map_ | _Map with the same options as setLog_ |
-| recordLog | _boolean_ | _Determines if it should use startLog to log into the __log channel._ |
+| recordLog | _boolean_ | _Determines if it should use startLog to log into the \_\_log channel._ |
 | logArgs | _boolean_ | _If true the arguments provided to each job execution will be logged (defaults to false)._ |
 | logToConsole | _boolean_ | _If false ojob logging won't be output to the console (defaults to true)._ |
 | logLimit | _number_ | _The number of internal execution logs per job that should be kept (default to 100)._ |
 | logJobs | _boolean_ | _If false no job start, end or error will be logged. (default to true)._ |
+| metrics | _map_ | _Can be a boolean to indicate that metrics should be collected or a map with the metrics channel "chName" and "period" for collecting (see more in ow.metrics.startCollecting). Optionally custom metric functions can be added with a "add" map where each represents the metric name and the value the corresponding function code (see more in ow.metrics.add help)_ |
+
+## Execution control
+
+Functionality to control oJob's job execution:
+
+| Entry | Type | Description |
+|-------|------|-------------|
 | unique | _map_ | _Map to ensure that only one instance of ojob runs. The map can define a pidFile (defaults to ojob.pid and will be evaluated as code) and killPrevious (defaults to false)._ |
 | sequential | _boolean_ | _If true each todo entry will be executed only when the previous has ended it's execution. Otherwise it will try to execute in parallel._ |
 | daemon | _boolean_ | _If true the ojob will behave like a daemon. It will only exit if the process is killed or if executed with the arguments stop, forcestop or restart._ | 
 | numThreads | _number_ | _Force the maximum number of threads to use. If not defined it will try to automatically assess an ideal number of threads to use._ |
 | async | _boolean_ | _Runs all jobs asynchronously (defaults to false)_ | 
 | depsTimeout | _number_ | _If defined establishes a maximum time interval, in ms, that each job will wait for the corresponding job dependencies to be fullfilled. If the time is exceeded the corresponding job will fail._ |
-| conAnsi | _boolean_ | _Advanced option to turn off ansi characters use._ |
-| conWidth | _number_ | _Advanced option to override screen size detection._ |
-| langs | _array_ | List of maps with two entries: lang (a name) and shell (the command to execute). If the job has the "lang" entry it will invoke the "shell" command to execute the "exec" entry. Job arguments will be passed as environment variables._ |
+| checkStall | _map_ | _Checks if job execution is stalled "everySeconds" (defaults to every 60 seconds) by executing "checkFunc" (stops oJob if returns true) or "killAfterSeconds" seconds have pass since startup._ |
+| tags | _array_ | _An array of string tags to easily identify this oJob among others._ |
 
 **Note**: Use _sequential = true_ and _numThreads = 1_ for a total sequential execution. Keep in mind that if _numThreads_ is not defined or greater than 1 multiple job executions can still occur despite _sequential = true_ (for example when the job args is an array). The sequential parameter will just ensure that jobs listed in the todo list are executed in the order of the todo list instead of being launched all in parallel.
 
-## channels
+## Languages support
+
+| Entry | Type | Description |
+|-------|------|-------------|
+| langs | _array_ | _List of maps with two entries: lang (a name) and shell (the command to execute). If the job has the "lang" entry it will invoke the "shell" command to execute the "exec" entry. Job arguments will be passed as environment variables._ |
+
+## OpenAF functionality
+
+| Entry | Type | Description |
+|-------|------|-------------|
+| opacks | _array_ | _Array of oPacks needed for the oJob execution (if possible, it will try to install the corresponding oPack if not available). If the array entry is a map it's possible to provide a version rule string value (e.g. >= 20200101)_ |
+| loadLibs | _array_ | _Array of OpenAF javascript libs to preload (equivalent to _loadLib_)_ |
+| loads | _array_ | _Array of OpenAF javascript to preload (equivalent to _load_)_ |
+## Channels
 
 This is actually a map to define the channel use in the ojob:
 
@@ -319,6 +347,16 @@ This is actually a map to define the channel use in the ojob:
 | permissions | _string_ | _General permissions for anonymous access (r = read, w = write). Defaults to "r"._ |
 | list | _array_ | _If expose = true specifies which channels should be exposed (default is all)._ |
 | auth | _array_ | _Array of maps to provide http authentication when accessing channels. Each map should have a login, a pass and permissions._ |
+| create | _array_ | _An array of maps containing the channel "type", the "compress" create option and the given necessary "options"._ |
+| peers | _array_ | _Establishes peer relationships for all the "list" channels (requires port to be defined) with the provided url array list (the uri expected should included the channel name)._ |
+| clusters | _map_ | _Setups an OpenAF cluster with the provided name, checkPeriod, host, port, nodeTimeoutm numberOfTries, tryTimeout and discovery map entries._ |
+
+## Advanced preprocessing 
+
+| Entry | Type | Description |
+|-------|------|-------------|
+| conAnsi | _boolean_ | _Advanced option to turn off ansi characters use._ |
+| conWidth | _number_ | _Advanced option to override screen size detection._ |
 
 # init
 
