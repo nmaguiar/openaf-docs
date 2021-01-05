@@ -328,12 +328,12 @@ Functionality to control oJob's job execution:
 
 | Entry | Type | Description |
 |-------|------|-------------|
-| langs | _array_ | _List of maps with two entries: lang (a name) and shell (the command to execute). If the job has the "lang" entry it will invoke the "shell" command to execute the "exec" entry. Job arguments will be passed as environment variables._ |
+| langs | _array_ | _List of maps with two entries: lang (a name) and shell (the command to execute). If the job has the "lang" entry it will invoke the "shell" command to execute the "exec" entry. Job arguments will be passed as environment variables. Optionally using "execFn" the execution code to handle will be provided as the variable "code"._ |
 
 ## OpenAF functionality
 
-| Entry | Type | Description |
-|-------|------|-------------|
+| Entry  | Type | Description |
+|--------|------|-------------|
 | opacks | _array_ | _Array of oPacks needed for the oJob execution (if possible, it will try to install the corresponding oPack if not available). If the array entry is a map it's possible to provide a version rule string value (e.g. >= 20200101)_ |
 | loadLibs | _array_ | _Array of OpenAF javascript libs to preload (equivalent to _loadLib_)_ |
 | loads | _array_ | _Array of OpenAF javascript to preload (equivalent to _load_)_ |
