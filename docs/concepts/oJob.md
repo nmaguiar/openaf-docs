@@ -326,11 +326,15 @@ Functionality to control oJob's job execution:
 
 ## Languages support
 
+Functionality related with language support:
+
 | Entry | Type | Description |
 |-------|------|-------------|
 | langs | _array_ | _List of maps with two entries: lang (a name) and shell (the command to execute). If the job has the "lang" entry it will invoke the "shell" command to execute the "exec" entry. Job arguments will be passed as environment variables. Optionally using "execFn" the execution code to handle will be provided as the variable "code"._ |
 
 ## OpenAF functionality
+
+Functionality related with OpenAF:
 
 | Entry  | Type | Description |
 |--------|------|-------------|
