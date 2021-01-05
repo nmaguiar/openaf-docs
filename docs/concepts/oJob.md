@@ -85,7 +85,7 @@ The most used type of job is "simple". All job types, including "simple" have th
 |----------------|------|------------|-------------|
 | timeout | _number_ | _no_ | _The time interval, in milliseconds, for the entire job execution or between stopWhen function executions. If no stopWhen function is provided and the timeout time is exceeded the job will fail indicating that it exceed the timeout. _ |
 | stopWhen | _string_ | _no_ | _Function string that will be evaluated continuously or every timeout time interval. If the function returns true the current job execution will be terminated._ |
-| langs | _map_ | _no_ | _String with language or Map with lang (language name) and shell (language shell command) to be used as the executing language for the "exec" entry. Job arguments will be available as environment variables. Optionally using "execFn" the execution code to handle will be provided as the variable "code"._ |
+| langs | _map_ | _no_ | _String with language or Map with lang (language name) and shell (language shell command) to be used as the executing language for the "exec" entry. Job arguments will be available as environment variables. Optionally using "langFn" the execution code to handle will be provided as the variable "code"._ |
 | execJs | _String_ | _no_ | _Reads the OpenAF javascript execution code from an external filepath._ |
 | execRequire | _String_ | _no_ | _Loads an external filepath OpenAF javascript execution code file where the function with the job name will be executed with the current args._ |
 | execPy | _String_ | _no_ | _Reads a Python execution code from an external filepath._ |
@@ -330,7 +330,7 @@ Functionality related with language support:
 
 | Entry | Type | Description |
 |-------|------|-------------|
-| langs | _array_ | _List of maps with two entries: lang (a name) and shell (the command to execute). If the job has the "lang" entry it will invoke the "shell" command to execute the "exec" entry. Job arguments will be passed as environment variables. Optionally using "execFn" the execution code to handle will be provided as the variable "code"._ |
+| langs | _array_ | _List of maps with two entries: lang (a name) and shell (the command to execute). If the job has the "lang" entry it will invoke the "shell" command to execute the "exec" entry. Job arguments will be passed as environment variables. Optionally using "langFn" the execution code to handle will be provided as the variable "code"._ |
 
 ## OpenAF functionality
 
