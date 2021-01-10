@@ -341,6 +341,7 @@ Functionality related with OpenAF:
 | opacks | _array_ | _Array of oPacks needed for the oJob execution (if possible, it will try to install the corresponding oPack if not available). If the array entry is a map it's possible to provide a version rule string value (e.g. &gt;= 20200101)_ |
 | loadLibs | _array_ | _Array of OpenAF javascript libs to preload (equivalent to "loadLib")_ |
 | loads | _array_ | _Array of OpenAF javascript to preload (equivalent to "load")_ |
+| argsFromEnvs | _boolean_ | _If true all the current environment variables will be converted into entries in the args map._ |
 
 ## Channels
 
