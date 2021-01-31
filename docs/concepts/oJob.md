@@ -90,6 +90,8 @@ The most used type of job is "simple". All job types, including "simple" have th
 | execRequire | _String_ | _no_ | _Loads an external filepath OpenAF javascript execution code file where the function with the job name will be executed with the current args._ |
 | execPy | _String_ | _no_ | _Reads a Python execution code from an external filepath._ |
 | file | _String_ | _no_ | _Reads the execution code from an external filepath._ |
+| lock | _String_ | _no_ | _Specifies a lock name to ensure a job execution is not concurrent._ |
+| lockCh | _String_| _no_ | _Specifies the lock channel to use (defaults to simple "oJob::locks")_ |
 
 Then for other types there are specific typeArgs available:
 
