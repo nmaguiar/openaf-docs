@@ -13,7 +13,7 @@ SNMP has different versions (e.g. 1, 2, 3) that require different settings. Star
 
 ````javascript
 plugin("SNMP");
-var snmp = new SNMP("udp:demo.snmplabs.com/161", "public");  // version 1/2
+var snmp = new SNMP("udp:snmpsim.try.thola.io/161", "public");  // version 1/2
 ````
 ## Checking an OID value
 
@@ -68,10 +68,10 @@ On version 3 you need to provide a little more information:
 ````javascript
 plugin("SNMP");
 var aTimeout = 3000, aNumberOfRetries = 3;
-var snmp = new SNMP("udp:demo.snmplabs.com/161", "public", aTimeout, aNumberOfRetries, 3, {
+var snmp = new SNMP("udp:snmpsim.try.thola.io/161", "public", aTimeout, aNumberOfRetries, 3, {
     engineId      : "8000000001020304",
-    authPassphrase: "authKey1",
-    privPassphrase: "privKey1",
+    authPassphrase: "authkey1",
+    privPassphrase: "privkey1",
     authProtocol  : "MD5",
     privProtocol  : "DES",
     securityName  : "usr-md5-des"
