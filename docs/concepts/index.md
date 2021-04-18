@@ -16,3 +16,4 @@ Main concepts
 * __[sBuckets](sBuckets.md)__
 * __[Channels](OpenAF-Channels.md)__
 * __[Promises](OpenAF-oPromise.md)__
+* __[$from](OpenAF-nLinq.md)__
