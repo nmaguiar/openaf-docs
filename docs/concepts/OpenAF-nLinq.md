@@ -94,18 +94,18 @@ var names = [
 
 | Method | Description | Example |
 |------|-------------|---------|
-| starts | Restricts string fields prefix to a value | ````$from(names).starts("first", "J").select()```` _[{"first":"James","last":"Bond"},{"first":"James","last":"Scott"}]_ |
-| andStarts | Restricts string fields prefix to a value in addition to the previous restriction | ````$from(names).starts("first", "J").starts("last", "B").select()```` _[{"first":"James","last":"Bond"}]_ |
+| starts | Restricts string fields prefix to a value | ````$from(names).starts("first", "J").select()```` |
+| andStarts | Restricts string fields prefix to a value in addition to the previous restriction | ````$from(names).starts("first", "J").starts("last", "B").select()```` |
 | notStarts | Restricts string fields that are not prefixed by a value | ````$from(names).notStarts("first", "J").select()```` _[{"first":"Louis","last":"Bond"}]_ |
-| andNotStarts | Restricts string fields that are not prefixed by a value in addition to the previous restriction | ````$from(names).starts("first", "J").andNotStarts("last", "S").select()```` _[{"first":"James","last":"Bond"}]_ |
-| orStarts | Restricts string fields prefix to a value in alternative to the previous restriction | ````$from(names).starts("first", "Ja").orStarts("last", "Bo").select()```` _[{"first":"James","last":"Bond"},{"first":"James","last":"Scott"},{"first":"Louis","last":"Bond"}]_ |
-| orNotStarts | Restricts string fields prefix that are not prefixed by a value in alternative to the previous restriction | ````$from(names).starts("first", "Ja").orNotStarts("last", "Sc").select()```` _[{"first":"James","last":"Bond"},{"first":"James","last":"Scott"},{"first":"Louis","last":"Bond"}]_ |
-| ends | Restricts string fields suffix to a value | ````$from(names).ends("last", "nd").select()```` _[{"first":"James","last":"Bond"},{"first":"Louis","last":"Bond"}]_ |
-| andEnds | Restricts string fields suffix to a value in addition to the previous restriction | ````$from(names).ends("first", "es").andEnds("last", "d").select()```` _[{"first":"James","last":"Bond"}]_ |
-| notEnds | Restricts string fields that are not suffixed by a value | ````$from(names).notEnds("last", "Bond").select()```` _[{"first":"James","last":"Scott"}]_ |
-| andNotEnds | Restricts string fields that are not suffixed by a value in addition to a previous restriction | ````$from(names).starts("first", "J").andNotEnds("last", "d").select()```` _[{"first":"James","last":"Scott"}]_ |
-| orEnds | Restricts string fields that are suffixed by a value in alternative to a previous restriction | ````$from(names).starts("first", "J").orEnds("first", "d").select()```` _[{"first":"James","last":"Bond"},{"first":"James","last":"Scott"}]_ |
-| orNotEnds | Restricts string fields that are not suffixed by a value in alternative to a previous restriction | ````$from(names).starts("first", "J").orNotEnds("first", "s").select()```` _[{"first":"James","last":"Bond"},{"first":"James","last":"Scott"}]_ |
+| andNotStarts | Restricts string fields that are not prefixed by a value in addition to the previous restriction | ````$from(names).starts("first", "J").andNotStarts("last", "S").select()```` |
+| orStarts | Restricts string fields prefix to a value in alternative to the previous restriction | ````$from(names).starts("first", "Ja").orStarts("last", "Bo").select()```` |
+| orNotStarts | Restricts string fields prefix that are not prefixed by a value in alternative to the previous restriction | ````$from(names).starts("first", "Ja").orNotStarts("last", "Sc").select()```` |
+| ends | Restricts string fields suffix to a value | ````$from(names).ends("last", "nd").select()```` |
+| andEnds | Restricts string fields suffix to a value in addition to the previous restriction | ````$from(names).ends("first", "es").andEnds("last", "d").select()```` |
+| notEnds | Restricts string fields that are not suffixed by a value | ````$from(names).notEnds("last", "Bond").select()```` |
+| andNotEnds | Restricts string fields that are not suffixed by a value in addition to a previous restriction | ````$from(names).starts("first", "J").andNotEnds("last", "d").select()```` |
+| orEnds | Restricts string fields that are suffixed by a value in alternative to a previous restriction | ````$from(names).starts("first", "J").orEnds("first", "d").select()```` |
+| orNotEnds | Restricts string fields that are not suffixed by a value in alternative to a previous restriction | ````$from(names).starts("first", "J").orNotEnds("first", "s").select()```` |
 ### Restricting by equality
 
 | Method | Description | Example |
