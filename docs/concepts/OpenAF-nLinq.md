@@ -93,7 +93,7 @@ var names = [
 ````
 
 | Method | Description | Example |
-|-------|-------------|---------|
+|--------|-------------|---------|
 | starts | Restricts string fields prefix to a value | ````$from(names).starts("first", "J").select()```` |
 | andStarts | Restricts string fields prefix to a value in addition to the previous restriction | ````$from(names).starts("first", "J").starts("last", "B").select()```` |
 | notStarts | Restricts string fields that are not prefixed by a value | ````$from(names).notStarts("first", "J").select()```` |
@@ -106,6 +106,7 @@ var names = [
 | andNotEnds | Restricts string fields that are not suffixed by a value in addition to a previous restriction | ````$from(names).starts("first", "J").andNotEnds("last", "d").select()```` |
 | orEnds | Restricts string fields that are suffixed by a value in alternative to a previous restriction | ````$from(names).starts("first", "J").orEnds("first", "d").select()```` |
 | orNotEnds | Restricts string fields that are not suffixed by a value in alternative to a previous restriction | ````$from(names).starts("first", "J").orNotEnds("first", "s").select()```` |
+
 ### Restricting by equality
 
 | Method | Description | Example |
