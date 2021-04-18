@@ -1,11 +1,11 @@
 ---
 layout: default
-title: OpenAF nLinq
+title: $from
 parent: Concepts
 grand_parent: OpenAF docs
 ---
 
-# OpenAF nLinq
+# $from
 
 There are several "helpers" in OpenAF to help to "query" array of maps. The help to make code cleaner For a complete list (like JMESPath) see on the end of this document. [_nLinq_](https://github.com/nmaguiar/nLinq) is currently the most use one.
 
