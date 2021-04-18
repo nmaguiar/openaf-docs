@@ -93,10 +93,10 @@ var names = [
 ````
 
 | Method | Description | Example |
-|------|-------------|---------|
+|-------|-------------|---------|
 | starts | Restricts string fields prefix to a value | ````$from(names).starts("first", "J").select()```` |
 | andStarts | Restricts string fields prefix to a value in addition to the previous restriction | ````$from(names).starts("first", "J").starts("last", "B").select()```` |
-| notStarts | Restricts string fields that are not prefixed by a value | ````$from(names).notStarts("first", "J").select()```` _[{"first":"Louis","last":"Bond"}]_ |
+| notStarts | Restricts string fields that are not prefixed by a value | ````$from(names).notStarts("first", "J").select()```` |
 | andNotStarts | Restricts string fields that are not prefixed by a value in addition to the previous restriction | ````$from(names).starts("first", "J").andNotStarts("last", "S").select()```` |
 | orStarts | Restricts string fields prefix to a value in alternative to the previous restriction | ````$from(names).starts("first", "Ja").orStarts("last", "Bo").select()```` |
 | orNotStarts | Restricts string fields prefix that are not prefixed by a value in alternative to the previous restriction | ````$from(names).starts("first", "Ja").orNotStarts("last", "Sc").select()```` |
