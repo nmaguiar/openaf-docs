@@ -1,5 +1,5 @@
 remote_theme: pmarsceill/just-the-docs
-logo: images/openaf_medium.png
+logo: images/openaf_logo.png
 title: OpenAF docs
 description: OpenAF guides, concepts and how-tos documentation.
 eading_anchors: true
