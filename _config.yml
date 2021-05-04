@@ -4,3 +4,6 @@ title: OpenAF docs
 description: OpenAF guides, concepts and how-tos documentation.
 eading_anchors: true
 nav_sort: case_sensitive
+
+ga_tracking: UA-145709474-1
+ga_tracking_anonymize_ip: true
