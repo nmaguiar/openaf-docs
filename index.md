@@ -77,3 +77,23 @@ After moving to the new folder execute the reinstall.sh (or reinstall.bat in Win
 Simply delete the created folder.
 
 There might be also ".openaf*" files created on your home folder.
+
+## Unix generic install/uninstall
+
+### Install (with Java)
+
+````bash
+$ wget -O - https://openaf.io/install.sh | sh
+````
+
+### Install (without Java)
+
+````bash
+$ wget -O - https://openaf.io/download.sh | sh
+````
+
+### Uninstall
+
+````bash
+$ ojob ojob.io/oaf/symlinks UNINSTALL=true && rm -rf /opt/oaf
+````
