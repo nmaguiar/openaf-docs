@@ -17,7 +17,7 @@ has_children: true
 ### Unix (x86 based)
 
 ````bash
-$ mkdir oaf
+$ mkdir oaf && cd oaf
 $ wget -O - https://openaf.io/unix64/install.sh | sh
 $ ./oafc
 ````
@@ -25,7 +25,7 @@ $ ./oafc
 ### Mac OS
 
 ````bash
-$ mkdir oaf
+$ mkdir oaf && cd oaf
 $ curl -o install.sh https://openaf.io/mac64/install.sh
 $ sh install.sh
 $ oafc
@@ -51,16 +51,16 @@ $ docker run --rm -ti openaf/openaf
 ### Unix (ARM 64)
 
 ````bash
-$ mkdir oaf
-$ wget -O https://openaf.io/arm64/install.sh | sh
+$ mkdir oaf && cd oaf
+$ wget -O - https://openaf.io/arm64/install.sh | sh
 $ oafc
 ````
 
 ### Unix (ARM 32)
 
 ````bash
-$ mkdir oaf
-$ wget -O https://openaf.io/arm32/install.sh | sh
+$ mkdir oaf && cd oaf
+$ wget -O - https://openaf.io/arm32/install.sh | sh
 $ oafc
 ````
 
