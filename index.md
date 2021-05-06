@@ -95,5 +95,5 @@ $ wget -O - https://openaf.io/download.sh | sh
 ### Uninstall
 
 ````bash
-$ ojob ojob.io/oaf/symlinks UNINSTALL=true && rm -rf /opt/oaf
+$ sudo ojob ojob.io/oaf/symlinks UNINSTALL=true && sudo rm -rf /opt/oaf
 ````
