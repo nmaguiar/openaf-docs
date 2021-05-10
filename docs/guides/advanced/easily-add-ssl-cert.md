@@ -40,3 +40,16 @@ The code will generate a file called _jssecacerts_. If you already have a simila
 $ cd $JAVA_HOME/jre/lib/security
 $ opack exec InstallCert some.host:443 myNewPassword
 ````
+
+## Ignoring the SSL domain validation
+
+In some cases, for testing, you might want to ignore the SSL domain validation. This can be done by adding the following code in OpenAF:
+
+````javascript
+ow.loadJava();
+ow.java.setIgnoreSSLDomains(["some.host"]); // or ow.java.setIgnoreSSLDomains(["some.host"], "myNewPassword")
+````
+
+You can set this on your [user home holder]/.openaf-console_profile file so that it applies to all OpenAF based execution.
+
+Please do keep in mind that this **DISABLES IMPORTANT SECURITY FEATURES** and should only be used in advanced setups where this is intended or testing.
