@@ -96,7 +96,7 @@ jobs:
     echo Hello {{name}}!
 ````
 
-## It's possible
+## What's possible
 
 Pretty much all job related functionality is avaiable. Examples:
 
