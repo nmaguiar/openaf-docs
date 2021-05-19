@@ -1,0 +1,27 @@
+jobs:
+- name: List all files
+  exec: |
+    global.files = { advanced: [], beginner: [], medium: [], oneliner: [] };
+    
+    $from( io.listFiles(".").files )
+    .equals("isDirectory", true)
+    .select(r => {
+      $from( io.listFiles(r.filename).files )
+      .equals("isFile", true)
+      .ends("filename", ".md")
+      .notEquals("filename", "index.md")
+      .sort("filename")
+      .select(s => {
+         var aTitle = io.readFileString(s.canonicalPath).match(/^title: (.+)$/m);
+         if (isNull(aTitle)) return;
+         global.files[r.filename].push({ title: aTitle[1], location: "/docs/guides/" + r.filename + "/" + s.filename });
+      });
+    });
+
+- name: Generate index.md
+  exec: |
+    io.writeFileString("index.md", templify( io.readFileString("index.hbs"), global.files ) );
+
+todo:
+- List all files
+- Generate index.md
