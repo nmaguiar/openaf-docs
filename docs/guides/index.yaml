@@ -1,6 +1,9 @@
 jobs:
+# --------------------
 - name: List all files
   exec: |
+    ow.loadTemplate();
+    ow.template.addConditionalHelpers();
     global.files = { advanced: [], beginner: [], medium: [], oneliner: [] };
     
     $from( io.listFiles(".").files )
@@ -18,10 +21,37 @@ jobs:
       });
     });
 
-- name: Generate index.md
+# -----------------
+- name: Generate MD
   exec: |
-    io.writeFileString("index.md", templify( io.readFileString("index.hbs"), global.files ) );
+    var localFiles = clone(global.files);
+
+    localFiles.title = args.title;
+    localFiles.includeBeginner = (args.title == 'Guide' || args.title == 'Beginner');
+    localFiles.includeMedium   = (args.title == 'Guide' || args.title == 'Medium');
+    localFiles.includeAdvanced = (args.title == 'Guide' || args.title == 'Advanced');
+    localFiles.includeOneLiner = (args.title == 'Guide' || args.title == 'OneLiner');
+    localFiles.navOrder = args.navOrder;
+
+    tlog("Generating {{file}} for ({{title}})", args);
+    io.writeFileString(args.file, templify( io.readFileString("index.hbs"), localFiles ) );
 
 todo:
-- List all files
-- Generate index.md
+- name: List all files
+- name: Generate MD
+  args:
+  - file    : index.md
+    title   : Guide
+    navOrder: 2
+  - file    : beginner/index.md
+    title   : Beginner
+    navOrder: 1
+  - file    : advanced/index.md
+    title   : Advanced
+    navOrder: 3
+  - file    : medium/index.md
+    title   : Medium
+    navOrder: 2
+  - file    : oneliner/index.md
+    title   : OneLiner
+    navOrder: 4

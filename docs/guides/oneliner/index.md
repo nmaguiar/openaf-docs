@@ -7,8 +7,11 @@ has_children: true
 nav_order: 4
 ---
 
-# One-liner
 
-  * [Starting a HTTP file browser](starting-a-http-file-browser.md)
-  * [Quickly validate a YAML file](quickly-validate-a-yaml-file.md)
-  * [Test latency](test-latency.md)
+
+
+
+## One-liner
+* [Quickly validate a YAML file](/docs/guides/oneliner/quickly-validate-a-yaml-file.md)
+* [Starting a HTTP file browser](/docs/guides/oneliner/starting-a-http-file-browser.md)
+* [Test latency](/docs/guides/oneliner/test-latency.md)

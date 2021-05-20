@@ -1,29 +1,31 @@
 ---
 layout: default
-title: Guides
+title: {{title}}
+{{#is title 'Guide'}}
 parent: OpenAF docs
+{{else}}
+parent: Guides
+grand_parent: OpenAF docs
+{{/is}}
 has_children: true
-nav_order: 2
+nav_order: {{navOrder}}
 ---
 
-# Guides
-
-## Beginner
+{{#is title 'Guide'}}
+# Guide{{/is}}
+{{#if includeBeginner}}## Beginner
 {{#each beginner}}
 * [{{{title}}}]({{{location}}})
-{{/each}}
-
-## Medium
+{{/each}}{{/if}}
+{{#if includeMedium}}## Medium
 {{#each medium}}
 * [{{{title}}}]({{{location}}})
-{{/each}}
-
-## Advanced
+{{/each}}{{/if}}
+{{#if includeAdvanced}}## Advanced
 {{#each advanced}}
 * [{{{title}}}]({{{location}}})
-{{/each}}
-
-## One-liner
+{{/each}}{{/if}}
+{{#if includeOneLiner}}## One-liner
 {{#each oneliner}}
 * [{{{title}}}]({{{location}}})
-{{/each}}
+{{/each}}{{/if}}
