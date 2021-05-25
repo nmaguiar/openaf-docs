@@ -9,9 +9,9 @@ grand_parent: OpenAF docs
 
 OpenAF (pronounced _open-A-F_) is a basic command-line Java-based application that started as an open "application framework" in order to solve different automation challenges with minimal requirements and footprint.
 
-On it's core is basically a Javascript interpreter (based on [Mozilla's Rhino](https://github.com/mozilla/rhino)) with lots of included functions, javascript libraries (called OpenWrap or "ow" for short) and java libraries. 
+On it's core is basically a Javascript interpreter (based on [Mozilla's Rhino](https://github.com/mozilla/rhino)) with [lots of included functions](javascript2oaf.md), javascript libraries (called OpenWrap or "ow" for short) and java libraries.
 
-Since it's possible to mix Java and Javascript languages it can use all the extensive Java libraries available and also the majority of Javascript browser-based libraries making it possible to mix a lot of different functionality without big modules and dependencies or specific platform recompiling needs that other languages and tools require. Nevertheless it also allows to mix Python, shell script, PowerShell, PHP, etc... functionality easily and when needed.
+Since it's possible to [mix Java and Javascript languages](java.md) it can use all the extensive Java libraries available and also the majority of Javascript browser-based libraries making it possible to mix a lot of different functionality without big modules and dependencies or specific platform recompiling needs that other languages and tools require. Nevertheless it also allows to mix Python, shell script, PowerShell, PHP, etc... functionality easily and when needed.
 
 OpenAF's evolution is basically driven by the problems it's applied to try to solve while trying to keep, as much as possible, legacy support. When legacy support has to be broken versions will keep for one or two years old functionality deprecation. This goes from function signature upon to functionality alternatives.
 
