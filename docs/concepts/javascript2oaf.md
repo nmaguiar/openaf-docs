@@ -90,7 +90,7 @@ _tbc_
 | Function | Description |
 |----------|-------------|
 | getOpenAFJar | Returns the complete filepath and name for the OpenAF jar file. |
-| processExpr | Processes command-line argument data provided with the option _-e_ |
+| processExpr | Processes command-line argument data provided with the option _"-e"_ |
 | getVersion | Returns the current OpenAF runtime version. |
 | getDistribution | Returns the current OpenAF runtime distribution name. |
 | getOpenAFPath | Returns the filepath to where OpenAF seems to be installed. |
@@ -109,6 +109,7 @@ _tbc_
 | pidCheckIn | Provides check-in pid functionality over a .pid file to ensure that only one OpenAF execution is invoked. |
 | pidKill | Tries to terminate a OS process by pid. |
 | pidCheckOut | Provided check-out pid functionality over a .pid file to ensure that only one OpenAF execution is invoked. |
+
 _tbc_
 
 ## Python integration
@@ -147,6 +148,7 @@ External javascript based libraries are also included:
 | Ajv | ````loadAjv()```` |
 | Lodash (Underscore) | ````loadLodash()```` |
 | OpenAF oDoc (help functionality) | ````loadHelp()```` |
+
 ## Java support
 
 To check on how to interact between Javascript and Java in OpenAF (including some OpenAF helper functions built-in) see [Java support](/docs/concepts/java.md)
