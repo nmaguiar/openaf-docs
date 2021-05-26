@@ -54,7 +54,7 @@ There are a set of libraries includes to help to "navigate" through javascript a
 
 | Function | Description | 
 |----------|-------------|
-| $from | See more in [$from](OpenAF-nLinq.md) |
+| $from | See more in [$from](OpenAF-nLinq) |
 | $path | Uses the [JMESPath library](http://jmespath.org) |
 | $stream | Uses the old [streamjs library](https://github.com/winterbe/streamjs/blob/master/APIDOC.md) |
 
