@@ -151,4 +151,4 @@ External javascript based libraries are also included:
 
 ## Java support
 
-To check on how to interact between Javascript and Java in OpenAF (including some OpenAF helper functions built-in) see [Java support](/docs/concepts/java.md)
+To check on how to interact between Javascript and Java in OpenAF (including some OpenAF helper functions built-in) see [Java support](/docs/concepts/java)
