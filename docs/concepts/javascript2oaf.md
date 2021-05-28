@@ -23,6 +23,12 @@ _tbc_
 
 ## Basic
 
+| Variable | Type | Description |
+|----------|------|-------------|
+| \_\_ | | Shortcut for undefined |
+| global   | | Represents all the global variables (e.g. _this_ on the main context). |
+
+
 | Function | Description |
 |----------|-------------|
 | compare | Compares two javascript objects (with deep map search). |
@@ -42,6 +48,21 @@ _tbc_
 
 _tbc_
 ## Printing
+
+| Function | Description |
+|----------|-------------|
+| print      | Outputs a string to stdout with a new-line |
+| printnl    | Outputs a string to stdout without a new-line |
+| printErr   | Outputs a string to stderr with a new-line |
+| printErrnl | Outputs a string to stderr without a new-line |
+| sprint     | Outputs a stringify of an object to stdout with a new-line |
+| sprintnl   | Outputs a stringify of an object to stdout without a new-line |
+| sprintErr  | Outputs a stringify of an object to stderr with a new-line |
+| sprintErrnl| Outputs a stringify of an object to stderr without a new-line |
+| tprint     | Outputs based on a provided template using data from an object to stdout with a new-line |
+| tprintnl   | Outputs based on a provided template using data from an object to stdout without a new-line |
+| tprintErr  | Outputs based on a provided template using data from an object to stderr with a new-line |
+| tprintErrnl| Outputs based on a provided template using data from an object to stderr without a new-line |
 
 _tbc_
 ## Logging 
@@ -79,7 +100,6 @@ _tbc_
 
 | Variable | Type | Description |
 |----------|------|-------------|
-| global   | | Represents all the global variables (e.g. _this_ on the main context). |
 | noHomeComms | Boolean | When set to _true_ the OpenAF runtime will avoid any call to "openaf.io" (to get help indexes, latest version, etc...) |
 | __separator | String | The operating-system dependent line separator (e.g. '\n' or '\r\n') |
 
