@@ -19,15 +19,18 @@ You can always check documentation here or, using the openaf-console (oafc), exe
 > help [partial of full word match]
 ````
 
-_tbc_
+Additionally you can use the openaf-console (oafc) auto-complete, _desc_ and _scope_ commands to find out more.
 
 ## Basic
+
+### Basic variables
 
 | Variable | Type | Description |
 |----------|------|-------------|
 | \_\_ | | Shortcut for undefined |
 | global   | | Represents all the global variables (e.g. _this_ on the main context). |
 
+### Basic functions
 
 | Function | Description |
 |----------|-------------|
@@ -46,7 +49,112 @@ _tbc_
 
 ## Checking types
 
-_tbc_
+### One-line type checking
+
+The one-line type checking propose it's to be used for checking arguments of a function and providing default values or exceptions if a value is not provided.
+
+The syntax of usage is:
+
+````javascript
+// For values that must be defined
+_$([aVariable], [anOptionalDescription]).[combination of check functions].$_(anOptionalExceptionDescription)
+
+// For values that have a default value
+aVariable = _$([aVariable], [anOptionalDescription]).[combination of check functions].default(anOptionalExceptionDescription])
+````
+
+Examples:
+
+````javascript
+function useEvenNumber(aEvenNumber) {
+    // Combining check functions
+    _$(aEvenNumber, "aEvenNumber")
+    .isNumber()
+    .check(v => v % 2 == 0, "has to be even")
+    .$_();
+
+    [...]
+}
+````
+
+````javascript
+function modifyChild(aChildUUID, aParentUUID) {
+    // Check mandatory
+    _$(aChildUUID, "aChildUUID").isUUID().$_("a child uuid must be provided");
+    
+    // Check and assign defaults
+    aParentUUID = _$(aParentUUID, "aParentUUID").isUUID().default("ed258253-a8e3-2df1-5d74-b106e8cd7e9a");
+
+    [...]
+}
+````
+
+For check functions any combination can be used (each function includes also a second argument to provide more text information about the failure of the check):
+
+| Function | Checking propose | Example |
+|----------|------------------|---------|
+| anyOf    | Determine if the array provided only has values from a pre-provided array of values. | |
+| between | Determines if a number is between a minimum and maximum values exclusively. | | 
+| betweenEquals | Determines if a number is between a minimum and maximum values inclusively. | |
+| check   | Uses the provided javascript function to check. | |
+| contains | Determines if a string value contains a sub-string. | |
+| empty    | Determines if the provided value is empty. | |
+| ends     | Determines if the provided string ends with the provided sub-string. | |
+| equals   | Determines if the provided string is equals to the provided string. | |
+| greater  | Determines if the provided value is bigger than the provided value. | |
+| greaterEquals | Determines if the provided value if bigger or equal than the provided value. | | 
+| isArray  | Determines if a variable is an array.  | |
+| isBoolean | Determines if a variable is a boolean. | |
+| isDate | Determines if a variable is a date.| |
+| isFunction | Determines if a variable is a function. | | |
+| isInstanceOf | Determines if the provided Java object is an instance of a given Java class. | |
+| isJavaObject | Determines if a variable is a Java object. || |
+| isMap | Determines if a variable is a map. | | |
+| isNotNull | Determines if a variable is not null. | | |
+| isNumber | Determines if a variable is a number. | | |
+| isObject | Determines if a variable is a object (e.g. map, array) | | 
+| isRegExp | Determines if a variable is a javascript regular expression. | |
+| isSchema | Determines if a provided map is according with the provided JSON schema. | |
+| isString | Determines if a variable is a string. | |
+| isTNumber | Determines if the type of a number provided, independently of it's conversion from number, is a Number. | |
+| isUUID | Determines if a variable is an UUID | |
+| javaRegexp | Determines if a Java object provided is a Java regular expression. | |
+| less | Determines if a provided number is less than a number. | | 
+| lessEquals | Determines if a provided number is less or equal than a number. | |
+| notContains | Determines if a provided string doesn't contain a sub-string. | |
+| notEmpty | Determines if a variable isn't empty. | | 
+| notEnds | Determines if a string doesn't end with a sub-string. | |
+| notEquals | Determines if the provided string is not equal to a specific string. | | 
+| notStarts | Determines if a string doesn't start with a sub-string | |
+| oneOf | Determines if the value is one of the array of values provided. | |
+| regexp | Given a regular expression tests if the value matches it. | |
+| starts | Determines if a string starts with a sub-string. | |  
+
+### Function type checking
+
+For function-based type checking there are a set of functions prefixed with "is". They provide not only javascript type checking but also java object type checking in specific cases:
+
+| Function | Description |
+|----------|-------------|
+| isArray  | Determines if an variable is an array. |
+| isBinaryArray | Determines if the variable is a Java binary (integers) array. |
+| isBoolean | Determines if an variable is a boolean. |
+| isByteArray | Determines if the variable is a Java byte array. |
+| isDate | Determines if an variable is a date. |
+| isDecimal | Determines if a javascript number variable has a decimal component or not. |
+| isDef | Determines if the provided variable is defined. |
+| isFunction | Determins if the provided variable is a function. |
+| isInteger | Determines if a javascript number variable doesn't have a decimal component. |
+| isJavaException | Determines if the provided variable is a Java exception object instance. |
+| isJavaObject | Determines if the provided variable is a Java object instance. |
+| isMap | Determines if the provided variable is a map. |
+| isNull | Determines if the provided variable is a null. |
+| isNumber | Determines if the provided variable is a number. |
+| isObject | Determines if the provided variable is a generic javascript object (e.g. map, array) |
+| isString | Determines if the provided variable is a string. |
+| isTNumber | Determines if the provided variable, independently of the possible conversion to number, is of javascript type 'Number' |
+| isUUID | Determines if the provided variable string is a UUID. |
+| isUnDef | Determines if the provided variable is not defined. |  
 ## Printing
 
 | Function | Description |
@@ -59,15 +167,26 @@ _tbc_
 | sprintnl   | Outputs a stringify of an object to stdout without a new-line |
 | sprintErr  | Outputs a stringify of an object to stderr with a new-line |
 | sprintErrnl| Outputs a stringify of an object to stderr without a new-line |
-| tprint     | Outputs based on a provided template using data from an object to stdout with a new-line |
-| tprintnl   | Outputs based on a provided template using data from an object to stdout without a new-line |
-| tprintErr  | Outputs based on a provided template using data from an object to stderr with a new-line |
-| tprintErrnl| Outputs based on a provided template using data from an object to stderr without a new-line |
+| tprint     | Outputs a string based on a provided template using data from an object to stdout with a new-line |
+| tprintnl   | Outputs a string based on a provided template using data from an object to stdout without a new-line |
+| tprintErr  | Outputs a string based on a provided template using data from an object to stderr with a new-line |
+| tprintErrnl| Outputs a string based on a provided template using data from an object to stderr without a new-line |
 
-_tbc_
 ## Logging 
 
-_tbc_
+| Function | Description |
+|----------|-------------|
+| log      | Prints a string with a timestamp and a log level of 'INFO' to stdout with a new-line |
+| lognl    | Prints a string with a timestamp and a log level of 'INFO' to stdout without a new-line |
+| logErr   | Prints a string with a timestamp and a log level of 'ERROR' to stderr with a new-line |
+| logWarn  | Prints a string with a timestamp and a log level of 'WARN' to stdout with a new-line |
+| tlog     | Outputs a string based on a provided template using data from an object together with a timestamp and a log level of 'INFO' to stdout with a new-line |
+| tlognl   | Outputs a string based on a provided template using data from an object together with a timestamp and a log level of 'INFO' to stdout without a new-line |
+| tlogErr  | Outputs a string based on a provided template using data from an object together with a timestamp and a log level of 'ERROR' to stderr with a new-line |
+| tlogWarn | Outputs a string based on a provided template using data from an object together with a timestamp and a log level of 'WARN' to stdout with a new-line |
+| setLog | Sets several flags for how the log functions behave including setting which log levels get output or not, how the timestamp is formated, if they should async or sync calls and if process memory and load should be captured in each execution. |
+| startLog | Starts logging to a default or specified [OpenAF channel](OpenAF-Channels.md) with automatic housekeeping |
+| stopLog | Stops logging to a default of specified [OpenAF channel](OpenAF-Channels.md) after a startLog function has been previously executed. |
 
 ## Navigating arrays and maps
 
@@ -96,7 +215,7 @@ _tbc_
 _tbc_
 ## OpenAF runtime specific
 
-### Global variables
+### Global runtime variables
 
 | Variable | Type | Description |
 |----------|------|-------------|
@@ -105,7 +224,7 @@ _tbc_
 
 _tbc_
 
-### Functions
+### Global runtime functions
 
 | Function | Description |
 |----------|-------------|
