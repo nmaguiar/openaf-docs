@@ -106,12 +106,12 @@ For check functions any combination can be used (each function includes also a s
 | isArray  | Determines if a variable is an array.  | |
 | isBoolean | Determines if a variable is a boolean. | |
 | isDate | Determines if a variable is a date.| |
-| isFunction | Determines if a variable is a function. | | |
+| isFunction | Determines if a variable is a function. | | 
 | isInstanceOf | Determines if the provided Java object is an instance of a given Java class. | |
-| isJavaObject | Determines if a variable is a Java object. || |
-| isMap | Determines if a variable is a map. | | |
-| isNotNull | Determines if a variable is not null. | | |
-| isNumber | Determines if a variable is a number. | | |
+| isJavaObject | Determines if a variable is a Java object. | |
+| isMap | Determines if a variable is a map. | | 
+| isNotNull | Determines if a variable is not null. | | 
+| isNumber | Determines if a variable is a number. | | 
 | isObject | Determines if a variable is a object (e.g. map, array) | | 
 | isRegExp | Determines if a variable is a javascript regular expression. | |
 | isSchema | Determines if a provided map is according with the provided JSON schema. | |
@@ -134,27 +134,28 @@ For check functions any combination can be used (each function includes also a s
 
 For function-based type checking there are a set of functions prefixed with "is". They provide not only javascript type checking but also java object type checking in specific cases:
 
-| Function | Description |
-|----------|-------------|
-| isArray  | Determines if an variable is an array. |
+| Function      | Description |
+|---------------|-------------|
+| isArray       | Determines if an variable is an array. |
 | isBinaryArray | Determines if the variable is a Java binary (integers) array. |
-| isBoolean | Determines if an variable is a boolean. |
-| isByteArray | Determines if the variable is a Java byte array. |
-| isDate | Determines if an variable is a date. |
-| isDecimal | Determines if a javascript number variable has a decimal component or not. |
-| isDef | Determines if the provided variable is defined. |
-| isFunction | Determins if the provided variable is a function. |
-| isInteger | Determines if a javascript number variable doesn't have a decimal component. |
+| isBoolean     | Determines if an variable is a boolean. |
+| isByteArray   | Determines if the variable is a Java byte array. |
+| isDate        | Determines if an variable is a date. |
+| isDecimal     | Determines if a javascript number variable has a decimal component or not. |
+| isDef         | Determines if the provided variable is defined. |
+| isFunction    | Determins if the provided variable is a function. |
+| isInteger     | Determines if a javascript number variable doesn't have a decimal component. |
 | isJavaException | Determines if the provided variable is a Java exception object instance. |
-| isJavaObject | Determines if the provided variable is a Java object instance. |
-| isMap | Determines if the provided variable is a map. |
-| isNull | Determines if the provided variable is a null. |
-| isNumber | Determines if the provided variable is a number. |
-| isObject | Determines if the provided variable is a generic javascript object (e.g. map, array) |
-| isString | Determines if the provided variable is a string. |
-| isTNumber | Determines if the provided variable, independently of the possible conversion to number, is of javascript type 'Number' |
-| isUUID | Determines if the provided variable string is a UUID. |
-| isUnDef | Determines if the provided variable is not defined. |  
+| isJavaObject  | Determines if the provided variable is a Java object instance. |
+| isMap         | Determines if the provided variable is a map. |
+| isNull        | Determines if the provided variable is a null. |
+| isNumber      | Determines if the provided variable is a number. |
+| isObject      | Determines if the provided variable is a generic javascript object (e.g. map, array) |
+| isString      | Determines if the provided variable is a string. |
+| isTNumber     | Determines if the provided variable, independently of the possible conversion to number, is of javascript type Number |
+| isUUID        | Determines if the provided variable string is a UUID. |
+| isUnDef       | Determines if the provided variable is not defined. |  
+
 ## Printing
 
 | Function | Description |
