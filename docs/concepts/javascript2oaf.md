@@ -91,44 +91,44 @@ function modifyChild(aChildUUID, aParentUUID) {
 
 For check functions any combination can be used (each function includes also a second argument to provide more text information about the failure of the check):
 
-| Function | Checking propose | Example |
-|----------|------------------|---------|
-| anyOf    | Determine if the array provided only has values from a pre-provided array of values. | |
-| between | Determines if a number is between a minimum and maximum values exclusively. | | 
-| betweenEquals | Determines if a number is between a minimum and maximum values inclusively. | |
-| check   | Uses the provided javascript function to check. | |
-| contains | Determines if a string value contains a sub-string. | |
-| empty    | Determines if the provided value is empty. | |
-| ends     | Determines if the provided string ends with the provided sub-string. | |
-| equals   | Determines if the provided string is equals to the provided string. | |
-| greater  | Determines if the provided value is bigger than the provided value. | |
-| greaterEquals | Determines if the provided value if bigger or equal than the provided value. | | 
-| isArray  | Determines if a variable is an array.  | |
-| isBoolean | Determines if a variable is a boolean. | |
-| isDate | Determines if a variable is a date.| |
-| isFunction | Determines if a variable is a function. | | 
-| isInstanceOf | Determines if the provided Java object is an instance of a given Java class. | |
-| isJavaObject | Determines if a variable is a Java object. | |
-| isMap | Determines if a variable is a map. | | 
-| isNotNull | Determines if a variable is not null. | | 
-| isNumber | Determines if a variable is a number. | | 
-| isObject | Determines if a variable is a object (e.g. map, array) | | 
-| isRegExp | Determines if a variable is a javascript regular expression. | |
-| isSchema | Determines if a provided map is according with the provided JSON schema. | |
-| isString | Determines if a variable is a string. | |
-| isTNumber | Determines if the type of a number provided, independently of it's conversion from number, is a Number. | |
-| isUUID | Determines if a variable is an UUID | |
-| javaRegexp | Determines if a Java object provided is a Java regular expression. | |
-| less | Determines if a provided number is less than a number. | | 
-| lessEquals | Determines if a provided number is less or equal than a number. | |
-| notContains | Determines if a provided string doesn't contain a sub-string. | |
-| notEmpty | Determines if a variable isn't empty. | | 
-| notEnds | Determines if a string doesn't end with a sub-string. | |
-| notEquals | Determines if the provided string is not equal to a specific string. | | 
-| notStarts | Determines if a string doesn't start with a sub-string | |
-| oneOf | Determines if the value is one of the array of values provided. | |
-| regexp | Given a regular expression tests if the value matches it. | |
-| starts | Determines if a string starts with a sub-string. | |  
+| Function | Checking propose |
+|----------|------------------|
+| anyOf    | Determine if the array provided only has values from a pre-provided array of values. |
+| between | Determines if a number is between a minimum and maximum values exclusively. | 
+| betweenEquals | Determines if a number is between a minimum and maximum values inclusively. |
+| check   | Uses the provided javascript function to check. |
+| contains | Determines if a string value contains a sub-string. |
+| empty    | Determines if the provided value is empty. |
+| ends     | Determines if the provided string ends with the provided sub-string. |
+| equals   | Determines if the provided string is equals to the provided string. |
+| greater  | Determines if the provided value is bigger than the provided value. |
+| greaterEquals | Determines if the provided value if bigger or equal than the provided value. | 
+| isArray  | Determines if a variable is an array.  |
+| isBoolean | Determines if a variable is a boolean. |
+| isDate | Determines if a variable is a date.|
+| isFunction | Determines if a variable is a function. | 
+| isInstanceOf | Determines if the provided Java object is an instance of a given Java class. |
+| isJavaObject | Determines if a variable is a Java object. |
+| isMap | Determines if a variable is a map. | 
+| isNotNull | Determines if a variable is not null. | 
+| isNumber | Determines if a variable is a number. | 
+| isObject | Determines if a variable is a object (e.g. map, array) | 
+| isRegExp | Determines if a variable is a javascript regular expression. |
+| isSchema | Determines if a provided map is according with the provided JSON schema. |
+| isString | Determines if a variable is a string. |
+| isTNumber | Determines if the type of a number provided, independently of it's conversion from number, is a Number. |
+| isUUID | Determines if a variable is an UUID |
+| javaRegexp | Determines if a Java object provided is a Java regular expression. |
+| less | Determines if a provided number is less than a number. | 
+| lessEquals | Determines if a provided number is less or equal than a number. |
+| notContains | Determines if a provided string doesn't contain a sub-string. |
+| notEmpty | Determines if a variable isn't empty. | 
+| notEnds | Determines if a string doesn't end with a sub-string. |
+| notEquals | Determines if the provided string is not equal to a specific string. | 
+| notStarts | Determines if a string doesn't start with a sub-string |
+| oneOf | Determines if the value is one of the array of values provided. |
+| regexp | Given a regular expression tests if the value matches it. |
+| starts | Determines if a string starts with a sub-string. |  
 
 ### Function type checking
 
