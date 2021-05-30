@@ -22,11 +22,9 @@ data:
 A template file (using [HandleBars](https://handlebarsjs.com/guide/)) to produce a shell script (script.hbs):
 
 ````handlebars
-{% raw %}
-{{#each names}}
-echo {{this}}
-{{/each}}
-{% endraw %}
+{% raw %}{{#each names}}{% endraw %}
+echo {% raw %}{{this}}{% endraw %}
+{% raw %}{{/each}}{% endraw %}
 ````
 
 Execute the [ojob.io/template/apply](https://ojob.io/template/apply.md):
@@ -49,11 +47,9 @@ You can provide the template and the output file on the initial YAML data file (
 
 ````yaml
 template: &TEMPLATE |
-  {% raw %}
-  {{#each names}}
-  echo {{this}}
-  {{/each}} 
-  {% endraw %}
+  {% raw %}{{#each names}}{% endraw %}
+  echo {% raw %}{{this}}{% endraw %}
+  {% raw %}{{/each}}{% endraw %}
 
 data:
   _template: *TEMPLATE
@@ -78,14 +74,14 @@ Let's take our previous example and generate a Windows and an Unix script (data.
 
 ````yaml
 template: &TEMPLATE |
-  {% raw %}{{#if windows}}
+  {% raw %}{{#if windows}}{% endraw %}
   @echo off
-  {{else}}
+  {% raw %}{{else}}{% endraw %}
   #!/bin/sh
-  {{/if}}
-  {{#each names}}
-  echo {{this}}
-  {{/each}}{{% endraw %}
+  {% raw %}{{/if}}{% endraw %}
+  {% raw %}{{#each names}}{% endraw %}
+  echo {% raw %}{{this}}{% endraw %}
+  {% raw %}{{/each}}{{% endraw %}
 
 data:
 - _template: *TEMPLATE
@@ -127,15 +123,15 @@ In your previous example you tried to just use one template and using HandleBars
 ````yaml
 templateWin: &TEMPLATE_WIN |
   @echo off
-  {% raw %}{{#each names}}
-  echo {{this}}
-  {{/each}}{% endraw %}
+  {% raw %}{{#each names}}{% endraw %}
+  echo {% raw %}{{this}}{% endraw %}
+  {% raw %}{{/each}}{% endraw %}
 
 templateUnix: &TEMPLATE_UNIX |
   #!/bin/sh
-  {% raw %}{{#each names}}
-  echo {{this}}
-  {{/each}}{% endraw %}
+  {% raw %}{{#each names}}{% endraw %}
+  echo {% raw %}{{this}}{% endraw %}
+  {% raw %}{{/each}}{% endraw %}
 
 data:
 - _template: *TEMPLATE_WIN
@@ -159,7 +155,6 @@ When it gets really interesting is when you generate other data files using a ma
 ````yaml
 template: &TEMPLATE |
   _template: |
-    {% raw %}
     \{{#if win}}
     @echo off
     wget -O jre.zip https://my.site/jres/\{{arch}}/jre-\{{jvm}}.zip
@@ -172,22 +167,19 @@ template: &TEMPLATE |
     \{{/if}}
     wget -O myapp.jar https://my.site/\{{dist}}/myapp.jar
     jre/bin/java -jar myapp.jar --install
-    {% endraw %}
 
   data:
-  {% raw %}
-  {{#each arch}}
-   {{#each ../jvmVersion}}
-    {{#each ../../appDistribution}}
-  - _file: scripts/{{this}}/{{../../this}}/{{../this}}/install.{{#is ../../this 'win64'}}bat{{else}}sh{{/is}}
-    win : {{#is ../../this 'win64'}}true{{else}}false{{/is}}
-    dist: {{this}}
-    jvm : {{../this}}
-    arch: {{../../this}}
-    {{/each}}
-   {{/each}}
-  {{/each}}
-  {% endraw %}
+  {% raw %}{{#each arch}}{% endraw %}
+   {% raw %}{{#each ../jvmVersion}}{% endraw %}
+    {% raw %}{{#each ../../appDistribution}}{% endraw %}
+  - _file: scripts/{% raw %}{{this}}{% endraw %}/{% raw %}{{../../this}}{% endraw %}/{% raw %}{{../this}}{% endraw %}/install.{% raw %}{{#is ../../this 'win64'}}{% endraw %}bat{% raw %}{{else}}{% endraw %}sh{% raw %}{{/is}}{% endraw %}
+    win : {% raw %}{{#is ../../this 'win64'}}{% endraw %}true{% raw %}{{else}}{% endraw %}false{% raw %}{{/is}}{% endraw %}
+    dist: {% raw %}{{this}}{% endraw %}
+    jvm : {% raw %}{{../this}}{% endraw %}
+    arch: {% raw %}{{../../this}}{% endraw %}
+    {% raw %}{{/each}}{% endraw %}
+   {% raw %}{{/each}}{% endraw %}
+  {% raw %}{{/each}}{% endraw %}
 
 data:
   _file          : stepB.yaml
