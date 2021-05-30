@@ -22,9 +22,11 @@ data:
 A template file (using [HandleBars](https://handlebarsjs.com/guide/)) to produce a shell script (script.hbs):
 
 ````handlebars
+{% raw %}
 {{#each names}}
 echo {{this}}
 {{/each}}
+{% endraw %}
 ````
 
 Execute the [ojob.io/template/apply](https://ojob.io/template/apply.md):
@@ -47,9 +49,11 @@ You can provide the template and the output file on the initial YAML data file (
 
 ````yaml
 template: &TEMPLATE |
+  {% raw %}
   {{#each names}}
   echo {{this}}
-  {{/each}}
+  {{/each}} 
+  {% endraw %}
 
 data:
   _template: *TEMPLATE
@@ -74,14 +78,14 @@ Let's take our previous example and generate a Windows and an Unix script (data.
 
 ````yaml
 template: &TEMPLATE |
-  {{#if windows}}
+  {% raw %}{{#if windows}}
   @echo off
   {{else}}
   #!/bin/sh
   {{/if}}
   {{#each names}}
   echo {{this}}
-  {{/each}}
+  {{/each}}{{% endraw %}
 
 data:
 - _template: *TEMPLATE
@@ -123,15 +127,15 @@ In your previous example you tried to just use one template and using HandleBars
 ````yaml
 templateWin: &TEMPLATE_WIN |
   @echo off
-  {{#each names}}
+  {% raw %}{{#each names}}
   echo {{this}}
-  {{/each}}
+  {{/each}}{% endraw %}
 
 templateUnix: &TEMPLATE_UNIX |
   #!/bin/sh
-  {{#each names}}
+  {% raw %}{{#each names}}
   echo {{this}}
-  {{/each}}
+  {{/each}}{% endraw %}
 
 data:
 - _template: *TEMPLATE_WIN
@@ -155,6 +159,7 @@ When it gets really interesting is when you generate other data files using a ma
 ````yaml
 template: &TEMPLATE |
   _template: |
+    {% raw %}
     \{{#if win}}
     @echo off
     wget -O jre.zip https://my.site/jres/\{{arch}}/jre-\{{jvm}}.zip
@@ -167,8 +172,10 @@ template: &TEMPLATE |
     \{{/if}}
     wget -O myapp.jar https://my.site/\{{dist}}/myapp.jar
     jre/bin/java -jar myapp.jar --install
-     
+    {% endraw %}
+
   data:
+  {% raw %}
   {{#each arch}}
    {{#each ../jvmVersion}}
     {{#each ../../appDistribution}}
@@ -180,6 +187,7 @@ template: &TEMPLATE |
     {{/each}}
    {{/each}}
   {{/each}}
+  {% endraw %}
 
 data:
   _file          : stepB.yaml
