@@ -12,6 +12,7 @@ nav_order: 4
 
 
 ## One-liner
-* [Quickly validate a YAML file](/docs/guides/oneliner/quickly-validate-a-yaml-file.md)
-* [Starting a HTTP file browser](/docs/guides/oneliner/starting-a-http-file-browser.md)
-* [Test latency](/docs/guides/oneliner/test-latency.md)
+* [Quickly validate a YAML file](/docs/guides/oneliner/quickly-validate-a-yaml-file)
+* [Starting a HTTP file browser](/docs/guides/oneliner/starting-a-http-file-browser)
+* [Test latency](/docs/guides/oneliner/test-latency)
+

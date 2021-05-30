@@ -17,7 +17,7 @@ jobs:
       .select(s => {
          var aTitle = io.readFileString(s.canonicalPath).match(/^title: (.+)$/m);
          if (isNull(aTitle)) return;
-         global.files[r.filename].push({ title: aTitle[1], location: "/docs/guides/" + r.filename + "/" + s.filename });
+         global.files[r.filename].push({ title: aTitle[1], location: "/docs/guides/" + r.filename + "/" + s.filename.replace(/\.md$/, "") });
       });
     });
 
@@ -31,6 +31,7 @@ jobs:
     localFiles.includeMedium   = (args.title == 'Guide' || args.title == 'Medium');
     localFiles.includeAdvanced = (args.title == 'Guide' || args.title == 'Advanced');
     localFiles.includeOneLiner = (args.title == 'Guide' || args.title == 'OneLiner');
+    localFiles.includeOJobIO   = (args.title == 'Guide' || args.title == 'oJobIO');
     localFiles.navOrder = args.navOrder;
 
     tlog("Generating {{file}} for ({{title}})", args);
