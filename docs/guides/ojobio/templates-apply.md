@@ -45,7 +45,7 @@ echo Scott
 
 You can provide the template and the output file on the initial YAML data file (data.yaml):
 
-````yaml
+````
 template: &TEMPLATE |
   {% raw %}{{#each names}}{% endraw %}
   echo {% raw %}{{this}}{% endraw %}
@@ -72,7 +72,7 @@ $ ojob ojob.io/template/apply data=data.yaml
 
 Let's take our previous example and generate a Windows and an Unix script (data.yaml):
 
-````yaml
+````
 template: &TEMPLATE |
   {% raw %}{{#if windows}}{% endraw %}
   @echo off
@@ -120,7 +120,7 @@ echo Scott
 
 In your previous example you tried to just use one template and using HandleBars produce two scripts using the same template. But, if needed, you can actually use different templates (data.yaml):
 
-````yaml
+````
 templateWin: &TEMPLATE_WIN |
   @echo off
   {% raw %}{{#each names}}{% endraw %}
@@ -152,7 +152,7 @@ And executing in the same way as the previous example it will generate the same 
 
 When it gets really interesting is when you generate other data files using a master data & template file. Let's say you need to generate some install scripts for your Java application in different architectures with different JREs. Your stepA.yaml could look like this:
 
-````yaml
+````
 template: &TEMPLATE |
   _template: |
     \{{#if win}}
@@ -208,7 +208,7 @@ $ ojob ojob.io/template/apply data=stepA.yaml
 
 stepB.yaml:
 
-````yaml
+````
 _template: &TEMPLATE
 # ...
 data: 
