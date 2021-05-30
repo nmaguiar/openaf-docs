@@ -22,9 +22,9 @@ data:
 A template file (using [HandleBars](https://handlebarsjs.com/guide/)) to produce a shell script (script.hbs):
 
 ````handlebars
-{% raw %}{{#each names}}{% endraw %}
-echo {% raw %}{{this}}{% endraw %}
-{% raw %}{{/each}}{% endraw %}
+{% raw %}{{#each names}}{% endraw %}
+echo {% raw %}{{this}}{% endraw %}
+{% raw %}{{/each}}{% endraw %}
 ````
 
 Execute the [ojob.io/template/apply](https://ojob.io/template/apply.md):
@@ -45,11 +45,12 @@ echo Scott
 
 You can provide the template and the output file on the initial YAML data file (data.yaml):
 
-````
+{% raw %}
+````yaml
 template: &TEMPLATE |
-  {% raw %}{{#each names}}{% endraw %}
-  echo {% raw %}{{this}}{% endraw %}
-  {% raw %}{{/each}}{% endraw %}
+  {{#each names}}
+  echo {{this}}
+  {{/each}}
 
 data:
   _template: *TEMPLATE
@@ -62,7 +63,7 @@ data:
 
 And it's even simpler to execute:
 
-````bash
+````sh
 $ ojob ojob.io/template/apply data=data.yaml
 ````
 
@@ -72,16 +73,17 @@ $ ojob ojob.io/template/apply data=data.yaml
 
 Let's take our previous example and generate a Windows and an Unix script (data.yaml):
 
-````
+````yaml
 template: &TEMPLATE |
-  {% raw %}{{#if windows}}{% endraw %}
+  {{#if windows}}
   @echo off
-  {% raw %}{{else}}{% endraw %}
+  {{else}}
   #!/bin/sh
-  {% raw %}{{/if}}{% endraw %}
-  {% raw %}{{#each names}}{% endraw %}
-  echo {% raw %}{{this}}{% endraw %}
-  {% raw %}{{/each}}{{% endraw %}
+  {{/if}}
+  {{#each names}}
+  echo {{this}}
+  {{/each}}
+
 
 data:
 - _template: *TEMPLATE
@@ -100,7 +102,7 @@ data:
 
 Execute again and you will get the two different scripts:
 
-````bash
+````sh
 $ ojob ojob.io/template/apply data=data.yaml
 $ cat script.bat
 @echo off
@@ -120,18 +122,18 @@ echo Scott
 
 In your previous example you tried to just use one template and using HandleBars produce two scripts using the same template. But, if needed, you can actually use different templates (data.yaml):
 
-````
+````yaml
 templateWin: &TEMPLATE_WIN |
   @echo off
-  {% raw %}{{#each names}}{% endraw %}
-  echo {% raw %}{{this}}{% endraw %}
-  {% raw %}{{/each}}{% endraw %}
+  {{#each names}}
+  echo {{this}}
+  {{/each}}
 
 templateUnix: &TEMPLATE_UNIX |
   #!/bin/sh
-  {% raw %}{{#each names}}{% endraw %}
-  echo {% raw %}{{this}}{% endraw %}
-  {% raw %}{{/each}}{% endraw %}
+  {{#each names}}
+  echo {{this}}
+  {{/each}}
 
 data:
 - _template: *TEMPLATE_WIN
@@ -143,7 +145,7 @@ data:
 
 - _template: *TEMPLATE_UNIX
   _file    : script.sh
-  names.   : *DATA
+  names    : *DATA
 ````
 
 And executing in the same way as the previous example it will generate the same exact scripts.
@@ -152,7 +154,7 @@ And executing in the same way as the previous example it will generate the same 
 
 When it gets really interesting is when you generate other data files using a master data & template file. Let's say you need to generate some install scripts for your Java application in different architectures with different JREs. Your stepA.yaml could look like this:
 
-````
+````yaml
 template: &TEMPLATE |
   _template: |
     \{{#if win}}
@@ -169,17 +171,17 @@ template: &TEMPLATE |
     jre/bin/java -jar myapp.jar --install
 
   data:
-  {% raw %}{{#each arch}}{% endraw %}
-   {% raw %}{{#each ../jvmVersion}}{% endraw %}
-    {% raw %}{{#each ../../appDistribution}}{% endraw %}
-  - _file: scripts/{% raw %}{{this}}{% endraw %}/{% raw %}{{../../this}}{% endraw %}/{% raw %}{{../this}}{% endraw %}/install.{% raw %}{{#is ../../this 'win64'}}{% endraw %}bat{% raw %}{{else}}{% endraw %}sh{% raw %}{{/is}}{% endraw %}
-    win : {% raw %}{{#is ../../this 'win64'}}{% endraw %}true{% raw %}{{else}}{% endraw %}false{% raw %}{{/is}}{% endraw %}
-    dist: {% raw %}{{this}}{% endraw %}
-    jvm : {% raw %}{{../this}}{% endraw %}
-    arch: {% raw %}{{../../this}}{% endraw %}
-    {% raw %}{{/each}}{% endraw %}
-   {% raw %}{{/each}}{% endraw %}
-  {% raw %}{{/each}}{% endraw %}
+  {{#each arch}}
+   {{#each ../jvmVersion}}
+    {{#each ../../appDistribution}}
+  - _file: scripts/{{this}}/{{../../this}}/{{../this}}/install.{{#is ../../this 'win64'}}bat{{else}}sh{{/is}}
+    win : {{#is ../../this 'win64'}}true{{else}}false{{/is}}
+    dist: {{this}}
+    jvm : {{../this}}
+    arch: {{../../this}}
+    {{/each}}
+   {{/each}}
+  {{/each}}
 
 data:
   _file          : stepB.yaml
@@ -202,13 +204,13 @@ data:
 
 Executing ojob.io/template/apply on stepA.yaml generates a new stepB.yaml with 45 data entries:
 
-````bash
+````sh
 $ ojob ojob.io/template/apply data=stepA.yaml
 ````
 
 stepB.yaml:
 
-````
+````yaml
 _template: &TEMPLATE
 # ...
 data: 
@@ -226,10 +228,11 @@ data:
   arch     : amd64
 # ...
 ````
+{% endraw %}
 
 Executing stepB.yaml:
 
-````bash
+````sh
 $ ojob ojob.io/template/apply data=stepB.yaml
 $ find scripts | grep install | wc -l
 45
@@ -240,3 +243,5 @@ You get 45 install scripts. Now if there is any change you need you just need to
 Of couse, adding new architecures, JVM versions and application distributions is as easy as just changing the stepA.yaml file.
 
 > On stepA.yaml some handlebar entries are escaped with '\'. This is how you escape a handlebar entry to keep if for being evaluated directly on stepA.yaml.
+
+
