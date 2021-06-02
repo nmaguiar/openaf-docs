@@ -97,3 +97,7 @@ $ wget -O - https://openaf.io/download.sh | sh
 ````bash
 $ sudo ojob ojob.io/oaf/symlinks UNINSTALL=true && sudo rm -rf /opt/oaf
 ````
+
+### Nightly build
+
+If you want to install the nightly build follow these [instructions](installing-nightly).
