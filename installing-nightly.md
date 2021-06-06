@@ -31,7 +31,7 @@ $ oafc
 
 ````bash
 $ mkdir oaf && cd oaf
-$ curl -o install.sh https://openaf.io/m1/nightly/install.sh | sh
+$ curl -o install.sh https://openaf.io/macarm/nightly/install.sh | sh
 $ ./oafc
 ````
 
