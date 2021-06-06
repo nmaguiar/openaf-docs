@@ -35,6 +35,7 @@ nav_order: 2
 * [nAttrMon kill after an amount of minutes](/docs/guides/beginner/nattrmon-kill-after-x-amount-minutes)
 * [oJob Check for stall](/docs/guides/beginner/ojob-check-stall)
 * [oJob exception handling](/docs/guides/beginner/ojob-exception-handling)
+* [oJob SSH Basics](/docs/guides/beginner/ojob-ssh-basics)
 * [Protecting from system exit](/docs/guides/beginner/protecting-system-exit)
 * [Receiving keyboard input](/docs/guides/beginner/receiving-keyboard-input)
 * [Relaxed JSON parser](/docs/guides/beginner/relaxed-json-parser)
