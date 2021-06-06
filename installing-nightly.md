@@ -8,15 +8,6 @@ $ wget -O - https://openaf.io/unix64/nightly/install.sh | sh
 $ ./oafc
 ````
 
-### Mac OS
-
-````bash
-$ mkdir oaf && cd oaf
-$ curl -o install.sh https://openaf.io/mac64/nightly/install.sh
-$ sh install.sh
-$ oafc
-````
-
 ### Windows (64-bit)
 
 ````
@@ -25,6 +16,23 @@ C:\> cd oaf
 C:\oaf> curl https://openaf.io/win64/nightly/install.bat -O
 C:\oaf> install.bat
 C:\oaf> oafc
+````
+
+### Mac OS (Intel based)
+
+````bash
+$ mkdir oaf && cd oaf
+$ curl -o install.sh https://openaf.io/mac64/nightly/install.sh
+$ sh install.sh
+$ oafc
+````
+
+### Mac OS (Apple silicon based)
+
+````bash
+$ mkdir oaf && cd oaf
+$ curl -o install.sh https://openaf.io/m1/nightly/install.sh | sh
+$ ./oafc
 ````
 
 ### Docker
