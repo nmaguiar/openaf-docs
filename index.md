@@ -45,7 +45,7 @@ $ ./oafc
 
 ````bash
 $ mkdir oaf && cd oaf
-$ curl -o install.sh https://openaf.io/m1/install.sh | sh
+$ curl -o install.sh https://openaf.io/macarm/install.sh | sh
 $ ./oafc
 ````
 
