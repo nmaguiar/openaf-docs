@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Guide
+title: Guides
 parent: OpenAF docs
 has_children: true
 nav_order: 2
 ---
 
-# Guide
+# Guides
 ## Beginner
 * [Accessing environment variables](/docs/guides/beginner/accessing-environment-variables)
 * [Adding an array to an Excel spreadsheet](/docs/guides/beginner/adding-an-array-to-an-excel-spreadsheet)
