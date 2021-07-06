@@ -1,3 +1,10 @@
+---
+layout: default
+title: Installing the nightly build
+parent: How To
+grand_parent: OpenAF docs
+---
+
 ## Installing the nightly build
 
 ### Unix (x86 based)
