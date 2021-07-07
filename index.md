@@ -109,3 +109,7 @@ $ sudo ojob ojob.io/oaf/symlinks UNINSTALL=true && sudo rm -rf /opt/oaf
 ### Nightly build
 
 If you want to install the nightly build follow these [instructions](installing-nightly).
+
+### Older versions
+
+To install older versions please follow these [instructions](docs/howto/Download-older-versions).

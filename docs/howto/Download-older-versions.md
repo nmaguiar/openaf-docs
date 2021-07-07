@@ -9,7 +9,7 @@ grand_parent: OpenAF docs
 
 ## Older OpenAF versions
 
-Steps:
+### Steps:
 
 1. Use the [list below](#list-of-older-openaf-versions) to download an older OpenAF JAR file.
 2. Save the downloaded JAR file in an existing OpenAF folder, replacing the existing _openaf.jar_, or in a newly created folder.
