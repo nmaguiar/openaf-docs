@@ -23,18 +23,18 @@ $ java -jar openaf.jar --install
 ### List of older OpenAF versions
 
 | Version | URL |
-|---------|-----|
-| 20190809 | https://openaf.io/openaf-20190809.jar |
-| 20191002 | https://openaf.io/openaf-20191002.jar |
-| 20201008 | https://openaf.io/openaf-20200108.jar |
-| 20200202 | https://openaf.io/openaf-20200202.jar |
-| 20200329 | https://openaf.io/openaf-20200329.jar |
-| 20200524 | https://openaf.io/openaf-20200524.jar |
-| 20200819 | https://openaf.io/openaf-20200819.jar |
-| 20201111 | https://openaf.io/openaf-20201111.jar |
-| 20210404 | https://openaf.io/openaf-20210404.jar |
-| 20210412 | https://openaf.io/openaf-20210412.jar |
-| 20210515 | https://openaf.io/openaf-20210515.jar |
+|---------|:----|
+| 20190809 | [https://openaf.io/openaf-20190809.jar](https://openaf.io/openaf-20190809.jar) |
+| 20191002 | [https://openaf.io/openaf-20191002.jar](https://openaf.io/openaf-20191002.jar) |
+| 20201008 | [https://openaf.io/openaf-20200108.jar](https://openaf.io/openaf-20200108.jar) |
+| 20200202 | [https://openaf.io/openaf-20200202.jar](https://openaf.io/openaf-20200202.jar) |
+| 20200329 | [https://openaf.io/openaf-20200329.jar](https://openaf.io/openaf-20200329.jar) |
+| 20200524 | [https://openaf.io/openaf-20200524.jar](https://openaf.io/openaf-20200524.jar) |
+| 20200819 | [https://openaf.io/openaf-20200819.jar](https://openaf.io/openaf-20200819.jar) |
+| 20201111 | [https://openaf.io/openaf-20201111.jar](https://openaf.io/openaf-20201111.jar) |
+| 20210404 | [https://openaf.io/openaf-20210404.jar](https://openaf.io/openaf-20210404.jar) |
+| 20210412 | [https://openaf.io/openaf-20210412.jar](https://openaf.io/openaf-20210412.jar) |
+| 20210515 | [https://openaf.io/openaf-20210515.jar](https://openaf.io/openaf-20210515.jar) |
 
 ## oPack older versions
 
