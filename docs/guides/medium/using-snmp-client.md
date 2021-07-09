@@ -79,3 +79,30 @@ var snmp = new SNMP("udp:snmpsim.try.thola.io/161", "public", aTimeout, aNumberO
 ````
 
 But all the rest is same as shown previously.
+
+The following tables list the possible authProtocol and privProtocol values.
+
+### authProtocol values
+
+Possible values:
+
+| authProtocol |
+|--------------|
+| HMAC128SHA224 |
+| HMAC192SHA256 |
+| HMAC256SHA384 |
+| HMAC384SHA512 |
+| MD5           |
+| SHA           |
+
+### privProtocol values
+
+Possible values:
+
+| privProtocol |
+|--------------|
+| 3DES         |
+| AES128       |
+| AES192       |
+| AES256       |
+| DES          |
