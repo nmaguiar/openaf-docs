@@ -69,7 +69,7 @@ On version 3 you need to provide a little more information:
 plugin("SNMP");
 var aTimeout = 3000, aNumberOfRetries = 3;
 var snmp = new SNMP("udp:snmpsim.try.thola.io/161", "public", aTimeout, aNumberOfRetries, 3, {
-    engineId      : "8000000001020304",
+    engineId      : "8000002a000000000001020304",
     authPassphrase: "authkey1",
     privPassphrase: "privkey1",
     authProtocol  : "MD5",
