@@ -42,7 +42,7 @@ todo:
 - name: Generate MD
   args:
   - file    : index.md
-    title   : Guide
+    title   : Guides
     navOrder: 2
   - file    : beginner/index.md
     title   : Beginner

@@ -10,6 +10,7 @@ nav_order: 2
 
 
 ## Medium
+* [Accessing MongoDB from OpenAF](/docs/guides/medium/accessing-mongodb)
 * [How to access remote JMX data](/docs/guides/medium/accessing-remote-jmx-data)
 * [Accessing XML using E4X](/docs/guides/medium/accessing-xml-using-e4x)
 * [Adding color to OpenAF scripts](/docs/guides/medium/adding-color-to-openaf-scripts)
