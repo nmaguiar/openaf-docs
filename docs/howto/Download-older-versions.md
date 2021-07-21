@@ -35,6 +35,7 @@ $ java -jar openaf.jar --install
 | 20210404 | [https://openaf.io/openaf-20210404.jar](https://openaf.io/openaf-20210404.jar) |
 | 20210412 | [https://openaf.io/openaf-20210412.jar](https://openaf.io/openaf-20210412.jar) |
 | 20210515 | [https://openaf.io/openaf-20210515.jar](https://openaf.io/openaf-20210515.jar) |
+| 20210721 | [https://openaf.io/openaf-20210721.jar](https://openaf.io/openaf-20210721.jar) |
 
 ## oPack older versions
 
