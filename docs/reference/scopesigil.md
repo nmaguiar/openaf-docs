@@ -8,18 +8,33 @@ grand_parent: OpenAF docs
 
 ## scopesigil
 
-### _$
+### $$.get
 
-___$(aObject, anErrorMessagePrefix)__
+__$$.get(aPath) : Object__
 
 ````
-Shortcut to facilitate argument pre-validation and promote defensive programming.
+Given aObject it will try to parse the aPath a retrive the corresponding object under that path. Example:
 
-.default(aNewObject) : aObject
-Checks if aObject is defined and returns aObject. If it's not defined it will return aNewObject (the default value).
+var a = { a : 1, b : { c: 2, d: [0, 1] } };
 
-$_(aMessage) : aObject
-Throws an exception with aMessage if aObject is not defined otherwise returns aObject.
+print($$(a).get("b.c")); // 2
+sprint($$(a).get("b.d")); // [0, 1]
+print($$(a).get("b.d[0]")); // 0
+
+
+````
+### $$.set
+
+__$$.set(aPath, aNewValue) : Object__
+
+````
+Given aObject it will try to parse the aPath a set the corresponding object under that path to aNewValue. Example:
+
+var a = { a : 1, b : { c: 2, d: [0, 1] } };
+
+sprint($$(a).set("b.c", 123); // { a : 1, b : { c: 123, d: [0, 1] } }
+
+
 ````
 ### _$
 
