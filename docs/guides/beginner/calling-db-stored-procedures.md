@@ -16,7 +16,14 @@ For functions, in Oracle and PostgreSQL (or similar) it's pretty straight forwar
 var db = new DB("jdbc:postgresql://my.database.server:5432/database", "user", "password");
 
 // Creating a function (if it doesn't exist already)
-db.u("CREATE OR REPLACE FUNCTION mySum(a int, b int) RETURNS int AS $$ DECLARE r int; BEGIN SELECT (a+b) INTO r; RETURN r; END; $$ LANGUAGE plpgsql")
+db.u("CREATE OR REPLACE FUNCTION mySum(a int, b int)\
+RETURNS int AS $$\
+DECLARE r int;\
+BEGIN\
+   SELECT (a+b) INTO r;\
+   RETURN r;\
+END;\
+$$ LANGUAGE plpgsql");
 
 // Calling the function
 var res = db.q("SELECT mySum(2, 2)");
