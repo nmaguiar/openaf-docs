@@ -13,6 +13,7 @@ nav_order: 1
 * [Adding an array to an Excel spreadsheet](/docs/guides/beginner/adding-an-array-to-an-excel-spreadsheet)
 * [Appending to files](/docs/guides/beginner/appending-to-files)
 * [Calling an AWS Lambda function](/docs/guides/beginner/calling-an-aws-lambda-function)
+* [Calling DB stored procedures](/docs/guides/beginner/calling-db-stored-procedures)
 * [Checking arguments](/docs/guides/beginner/checking-arguments)
 * [Comparing maps and arrays](/docs/guides/beginner/comparing-maps-arrays)
 * [Converting an array to a CSV file and vice-versa](/docs/guides/beginner/converting-array-to-csv-and-viceversa)
