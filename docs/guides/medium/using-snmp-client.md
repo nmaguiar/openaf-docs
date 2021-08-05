@@ -61,6 +61,15 @@ var response = snmp.inform("1.3.6.1.4.1.20408.4.1.1.2", [
 
 In contrast sending a trap will return immediately and there won't be any acknowledgement.  
 
+> Note: Do keep in mind that the value map entry is expected to correspond to the type provided on the same map entry. For example, adding a integer value in contrast with the string value:
+
+````javascript
+snmp.trap("1.3.6.1.4.1.20408.4.1.1.2", [
+    { OID: "1.2.3.4.5.6.7.8", type: "s", value: "My error message." },
+    { OID: "1.2.3.4.5.6.7.9", type: "i", value: 123 }
+])
+````
+
 ## Version 3
 
 On version 3 you need to provide a little more information:
