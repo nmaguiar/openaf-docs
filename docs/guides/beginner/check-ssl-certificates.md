@@ -13,7 +13,7 @@ _(version >= 20210721)_
 
 ## How to get the SSL public certificates
 
-Simply use the ___ow.net.getSSLPublicCertificates__ function:
+Simply use the __ow.net.getSSLPublicCertificates__ function:
 
 ````javascript
 ow.loadNet();
