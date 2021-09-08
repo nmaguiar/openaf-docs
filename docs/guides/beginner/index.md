@@ -14,6 +14,7 @@ nav_order: 1
 * [Appending to files](/docs/guides/beginner/appending-to-files)
 * [Calling an AWS Lambda function](/docs/guides/beginner/calling-an-aws-lambda-function)
 * [Calling DB stored procedures](/docs/guides/beginner/calling-db-stored-procedures)
+* [Check SSL certificates](/docs/guides/beginner/check-ssl-certificates)
 * [Checking arguments](/docs/guides/beginner/checking-arguments)
 * [Comparing maps and arrays](/docs/guides/beginner/comparing-maps-arrays)
 * [Converting an array to a CSV file and vice-versa](/docs/guides/beginner/converting-array-to-csv-and-viceversa)
