@@ -38,6 +38,7 @@ nav_order: 2
 * [Simple nAttrMon debugging](/docs/guides/medium/simple-nattrmon-debugging)
 * [Timing executions on OpenAF console](/docs/guides/medium/timing-executions-on-openaf-console)
 * [Using channel peers](/docs/guides/medium/using-channel-peers)
+* [Using console inside Kubernetes](/docs/guides/medium/using-console-inside-kubernetes)
 * [Using ElasticSearch with nAttrMon](/docs/guides/medium/using-elasticsearch-with-nattrmon)
 * [Using an in memory DB](/docs/guides/medium/using-in-mem-db)
 * [Using the SNMP plugin](/docs/guides/medium/using-snmp-client)
