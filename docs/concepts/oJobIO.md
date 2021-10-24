@@ -41,6 +41,34 @@ Let's say you wanna retrieve the same environment variables but on HTML
 $ ojob ojob.io/pipe 0=ojob.io/envs 1=ojob.io/html
 ````
 
+## Using ojob.io from Docker directly
+
+Depending on the ojob.io job you can run it directly in a docker command:
+
+````bash
+$ docker run --rm -ti openaf/oaf --ojob -e "ojob.io"
+````
+
+### Examples
+
+Testing port latency:
+
+````bash
+docker run --rm -ti openaf/oaf --ojob -e "ojob.io/net/latency host=8.8.8.8 port=443 times=10"
+````
+
+Testing JDBC latency:
+
+````bash
+$ docker run --rm -ti openaf/oaf --ojob -e "ojob.io/net/jdbc jdbc=jdbc:postgresql://hh-pgsql-public.ebi.ac.uk:5432/pfmegrnargs user=reader pass=NWDMCE5xdipIjRrp"
+````
+
+Generating a template oJob yaml file:
+
+````bash
+$ docker run --rm -ti openaf/oaf --ojob -e "ojob.io/generate jobs=JobA,JobB author=myself"
+````
+
 ## Some of the basic ojob.io
 
 | ojob.io | Description | Example |
