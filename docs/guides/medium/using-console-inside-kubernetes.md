@@ -64,7 +64,21 @@ You can also perform reverse DNS lookups
 > ow.net.getIP2Host("10.97.189.52")
 minio.default.svc.cluster.local
 ````
- 
+
+### Performing SQL queries over JDBC
+
+````javascript
+> var db = new DB("jdbc:postgresql://hh-pgsql-public.ebi.ac.uk:5432/pfmegrnargs", "reader", "NWDMCE5xdipIjRrp")
+> sql db select * from pg_catalog.pg_tables where schemaname != 'pg_catalog' and schemaname != 'information_schema' and hasindexes = 'false' and hastriggers = 'true'
+schemaname│          tablename           │tableowner│tablespace│hasindexes│hasrules│hastriggers│rowsecurity
+──────────┼──────────────────────────────┼──────────┼──────────┼──────────┼────────┼───────────┼───────────
+rnacen    │validate_layout_counts        │rnacen    │null      │false     │false   │true       │false
+rnacen    │rnc_feedback_target_assemblies│rnacen    │null      │false     │false   │true       │false
+````
+
+You can use any of the OpenAF database functionality to test or perform quick test queries.
+
+
 ### Testing JDBC latency
 
 ````javascript
