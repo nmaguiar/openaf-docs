@@ -200,6 +200,7 @@ var names = [
 |------|-------------|---------|
 | each | | |
 | intersect | | |
+| cartesian | | |
 | except | | | 
 | union | | |
 | attach | | |
