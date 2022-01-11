@@ -41,6 +41,7 @@ nav_order: 2
 * [Using console inside Kubernetes](/docs/guides/medium/using-console-inside-kubernetes)
 * [Using ElasticSearch with nAttrMon](/docs/guides/medium/using-elasticsearch-with-nattrmon)
 * [Using an in memory DB](/docs/guides/medium/using-in-mem-db)
+* [Using Java classes & methods](/docs/guides/medium/using-java-methods)
 * [Using the SNMP plugin](/docs/guides/medium/using-snmp-client)
 * [Using the OpenAF&#x27;s SVN plugin](/docs/guides/medium/using-the-openafs-svn-plugin)
 
