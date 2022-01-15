@@ -32,6 +32,7 @@ nav_order: 1
 * [How to upload/download files from a Window/SMB share folder](/docs/guides/beginner/how-to-use-the-smb-plugin)
 * [Introduction to streams in OpenAF](/docs/guides/beginner/introduction-to-streams-in-openaf)
 * [Is defined or undefined](/docs/guides/beginner/is-defined-or-undefined)
+* [Log to JSON](/docs/guides/beginner/log-to-json)
 * [Making it easy to read with $from](/docs/guides/beginner/making-it-easy-to-read-with-from)
 * [Making REST service calls from OpenAF](/docs/guides/beginner/making-rest-calls)
 * [Micro remote HTTP server file browser](/docs/guides/beginner/micro-remote-http-server-file-browser)
