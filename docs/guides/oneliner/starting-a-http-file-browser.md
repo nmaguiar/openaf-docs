@@ -2,7 +2,7 @@
 layout: default
 title: Starting a HTTP file browser
 parent: OneLiner
-grand_parent: OpenAF docs
+grand_parent: Guides
 ---
 
 # Starting a HTTP file browser
