@@ -101,7 +101,7 @@ logWarn("POINT OF NO RETURN!", { async: false })
 
 ## Logging to an OpenAF channel
 
-It's also possible to configure OpenAF to log to an [OpenAF channel](concepts/OpenAF-Channels.md). This allows logging to fully use the OpenAF channels functionality including output to external targets like ElasticSearch and others.
+It's also possible to configure OpenAF to log to an [OpenAF channel](/docs/concepts/OpenAF-Channels). This allows logging to fully use the OpenAF channels functionality including output to external targets like ElasticSearch and others.
 
 To start the functionality you just need to use the function _startLog(anOpenAFChannelSubscribeFunction, keepItems)_. The numeric _keepItems_ argument (which defaults to 100) determines how many entries to keep internally (in memory) for the OpenAF channel functionality (if you specify -1 no life-cycle will be used).
 
@@ -145,4 +145,4 @@ stopLog()
 
 ## Check also
 
-* [How to log to files](docs/guides/medium/logging-to-log-files.md) with automated compression of old files and life-cycle/house-keeping management. 
+* [How to log to files](/docs/guides/medium/logging-to-log-files) with automated compression of old files and life-cycle/house-keeping management. 
