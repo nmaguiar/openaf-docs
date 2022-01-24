@@ -120,6 +120,12 @@ You can add an array of map entries just indicating which map entries should be 
 > $ch("mychannel").setAll(["date", "person"], anArrayOfData)
 ````
 
+In a similar way to *setAll* you can also remove entries:
+
+````javascript
+> $ch("mychannel").unsetAll(["date", "person"], anArrayOfData)
+````
+
 To retrieve data you simply use the full key:
 
 ````javascript
@@ -139,6 +145,12 @@ To get a list of all the keys of a channel:
 ````javascript
 > $ch("mychannel").getKeys()
 > $ch("mychannel").getSortedKeys() // by the last changes
+````
+
+You can use the list of keys of a channel to also delete all entries:
+
+````javascript
+> $ch("mychannel").unsetAll(["date", "person"], $ch("mychannel").getKeys())
 ````
 
 To get all elements of a channel:
