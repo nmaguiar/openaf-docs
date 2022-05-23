@@ -5,7 +5,7 @@ parent: Beginner
 grand_parent: Guides
 ---
 
-# Prefer IPv6
+# Prefer IPv6 over IPv4
 
 OpenAF runs on Java (>= 8) which enables network connections both in IPv4 or IPv6. It's able to automatically use one or the other. But there will situations where both options are possible, would it be possible to force one of them over the other?
 
