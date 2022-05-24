@@ -22,27 +22,27 @@ try {
 You should always handle the exception but you can avoid even going into the try/catch block with a quick TCP connectivy check:
 
 ````javascript
-ow.loadFormat();
+ow.loadNet()
 
-var host = "my.service.host";
-var port = 1234;
+var host = "my.service.host"
+var port = 1234
 
-if (ow.format.testPort(host, port)) {
-    var result;
+if (ow.net.testPort(host, port)) {
+    var result
     try {
-        result = callService(host, port, params);
+        result = callService(host, port, params)
         // process result
     } catch(e) {
-        logErr("Problem calling service on " + host + ":" + port);
+        logErr("Problem calling service on " + host + ":" + port)
     }
 } else {
-    logErr("No connectivity to " + host + ":" + port);
+    logErr("No connectivity to " + host + ":" + port)
 }
 ````
 
-The _ow.format.testPort_ function allows for quick socket connection tests. By default it timeouts after 1.5 seconds but you can change that using a third parameter:
+The _ow.test.testPort_ function allows for quick socket connection tests. By default it timeouts after 1.5 seconds but you can change that using a third parameter:
 
 ````javascript
 // Wait 5 seconds before declaring farAway service not reachable (false)
-ow.format.testPort(farAwayHost, farAwayPort, 5000);
+ow.test.testPort(farAwayHost, farAwayPort, 5000);
 ````
