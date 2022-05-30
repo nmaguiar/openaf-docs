@@ -17,20 +17,26 @@ Basics:
 
 ## Flags
 
-* '-' (left-justified)
-* '#'; '+' (include sign)
-* ' ' (leading space)
-* '0' (zero-padded)
-* ',' (separators)
-* '(' (enclose negative values)
+| Flag | Description |
+|------|-------------|
+| '-'  | left-justified |
+| '#'; '+' | include sign |
+| ' ' | leading space |
+| '0' | zero-padded |
+| ',' | separators |
+| '(' | enclose negative values |
 
 ## Conversion
 
-* b/B (boolean)
-* h/H (hash)
-* s/S (string)
-* "-" (left justify)
-* c/C (character)       
+| Conversion | Description |
+|------------|-------------|
+| b/B | boolean |
+| h/H | hash |
+| s/S | string |
+| "-" | left justify |
+| c/C | character |   
+
+## Sheet
 
 | Adding | Command | Results |
 |--------|---------|---------|
