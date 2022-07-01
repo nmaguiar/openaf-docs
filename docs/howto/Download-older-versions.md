@@ -38,6 +38,8 @@ $ java -jar openaf.jar --install
 | 20210721 | [https://openaf.io/openaf-20210721.jar](https://openaf.io/openaf-20210721.jar) | |
 | 20211229 | [https://openaf.io/openaf-20211229.jar](https://openaf.io/openaf-20211229.jar) | latest |
 
+> Note: you can also check the [GitHub releases list](https://github.com/OpenAF/openaf/releases)
+
 ## oPack older versions
 
 You can easily check for older oPack versions by browsing to the [opack download folder](https://openaf.io/opacks)

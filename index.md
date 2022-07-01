@@ -114,3 +114,4 @@ If you want to install the nightly build follow these [instructions](installing-
 ### Older versions
 
 To install older versions please follow these [instructions](docs/howto/Download-older-versions).
+You can also check the [GitHub releases list](https://github.com/OpenAF/openaf/releases)
