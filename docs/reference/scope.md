@@ -26,6 +26,27 @@ $a2m(['a', 'b', 'c'], [1, 2, 3])    // { a: 1, b: 2, c: 3 }
 
 
 ````
+### $a4m
+
+__$a4m(anArray, aKey, dontRemove) : Array__
+
+````
+Tries to create a map of maps from the provided anArrays. Optionally if aKey is provided it will be used to create the map keys (otherwise will fallback to "row[number]"). And can also optionally indicate by dontRemove = true that aKey shouldn't be removed from each map. 
+var a = [
+  { "abc": "123", "xpt": "000", "key": "A1" },
+  { "abc": "456", "xpt": "001", "key": "A2" },
+  { "abc": "789", "xpt": "002", "key": "A3" }
+]
+
+$a4m(a, "key");
+// {
+//   "A1": { "abc": "123", "xpt": "000" },
+//   "A2": { "abc": "456", "xpt": "001" },
+//   "A3": { "abc": "789", "xpt": "002" }
+// }
+
+
+````
 ### $atomic
 
 __$atomic(aInitValue, aType) : Object__
@@ -33,21 +54,26 @@ __$atomic(aInitValue, aType) : Object__
 ````
 Creates an atomic object of aType (defaults to long) to be get/set atomically on a multithreading script initialized with aInitValue. aType can be "int", "long" and "boolean". Each with different methods:
 
-   int.dec       - Decrement an integer
-   int.inc       - Increment an integer
-   int.get       - Get the current integer
-   int.getSet(n) - Get and Set the current integer
-   int.getAdd(n) - Get and Add to the current integer
+   int.dec          - Decrement an integer
+   int.inc          - Increment an integer
+   int.get          - Get the current integer
+   int.getSet(n)    - Get and Set the current integer
+   int.getAdd(n)    - Get and Add to the current integer
+   int.setIf(t, n)  - Set the current integer to n if current value is t
+   int.set          - Set the current integer
 
-   long.dec       - Decrement an long
-   long.inc       - Increment an long
-   long.get       - Get the current long
-   long.getSet(n) - Get and Set the current long
-   long.getAdd(n) - Get and Add to the current long
+   long.dec         - Decrement an long
+   long.inc         - Increment an long
+   long.get         - Get the current long
+   long.getSet(n)   - Get and Set the current long
+   long.getAdd(n)   - Get and Add to the current long
+   long.setIf(t, n) - Set the current long to n if current value is t
+   long.set         - Set the current long
 
-   boolean.get    - Get the current boolean
-   boolean.set    - Set the current boolean
-   boolean.getSet - Get and Set the current boolean
+   boolean.get         - Get the current boolean
+   boolean.set         - Set the current boolean
+   boolean.getSet      - Get and Set the current boolean
+   boolean.setIf(t, n) - Set the current boolean to n if current value is t\
 
 
 ````
@@ -234,6 +260,18 @@ Inter-channel HTTP REST:
 - peer(aLocalPortOrServer, aPath, aRemoteURL, aAuthFunc, aUnAuthFunc, aMaxTime, aMaxCount)
 - unpeer(aRemoteURL)
 - createRemote(aURL, aTimeout, aLogin, aPass)
+````
+### $csv
+
+__$csv(aMap) : $csv__
+
+````
+Provides a shortcut to access CSV functionality. Optionally you can provide options through aMap.
+
+Examples:
+  $csv().fromInFile("test.csv").toOutArray()
+  $csv().fromInFile("test.csv").toOutFn(m => print( af.toSLON(m) ))
+  $csv().fromInString( $csv().fromInArray( io.listFiles(".").files ) ).toOutArray()
 ````
 ### $do
 
@@ -480,6 +518,28 @@ __$m2a(aDef, aMap) : Array__
 Tries to convert aMap into an array using the aDef array of keys for the values order in the output array. Example:
 
 $m2a(['c', 'b', 'a'], { a: 1, b: 2, c: 3 })    // [ 3, 2, 1 ]
+
+
+````
+### $m4a
+
+__$m4a(aMap, aKey) : Array__
+
+````
+Tries to create an array of maps from the provided aMap map of maps. Optionally if aKey is provided it will be added to each array map with the map key. Example:
+
+var a = {
+   "A1": { "abc": "123", "xpt": "000" },
+   "A2": { "abc": "456", "xpt": "001" },
+   "A3": { "abc": "789", "xpt": "002" }
+}
+
+$m4a(a, "key");
+// [
+//  { "key": "A1", "abc": "123", "xpt": "000" },
+//  { "key": "A2", "abc": "456", "xpt": "001" },
+//  { "key": "A3", "abc": "789", "xpt": "002" }
+// ]
 
 
 ````
@@ -1144,7 +1204,7 @@ Tries to dump aJson into a YAML string. If multiDoc = true and aJson is an array
 ````
 ### ansiColor
 
-__ansiColor(aAnsi, aString, force) : String__
+__ansiColor(aAnsi, aString, force, noCache) : String__
 
 ````
 Returns the ANSI codes together with aString, if determined that the current terminal can handle ANSI codes (overridden by force = true), with the attributes defined in aAnsi. Please use with ansiStart() and ansiStop(). The attributes separated by commas can be:
@@ -1176,6 +1236,13 @@ __ansiStop(force)__
 
 ````
 Disables the output of ansi codes if the current terminal is capable off (unless force = true). Use with ansiColor() and ansiStart().
+````
+### ansiWinTermCap
+
+__ansiWinTermCap() : boolean__
+
+````
+Determines in Windows if the current terminal has support for newer capabilities or not (e.g. cmd.exe)
 ````
 ### arrayContains
 
@@ -1380,6 +1447,13 @@ __deleteFromArray(anArray, anIndex) : Array__
 ````
 Deletes the array element at anIndex from the provided anArray. Returns the new array with the element removed.
 ````
+### descType
+
+__descType(aObject) : String__
+
+````
+Given aObject will try to return the apparent type withing: undefined, null, bytearray, javaclass, java, boolean, array, number, string, function, date, map and object.
+````
 ### dumpLog
 
 __dumpLog() : Array__
@@ -1583,6 +1657,13 @@ __io.isBinaryFile(aFile, confirmLimit) : boolean__
 ````
 Tries to determine if the provided aFile is a binary or text file by checking the first 1024 chars (limit can be changed using confirmLimit). Returns true if file is believed to be binary. Based on the function isBinaryArray.
 ````
+### io.listFilesTAR
+
+__io.listFilesTAR(aTARfile, isGzip) : Array__
+
+````
+Given aTARfile (or output stream (with isGzip = true/false)) will return an array with the TAR file entries. Each entry will have: isDirectory (boolean), isFile (boolean), canonicalPath (string), filepath (string), filename (string), size (number), lastModified (date), groupId (string), group (string), userId (string) and user (string).
+````
 ### io.onDirEvent
 
 __io.onDirEvent(aPath, aFn, aFnErr) : Promise__
@@ -1600,12 +1681,54 @@ $doWait(p);
 
 
 ````
+### io.pipeCh
+
+__io.pipeCh(aFunc)__
+
+````
+Starts a wait on stdin calling aFunc everytime a character is sent to stdin. The wait cycle breaks when aFunc returns true.
+````
+### io.pipeLn
+
+__io.pipeLn(aFunc)__
+
+````
+Starts a wait on stdin calling aFunc everytime a line is sent to stdin. The wait cycle breaks when aFunc returns true.
+````
+### io.readFileBytesRO
+
+__io.readFileBytesRO(aFile) : ByteArray__
+
+````
+Tries to read aFile in read-only mode (even if being used by another process) and returns the corresponding byte array.
+````
 ### io.readFileJSON
 
 __io.readFileJSON(aJSONFile) : Object__
 
 ````
 Tries to read aJSONFile into a javascript object.
+````
+### io.readFileTAR2Stream
+
+__io.readFileTAR2Stream(aTARfile, isGzip, aFunc)__
+
+````
+Given aTARFile (or stream) will call aFunc(tion) with the corresponding Java TAR input stream. If aTARFile is a stream you should specify with isGzip = true/false if it has been "gzipped". Note: for direct usage use io.readFileTARStream
+````
+### io.readFileTARBytes
+
+__io.readFileTARBytes(aTARFile, aFilePath, isGzip) : ByteArray__
+
+````
+Given aTARFile (or stream) will try to retrieve aFilePath and return the corresponding byte array. If aTARFile is a stream you should specify with isGzip = true/false if it has been "gzipped".
+````
+### io.readFileTARStream
+
+__io.readFileTARStream(aTARFile, aFilePath, isGzip, aFunc)__
+
+````
+Given aTARFile (or stream) will try to retrieve aFilePath and call aFunc(tion) with the corresponding Java input stream. If aTARFile is a stream you should specify with isGzip = true/false if it has been "gzipped".
 ````
 ### io.readFileYAML
 
@@ -1619,7 +1742,21 @@ Tries to read aYAMLFile into a javascript object.
 __io.readLinesNDJSON(aNDJSONFile, aFuncCallback, aErrorCallback)__
 
 ````
-Opens aNDJSONFile (a newline delimited JSON) as a stream call aFuncCallback with each parse JSON. If aFuncCallback returns true the cycle will be interrupted. For any parse error it calls the aErrorCallback  with each exception.
+Opens aNDJSONFile (a newline delimited JSON) (a filename or an input stream) as a stream call aFuncCallback with each parse JSON. If aFuncCallback returns true the cycle will be interrupted. For any parse error it calls the aErrorCallback  with each exception.
+````
+### io.readStreamJSON
+
+__io.readStreamJSON(aJSONFile, aValFunc) : Map__
+
+````
+Reads a JSON file (aJSONFile) without loading all structures to memory (usefull to handling large JSON files). The aValFunc receives a single string argument with the current JSON path being processed (for example $.log.entries[123].request), where "$" is the root of the JSON document. When aValFunc returns true the current JSON structure is recorded in memory. If aValFunc is not defined it will return true for all paths. Returns the JSON structure recorded in memory.
+
+Example:
+
+   var amap = io.readStreamJSON("someFile.har",
+                                path => (/^\$\.log\.entries\[\d+\]\.request/).test(path))
+
+
 ````
 ### io.writeFileJSON
 
@@ -1627,6 +1764,27 @@ __io.writeFileJSON(aJSONFile, aObj, aSpace)__
 
 ````
 Tries to write a javascript aObj into a aJSONFile with an optional aSpace.
+````
+### io.writeFileTAR4Stream
+
+__io.writeFileTAR4Stream(aTARfile, isGzip, aFunc)__
+
+````
+Given aTARfile (or output stream (with isGzip = true/false)) will call aFunc with the Java TAR output stream. Note: for direct usage use io.writeFileTARStream
+````
+### io.writeFileTARBytes
+
+__io.writeFileTARBytes(aTARfile, aFilePath, isGzip, aArrayBytes)__
+
+````
+Given aTARfile (or output stream (with isGzip = true/false)) will write aArrayBytes into aFilePath in the TAR file/stream. Note: for multiple files use io.writeFileTARStream
+````
+### io.writeFileTARStream
+
+__io.writeFileTARStream(aTARfile, isGzip, aFunc)__
+
+````
+Given aTARfile (or output stream (with isGzip = true/false)) will call aFunc(tion) providing, as argument, a writer function with two arguments: aFilePath and a Java input stream for the contents.
 ````
 ### io.writeFileYAML
 
@@ -1640,7 +1798,7 @@ Tries to write a javascript aObj into a aYAMLFile. If multiDoc = true and aJson 
 __io.writeLineNDJSON(aNDJSONFile, aObj, aEncode)__
 
 ````
-Writes aObj into a single line on aNDJSONFile (newline delimited JSON). Optionally you can provide an encoding.
+Writes aObj into a single line on aNDJSONFile (newline delimited JSON) (or an output stream). Optionally you can provide an encoding (only is a string filename is provided)
 ````
 ### ioSetNIO
 
@@ -1760,6 +1918,13 @@ __isInteger(aObj) : boolean__
 
 ````
 Returns true if aObj doesn't have a decimal component.
+````
+### isJavaClass
+
+__isJavaClass(aObj) : boolean__
+
+````
+Return true if aObj is a Java class, false otherwise
 ````
 ### isJavaException
 
@@ -2033,6 +2198,13 @@ __merge(anObjectA, anObjectB) : aMergedObject__
 ````
 Merges a JavaScript object A with a JavaScript object B a returns the result as a new object.
 ````
+### newFn
+
+__newFn() : Function__
+
+````
+Builds a new Function handling any debug needs if necessary.
+````
 ### newJavaArray
 
 __newJavaArray(aJavaClass, aSize) : JavaArrayClass__
@@ -2060,6 +2232,13 @@ __nowNano() : Number__
 
 ````
 Will return the current system time in nanoseconds.
+````
+### nowTZ
+
+__nowTZ() : Number__
+
+````
+Returns the same as now() but adjusted with the local timezone offset.
 ````
 ### nowUTC
 
@@ -2186,6 +2365,13 @@ __ow.loadCh()__
 
 ````
 Loads OpenWrap channels functionality.
+````
+### ow.loadDebug
+
+__ow.loadDebug()__
+
+````
+Loads OpenWrap debug functionality.
 ````
 ### ow.loadDev
 
@@ -2409,6 +2595,20 @@ __printTable(anArrayOfEntries, aWidthLimit, displayCount, useAnsi, aTheme) : Str
 ````
 Returns a ASCII table representation of anArrayOfEntries where each entry is a Map with the same keys. Optionally you can specify aWidthLimit and useAnsi. If you want to include a count of rows just use displayCount = true. If useAnsi = true you can provide a theme (e.g. "utf" or "plain")
 ````
+### printTree
+
+__printTree(aObj, aWidth, aOptions) : String__
+
+````
+Given aObj(ect) will return a tree with the object elements. Optionaly you can specificy aWidth and/or aOptions: noansi (boolean) no ansi character sequences, curved (boolean) for UTF curved characters, wordWrap (boolean) to wrap long string values, compact (boolean) to compact tree lines, fullKeySize (boolean) to pad the each entry key, fullValSize (boolean) to pad the entire key and value and withValues (boolean) to include or not each key values
+````
+### printTreeOrS
+
+__printTreeOrS(aObj, aWidth, aOptions) : String__
+
+````
+Tries to use printTree with the provided arguments. In case printTree throws an exception (like insuffisance width) if will fallback to colorify or stringify (if the noansi option is true).
+````
 ### processExpr
 
 __processExpr(aSeparator, ignoreCase, aSource) : Map__
@@ -2422,6 +2622,13 @@ __quickSort(items, aCompareFunction) : Array__
 
 ````
 Performs a quick sort algorithm on the items array provided. Optionally aCompareFunction can be provided. The sorted array will be returned.
+````
+### range
+
+__range(aCount, aStart, aStep) : Array__
+
+````
+Generates an array with aCount of numbers starting at 1. Optionally you can provide a different aStart number and/or aStep increment.
 ````
 ### repeat
 
@@ -2509,6 +2716,7 @@ Sets the current log output settings:
 - separator  (string)  String to use as separator
 - async      (boolean) Run in async mode
 - profile    (boolean) Gathers memory and system load stats
+- format     (string)  Sets the format to output logs (e.g. json, slon, human)
 
 
 ````
@@ -2517,7 +2725,7 @@ Sets the current log output settings:
 __setOfflineHelp(aBoolean)__
 
 ````
-Forces help (odoc) to be retrieved locally (if aBoolean is true) or reestablishes the normal behaviour of retriving from online first (if aBoolean is false)
+Forces help (odoc) to be retrieved locally (if aBoolean is true) or reestablishes the normal behaviour of retrieving from online first (if aBoolean is false)
 ````
 ### sh
 

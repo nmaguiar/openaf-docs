@@ -296,13 +296,17 @@ __ow.ch.types.elasticsearch__
 ````
 This OpenAF implementation connects to an ElasticSearch (ES) server/cluster. The creation options are:
 
-   - index (String/Function) The ES index to use or a function to return the name (see also ow.ch.utils.getElasticIndex).
-   - idKey (String)          The ES key id field. Defaults to '_id'.
-   - url   (String)          The HTTP(S) URL to access the ES server/cluster.
-   - user  (String)          Optionally provide a user name to access the ES server/cluster.
-   - pass  (String)          Optionally provide a password to access the ES server/cluster (encrypted or not).
-   - fnId  (Function)        Optionally called on every operation to calculate the idKey with the key provided as argument.
-
+   - index       (String/Function) The ES index to use or a function to return the name (see also ow.ch.utils.getElasticIndex).
+   - format      (String)          If index is a string will use format with ow.ch.utils.getElasticIndex.
+   - idKey       (String)          The ES key id field. Defaults to 'id'.
+   - url         (String)          The HTTP(S) URL to access the ES server/cluster.
+   - user        (String)          Optionally provide a user name to access the ES server/cluster.
+   - pass        (String)          Optionally provide a password to access the ES server/cluster (encrypted or not).
+   - fnId        (String/Function) Optionally called on every operation to calculate the idKey with the key provided as argument. If string will the corresponding hash function (md5/sha1/etc...) with sortMapKeys + stringify.
+   - size        (Number)          Optionally getAll/getKeys to return more than 10 records (up to 10000).
+   - stamp       (Map)             Optionally merge with stamp map.
+   - timeout     (Number)          Optional request timeout in ms.
+ 
 The getAll/getKeys functions accept an extra argument to provide a ES query map to restrict the results.
 ````
 ### ow.ch.types.file
@@ -319,6 +323,8 @@ This OpenAF implementation implements a simple channel on a single JSON or YAML 
    - key       (String)  If a key contains "key" it will be replaced by the "key" value
    - multipath (Boolean) Supports string keys with paths (e.g. ow.obj.setPath) (defaults to false)
    - lock      (String)  If defined the filepath to a dummy file for filesystem lock while accessing the file
+   - gzip      (Boolean) If true the output file will be gzip (defaults to false)
+   - tmp       (Boolean) If true "file" will be temporary and destroyed upon execution/process end
 
 
 ````
@@ -355,6 +361,27 @@ __ow.ch.types.ops__
 
 ````
 This OpenAF channel implementation encapsulates access based on functions. The creation options a map of keys where each value is a function.
+````
+### ow.ch.types.prometheus
+
+__ow.ch.types.prometheus__
+
+````
+This OpenAF implementation connects to a prometheus server. The creation options are:
+
+   - urlQuery  (String) The URL of a prometheus server (e.g. http://prometheus:9090) 
+   - urlPushGW (String) The URL of a prometheus push gateway server (e.g. http://prometheus:9091).
+   - prefix    (String) If defined the prefix for all openmetrics.
+   - gwGroup   (Map)    A map of grouping labels for data ingestion by the push gw (job label must be defined).
+   - helpMap   (Map)    The helpMap for the openmetrics (see more in ow.metrics.fromObj2OpenMetrics).
+
+The forEach/getSet/pop/shift/unsetAll functions are not supported.
+The size function retrieves the total number of labels.
+The get/getAll function enables instant query (with the extra map key query), query range query (with the extra map keys query, start and end) and label values query (with the extra map key label).
+The set/setAll functions only consider the value(s) argument, the key(s) is ignored.
+
+Note: query by specific series are not currently supported.
+
 ````
 ### ow.ch.types.proxy
 
@@ -468,7 +495,7 @@ Returns a channel subscriber function that will transform changes to a log chann
 __ow.ch.utils.getMirrorSubscriber(aTargetCh, aFunc) : Function__
 
 ````
-Returns a channel subscriber function that will mirror any changes to aTargetCh if aFunc returns true when invoked with the key being changed.
+Returns a channel subscriber function that will mirror any changes to aTargetCh if aFunc(key, op) returns true when invoked with the key being changed and the corresponding operation.
 ````
 ### ow.ch.utils.getStatsProxyFunction
 
@@ -505,6 +532,13 @@ __ow.ch.utils.mvs.rename(aMVSFile, anOriginalMap, aDestinationMap)__
 ````
 Renames anOriginalMap by aDestinationMap on the provided aMVSFile.
 ````
+### ow.ch.utils.poolChanges
+
+__ow.ch.utils.poolChanges(aCh, idKeys, aChM)__
+
+````
+When executed pools to find all changes in aCh, using an idKeys array of key map fields, and executing a setAll on aCh for the changed entries. To compare it stores the last version in a 'aCh + "::chMemory"' channel that can be created with aChM map options ($ch type and options entries). Usefull to trigger channel subscribed functions when the aCh type doesn't detect automatically changes. Should be used with small sized channels as datasets are compared in memory.
+````
 ### ow.ch.utils.setLogToFile
 
 __ow.ch.utils.setLogToFile(aConfigMap)__
@@ -537,8 +571,8 @@ Table of sync actions given the return values of a custom syncFn(source, target)
 
   | source | target | return true | return false |
   |--------|--------|-------------|--------------|
-  | __ | def    | del target  | add source   |
-  | def    | __ | add target  | del source   |
+  | __     | def    | del target  | add source   |
+  | def    | __     | add target  | del source   |
   | def    | def    | set target  | set source   |
 
 

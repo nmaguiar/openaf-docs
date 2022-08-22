@@ -10,7 +10,7 @@ grand_parent: OpenAF docs
 
 ### $sec.$sec
 
-__$sec.$sec(aRepo, dBucket, dLockSecret, aMainSecret) : $sec__
+__$sec.$sec(aRepo, dBucket, dLockSecret, aMainSecret, aFile) : $sec__
 
 ````
 Shortcut for acessing ow.sec.SBuckets given aMainSecret and, optionally, aRepo. A default dBucket and the corresponding dLockSecret can be provided.
@@ -129,7 +129,7 @@ Open the default SBucket using aMainSecret.
 ````
 ### ow.sec.openSBuckets
 
-__ow.sec.openSBuckets(aRepo, aMainSecret)__
+__ow.sec.openSBuckets(aRepo, aMainSecret, aFile)__
 
 ````
 Opens aRepo SBucket using aMainSecret.

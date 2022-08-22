@@ -23,6 +23,13 @@ __ow.test.getChannel() : Channel__
 ````
 Gets the current channel being used for test results.
 ````
+### ow.test.getExecHistory
+
+__ow.test.getExecHistory() : Array__
+
+````
+Gets the test results execution history.
+````
 ### ow.test.reset
 
 __ow.test.reset()__
@@ -30,6 +37,13 @@ __ow.test.reset()__
 ````
 Resets the internal test counters (test, pass and fail).
 (available after ow.loadTest())
+````
+### ow.test.setKeepStackTrace
+
+__ow.test.setKeepStackTrace(aBooleanSetting)__
+
+````
+Turns on (off by default) on keeping the java stack trace on java exceptions if aBooleanSetting = true.
 ````
 ### ow.test.setMemoryProfile
 

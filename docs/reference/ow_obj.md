@@ -109,6 +109,36 @@ If optionsMap.justAnsi it won't print and just produce the ANSI color codes.
 If optionsMap.justChanges = true only the changed lines will be represented with the rest.
 If optionsMap.justDiff = true only the changed lines will be included.
 ````
+### ow.obj.filter
+
+__ow.obj.filter(anArray, aMap) : Object__
+
+````
+Given anArray will use $from with the options on aMap basically making all $from options map parameters. Example:
+\  filter:
+  where:
+  - cond: equals
+    args:
+    - isFile
+    - true
+  transform:
+  - func: attach
+    args:
+    - lastAccess
+    - !!js/eval elem => new Date(elem.lastAccess)
+  - func: sort
+    args:
+    - "-size"
+  select:
+    filename: n/a
+    size    : -1
+  #selector:
+  #  func: at
+  #  args:
+  #  - 0
+
+
+````
 ### ow.obj.filterKeys
 
 __ow.obj.filterKeys(anArrayKeyNames, aMap) : Map__
@@ -496,7 +526,7 @@ Given an array of keys (aKs) will project those for all maps in aArray (the ones
 ````
 ### ow.obj.rest.create
 
-__ow.obj.rest.create(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes) : String__
+__ow.obj.rest.create(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes, options) : String__
 
 ````
 Tries to create a new aDataRowMap entry, identified by aIndexMap, on the REST aBaseURI service returning the reply as a string (uses the HTTP POST method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. If urlEncode=true the aDataRowMap will be converted into x-www-form-urlencoded instead of JSON. Optionally if retBytes = true returns a java stream.
@@ -510,7 +540,7 @@ Tries to parse the response of a rest call exception and the response also if it
 ````
 ### ow.obj.rest.get
 
-__ow.obj.rest.get(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes) : String__
+__ow.obj.rest.get(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes, options) : String__
 
 ````
 Tries to obtain aIndexMap from the REST aBaseURI service returning as a string (uses the HTTP GET method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. Optionally if retBytes = true returns a java stream.
@@ -524,77 +554,77 @@ Tries to get the content lenght for the given aBaseURI. Optionally you can provi
 ````
 ### ow.obj.rest.head
 
-__ow.obj.rest.head(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP) : Map__
+__ow.obj.rest.head(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, options) : Map__
 
 ````
 Tries to get the header map with aIndexMap entry from the REST aBaseURI service returning the reply as a Map. Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object.
 ````
 ### ow.obj.rest.jsonCreate
 
-__ow.obj.rest.jsonCreate(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes) : Map__
+__ow.obj.rest.jsonCreate(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes, options) : Map__
 
 ````
 Tries to create a new aDataRowMap entry, identified by aIndexMap, on the REST aBaseURI service returning the reply as a map (uses the HTTP POST method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object.  If urlEncode=true the aDataRowMap will be converted into x-www-form-urlencoded instead of JSON. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.jsonGet
 
-__ow.obj.rest.jsonGet(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes) : Map__
+__ow.obj.rest.jsonGet(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes, options) : Map__
 
 ````
 Tries to obtain aIndexMap from the REST aBaseURI service returning as a map (uses the HTTP GET method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.jsonPatch
 
-__ow.obj.rest.jsonPatch(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes) : Map__
+__ow.obj.rest.jsonPatch(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes, options) : Map__
 
 ````
 Tries to set aDataRowMap entry, identified by aIndexMap, on the REST aBaseURI service returning the reply as a map (uses the HTTP PATCH method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. If urlEncode=true the aDataRowMap will be converted into x-www-form-urlencoded instead of JSON. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.jsonRemove
 
-__ow.obj.rest.jsonRemove(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes) : Map__
+__ow.obj.rest.jsonRemove(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes, options) : Map__
 
 ````
 Tries to remove aIndexMap entry from the REST aBaseURI service returning the reply as a map (uses the HTTP DELETE method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.jsonSet
 
-__ow.obj.rest.jsonSet(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes) : Map__
+__ow.obj.rest.jsonSet(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes, options) : Map__
 
 ````
 Tries to set aDataRowMap entry, identified by aIndexMap, on the REST aBaseURI service returning the reply as a map (uses the HTTP PUT method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. If urlEncode=true the aDataRowMap will be converted into x-www-form-urlencoded instead of JSON. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.jsonUpload
 
-__ow.obj.rest.jsonUpload(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes, aMethod) : String__
+__ow.obj.rest.jsonUpload(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes, aMethod, options) : String__
 
 ````
 Tries to upload a new aDataRowMap entry (composed of name and in (a filename, a stream or an array of bytes)), identified by aIndexMap, on the REST aBaseURI service returning the reply as a map (uses the HTTP POST method or aMethod). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.patch
 
-__ow.obj.rest.patch(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes) : String__
+__ow.obj.rest.patch(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes, options) : String__
 
 ````
 Tries to set aDataRowMap entry, identified by aIndexMap, on the REST aBaseURI service returning the reply as a string (uses the HTTP PATCH method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. If urlEncode=true the aDataRowMap will be converted into x-www-form-urlencoded instead of JSON. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.remove
 
-__ow.obj.rest.remove(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes) : String__
+__ow.obj.rest.remove(aBaseURI, aIndexMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, aHTTP, retBytes, options) : String__
 
 ````
 Tries to remove aIndexMap entry from the REST aBaseURI service returning the reply as a string (uses the HTTP DELETE method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.set
 
-__ow.obj.rest.set(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes) : String__
+__ow.obj.rest.set(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, urlEncode, aHTTP, retBytes, options) : String__
 
 ````
 Tries to set aDataRowMap entry, identified by aIndexMap, on the REST aBaseURI service returning the reply as a string (uses the HTTP PUT method). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. If urlEncode=true the aDataRowMap will be converted into x-www-form-urlencoded instead of JSON. Optionally if retBytes = true returns a java stream.
 ````
 ### ow.obj.rest.upload
 
-__ow.obj.rest.upload(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes, aMethod) : String__
+__ow.obj.rest.upload(aBaseURI, aIndexMap, aDataRowMap, aLoginOrFunction, aPassword, aTimeout, aRequestMap, urlEncode, aHTTP, retBytes, aMethod, options) : String__
 
 ````
 Tries to upload a new aDataRowMap entry (composed of name and in (a filename, a stream or an array of bytes)), identified by aIndexMap, on the REST aBaseURI service returning the reply as a string (uses the HTTP POST method or aMethod). Optionally you can provide aLogin, aPassword and/or aTimeout for the REST request or use a function (aLoginOrFunction) that receives the HTTP object. Optionally if retBytes = true returns a java stream.

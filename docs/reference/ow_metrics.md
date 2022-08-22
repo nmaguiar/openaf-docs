@@ -29,12 +29,26 @@ __ow.metrics.collectMetrics4Fn(aName, aFn)__
 ````
 Adds extra code to an existing aFn to collect functions metrics under the name aName. If the same aName and aFn has been already executed before it will throw an exception "Already collecting for the provided function."
 ````
-### ow.metrics.fromObj2OpenMetrics
+### ow.metrics.exists
 
-__ow.metrics.fromObj2OpenMetrics(aObj, aPrefix, aTimestamp, aHelpMap) : String__
+__ow.metrics.exists(aName) : Boolean__
 
 ````
-Given aObj will return a string of open metric (prometheus) metric strings. Optionally you can provide a prefix (defaults to "metric")  and/or aTimestamp (that will be used for all aObj values).
+Determines if metric aName is currenly assigned.
+````
+### ow.metrics.fromObj2OpenMetrics
+
+__ow.metrics.fromObj2OpenMetrics(aObj, aPrefix, aTimestamp, aHelpMap, aConvMap) : String__
+
+````
+Given aObj will return a string of open metric (prometheus) metric strings. Optionally you can provide a prefix (defaults to "metric")  and/or aTimestamp (that will be used for all aObj values) and aConvMap composed of a key with a map of possible values and corresponding translation to numbers. Note: prefixes should not start with a digit.
+````
+### ow.metrics.fromOpenMetrics2Array
+
+__ow.metrics.fromOpenMetrics2Array(aLines) : Array__
+
+````
+Given an array or string newline delimited string following the OpenMetrics format  will try to return an array with each metric, value, labels, timestamp and perceived prefix.
 ````
 ### ow.metrics.getAll
 
@@ -52,7 +66,7 @@ Returns just the metrics in the provided anArrayOfNames.
 ````
 ### ow.metrics.startCollecting
 
-__ow.metrics.startCollecting(aChName, aPeriod, some)__
+__ow.metrics.startCollecting(aChName, aPeriod, some, noDate)__
 
 ````
 Starts collecting metrics on aChName (defaults to '__metrics') every aPeriod ms (defaults to 1000ms) optionally just some (array) metrics.

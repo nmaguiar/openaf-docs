@@ -53,7 +53,7 @@ Retrieves the aJobName definition map so it can be changed and overwritten with 
 ````
 ### oJob.load
 
-__oJob.load(aJobsList, aTodoList, aoJobList, args, aId, init)__
+__oJob.load(aJobsList, aTodoList, aoJobList, args, aId, init, help)__
 
 ````
 Loads a set of aJobsList, corresponding aTodoList and a list of aoJobList. Optionally you can provide aId to segment these specific jobs.
@@ -95,7 +95,7 @@ Stops all oJob processing.
 ````
 ### ow.oJob.addJob
 
-__ow.oJob.addJob(aJobsCh, aName, jobDeps, jobType, aJobTypeArgs, jobArgs, jobFunc, jobFrom, jobTo, jobHelp, jobCatch, jobEach, jobLang, jobFile)__
+__ow.oJob.addJob(aJobsCh, aName, jobDeps, jobType, aJobTypeArgs, jobArgs, jobFunc, jobFrom, jobTo, jobHelp, jobCatch, jobEach, jobLang, jobFile, jobCheck)__
 
 ````
 Provided aJobsCh (a jobs channel) adds a new job with the provided aName, an array of jobDeps (job dependencies), a jobType (e.g. simple, periodic, shutdown), aJobTypeArgs (a map), jobArgs and a jobFunc (a job function).  Optionally you can inherit the job definition from a jobFrom and/or jobTo name ("from" will execute first, "to" will execute after). Also you can include jobHelp.
@@ -127,6 +127,34 @@ __ow.oJob.getMainCh() : Channel__
 
 ````
 Gets the oJob::oJob channel
+````
+### ow.oJob.getMetric
+
+__ow.oJob.getMetric(aMetricId)__
+
+````
+Retrieves the current metric identified by aMetricId
+````
+### ow.oJob.getMetrics
+
+__ow.oJob.getMetrics(aType) : Function__
+
+````
+Returns a function to be used with ow.metrics.add to add functions by metric aType
+````
+### ow.oJob.getMetricsCh
+
+__ow.oJob.getMetricsCh() : Channel__
+
+````
+Gets the oJob::metrics channel
+````
+### ow.oJob.getState
+
+__ow.oJob.getState() : String__
+
+````
+Get current global state, if defined.
 ````
 ### ow.oJob.getTodoCh
 
@@ -258,4 +286,25 @@ __ow.oJob.runJob(aJob, provideArgs, aId)__
 
 ````
 With jobs defined try to execute/start aJob, with the provideArgs, directly passing any existing todo list.  Optionally you can provide aId to segment this specific jobs.
+````
+### ow.oJob.setMetric
+
+__ow.oJob.setMetric(aId, aMetricObj)__
+
+````
+Sets aMetricObj for the metric identified with aId
+````
+### ow.oJob.setState
+
+__ow.oJob.setState(aState)__
+
+````
+Sets the current global state to be used with todo.when
+````
+### ow.oJob.showHelp
+
+__ow.oJob.showHelp(aHelpMap, args, showAnyway) : boolean__
+
+````
+Given a job help map and the current arguments determines if there is a need to show help usage text and shows it on stdout. Returns true if help was output, false otherwise.
 ````

@@ -22,12 +22,19 @@ __io.cp(aSourceFilePath, aTargetFilePath)__
 ````
 Tries to copy aSourceFilePath to aTargetFilePath preserving file attributes.
 ````
-### io.createTempFile
+### io.createTempDir
 
-__io.createTempFile(aPrefix, aSuffix) : String__
+__io.createTempDir(aPrefix, aPath) : String__
 
 ````
-Creates a temporary with the provided aPrefix and aSuffix that will be deleted upon execution exit. The absolute path for it is returned.
+Creates a temporary directory with the provided aPrefix that will be deleted completly (all files and folders inside) upon execution exit. The absolute path for it is returned. Optionally, if aPath is defined, the temporary directory will be created in aPath.
+````
+### io.createTempFile
+
+__io.createTempFile(aPrefix, aSuffix, aPath) : String__
+
+````
+Creates a temporary file with the provided aPrefix and aSuffix that will be deleted upon execution exit. The absolute path for it is returned. Optionally, if aPath is defined, the temporary file will be created in aPath.
 ````
 ### io.fileExists
 

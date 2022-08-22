@@ -213,10 +213,10 @@ Converts a byte info a decimal number.
 ````
 ### ow.format.fromBytesAbbreviation
 
-__ow.format.fromBytesAbbreviation(aStr) : Number__
+__ow.format.fromBytesAbbreviation(aStr, useDecimal) : Number__
 
 ````
-Tries to reverse the ow.format.toBytesAbbreviation from aStr (string) back to the original value in bytes.
+Tries to reverse the ow.format.toBytesAbbreviation from aStr (string) back to the original value in bytes. Use useDecimal=true to interpret KB as 1000 instead of 1024 (see more in https://en.wikipedia.org/wiki/Byte#Multiple-byte_units)
 (available after ow.loadFormat())
 ````
 ### ow.format.fromDate
@@ -273,6 +273,13 @@ __ow.format.fromOctal(aString) : Number__
 
 ````
 Converts a provided octal aString into the decimal number.
+````
+### ow.format.fromTimeAbbreviation
+
+__ow.format.fromTimeAbbreviation(aStr) : Number__
+
+````
+From aStr time abbreviation (e.g. 1h2m3s (1 hour, 2 minutes and 3 seconds)) will return the corresponding amount of time in ms.
 ````
 ### ow.format.fromUnixDate
 
@@ -394,12 +401,26 @@ __ow.format.getTLSCertificates(aHost, aPort, withJava, aPath, aPass, aSoTimeout)
 ````
 Tries to retreive the TLS certificates from aHost, aPort (defaults to 443). Optionally if withJava=true the original certificate Java object will also be included. If the CA certificates is in a different location you can provide aPath and the corresponding aPass. Additionally you can specificy aSoTimeout (socket timeout in ms) which defaults to 10s.
 ````
+### ow.format.getTmpDir
+
+__ow.format.getTmpDir() : String__
+
+````
+Returns the current temporary directory.
+````
 ### ow.format.getUserHome
 
 __ow.format.getUserHome() : String__
 
 ````
 Returns the current user home path.
+````
+### ow.format.getUserName
+
+__ow.format.getUserName() : String__
+
+````
+Returns the current user name.
 ````
 ### ow.format.int2IP
 
@@ -574,6 +595,42 @@ __ow.format.round(aNumber, aDigits) : String__
 Will return aNumber rounded to 0 decimal digits or aDigits decimal digits.
 (available after ow.loadFormat())
 ````
+### ow.format.sshProgress
+
+__ow.format.sshProgress(aFn) : Object__
+
+````
+Returns a SSH Java progress monitor callback object to be use with the SSH plugin functions. Expects callback aFn that will be called with state (e.g. begin, count, end) and an Info map. The Info map is composed of:    source - the reported source of the transfer
+   target - the reported target of the transfer
+   op     - the operation being performed (get or put)
+   start  - reported unix epoch when the transfer started
+   end    - reported unix epoch when the transfer stopped
+   count  - the last reported byte count
+   speed  - the calculated speed of transfer
+
+If the returned value is false the transfer will be cancelled.
+````
+### ow.format.streamHandle
+
+__ow.format.streamHandle(aHandle, inHandle, errHandle, outHandle, bufferSize) : Function__
+
+````
+Returns a function to help automated interaction with a running process. The function aHandle receives: aType (in/err); aTxt,  inHandle (function), errHandle (function) and an outHandle (function). Optionally you can provide an alternative inHandle function to print stdout text, an errHandle function to print stderr text, an outHandle function to send text to stdin and/or a non default bufferSize.
+
+Example:
+
+var res = $sh("myProcess.sh --something")
+          .cb(expect((aType, aTxt, inHandle, errHandle, outHandle) => {
+             if (aType == "in") {
+                inHandle(aTxt)
+                if (/ name\?/.test(aTxt))                return outHandle("Scott\n")
+               if (aTxt.indexOf("Anything else?") >= 0) return outHandle("nope!\n")
+             }
+          }))
+          .get(0)
+
+
+````
 ### ow.format.streamSH
 
 __ow.format.streamSH(aFunction, anEncoding) : Function__
@@ -609,6 +666,13 @@ ow.format.string.bestPrefix("/userna", anArrayOfStrings); // Returns /user
 
 
 ````
+### ow.format.string.chart
+
+__ow.format.string.chart(aName, aDataPoint, aHSIze, aVSize, aMin, aMax, aTheme) : String__
+
+````
+Given data aName will store, between calls, aDataPoint provided to plot a chart with a horizontal aHSize and a vertical aVSize. Optionally aMin value and aMax value can be provided. aTheme can optionally also be provided containing the map entries space (char), bar (char), point (char), vertical (boolean) and axis (boolean)
+````
 ### ow.format.string.closest
 
 __ow.format.string.closest(aString, anArrayOfStrings, aThreshold) : aString__
@@ -631,6 +695,13 @@ __ow.format.string.distance(aStringA, aStringB, maxOffset) : Number__
 ````
 Calculates the distance between aStringA and aStringB into the number of inserts, deletions and updates needed. If the maxOffset is not provided a value of 5 maximum characters difference will be  used. (Currently based on Sift4)
 ````
+### ow.format.string.genPass
+
+__ow.format.string.genPass(aSize, aSets, aExclude, aWeights) : String__
+
+````
+Tries to generate a random password with aSize (defaults to 12) optionally given an array of aSets (between lowercase, uppercase, numbers, symbols and symbols2) and also aExclude a string of characters given an optional percentage of aWeights probability for each aSets.
+````
 ### ow.format.string.getAstralCodePoint
 
 __ow.format.string.getAstralCodePoint(aHighSurrogate, aLowSurrogate) : Number__
@@ -650,7 +721,7 @@ Returns an array of two 8 bit codes given an unicode astralCodePoint of 16 bits
 __ow.format.string.grid(aMatrix, aX, aY, aBgPattern, shouldReturn) : String__
 
 ````
-Will generate a aX per aY grid to be displayed with aBgPattern (defaults to " "). Each grid cell with use the contents on aMatrix array of an array. Each cell content can be a map with obj (a Map), a xspan/yspan for in cell spacing, a type (either map, table or string)  and a title. If shouldReturn = true it will just return the string content instead of trying to print it.          +
+Will generate a aX per aY grid to be displayed with aBgPattern (defaults to " "). Each grid cell with use the contents on aMatrix array of an array. Each cell content can be a map with obj (a Map), a xspan/yspan for in cell spacing, a type (either map, table, func or string)  and a title. If shouldReturn = true it will just return the string content instead of trying to print it.          +
 ````
 ### ow.format.string.leftPad
 
@@ -797,11 +868,11 @@ Test sending a HTTP(s) GET to aURL. Optionally aCustomTimeout can be provided. T
 ````
 ### ow.format.timeago
 
-__ow.format.timeago(aDate) : String__
+__ow.format.timeago(aDate, isAbv) : String__
 
 ````
 Will output how much time ago aDate is (e.g. 2 years ago, 30 minutes ago, etc...).
-(available after ow.loadFormat())
+Optionally isAbv = true for abbreviated output.  (available after ow.loadFormat())
 ````
 ### ow.format.toAbbreviation
 
@@ -835,7 +906,7 @@ Returns a number abbreviation to "bytes", "KB", "MB", "GB", "TB", etc. Will roun
 ````
 ### ow.format.toDate
 
-__ow.format.toDate(aStringDate, aFormat) : Date__
+__ow.format.toDate(aStringDate, aFormat, aTimeZone) : Date__
 
 ````
 Will convert aStringDate into a javascript Date given aFormat:
@@ -863,6 +934,7 @@ Will convert aStringDate into a javascript Date given aFormat:
   Z - Time zone (-0800)
   X - Time zone (-08; -0800; -08:00)
 
+Optionally you can also provide the original aTimeZone (like 'America/New_York', 'Europe/London', 'UTC', ...)
 (available after ow.loadFormat())
 ````
 ### ow.format.toHex
@@ -942,10 +1014,10 @@ Use aString with simple markdown and convert it to ANSI. Optionally you can add 
 ````
 ### ow.format.withSideLine
 
-__ow.format.withSideLine(aString, aSize, ansiLine, ansiText) : String__
+__ow.format.withSideLine(aString, aSize, ansiLine, ansiText, aTheme, aExtra) : String__
 
 ````
-Generates a ansi escaped line with a "left side line" to display aString which will be word-wrap given  aSize (default to the current console size). Optionally ansi colors for ansiLine and ansiText can be provided (see ansiColor for possible values)
+Generates a ansi escaped line with a "left side line" to display aString which will be word-wrap given  aSize (default to the current console size). Optionally ansi colors for ansiLine and ansiText can be provided (see ansiColor for possible values) and aTheme (using ow.format.withSideLineThemes, for example). For closed rectangle themes aExtra map can include a header, footer, headerAlign ( left or right or center) and footerAlign (left or right or center).
 ````
 ### ow.format.xls.autoFilter
 

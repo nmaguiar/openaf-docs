@@ -36,6 +36,13 @@ __XML.from(aXPathQuery) : Object__
 ````
 Returns an XMLBuilder2 object from the XPathQuery provided.
 ````
+### XML.fromNodes2XML
+
+__XML.fromNodes2XML(nodes) : Object__
+
+````
+Given a Node (result of XML.find) or NodeList (result of XML.findAll) will return the corresponding representation in a E4X object.
+````
 ### XML.get
 
 __XML.get(aXPathQuery) : String__

@@ -22,6 +22,20 @@ __ow.net.getAddressType(aAddress) : Map__
 ````
 Given aAddress tries to return a map with the following flags: isValidAddress, hostname, ipv4, ipv6 and privateAddress
 ````
+### ow.net.getCAStoredCertificates
+
+__ow.net.getCAStoredCertificates(aPassword) : Array__
+
+````
+Will retrieve a list of aliases, issuer DN, subject DN, expire notBefore and notAfter dates from the current Java "cacerts" file. Optionally aPassword can be provided if different from the default one.
+````
+### ow.net.getDNS
+
+__ow.net.getDNS(aName, aType, aServer) : Object__
+
+````
+Given aName will do a DNS search for aType (defaults to "a") optionally using dns server aServer. Returns an object or an array of objects.
+````
 ### ow.net.getDoH
 
 __ow.net.getDoH(aAddr, aType, aProvider) : Array__
@@ -57,6 +71,13 @@ __ow.net.getIP2Host(aIP) : String__
 ````
 Tries to reverse DNS aIP to a host address using the default DNS.
 ````
+### ow.net.getJSSECAStoredCertificates
+
+__ow.net.getJSSECAStoredCertificates(aPassword) : Array__
+
+````
+Will retrieve a list of aliases, issuer DN, subject DN, expire notBefore and notAfter dates from the current Java "jssecacerts" file. Optionally aPassword can be provided if different from the default one.
+````
 ### ow.net.getPublicIP
 
 __ow.net.getPublicIP(aIPAddress) : Map__
@@ -79,6 +100,13 @@ __ow.net.getSSLPublicCertificates(aHost, aPort) : Array__
 ````
 Given aHost and aPort for a HTTPs connection it will retrieve the array of peer certificates available. You can retrieve the specific public key by using the method .getPublicKey for each array element. Usually you be interested on the first certificate of the returned array.
 ````
+### ow.net.getStoredCertificates
+
+__ow.net.getStoredCertificates(aStoreFile, aPassword) : Array__
+
+````
+Given a Java certificate store (aStoreFile) will retrieve a list of aliases, issuer DN, subject DN, expire notBefore and notAfter dates. Optionally aPassword can be provided if different from the default one.
+````
 ### ow.net.getTLSCertificates
 
 __ow.net.getTLSCertificates(aHost, aPort, withJava, aPath, aPass, aSoTimeout) : Array__
@@ -92,6 +120,48 @@ __ow.net.getWhoIs(aQuery, aInitServer) : Map__
 
 ````
 Tries to perform a whois aQuery for a domain or an ip address. Optionally you can provide aInitServer (defaults to whois.iana.org)
+````
+### ow.net.host4URL
+
+__ow.net.host4URL(aURL) : String__
+
+````
+Given aURL it will return the corresponding host:port.
+````
+### ow.net.isHost
+
+__ow.net.isHost(aHost) : boolean__
+
+````
+Tries to determine if aHost seems a syntactic valid host.
+````
+### ow.net.isIPv4
+
+__ow.net.isIPv4(aIP) : boolean__
+
+````
+Tries to determine if aIP is a syntactic valid IPv4.
+````
+### ow.net.isIPv6
+
+__ow.net.isIPv6(aIP) : boolean__
+
+````
+Tries to determine if aIP is a syntactic valid IPv6.
+````
+### ow.net.isURL
+
+__ow.net.isURL(aURL) : boolean__
+
+````
+Tries to determine if aURL seems a syntactic valid URL.
+````
+### ow.net.path4URL
+
+__ow.net.path4URL(aURL) : String__
+
+````
+Given aURL it will return the corresponding path.
 ````
 ### ow.net.testHost
 

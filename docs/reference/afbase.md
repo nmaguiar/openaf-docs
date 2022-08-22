@@ -287,6 +287,13 @@ __af.p(aString)__
 ````
 Outputs to stdout aString ending with a newline.
 ````
+### af.parse
+
+__af.parse(aScriptString, aSourceName) : Array__
+
+````
+Parses aScriptString, with aSourceName, returning the corresponding parsed statments.
+````
 ### af.plugin
 
 __af.plugin(aPluginClass)__
@@ -401,4 +408,11 @@ __af.validate2FA(aKey, aToken) : boolean__
 
 ````
 Given aToken and a 2FA aKey returns true if it's valid. Note: it will use the current date/time of the system so it must be in sync with the authenticator app; scratchCodes are not handled.
+````
+### af.visibleLength
+
+__af.visibleLength(aString) : int__
+
+````
+Given aString will try to remove ansi characters and just count code point (e.g. removing combined characters like emojis).
 ````

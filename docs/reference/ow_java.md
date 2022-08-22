@@ -36,6 +36,13 @@ __ow.java.cipher.decode2msg(aEncodedMessage) : String__
 ````
 Given aEncodedMessage base 64 string returns the original message.
 ````
+### ow.java.cipher.decodeKey
+
+__ow.java.cipher.decodeKey(aString, isPrivate, anAlgorithm) : JavaObject__
+
+````
+Decode aString base64 key representation (from encodeKey) into a public or private (isPrivate = true) key optionally specifying anAlgorithm (defaults to RSA)
+````
 ### ow.java.cipher.decrypt
 
 __ow.java.cipher.decrypt(aEncryptedMessage, aPrivateKey, anAlgorithm) : ArrayBytes__
@@ -56,6 +63,20 @@ __ow.java.cipher.decryptStream(aInputStream, aPrivateKey, anAlgorithm) : Stream_
 
 ````
 Given a previously encrypted aInputStream will return the corresponding decrypted stream using aPrivateKey. Optionally a key anAlgorithm can be provided (defaults to RSA).
+````
+### ow.java.cipher.encodeCert
+
+__ow.java.cipher.encodeCert(aCert) : String__
+
+````
+Encodes aCert(ificate) into a base64 PEM representation.
+````
+### ow.java.cipher.encodeKey
+
+__ow.java.cipher.encodeKey(aKey, isPrivate) : String__
+
+````
+Encodes private (isPrivate = true) or public key into a base64 key representation.
 ````
 ### ow.java.cipher.encrypt
 
@@ -204,6 +225,13 @@ __ow.java.getAddressType(aAddress) : Map__
 ````
 Given aAddress tries to return a map with the following flags: isValidAddress, hostname, ipv4, ipv6 and privateAddress
 ````
+### ow.java.getClassPath
+
+__ow.java.getClassPath() : String__
+
+````
+Retrieves the initial java classpath.
+````
 ### ow.java.getClassVersion
 
 __ow.java.getClassVersion(aClassBytes) : String__
@@ -211,12 +239,26 @@ __ow.java.getClassVersion(aClassBytes) : String__
 ````
 Given the class array of bytes (aClassBytes), or a string from which the corresponding bytes will be read, tries to determine the minimum JVM version required to load the class.
 ````
+### ow.java.getCMemory
+
+__ow.java.getCMemory(shouldFormat) : Map__
+
+````
+Returns a map with the current cgroup runtime max, total, used and free memory. If shouldFormat = true ow.format.toBytesAbbreviation will be used.
+````
 ### ow.java.getHost2IP
 
 __ow.java.getHost2IP(aHost) : String__
 
 ````
 Tries to resolve aHost to an IP address using the default DNS.
+````
+### ow.java.getInputArguments
+
+__ow.java.getInputArguments() : Array__
+
+````
+List of Java virtual machine input arguments
 ````
 ### ow.java.getIP2Host
 
@@ -232,12 +274,33 @@ __ow.java.getJarVersion(aJarFile) : Array__
 ````
 Given aJarFile will return an array of JVM versions used in java classes contained.
 ````
+### ow.java.getLibraryPath
+
+__ow.java.getLibraryPath() : String__
+
+````
+Retrieves the initial OS library path.
+````
+### ow.java.getLocalJavaPIDs
+
+__ow.java.getLocalJavaPIDs(aUserID) : Array__
+
+````
+Will return an array with the pid and the path for hsperf (to use with ow.java.parseHSPerf) that are currently running (hotspot jvms only) in the current system.  If aUserID is not provided the current user name will be used.
+````
 ### ow.java.getMemory
 
 __ow.java.getMemory(shouldFormat) : Map__
 
 ````
 Returns a map with the current java runtime max, total, used and free heap memory. If shouldFormat = true ow.format.toBytesAbbreviation will be used.
+````
+### ow.java.getSystemProperties
+
+__ow.java.getSystemProperties() : Map__
+
+````
+Retrieves the current list of system properties.
 ````
 ### ow.java.getWhoIs
 
@@ -316,6 +379,25 @@ __ow.java.IMAP.hasNewMessages(aFolder) : Boolean__
 ````
 Tries to determine how many new messagse there are in aFolder (defailt to Inbox)
 ````
+### ow.java.ini
+
+__ow.java.ini() : Object__
+
+````
+Returns an object to handle Windows INI / Java properties kind of files. Available methods are:
+
+  load(content)   - Given a INI/properties file content converts to an internal format
+  loadFile(aFile) - Loads a file with load()
+  get()           - Returns a map of the internal format representation
+  put(aMap)       - Read aMap into the internal format representation (arrays not fully supported)
+  save()          - Returns a INI/properties string
+  saveFile(aFile) - Saves a file using save()
+
+Examples:
+
+  ow.java.ini().loadFile("/etc/os-release").get()
+  ow.java.ini().put(myMap).save()
+````
 ### ow.java.maven.getFile
 
 __ow.java.maven.getFile(artifactId, aFilenameTemplate, aOutputDir)__
@@ -379,6 +461,13 @@ __ow.java.maven.search(aTerm) : Array__
 
 ````
 Tries to search aTerm in maven.org and then fallsback to archetype-catalog.xml returning an array with groupId and artifactId.
+````
+### ow.java.parseHSPerf
+
+__ow.java.parseHSPerf(aByteArrayOrFile, retFlat) : Map__
+
+````
+Given aByteArray or a file path for a java (hotspot jvm) hsperf file (using ow.java.getLocalJavaPIDs or similar) will return the java performance information parsed into a map. If retFlat = true the returned map will be a flat map with each java performance metric and correspondent value plus additional calculations with the prefix "__"
 ````
 ### ow.java.setIgnoreSSLDomains
 

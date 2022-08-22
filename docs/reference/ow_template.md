@@ -13,7 +13,7 @@ grand_parent: OpenAF docs
 __ow.template.addConditionalHelpers()__
 
 ````
-Adds helper functions equivalent to assemble.io comparison helpers. See more in http://assemble.io/helpers/helpers-comparison.html
+Adds helper functions equivalent to assemble.io comparison helpers starting with "$" See more in http://assemble.io/helpers/helpers-comparison.html
 ````
 ### ow.template.addFormatHelpers
 
@@ -51,17 +51,19 @@ __ow.template.addOpenAFHelpers()__
 ````
 Adds custom helpers:
 
-  - debug           -- calls sprint for the parameter
-  - stringify       -- stringify the parameter
-  - stringifyInLine -- stringify in the same line the parameter
-  - toYAML          -- returns the YAML version of the parameter
-  - env             -- returns the current environment variable identified by the parameter
-  - escape          -- returns an escaped version of the parameter
-  - f               -- uses the $f format function
-  - ft              -- uses the $ft format function
-  - get             -- uses the $$.get function to access objects
-  - path            -- uses the $path function to query objects
-  - toSLON          -- returns the ow.format.toSLON version of an objecft
+  - $debug           -- calls sprint for the parameter
+  - $stringify       -- stringify the parameter
+  - $stringifyInLine -- stringify in the same line the parameter
+  - $toYAML          -- returns the YAML version of the parameter
+  - $env             -- returns the current environment variable identified by the parameter
+  - $escape          -- returns an escaped version of the parameter
+  - $f               -- uses the $f format function
+  - $ft              -- uses the $ft format function
+  - $get             -- uses the $$.get function to access objects
+  - $path            -- uses the $path function to query objects
+  - $toSLON          -- returns the ow.format.toSLON version of an object
+  - $get             -- returns the corresponding value for a key on $get
+  - $getObj          -- equivalent to $get with the extra parameter for $$.get path\    - $dateDiff        -- returns a number of seconds for a provided date optionally (second argument) with minutes, hours, days, months, weeks or years and (third argument) a default value
 
 
 ````
@@ -198,12 +200,26 @@ __ow.template.loadPartialHBS(aMapOfParialHBSs)__
 ````
 Given a map where the key is a partial hbs template key and the value is the filepath of a HBS file, will load it and add it as a template partial. Note: the filepath can indicate a file inside a zip file like 'some/path/a.zip::file'.
 ````
+### ow.template.md.fromTable
+
+__ow.template.md.fromTable(aMarkdown) : Array__
+
+````
+Tries to transform aMarkdown table text into an array.
+````
 ### ow.template.md.htmlArrayMap
 
 __ow.template.md.htmlArrayMap(anMapOrArray) : String__
 
 ````
 Converts anMapOrArray into a div html suitable to be added to a markdown.
+````
+### ow.template.md.maxWidth
+
+__ow.template.md.maxWidth(aValue) : String__
+
+````
+Generates the appropriate HTML to set the MD page width to aValue (e.g. 800px). If aValue not defined it will unset the default limit.
 ````
 ### ow.template.md.table
 
@@ -228,7 +244,7 @@ Returns the results of using someData with the template defined on aFilename (ti
 ````
 ### ow.template.parseMD2HTML
 
-__ow.template.parseMD2HTML(aMarkdownString, isFull) : String__
+__ow.template.parseMD2HTML(aMarkdownString, isFull, removeMaxWidth) : String__
 
 ````
 Given aMarkdownString will parse it with showdown (using the github flavor) and return the HTML in a string. If isFull = true it will produce a complete HTML with references for the highlight library+css and github markdown css included internally in OpenAF. Example:

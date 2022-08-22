@@ -13,13 +13,28 @@ grand_parent: OpenAF docs
 __$$.get(aPath) : Object__
 
 ````
-Given aObject it will try to parse the aPath a retrive the corresponding object under that path. Example:
+Given aObject it will try to parse the aPath and retrive the corresponding object under that path. Example:
 
 var a = { a : 1, b : { c: 2, d: [0, 1] } };
 
 print($$(a).get("b.c")); // 2
 sprint($$(a).get("b.d")); // [0, 1]
 print($$(a).get("b.d[0]")); // 0
+
+
+````
+### $$.getI
+
+__$$.getI(aPath) : Object__
+
+````
+Given aObject it will try to parse the aPath (in a case-insensitive way) and retrive the corresponding object under that path. Example:
+
+var a = { a : 1, b : { c: 2, d: [0, 1] } };
+
+print($$(a).getI("b.C")); // 2
+sprint($$(a).getI("B.d")); // [0, 1]
+print($$(a).getI("B.D[0]")); // 0
 
 
 ````

@@ -441,7 +441,7 @@ ow.server.httpd.route(hs, ow.server.httpd.mapRoutesWithLibs(hs, {
 ````
 ### ow.server.httpd.replyFileMD
 
-__ow.server.httpd.replyFileMD(aHTTPd, aBaseFilePath, aBaseURI, aURI, notFoundFunction, documentRootArray, mapOfHeaders) : Map__
+__ow.server.httpd.replyFileMD(aHTTPd, aBaseFilePath, aBaseURI, aURI, notFoundFunction, documentRootArray, mapOfHeaders, noMaxWidth) : Map__
 
 ````
 Provides a helper aHTTPd reply that will enable the parsing markdown file-based sites, from aBaseFilePath, given aURI part of  aBaseURI. Optionally you can also provide a notFoundFunction and an array of file strings (documentRootArraY) to replace as documentRoot. Example:
@@ -981,7 +981,7 @@ Stops a thread socket server on aPort previously started by ow.server.socket.sta
 ````
 ### ow.server.telemetry.active
 
-__ow.server.telemetry.active(aSendFund, aPeriod)__
+__ow.server.telemetry.active(aSendFunc, aPeriod)__
 
 ````
 Setup recurrent execution of aSendFunc with the propose of sending ow.metrics for a provided aPeriod (defaults to 60000 ms).
@@ -992,4 +992,18 @@ __ow.server.telemetry.passive(aHTTPdOrPort, aURI, useOpenMetrics, openMetricsPre
 
 ````
 Setup a HTTPd server on aHTTPdOrPort (defaults to 7777) on the aURI (defaults to /healthz) to  serve ow.metrics.getAll. If the parameter "s" is present the value will be split by commas and used for ow.metrics.getSome. Optionally if useOpenMetrics = true the default of aURI becomes /metrics and the output becomes open metrics (prometheus) using openMetricsPrefix (defaults to "metrics") and uses the openMetricsHelp where each key is a open metric entry associated with map with text (description text), help (help text) and type (metrics type).
+````
+### ow.server.telemetry.send2nAttrMon
+
+__ow.server.telemetry.send2nAttrMon(anAttrMonCValsURL, anAttrPrefix, anArrayOfMetricNames) : Function__
+
+````
+Returns a function to be used with ow.server.telemetry.active to send metrics to nAttrMon using the provided anAttrMonCValsURL, anAttrPrefix (e.g. "myjobname/") and, optionally, an array of metrics (anArrayOfMetricsNames)
+````
+### ow.server.telemetry.send2Prometheus
+
+__ow.server.telemetry.send2Prometheus(aPrometheusGatewayURL, aPrefix, anArrayOfMetricNames) : Function__
+
+````
+Returns a function to be used with ow.server.telemetry.active to send metrics to a OpenMetrics/Prometheus gateway using the provided aPrometheusGatewayURL with aPrefix (e.g. "myjobname") and, optionally, an array of metrics (anArrayOfMetricsNames)
 ````

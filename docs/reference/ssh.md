@@ -53,10 +53,10 @@ ssh.execSudo("someCommand", void 0, void 0, false, void 0, false, function(o, e)
 ````
 ### SSH.get
 
-__SSH.get(aRemoteFilePath, aLocalFilePath) : String__
+__SSH.get(aRemoteFilePath, aLocalFilePath, monitor) : String__
 
 ````
-Retrieves a file, using the SFTP connection, from aRemoteFilePath to aLocalFilePath. Use SSH.getBytes in case you are reading a binary file.
+Retrieves a file, using the SFTP connection, from aRemoteFilePath to aLocalFilePath. Use SSH.getBytes in case you are reading a binary file. Optionally you can provided a callback function called monitor (see more in ow.format.sshProgress)
 ````
 ### SSH.getBytes
 
@@ -102,17 +102,17 @@ Tries to create a remote directory for the provided aPath.
 ````
 ### SSH.put
 
-__SSH.put(aSourceFilePath, aRemoteFilePath)__
+__SSH.put(aSourceFilePath, aRemoteFilePath, monitor)__
 
 ````
-Copies a aSourceFilePath to aRemoteFilePath, using the SFTP connection.
+Copies a aSourceFilePath to aRemoteFilePath, using the SFTP connection. Optionally you can provided a callback function called monitor (see more in ow.format.sshProgress)
 ````
 ### SSH.putBytes
 
-__SSH.putBytes(aRemoteFilePath, bytes)__
+__SSH.putBytes(aRemoteFilePath, bytes, monitor)__
 
 ````
-Writes an array of bytes on aRemoteFilePath, using the SFTP connection.
+Writes an array of bytes on aRemoteFilePath, using the SFTP connection. Optionally you can provided a callback function called monitor (see more in ow.format.sshProgress)
 ````
 ### SSH.pwd
 
@@ -158,17 +158,17 @@ Sets aTimeout in ms for the SSH connection.
 ````
 ### SSH.sftpGet
 
-__SSH.sftpGet(aRemoteFile, aLocalFile) : JavaStream__
+__SSH.sftpGet(aRemoteFile, aLocalFile, monitor) : JavaStream__
 
 ````
-Retrieves a remote file over the SFTP connection to be stored on the local path provided. If aLocalFile is not provided the remote file contents will be returned as a Java Stream
+Retrieves a remote file over the SFTP connection to be stored on the local path provided. If aLocalFile is not provided the remote file contents will be returned as a Java Stream Optionally you can provided a callback function called monitor (see more in ow.format.sshProgress)
 ````
 ### SSH.sftpPut
 
-__SSH.sftpPut(aSource, aRemoteFile)__
+__SSH.sftpPut(aSource, aRemoteFile, monitor)__
 
 ````
-Sends aSource file (if string) or a Java stream to a remote file path over a SFTP connection.
+Sends aSource file (if string) or a Java stream to a remote file path over a SFTP connection. Optionally you can provided a callback function called monitor (see more in ow.format.sshProgress)
 ````
 ### SSH.SSH
 
