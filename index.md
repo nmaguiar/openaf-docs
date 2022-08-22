@@ -28,7 +28,7 @@ $ ./oafc
 ````
 C:\> mkdir oaf
 C:\> cd oaf
-C:\oaf> curl https://openaf.io/win64/install.bat -O
+C:\oaf> curl https://openaf.io/win64/install.bat -O install.bat
 C:\oaf> install.bat
 C:\oaf> oafc
 ````
