@@ -9,6 +9,8 @@ grand_parent: Guides
 
 You can do any of these tests on an openaf-console (e.g. ./oafc or ./openaf-console)
 
+## Pure network tests
+
 | Test | Command | Results |
 |------|---------|---------|
 | **Test port** | ````ow.loadNet().testPort("some.host", 12345)```` | if _false_ the host couldn't be reached. _true_  |
@@ -19,9 +21,19 @@ You can do any of these tests on an openaf-console (e.g. ./oafc or ./openaf-cons
 | **Get IP address from hostname** | ````ow.loadNet().getHost2IP("one.one.one.one")```` | 1.1.1.1 |
 | **Get hostname from IP address** | ````ow.loadNet().getIP2Host("1.1.1.1")```` | one.one.one.one |
 | **Test a port with an IPv6 address** | ````ow.loadNet().testPort("[2001:4860:4860:0:0:0:0:8888]", 443)```` | if _false_ the host couldn't be reached. _true_ |
+
+## DNS checks
+
+| Test | Command | Results |
+|------|---------|---------|
 | **Check the IPv4 results of a DNS query** | ````ow.loadNet().getDNS("dns.google", "A")```` | You should get an array of results. |
 | **Check the IPv6 results of a DNS query** | ````ow.loadNet().getDNS("dns.google", "AAAA")```` | You should get an array of results. |
-| **Test connecting to a PostgreSQL database** | ````(new DB("jdbc:postgresql://hh-pgsql-public.ebi.ac.uk:5432/pfmegrnargs", "reader", "NWDMCE5xdipIjRrp")).q("select 2+2 a")```` | {"results":[{"a":4}]} |
-| **Test connecting to an Oracle database** | ````(new DB("jdbc:oracle:thin:@myhost:1521:orcl", "scott", "tiger")).q("select 2+2 a from dual")```` | {"results":[{"A":4}]} |
 
 > For more IPv6 options see [Prefer IPv6 over IPv4](../beginner/prefer-ipv6-over-ipv4.md)
+
+## Database connection tests
+
+| Test | Command | Results |
+|------|---------|---------|
+| **Test connecting to a PostgreSQL database** | ````(new DB("jdbc:postgresql://hh-pgsql-public.ebi.ac.uk:5432/pfmegrnargs", "reader", "NWDMCE5xdipIjRrp")).q("select 2+2 a")```` | {"results":[{"a":4}]} |
+| **Test connecting to an Oracle database** | ````(new DB("jdbc:oracle:thin:@myhost:1521:orcl", "scott", "tiger")).q("select 2+2 a from dual")```` | {"results":[{"A":4}]} |
