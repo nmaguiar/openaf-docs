@@ -19,6 +19,7 @@ First to list the supported JDBC drivers just execute:
 $ ojob ojob.io/db/getDriver op=list
     db    
 ──────────
+couchbase 
 csv       
 db2       
 drill     
@@ -27,12 +28,15 @@ hsqldb
 mariadb   
 mdb       
 mysql     
+odbc      
 opendistro
 oracle    
 paradox   
 postgresql
+presto    
 sqlite    
 sqlserver 
+trino     
 yugabytedb
 ````
 
