@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Limit-memory
+title: Limit OpenAF memory
 parent: Beginner
 grand_parent: Guides
 ---
@@ -48,7 +48,8 @@ OAF_JARGS="-Xms64m -Xmx128m" ./oaf -c "sprint(ow.loadJava().getMemory(true), '')
 __Windows__:
 
 ````powershell
-set OAF_JARGS="-Xms64m -Xmx128m" oaf.bat -c "sprint(ow.loadJava().getMemory(true), ''"
+set OAF_JARGS="-Xms64m -Xmx128m" 
+oaf.bat -c "sprint(ow.loadJava().getMemory(true), ''"
 
 # {"max":"128 MB","total":"64.0 MB","used":"10.1 MB","free":"53.9 MB"}
 ````
