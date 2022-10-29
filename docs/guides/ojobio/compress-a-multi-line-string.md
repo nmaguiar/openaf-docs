@@ -48,7 +48,7 @@ print( af.fromBytes2String(io.gunzip(af.fromBase64(af.fromString2Bytes("H4sIAAAA
 
 Then when you execute this script:
 
-````bash
+````
 $ oaf -f test.js
                               ,,             ,,            
              `7MMF'          *MM             db            
