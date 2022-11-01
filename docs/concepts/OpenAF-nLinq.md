@@ -288,5 +288,5 @@ var result = $from(inData).select(r => {
 
 # Other libraries in OpenAF
 
-* _$path_ - Based on the [JMESPath library](http://jmespath.org)
+* _$path_ - Based on the [JMESPath library](http://jmespath.org) ([see more](OpenAf-path.md))
 * _$stream_ - Based on the old [StreamJS library](https://github.com/winterbe/streamjs)
