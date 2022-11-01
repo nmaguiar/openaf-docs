@@ -137,6 +137,7 @@ It's possible to apply functions to fields and arrays on the expression used in 
 | avg(arrayNumber) | The average value of an array of numeric fields | ````$path([ {x:1,y:-1}, {x:2,y:2} ], "avg([].y)")```` |
 | contains(string/array, any) | Returns true of false if a string field contains a specific value | ````$path(obj, "files[?contains(filename, 'openaf.jar') == `true`")````
 | ceil(numer) | Returns the smallest integer that is equal or less than a specific numeric field value | ````$path([{x: 1.2, y: -1.8},{x: 2.2, y: 2.0}], "[].ceil(y)")```` |
+| ends_with(string, array) | Returns true if a field has the provided suffix | ````$path(obj, "files[?ends_with(filename, '.jar')]")```` |
 | floor(number) | Returns the greatest integer that is equal or greater than a specific numeric field value | ````$path([ {x:1.2,y:-1.8}, {x:2.2,y:2.0} ], "[].floor(y)")```` |
 | join(string, arrayString) | Returns a delimited list with the values of a specific array field | ````$path(obj, "join(', ', files[].filename)")````|
 | keys(object) | Returns a list of fields for a corresponding map | ````$path(obj, "keys(files[0])")```` |
