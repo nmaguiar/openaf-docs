@@ -7,7 +7,7 @@ grand_parent: OpenAF docs
 
 # $from
 
-There are several "helpers" in OpenAF to help to "query" array of maps. The help to make code cleaner For a complete list (like JMESPath) see on the end of this document. [_nLinq_](https://github.com/nmaguiar/nLinq) is currently the most use one.
+There are several "helpers" in OpenAF to help to "query" array of maps that help to make code cleaner. For a complete list (like JMESPath) see on the end of this document. [_nLinq_](https://github.com/nmaguiar/nLinq) is currently the most use one.
 
 Quick examples:
 
