@@ -1,11 +1,11 @@
 ---
 layout: default
-title: oJob
+title: oJob building blocks
 parent: oJob
 grand_parent: Guides
 ---
 
-# oJob
+# oJob building blocks
 
 To enrich the oJob building blocks there is a set of jobs to help minimize coding (low-code). For this, the oPack ojob-common provides __ojob.yaml__. 
 
