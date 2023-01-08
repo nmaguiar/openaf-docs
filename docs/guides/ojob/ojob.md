@@ -13,29 +13,29 @@ To enrich the oJob building blocks there is a set of jobs to help minimize codin
 
 | Area | Job | Description |
 |------|-----|-------------|
-| Control | [ojob if](#ojob%20if) | If the provided "condition" is evaluated as true it will execute the "then" jobs otherwise it will execute the "else" jobs |
-| Control | [ojob repeat](#ojob%20repeat) | Repeats sequentially, for a specific number of "times", the provided list of "jobs" (one or more) |
-| Control | [ojob repeat with each](#ojob%20repeat%20with%20each) | Repeats the configured "jobs" (one or more jobs) sequentially for each element of the provided "key" list. |
-| Debug | [ojob debug](#ojob%20debug) | Outputs the current args and res values to help debug an ojob flow. |
-| Debug | [ojob job debug](#ojob%20job%20debug) | Provides an alternative to print based debug. |
-| Function | [ojob function](#ojob%20function) | Executes the provided function mapping any args to the function arguments using the odoc help available for the provided function. |
-| Input | [ojob get](#ojob%20get) | Retrieves a specific map key (or path) using $get | 
-| Input | [ojob file get](#ojob%20file%20get) | Retrieves a specific map key (or path) from an YAML or JSON file provided. |
-| Input | [ojob split to items](#ojob%20split%20to%20items) | Splits an args source into an array of maps. |
-| Query | [ojob query](#ojob%20query) | Performs a query (using ow.obj.filter) to the existing args. | 
-| Options | [ojob job](#ojob%20job) | Provides a way to organize idempotent jobs. |
-| Options | [ojob job report](#ojob%20job%20report) | Outputs a job jobs report (e.g. job name, action and plan) |
-| Options | [ojob job final report](#ojob%20job%20final%20report) | Outputs a job jobs report (e.g. job name, action and plan) upon ojob termination. |
-| Options | [ojob options](#ojob%20options) | Adds new "todo" entries depending on the value of a provided args variable. | 
-| Output | [ojob set](#ojob%20set) | Sets a "key" with the current value on a "path" using $set. |
-| Output | [ojob set envs](#ojob%20set%20envs) | Sets job args based on environment variables. |
-| Output | [ojob output](#ojob%20output) | Prints the current arguments to the console. |
-| Report | [ojob report](#ojob%20report) | Outputs a jobs report (e.g. job name, status, number of executions, total time, avg time and last execution). |
-| Report | [ojob final report](#ojob%20final%20report) | Outputs a jobs report (e.g. job name, status, number of executions, total time, avg time and last execution) upon ojob termination. |
-| Security | [ojob sec get](#ojob%20sec%20get) | This job will get a SBucket secret and map it to oJob's args. |
-| State | [ojob state](#ojob%20state) | Changes the current state depending on the value of a provided args variable. |
-| State | [ojob get state](#ojob%20get%20state) | Gets the current state into args.state. |
-| State | [ojob set state](#ojob%20set%20state) | Changes the current state. |
+| Control | [ojob if](#ojob-if) | If the provided "condition" is evaluated as true it will execute the "then" jobs otherwise it will execute the "else" jobs |
+| Control | [ojob repeat](#ojob-repeat) | Repeats sequentially, for a specific number of "times", the provided list of "jobs" (one or more) |
+| Control | [ojob repeat with each](#ojob-repeat-with-each) | Repeats the configured "jobs" (one or more jobs) sequentially for each element of the provided "key" list. |
+| Debug | [ojob debug](#ojob-debug) | Outputs the current args and res values to help debug an ojob flow. |
+| Debug | [ojob job debug](#ojob-job-debug) | Provides an alternative to print based debug. |
+| Function | [ojob function](#ojob-function) | Executes the provided function mapping any args to the function arguments using the odoc help available for the provided function. |
+| Input | [ojob get](#ojob-get) | Retrieves a specific map key (or path) using $get | 
+| Input | [ojob file get](#ojob-file-get) | Retrieves a specific map key (or path) from an YAML or JSON file provided. |
+| Input | [ojob split to items](#ojob-split-to-items) | Splits an args source into an array of maps. |
+| Query | [ojob query](#ojob-query) | Performs a query (using ow.obj.filter) to the existing args. | 
+| Options | [ojob job](#ojob-job) | Provides a way to organize idempotent jobs. |
+| Options | [ojob job report](#ojob-job-report) | Outputs a job jobs report (e.g. job name, action and plan) |
+| Options | [ojob job final report](#ojob-job-final-report) | Outputs a job jobs report (e.g. job name, action and plan) upon ojob termination. |
+| Options | [ojob options](#ojob-options) | Adds new "todo" entries depending on the value of a provided args variable. | 
+| Output | [ojob set](#ojob-set) | Sets a "key" with the current value on a "path" using $set. |
+| Output | [ojob set envs](#ojob-set-envs) | Sets job args based on environment variables. |
+| Output | [ojob output](#ojob-output) | Prints the current arguments to the console. |
+| Report | [ojob report](#ojob-report) | Outputs a jobs report (e.g. job name, status, number of executions, total time, avg time and last execution). |
+| Report | [ojob final report](#ojob-final-report) | Outputs a jobs report (e.g. job name, status, number of executions, total time, avg time and last execution) upon ojob termination. |
+| Security | [ojob sec get](#ojob-sec-get) | This job will get a SBucket secret and map it to oJob's args. |
+| State | [ojob state](#ojob-state) | Changes the current state depending on the value of a provided args variable. |
+| State | [ojob get state](#ojob-get-state) | Gets the current state into args.state. |
+| State | [ojob set state](#ojob-set-state) | Changes the current state. |
 
 ## How to start using it 
 
