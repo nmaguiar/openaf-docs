@@ -67,7 +67,7 @@ And that's it. That's all it takes to send a SQS message in OpenAF.
 
 ## Receiving messages
 
-To receive the messages in queue you can use the _SQS_Receive_ and SQS_Delete_ functions.
+To receive the messages in queue you can use the _SQS_Receive_ and _SQS_Delete_ functions.
 
 ````javascript
 loadLib("aws.js")
