@@ -13,23 +13,27 @@ To enrich the oJob building blocks there is a set of jobs to help minimize codin
 
 | Area | Job | Description |
 |------|-----|-------------|
-| Control | [ojob if](#ojob-if) | If the provided "condition" is evaluated as true it will execute the "then" jobs otherwise it will execute the "else" jobs |
-| Control | [ojob repeat](#ojob-repeat) | Repeats sequentially, for a specific number of "times", the provided list of "jobs" (one or more) |
+| Control | [ojob if](#ojob-if) | If the provided "condition" is evaluated as true it will execute the "then" jobs otherwise it will execute the "else" jobs. |
+| Control | [ojob repeat](#ojob-repeat) | Repeats sequentially, for a specific number of "times", the provided list of "jobs" (one or more). |
 | Control | [ojob repeat with each](#ojob-repeat-with-each) | Repeats the configured "jobs" (one or more jobs) sequentially for each element of the provided "key" list. |
 | Debug | [ojob debug](#ojob-debug) | Outputs the current args and res values to help debug an ojob flow. |
 | Debug | [ojob job debug](#ojob-job-debug) | Provides an alternative to print based debug. |
 | Function | [ojob function](#ojob-function) | Executes the provided function mapping any args to the function arguments using the odoc help available for the provided function. |
-| Input | [ojob get](#ojob-get) | Retrieves a specific map key (or path) using $get | 
+| Input | [ojob get](#ojob-get) | Retrieves a specific map key (or path) using $get. | 
 | Input | [ojob file get](#ojob-file-get) | Retrieves a specific map key (or path) from an YAML or JSON file provided. |
 | Input | [ojob split to items](#ojob-split-to-items) | Splits an args source into an array of maps. |
 | Query | [ojob query](#ojob-query) | Performs a query (using ow.obj.filter) to the existing args. | 
 | Options | [ojob job](#ojob-job) | Provides a way to organize idempotent jobs. |
-| Options | [ojob job report](#ojob-job-report) | Outputs a job jobs report (e.g. job name, action and plan) |
+| Options | [ojob job report](#ojob-job-report) | Outputs a job jobs report (e.g. job name, action and plan). |
 | Options | [ojob job final report](#ojob-job-final-report) | Outputs a job jobs report (e.g. job name, action and plan) upon ojob termination. |
 | Options | [ojob options](#ojob-options) | Adds new "todo" entries depending on the value of a provided args variable. | 
 | Output | [ojob set](#ojob-set) | Sets a "key" with the current value on a "path" using $set. |
 | Output | [ojob set envs](#ojob-set-envs) | Sets job args based on environment variables. |
+| Output | [ojob print](#ojob-print) | Prints a message line given an OpenAF template. |
+| Output | [ojob log](#ojob-log) | Logs a message line given an OpenAF template. | 
 | Output | [ojob output](#ojob-output) | Prints the current arguments to the console. |
+| Template | [ojob template](#ojob-template) | Applies the OpenAF template over the provided data producing an output. |
+| Template | [ojob template folder](#ojob-template-folder) | Given a templateFolder it will execute 'ojob template' for each (recursively), with the provided data, to output to outputFolder. |  
 | Report | [ojob report](#ojob-report) | Outputs a jobs report (e.g. job name, status, number of executions, total time, avg time and last execution). |
 | Report | [ojob final report](#ojob-final-report) | Outputs a jobs report (e.g. job name, status, number of executions, total time, avg time and last execution) upon ojob termination. |
 | Security | [ojob sec get](#ojob-sec-get) | This job will get a SBucket secret and map it to oJob's args. |
@@ -329,6 +333,33 @@ __Expects:__
 |------|-----------|-------------|
 |envs|no|A map where each key corresponds to an environment variable and the value to the args path where it should be placed|
 
+### ojob print
+
+Prints a message line given an OpenAF template
+
+__Expects:__
+
+| name | required? | description |
+|------|-----------|-------------|
+|__key|no|Map key to retrieve ('args' for arguments)|
+|__path|no|The path to consider from the __key|
+|msg|yes|The message template to use|
+|level|no|The level of the message (info (default) or error)|
+
+### ojob log
+
+Logs a message line given an OpenAF template
+
+__Expects:__
+
+| name | required? | description |
+|------|-----------|-------------|
+|__key|no|Map key to retrieve ('args' for arguments)|
+|__path|no|The path to consider from the __key|
+|msg|yes|The message template to use|
+|level|no|The level of the message (info (default), warn or error)|
+|options|no|Extra options to provide to the tlog* functions. See more in the help of tlog, tlogErr and tlogWarn.|
+
 ### ojob output
 
 Prints the current arguments to the console.
@@ -364,6 +395,51 @@ __Expects:__
 | name | required? | description |
 |------|-----------|-------------|
 |__format|no|Can be json, yaml, table (default) or any other ow.oJob.output format|
+
+## Template
+
+### ojob template
+
+Applies the OpenAF template over the provided data producing an output.
+
+__Expects:__
+
+| name | required? | description |
+|------|-----------|-------------|
+|__key|no|The key that holds template and/or data (default to 'res'). If 'args' it will use the current arguments.|
+|__tpath|no|The path in __key where a string with the template can be found.|
+|__dpath|no|The path in __key where a map/array data to use can be found.|
+|__out|no|The output will be stored into the provided key (defaults to 'res')|
+|template|no|If defined, will be used as template|
+|templateFile|no|If defined, it will use the provided template file.|
+|data|no|If defined, will be used as data|
+|dataFile|no|If defined, it will use the provided data file (either yaml or json).|
+|outputFile|no|If defined, the output will be written to the provided file path.|
+
+__Returns:__
+
+| name | required? | description |
+|------|-----------|-------------|
+|output|no|If no outputFile is provided this will hold the output of applying the template with the provided data|
+
+### ojob template folder
+
+Given a templateFolder it will execute 'ojob template' for each (recursively), with the provided data, to output to outputFolder. Optionally metaTemplate can be use where each json/yaml file in templateFolder all or part of the arguments for 'ojob template'.
+
+
+__Expects:__
+
+| name | required? | description |
+|------|-----------|-------------|
+|templateFolder|yes|The original folder where the templates are located.|
+|__templatePath|no|If defined, will apply a $path string over the recursive list of files in templateFolder.|
+|outputFolder|yes|The path where the output should be stored.|
+|data|no|If defined, will be used as data|
+|dataFile|no|If defined, it will use the provided data file (either yaml or json).|
+|__key|no|The key that holds template and/or data (default to 'res'). If 'args' it will use the current arguments.|
+|__dpath|no|The path in __key where a map/array data to use can be found.|
+|logJob|no|A ojob job to log the 'ojob template' activity (receives the same arguments as 'ojob template')|
+|metaTemplate|no|Boolean that if 'true' will interpret any json/yaml file, in the templateFolder, as a map/array of arguments to use when calling 'ojob template' overriden the defaults.|
 
 ## Security
 
