@@ -44,6 +44,6 @@ Example of adding a simple template helper:
 ````javascript
 ow.template.addHelper("publicip", (aIP, aElement) => $$(ow.loadNet().getPublicIP(aIP)).get(aElement) )
 
-templify("{{ip}} is in {{publicip ip 'country'}}", { ip: "1.1.1.1" })
+templify("{% raw %}{{ip}} is in {{publicip ip 'country'}}{% endraw %}", { ip: "1.1.1.1" })
 // 1.1.1.1 is in Australia
 ````
