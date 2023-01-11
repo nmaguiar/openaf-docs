@@ -37,6 +37,42 @@ Template in OpenAF uses the [HandleBars](https://handlebarsjs.com/guide/) javasc
 | $getObj | ````{% raw %}{{$getObj 'res' 'elements'}}{% endraw %}```` | Performs the equivalent operation to OpenAF's $get and applies the function $path using the second parameter. |
 | $dateDiff | ````{% raw %}{{$dateDiff aDate 'days'}}{% endraw %}```` | Given aDate will output the time difference (using the third optional argument (seconds (default), minutes, hours, days, months, weeks or years)) |
 
+## Conditional helpers
+
+The conditional helpers included mimic the ones provided by [Assemble for comparison](https://assemble.io/helpers/helpers-comparison.html)
+
+| Helper | Example |
+|--------|---------|
+| {% raw %}{{#isnt}}{% endraw %} | {% raw %}{{#isnt number 5}}Kiss my shiny metal ass!{{else}}Never mind :({{/isnt}}{% endraw %} |
+| {% raw %}{{#and}}{% endraw %} | {% raw %}{{#and great magnificent}}Kiss my shiny metal ass!{{else}}Never mind :({{/and}}{% endraw %} |
+| {% raw %}{{#contains}}{% endraw %} | {% raw %}{{#contains truth "best"}}Absolutely true.{{else}}This is a lie.{{/contains}}{% endraw %} |
+| {% raw %}{{#gt}}{% endraw %} | {% raw %}{{#gt number 8}}Kiss my shiny metal ass!{{else}}Never mind :({{/gt}}{% endraw %} |
+| {% raw %}{{#gte}}{% endraw %} | {% raw %}{{#gte number 8}}Kiss my shiny metal ass!{{else}}Never mind :({{/gte}}{% endraw %} |
+| {% raw %}{{#if_gt}}{% endraw %} | {% raw %}{{#if_gt x compare=y}} ... {{/if_gt}}{% endraw %} |
+| {% raw %}{{#if_gteq}}{% endraw %} | {% raw %}{{#if_gteq x compare=y}} ... {{/if_gteq}}{% endraw %} |
+| {% raw %}{{#is}}{% endraw %} | {% raw %}{{#is x compare=y}} ... {{/is}}{% endraw %} |
+| {% raw %}{{#ifeq}}{% endraw %} | {% raw %}{{#ifeq x compare=y}} ... {{/ifeq}}{% endraw %} |
+| {% raw %}{{#compare}}{% endraw %} | {% raw %}{{#compare  [leftvalue ] [operator ] [rightvalue ]}}foo{{else }}bar{{/compare }}{% endraw %} |
+| {% raw %}{{#lt}}{% endraw %} | {% raw %}{{#lt number 3}} ... {{else}} {{/lt}}{% endraw %} |
+| {% raw %}{{#lte}}{% endraw %} | {% raw %}{{#lte number 3}} ... {{else}} {{/lte}}{% endraw %} |
+| {% raw %}{{#or}}{% endraw %} | {% raw %}{{#or great magnificent}}Kiss my shiny metal ass!{{else}}Never mind :({{/or}}{% endraw %} |
+| {% raw %}{{#unless_eq}}{% endraw %} | {% raw %}{{#unless_eq x compare=y}} ... {{/unless_eq}}{% endraw %} |
+| {% raw %}{{#unless_gt}}{% endraw %} | {% raw %}{{#unless_gt x compare=y}} ... {{/unless_gt}}{% endraw %} |
+| {% raw %}{{#unless_gteq}}{% endraw %} | {% raw %}{{#unless_gteq x compare=y}} ... {{/unless_gteq}}{% endraw %} |
+| {% raw %}{{#unless_lt}}{% endraw %} | {% raw %}{{#unless_lt x compare=y}} ... {{/unless_lt}}{% endraw %} |
+| {% raw %}{{#unless_lteq}}{% endraw %} | {% raw %}{{#unless_lteq x compare=y}} ... {{/unless_lteq}}{% endraw %} |
+
+## Format helpers
+
+The format helpers are all the ow.format.* functions available. For example:
+
+````javascript
+templify("{{owFormat_toBytesAbbreviation 10240000 3}}")
+// 9.77 MB
+templify("{{owFormat_toBinary 123}}")
+// 1111011
+````
+
 ## Adding a helper
 
 Example of adding a simple template helper:
