@@ -15,7 +15,7 @@ ow.template.addOpenAFHelpers()
 
 var someDateInTheFuture = new Date(now() + (1000*60*60))
 
-tprint("Something is going to happen in {{$dateDiff d 'minutes'}} minutes", { d: someDateInTheFuture })
+tprint("Something is going to happen in {% raw %}{{$dateDiff d 'minutes'}}{% endraw %} minutes", { d: someDateInTheFuture })
 // Something is going to happen in -59 minutes
 ````
 
