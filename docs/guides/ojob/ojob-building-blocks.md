@@ -18,6 +18,7 @@ To enrich the oJob building blocks there is a set of jobs to help minimize codin
 | Control | [ojob repeat with each](#ojob-repeat-with-each) | Repeats the configured "jobs" (one or more jobs) sequentially for each element of the provided "key" list. |
 | Debug | [ojob debug](#ojob-debug) | Outputs the current args and res values to help debug an ojob flow. |
 | Debug | [ojob job debug](#ojob-job-debug) | Provides an alternative to print based debug. |
+| Channel | [ojob channel](#ojob-channel) | Provides a set of operations over an OpenAF channel. |
 | Function | [ojob function](#ojob-function) | Executes the provided function mapping any args to the function arguments using the odoc help available for the provided function. |
 | Input | [ojob get](#ojob-get) | Retrieves a specific map key (or path) using $get. | 
 | Input | [ojob file get](#ojob-file-get) | Retrieves a specific map key (or path) from an YAML or JSON file provided. |
@@ -27,10 +28,12 @@ To enrich the oJob building blocks there is a set of jobs to help minimize codin
 | Options | [ojob job report](#ojob-job-report) | Outputs a job jobs report (e.g. job name, action and plan). |
 | Options | [ojob job final report](#ojob-job-final-report) | Outputs a job jobs report (e.g. job name, action and plan) upon ojob termination. |
 | Options | [ojob options](#ojob-options) | Adds new "todo" entries depending on the value of a provided args variable. | 
+| Options | [ojob todo](#ojob-todo) | Adds new "todo" entries. |
 | Output | [ojob set](#ojob-set) | Sets a "key" with the current value on a "path" using $set. |
 | Output | [ojob set envs](#ojob-set-envs) | Sets job args based on environment variables. |
 | Output | [ojob print](#ojob-print) | Prints a message line given an OpenAF template. |
 | Output | [ojob log](#ojob-log) | Logs a message line given an OpenAF template. | 
+| Output | [ojob find/replace](#ojob-find/replace) | Performs an in-memory find/replace on a provided string or file and outputs to args.output or, optionally, to a file. |
 | Output | [ojob output](#ojob-output) | Prints the current arguments to the console. |
 | Template | [ojob template](#ojob-template) | Applies the OpenAF template over the provided data producing an output. |
 | Template | [ojob template folder](#ojob-template-folder) | Given a templateFolder it will execute 'ojob template' for each (recursively), with the provided data, to output to outputFolder. |  
@@ -152,6 +155,33 @@ __Expects:__
 |emoticons|no|If emoticons should be used or not|
 |signs|no|A custom map of emoticons (keys: checkpoint, assert and print)|
 |includeTime|no|A boolean value to indicate if a time indication should be included|
+
+## Channel
+
+Provides a set of operations over an OpenAF channel.
+
+__Expects:__
+
+| name | required? | description |
+|------|-----------|-------------|
+| __name | yes | The name of the OpenAF channel to use |
+| __op   | yes | The operation to perform (e.g. setall, set, get, unset, unsetall, getkeys, getall and size) |
+| __key  | no  | The key from where to retrieve the operation arguments (args to retrive from arguments) |
+| __kpath | no | If defined, the path over the values retrieved from __key where the key or keys of the operation are defined |
+| key | no | If defined, the key to use with the operations set, get and unset |
+| keys | no | If defined, the set of fields to use with the operations setall and unsetall |
+| value | no | If defined, the value to use with the operations set, get and unset |
+| values | no | If defined, an array of values to use with the operations setall and unsetall |
+| __vpath | no | If defined, the path over the values retrieved from __key where the value or values of the operation are defined |
+| extra | no | If defined, will provide an extra argument (usually a map), depending on channel type, for the getall and getkeys operations. |
+
+__Returns:__
+
+| name | description |
+|------|-------------|
+| _list | If __key == 'args' will return the results of getall and getkeys |
+| _map | If __key == 'args' will return the results of get |
+| size | If __key == 'args' will return the size of the channel |
 
 ## Function
 
@@ -310,6 +340,26 @@ __Expects:__
 |__default|no|Default array of "todo"s|
 |__async|no|Boolean value that if true, run the todos in async mode|
 
+### ojob todo
+
+Executes an ojob sub-todo.
+
+_NOTE: doesn't perform any checks for recursive behaviour!_
+
+| name | required? | description |
+|------|-----------|-------------|
+| todo | no | A string or array of todo' maps |
+| todo[].name | no | Name of the job to execute |
+| todo[].args | no | Arguments to merge (if isolateArgs is not true) with the main job arguments |
+| todo[].isolateArgs | no | Boolean to indicate, for a specific todo, that args should be isolated from all others |
+| todo[].isolateJob | no | Boolean to indicate, for a specific todo, that the job should run in a different scope (e.g. deps will not work) |
+| todo[].templateArgs | no | Boolean to indicate, for a specific todo, to apply template to each string of the provided args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true) |
+| isolateArgs | no | Boolean, false by default, to indicate that args should be isolated from all others |
+| isolateJob | no | Boolean, false by default, to indicate that the job should run in a different scope (e.g. deps will not work) |
+| templateArgs | no | Boolean, true by default, to indicate to apply template to each string of the provided args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true) |
+| shareArgs | no | Boolean, false by default, to indicate that args should be shared between all todo's jobs sequentially. |
+| __debug | no | Boolean to indicate that each job execution parameters should be printed before executing |
+
 ## Output
 
 ### ojob set
@@ -373,6 +423,29 @@ __Expects:__
 |__format|no|The output format (e.g. see ow.oJob.output help)|
 |__title|no|Encapsulates the output map/array with a title key.|
 |__internal|no|Boolean value that if true it will display the internal oJob entries on the arguments (default false)|
+
+### ojob find/replace
+
+Performs an in-memory find/replace on a provided string or file and outputs to args.output or, optionally, to a file.
+
+__Expects:__
+
+| name | required? | description |
+|------|-----------|-------------|
+| __key | no | The key that holds template and/or data (default to 'res'). If 'args' it will use the current arguments. |
+| __path | no | The path in __key where a map of replacements ([text/regexp]:[replace text]) can be found. |
+| inputKey | no | If defined, indicates the key that holds the string of data to replace. |
+| inputPath | no | If defined with inputKey, indicates the path to use to select the string of data to replace. |
+| inputFile | no | If defined the contents to be replaced will be read from the inputFile. |
+| outputFile | no | If defined will output of the content replacement to the defined file. |
+| useRegExp | no | Boolean value to determine if the map of replacements will be interpreted as a regexp or text. |
+| logJob | no | Optionally provide a logging job with the current args and __op with 'read' or 'write' |
+
+__Returns:__
+
+| name | description |
+|------|-------------|
+| output | If outputFile is not defined the output will contain the content replacement |
 
 ## Report
 
