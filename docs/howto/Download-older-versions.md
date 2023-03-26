@@ -38,7 +38,8 @@ $ java -jar openaf.jar --install
 | 20210721 | [https://openaf.io/openaf-20210721.jar](https://openaf.io/openaf-20210721.jar) | |
 | 20211229 | [https://openaf.io/openaf-20211229.jar](https://openaf.io/openaf-20211229.jar) | |
 | 20220822 | [https://openaf.io/openaf-20220822.jar](https://openaf.io/openaf-20220822.jar) | |
-| 20221216 | [https://openaf.io/openaf-20221216.jar](https://openaf.io/openaf-20221216.jar) | latest |
+| 20221216 | [https://openaf.io/openaf-20221216.jar](https://openaf.io/openaf-20221216.jar) | |
+| 20230325 | [https://openaf.io/openaf-20230325.jar](https://openaf.io/openaf-20230325.jar) | latest |
 
 > Note: you can also check the [GitHub releases list](https://github.com/OpenAF/openaf/releases)
 
