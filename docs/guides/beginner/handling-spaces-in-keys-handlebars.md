@@ -31,19 +31,21 @@ print("Free mem: " + myMap.Stats["Memory stats"]["Free memory"] + "MB");
 To replicate in a [HandleBars](https://handlebarsjs.com) template you would write for the first line:
 
 ````html
-Update: {{Update}}
+Update: {% raw %}{{Update}}{% endraw %}
 ````
 
 But, how to access the keys with space in [HandleBars](https://handlebarsjs.com)?
 
 ````html
-Update: {{Update}}
-Free mem: {{Stats.[Memory stats].[Free memory]}}MB
+Update: {% raw %}{{Update}}
+Free mem: {{Stats.[Memory stats].[Free memory]}}MB{% endraw %}
 ````
 
 So the final code would be, for example:
 
 ````javascript
+{% raw %}
 tprint("Update: {{Update}}", myMap);
 tprint("Free mem: {{Stats.[Memory stats].[Free memory]}}MB", myMap);
+{% endraw %}
 ````

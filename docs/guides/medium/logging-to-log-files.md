@@ -80,6 +80,7 @@ The default is logging to daily files but you can customize to any date time gro
 Since we are changing the log filenames for the housekeeping process to be able to identify the new log filenames you need to provide a _HKRegExPattern_ regular expression pattern also.
 
 ````javascript
+{% raw %}
 ow.loadCh();
 ow.ch.utils.setLogToFile({ 
     logFolder: "logs",
@@ -89,6 +90,7 @@ ow.ch.utils.setLogToFile({
     HKRegExPattern: "hourly-log-\\d{4}-\\d{2}-\\d{2}-\\d{2]\\.log"
 });
 //...
+{% endraw %}
 ````
 
 ## Logging as CSV files
@@ -96,6 +98,7 @@ ow.ch.utils.setLogToFile({
 To log into CSV files you just need to change the _filenameTemplate_ and the _lineTemplate_:
 
 ````javascript
+{% raw %}
 ow.loadCh();
 ow.ch.utils.setLogToFile({ 
     logFolder: "logs",
@@ -104,6 +107,7 @@ ow.ch.utils.setLogToFile({
     HKhowLongAgoInMinutes: 7200
 });
 //...
+{% endraw %}
 ````
 
 ## Logging as NDJSON files
@@ -111,6 +115,7 @@ ow.ch.utils.setLogToFile({
 To log as NDJSON:
 
 ````javascript
+{% raw %}
 ow.loadCh();
 ow.ch.utils.setLogToFile({ 
     logFolder: "logs",
@@ -118,6 +123,7 @@ ow.ch.utils.setLogToFile({
     lineTemplate: "{d:\"{{timedate}}\",t:\"{{type}}\",m:\"{{{message}}}\"}\n",
     HKhowLongAgoInMinutes: 7200
 });
+{% endraw %}
 ````
 
 ## Keeping log entries only on files

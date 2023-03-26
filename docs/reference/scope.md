@@ -2080,6 +2080,7 @@ See more in: http://fusejs.io/
 __loadHandlebars()__
 
 ````
+{% raw %}
 Loads the Handlebars javascript library into scope. Example:
 
 loadHandlebards();
@@ -2091,7 +2092,7 @@ data.lines.push({"name": "n3", "value": "v3"});
 print(template(data));
 
 See more documentation in: http://handlebarsjs.com/
-
+{% endraw %}
 
 ````
 ### loadHelp
@@ -2952,12 +2953,14 @@ Converts the provided aString to a different anEncoding (by default UTF-8).
 __tprint(aTemplateString, someData)__
 
 ````
+{% raw %}
 Using Handlebars and the functionality provided in ow.template, will use the aTemplateString as a Handlebars template and print the parsed output. Optionally you can provide someData as data for the Handlebars template  otherwise the current scope will be used.
 
 Example:
 
 var someText = "Hello World!";
 tprint("Hi, {{someText}}"); // Hi, Hello World!
+{% endraw %}
 ````
 ### tprintErr
 
@@ -2976,24 +2979,28 @@ tprintErr("Hi, {{someText}}"); // Hi, Hello World!
 __tprintErrnl(aTemplateString, someData)__
 
 ````
+{% raw %}
 Using Handlebars and the functionality provided in ow.template, will use the aTemplateString as a Handlebars template and print, to the stderr without new line, the parsed output. Optionally you can provide someData as data for the Handlebars template  otherwise the current scope will be used.
 
 Example:
 
 var someText = "Hello World!";
 tprintErrnl("Hi, {{someText}}"); // Hi, Hello World!
+{% endraw %}
 ````
 ### tprintln
 
 __tprintln(aTemplateString, someData)__
 
 ````
+{% raw %}
 Using Handlebars and the functionality provided in ow.template, will use the aTemplateString as a Handlebars template and print, withouth a new line, the parsed output. Optionally you can provide someData as data for the Handlebars template  otherwise the current scope will be used.
 
 Example:
 
 var someText = "Hello World!";
 tprintln("Hi, {{someText}}"); // Hi, Hello World!
+{% endraw %}
 ````
 ### traverse
 

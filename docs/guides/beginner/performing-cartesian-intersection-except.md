@@ -32,7 +32,9 @@ var b = [
 You can check the size of each (#2 for _a_ and #3 for _b_):
 
 ````javascript
+{% raw %}
 tprint("size of a = {{sizeA}} | size of b = {{sizeB}}", { sizeA: $from(a).count(), sizeB: $from(b).count() })
+{% endraw %}
 ````
 
 ## Performing an intersection

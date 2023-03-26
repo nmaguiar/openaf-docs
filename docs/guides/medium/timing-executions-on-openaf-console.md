@@ -47,8 +47,10 @@ The generic advices, given the factors that might influence execution, are:
 If you want to keep an eye on the memory you can also execute the "one-line":
 
 ````javascript
+{% raw %}
 > ow.loadFormat();
 > watch var rm = java.lang.Runtime.getRuntime(); templify("{{free}}/{{total}} ({{max}})", { free: ow.format.toBytesAbbreviation(rm.freeMemory()), total: ow.format.toBytesAbbreviation(rm.totalMemory()), max: ow.format.toBytesAbbreviation(rm.maxMemory()) })
+{% endraw %}
 ````
 
 Executing now the same calls you can now see the memory evolution ("free/total (max)"):

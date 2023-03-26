@@ -45,6 +45,7 @@ yugabytedb
 To build the oPack for the database you need just execute (for example, for sqlite):
 
 ````bash
+{% raw %}
 $ ojob ojob.io/db/getDriver op=build db=sqlite
 
 Downloading org.xerial.sqlite-jdbc...
@@ -55,6 +56,7 @@ To use it just:
 
         loadLib("jdbc-sqlite.js");
         var db = new DB("jdbc:sqlite:{{file}}", ...)
+{% endraw %}
 ````
 
 On the end of the process of building the oPack the "To use it just" shows an example of how you can use the built opack after installation.

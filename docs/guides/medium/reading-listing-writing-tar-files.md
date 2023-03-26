@@ -29,8 +29,9 @@ io.writeFileTARStream("mytar.tgz", true, writer => {
 
 		// Add bytes abbreviation
 		r.bytesAbb = ow.format.toBytesAbbreviation(r.size)
-
+{% raw %}
 		tprint("  writing {{filepath}} ({{bytesAbb}})", r)
+{% endraw %}
         // Writing a file to the tgz file
 		writer(targetFilePath, io.readFileStream(r.filepath))
 	})
@@ -95,8 +96,9 @@ $from( io.listFilesTAR(source) )
 
 		// Add bytes abbreviation
 		r.bytesAbb = ow.format.toBytesAbbreviation(r.size)
-
+{% raw %}
 		tprint("  writing {{filepath}} ({{bytesAbb}})", r)
+{% endraw %}
 		ioStreamCopy(io.writeFileStream(parentDir + "/" + r.filename), iStream)
 	})
 })

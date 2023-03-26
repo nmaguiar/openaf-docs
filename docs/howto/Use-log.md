@@ -46,16 +46,20 @@ The main difference is the extra _data_ map-type parameter. This should be a map
 Simple example:
 
 ````javascript
+{% raw %}
 tlog("The current version is: {{version}}", { version: getVersion() })
 // 2020-01-03 13:14:15.678 | INFO | The current version is: 20200102
+{% endraw %}
 ````
 
 If no _data_ map is provided the current scope will be used:
 
 ````javascript
+{% raw %}
 var distribution = getDistribution()
 tlog("The current distribution is: {{distribution}}")
 // 2020-01-03 13:14:17.876 | INFO | The current distribution is: nightly
+{% endraw %}
 ````
 
 ## Log functions options

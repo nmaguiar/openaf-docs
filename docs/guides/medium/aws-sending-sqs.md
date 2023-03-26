@@ -91,8 +91,9 @@ do {
 
      // If the body is a JSON message it can be parsed to be used in OpenAF
      //var msgJson = jsonParse(msg.Body)
-
+{% raw %}
      tprint("..received: {{MessageId}} | {% raw %}{{{Body}}}{% endraw %}", msg)
+{% endraw %}
      // ok, now we have to delete it to ack that was correctly processed
      aws.SQS_Delete(sqsEndpointURI, sqsRegion, msg.ReceiptHandle)
   }
