@@ -40,10 +40,11 @@ So we are specifying the application (app) and data (dat) users to use, the tabl
 -- Creating tables
 --
  
-{{#each TABLES}}
+{% raw %}{{#each TABLES}}
 -- Table for {{../datUser}}.{{tableName}}
 CREATE TABLE {{../datUser}}.{{tableName}} (col1 NUMBER(8), col2 VARCHAR(500)) TABLESPACE {{../tablespace}}
 {{/each}}
+{% endraw %}
 ````
 
 Looking at the JSON object this template is iterating on the tables array, getting the tableName. datUser and tablespace are gather from the parent to the tables array.
@@ -76,19 +77,19 @@ But if we are creating tables in a data schema for which we want to create synon
 -- Creating synonyms
 --
  
-{{#each TABLES}}
+{% raw %}{{#each TABLES}}
 -- Synonym for {{../appUser}}.{{tableName}}
 CREATE OR REPLACE SYNONYM {{../appUser}}.{{tableName}} FOR {{../datUser}}.{{tableName}};
 GRANT ALL ON {{tableName}} TO {{../appUser}} WITH GRANT OPTION;
-{{/each}}
+{{/each}}{% endraw %}
  
 -- Creating tables
 --
  
-{{#each TABLES}}
+{% raw %}{{#each TABLES}}
 -- Table for {{../datUser}}.{{tableName}}
 CREATE TABLE {{../datUser}}.{{tableName}} (col1 NUMBER(8), col2 VARCHAR(500)) TABLESPACE {{../tablespace}}
-{{/each}}
+{{/each}}{% endraw %}
 ````
 
 And execute the unchanged OpenAF script:
@@ -135,10 +136,10 @@ and use the function inside the template:
 -- Creating tables
 --
  
-{{#each TABLES}}
+{% raw %}{{#each TABLES}}
 -- Table for {{../datUser}}.{{upper tableName}}
 CREATE TABLE {{../datUser}}.{{UPPER tableName}} (col1 NUMBER(8), col2 VARCHAR(500)) TABLESPACE {{../tablespace}}
-{{/each}}
+{{/each}}{% endraw %}
 ````
 
 The result:
@@ -187,10 +188,10 @@ And change the template:
 -- Creating tables
 --
  
-{{#each TABLES}}
+{% raw %}{{#each TABLES}}
 -- Table for {{../datUser}}.{{tableName}}
 CREATE TABLE {{../datUser}}.{{tableName}} (col1 NUMBER(8), col2 VARCHAR(500)) {{#if nologging}}NOLOGGING{{/IF}} TABLESPACE {{../tablespace}}
-{{/each}}
+{{/each}}{% endraw %}
 ````
 
 Executing the unchanged script:
@@ -216,14 +217,14 @@ Well this way we are going to end with lots of hbs files and little reusability 
 -- Creating tables for {{for}}
 --
  
-{{#each TABLES}}
+{% raw %}{{#each TABLES}}
 -- Table for {{../datUser}}.{{upper tableName}}
 {{#if NUMBER}}
 CREATE TABLE {{../datUser}}.{{UPPER tableName}} (col1 NUMBER(8), col2 NUMBER(25)) TABLESPACE {{../tablespace}}
 {{ELSE}}
 CREATE TABLE {{../datUser}}.{{UPPER tableName}} (col1 NUMBER(8), col2 VARCHAR(500)) TABLESPACE {{../tablespace}}
 {{/IF}}
-{{/each}}
+{{/each}}{% endraw %}
 ````
 
 Now one for the synonyms:
@@ -233,19 +234,19 @@ Now one for the synonyms:
 -- Creating synonyms for {{for}}
 --
  
-{{#each TABLES}}
+{% raw %}{{#each TABLES}}
 -- Synonym for {{../appUser}}.{{upper tableName}}
 CREATE OR REPLACE SYNONYM {{../appUser}}.{{UPPER tableName}} FOR {{../datUser}}.{{UPPER tableName}};
 GRANT ALL ON {{UPPER tableName}} TO {{../appUser}} WITH GRANT OPTION;
-{{/each}}
+{{/each}}{% endraw %}
 ````
 
 And a main template to refer to these two sub templates (partials):
 
 `sql_creation.hbs`
 ````sql
-{{> synonyms FOR="ref tables"}}
-{{> TABLES   FOR="ref tables"}}
+{% raw %}{{> synonyms FOR="ref tables"}}
+{{> TABLES   FOR="ref tables"}}{% endraw %}
 ````
 
 Now we just need to alter the OpenAF script to register the sub templates (partials):
@@ -267,7 +268,8 @@ Well, it's text based. Originally Handlebars is used for web templating parsing 
 ````
 SQL generation report
 ---------------------
- 
+
+{% raw %}
 Using the schemas:
 - DAT = {{datUser}}
 - APP = {{appUser}}
@@ -278,6 +280,7 @@ and the tablespace {{tablespace}}, the following reference Oracle objects DDL we
 - The {{#if number}}number {{/if}}reference table {{upper tableName}} for the schema {{../datUser}} and tablespace {{../tablespace}}.
 - The synonym from {{../datUser}}'s {{upper tableName}} for {{../appUser}}.
 {{/each}}
+{% endraw %}
 ````
 
 and it's done:
