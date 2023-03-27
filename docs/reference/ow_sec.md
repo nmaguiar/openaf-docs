@@ -22,6 +22,21 @@ __$sec.close() : Object__
 ````
 Close the current repository.
 ````
+### $sec.encSKey
+
+__$sec.encSKey(aKey) : String__
+
+````
+Given aKey will return the encrypted version of it with the current main sectet for the repo.
+
+Example:
+
+  $sec("test", "b1", $sec("test", __, __, "Password123").encSKey("Password1"), "Password123", "test.yml").set("mysecret", { l:"l", p:"p" })
+  // ...
+  $sec("test", "b1", $sec("test", __, __, "Password123").encSKey("Password1"), "Password123", "test.yml").get("mysecret")
+
+
+````
 ### $sec.get
 
 __$sec.get(aKey, aBucket, aLockSecret) : Object__
@@ -115,7 +130,7 @@ Close the default SBucket.
 ````
 ### ow.sec.closeSBuckets
 
-__ow.sec.closeSBuckets(aRepo)__
+__ow.sec.closeSBuckets(aRepo, aFile)__
 
 ````
 Close a previously open aRepo SBucket.
@@ -143,7 +158,7 @@ Purge the default SBucket.
 ````
 ### ow.sec.purgeSBuckets
 
-__ow.sec.purgeSBuckets(aRepo)__
+__ow.sec.purgeSBuckets(aRepo, aFile)__
 
 ````
 Purge aRepo SBucket.

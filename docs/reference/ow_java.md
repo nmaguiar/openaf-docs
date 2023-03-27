@@ -8,6 +8,13 @@ grand_parent: OpenAF docs
 
 ## ow.java
 
+### ow.java.checkDigest
+
+__ow.java.checkDigest(aDigestString, aMessage) : boolean__
+
+````
+Given aDigestString (e.g. [algorithm]:[digest]) and aMessage will verify the digest verifies returning true or false
+````
 ### ow.java.cipher
 
 __ow.java.cipher(anAlgorithm)__
@@ -113,6 +120,13 @@ __ow.java.cipher.genKeyPair(aKeySize, aAlg) : Map__
 ````
 Given aKeySize (e.g. 2048, 3072, 4096, 7680 and 15360) will return a map with publicKey and privateKey. Optionally you can choose an anAlgorithm (defaults to RSA).
 ````
+### ow.java.cipher.getCert4File
+
+__ow.java.cipher.getCert4File(aFile) : Java__
+
+````
+Given a X509 certificate aFile will return the corresponding Java certificate object.
+````
 ### ow.java.cipher.key2encode
 
 __ow.java.cipher.key2encode(aKey) : String__
@@ -211,6 +225,13 @@ __ow.java.cipher.verify(signatureToVerify, aPublicKey, aInputStream, isBytes) : 
 ````
 Given aInputStream and aPublicKey will verify if the signatureToVerify is valid. Optionally isBytes = true  the signatureToVerify is an array of bytes instead of base 64 encoded.
 ````
+### ow.java.digestAsHex
+
+__ow.java.digestAsHex(aAlg, aMessage) : String__
+
+````
+Given an avaiable JVM aAlg(orithm) (check with ow.java.getDigestAlgs) will return the corresponding aMessage  (which can be a string, byte array, ByteBuffer, File or InputStream) digest in hexadecimal format.
+````
 ### ow.java.gc
 
 __ow.java.gc()__
@@ -245,6 +266,13 @@ __ow.java.getCMemory(shouldFormat) : Map__
 
 ````
 Returns a map with the current cgroup runtime max, total, used and free memory. If shouldFormat = true ow.format.toBytesAbbreviation will be used.
+````
+### ow.java.getDigestAlgs
+
+__ow.java.getDigestAlgs() : Array__
+
+````
+Retrieves the current JVM list of digest algorithms (and provider) to be used with ow.java.digestAsHex.
 ````
 ### ow.java.getHost2IP
 

@@ -226,10 +226,10 @@ Writes an array of bytes into the given filename.
 ````
 ### io.writeFileGzipStream
 
-__io.writeFileGzipStream(aFilename) : JavaStream__
+__io.writeFileGzipStream(aFilename, shouldAppend) : JavaStream__
 
 ````
-Creates and returns a JavaStream to write to a gzip aFilename. For example:
+Creates and returns a JavaStream to write to a gzip aFilename. Optionally if shouldAppend=true it will append to an existing file. For example:
 
 var stream = io.writeFileGzipStream("afile.txt.gz");
 ioStreamWrite(stream, "Hello "); // you can also use ioStreamWriteBytes 

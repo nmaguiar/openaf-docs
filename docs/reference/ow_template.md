@@ -59,13 +59,14 @@ Adds custom helpers:
   - $escape          -- returns an escaped version of the parameter
   - $f               -- uses the $f format function
   - $ft              -- uses the $ft format function
-  - $get             -- uses the $$.get function to access objects
   - $path            -- uses the $path function to query objects
   - $toSLON          -- returns the ow.format.toSLON version of an object
   - $get             -- returns the corresponding value for a key on $get
-  - $getObj          -- equivalent to $get with the extra parameter for $$.get path\    - $dateDiff        -- returns a number of seconds for a provided date optionally (second argument) with minutes, hours, days, months, weeks or years and (third argument) a default value
-
-
+  - $getObj          -- equivalent to $get with the extra parameter for $$.get path
+  - $dateDiff        -- returns a number of seconds for a provided date optionally (second argument) with minutes, hours, days, months, weeks or years and (third argument) a default value
+  - $switch          -- equivalent to a javascript switch
+  - $case            -- to be used with $switch for each case
+  - $default         -- to be used with $switch for each case
 ````
 ### ow.template.addPartial
 

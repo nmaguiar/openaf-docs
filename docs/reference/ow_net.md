@@ -8,12 +8,26 @@ grand_parent: OpenAF docs
 
 ## ow.net
 
+### ow.net.doh
+
+__ow.net.doh(aAddr, aType, aProvider, aCache, aCacheTimeout) : String__
+
+````
+Performs a DNS over HTTPs query with aAddr. Optionally you can provide the aType of record (defaults to 'a') and the DNS over HTTPs aProvider between 'google', 'cloudflare', 'nextdns' and 'local' (that doesn't use DoH but fallbacks to  Java's DNS resolver). Returns the first IP address found. If aCache is provided (optionally with aCacheTimeout in ms) the results will be cached.
+````
 ### ow.net.getActualTime
 
 __ow.net.getActualTime(useAlternative) : Date__
 
 ````
 Retrieves the current actual time from worldtimeapi.org (through https). The current actual time will be returned in a Date. If useAlternative = true it will use worldclockapi.com (through http)
+````
+### ow.net.getAddressInfo
+
+__ow.net.getAddressInfo(aAddress) : Map__
+
+````
+Given an IPv4 or IPv6 aAddress will return a map with hostname, address and corresponding address flags to determine which type of address it is (is it a private address? is it a loopback? is it a multicast address?)
 ````
 ### ow.net.getAddressType
 
@@ -41,7 +55,7 @@ Given aName will do a DNS search for aType (defaults to "a") optionally using dn
 __ow.net.getDoH(aAddr, aType, aProvider) : Array__
 
 ````
-Performs a DNS over HTTPs query with aAddr. Optionally you can provide the aType of record (defaults to 'a') and the DNS over HTTPs aProvider between 'google' and 'cloudflare'.
+Performs a DNS over HTTPs query with aAddr. Optionally you can provide the aType of record (defaults to 'a') and the DNS over HTTPs aProvider between 'google', 'cloudflare', 'nextdns' and 'local' (that doesn't use DoH but fallbacks to  Java's DNS resolver).
 ````
 ### ow.net.getHost2IP
 
@@ -128,6 +142,20 @@ __ow.net.host4URL(aURL) : String__
 ````
 Given aURL it will return the corresponding host:port.
 ````
+### ow.net.ipv4SubNetInfo
+
+__ow.net.ipv4SubNetInfo(aCIDRorAddress, aMask) : Map__
+
+````
+Given an IPv4 aCIDR or anAddress with aMask will return a map with the corresponding subnet info including netmask, broadcast address, address count, low & high address, etc...
+````
+### ow.net.ipv4SubNetInRange
+
+__ow.net.ipv4SubNetInRange(aTestAddress, aCIDRorAddress, aMask) : boolean__
+
+````
+Given IPv4 aTestAddress and a aCIDR or anAddress with aMask will return true if the aTestAddress is part of the subnet represented by aCIDR or aAddress + aMask (false otherwise).
+````
 ### ow.net.isHost
 
 __ow.net.isHost(aHost) : boolean__
@@ -162,6 +190,20 @@ __ow.net.path4URL(aURL) : String__
 
 ````
 Given aURL it will return the corresponding path.
+````
+### ow.net.sendTCPPacket
+
+__ow.net.sendTCPPacket(aHost, aPort, aMsg, dontWait) : Bytes__
+
+````
+Tries to send a string or array of bytes aMsh to aHost and aPort using TCP. If dontWait=true it won't wait for a response.
+````
+### ow.net.sendUDPPacket
+
+__ow.net.sendUDPPacket(aHost, aPort, aMsg, dontWait, bufferSize) : Bytes__
+
+````
+Tries to send a string or array of bytes aMsh to aHost and aPort using UDP. If dontWait=true it won't wait for a response that is stored in a buffer (where bufferSize = 1024 bytes, by default).
 ````
 ### ow.net.testHost
 

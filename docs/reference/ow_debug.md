@@ -10,7 +10,7 @@ grand_parent: OpenAF docs
 
 ### ow.debug.debug
 
-__ow.debug.debug(aCode, args, aReturnCode) : String__
+__ow.debug.debug(aCode, args, aReturnCode, aPrefix) : String__
 
 ````
 Parses aCode for debug comments and replaces the appropriate code. The comments code that can be used are:
@@ -20,9 +20,16 @@ Parses aCode for debug comments and replaces the appropriate code. The comments 
   //?  printVarA
   //?s printInSLONVarA
   //?y printInYAMLVarA
+  //?t printInTableVarA
+  //?r printInTreeVarA
+  //{  begin of unique block with prefix
+  //}  end of unique block with prefix
   //[  begin of unique profile block
   //]  end of unique profile block
-
+  //{[ begin of unique profile block with prefix
+  //]} end of unique profile block with prefix
+  //+  incrementVarA
+  //-  decrementVarA\  
 If aReturnCode is true instead of executing the code, the code will just be returned. Customization can be provided through args or the global map variable OAF_DEBUG_ARGS accepting the following entries:
 
   lineColor   (string)  defaults to FG(220)

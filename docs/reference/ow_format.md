@@ -274,6 +274,13 @@ __ow.format.fromOctal(aString) : Number__
 ````
 Converts a provided octal aString into the decimal number.
 ````
+### ow.format.fromSIAbbreviation
+
+__ow.format.fromSIAbbreviation(aString) : Number__
+
+````
+Converts the provided string using SI notationp prefix (do previously make the necessary conversions: 5mV -> 5m, 5cm -> 5c, 9km -> 9k) to the corresponding number. Uses the current approved SI prefix list (https://en.wikipedia.org/wiki/Metric_prefix)
+````
 ### ow.format.fromTimeAbbreviation
 
 __ow.format.fromTimeAbbreviation(aStr) : Number__
@@ -685,8 +692,6 @@ ow.format.string.closest("/user/1", anArrayOfStrings); // Returns /user
 ow.format.string.closest("/u1", anArrayOfStrings); // Returns /u
 ow.format.string.closest("/userna", anArrayOfStrings); // Returns /user
 ow.format.string.closest("/usernam", anArrayOfStrings); // Returns /username
-
-
 ````
 ### ow.format.string.distance
 
@@ -721,7 +726,7 @@ Returns an array of two 8 bit codes given an unicode astralCodePoint of 16 bits
 __ow.format.string.grid(aMatrix, aX, aY, aBgPattern, shouldReturn) : String__
 
 ````
-Will generate a aX per aY grid to be displayed with aBgPattern (defaults to " "). Each grid cell with use the contents on aMatrix array of an array. Each cell content can be a map with obj (a Map), a xspan/yspan for in cell spacing, a type (either map, table, func or string)  and a title. If shouldReturn = true it will just return the string content instead of trying to print it.          +
+Will generate a aX per aY grid to be displayed with aBgPattern (defaults to " "). Each grid cell with use the contents on aMatrix array of an array. Each cell content can be a map with obj (a Map), a xspan/yspan for in cell spacing, a type (either map, table, func or string)  and a title. If shouldReturn = true it will just return the string content instead of trying to print it.
 ````
 ### ow.format.string.leftPad
 
@@ -823,6 +828,20 @@ __ow.format.string.unicode(aCodeNumber) : String__
 
 ````
 Given a unicode aCodeNumber (8 or 16 bits) will convert to the necessary sequence of 8 bit. For example: ow.format.string.unicode(0x1F37A)
+````
+### ow.format.string.wildcardRE
+
+__ow.format.string.wildcardRE(aPattern, caseSensitive) : RegExp__
+
+````
+Given aPattern using '*' wildcards (to match zero or more characters) or '?' question-mark to match a single character will return the corresponding RegExp. Optionally if caseSensitive=true the RegExp will include case sensitive option.
+````
+### ow.format.string.wildcardTest
+
+__ow.format.string.wildcardTest(aString, aPattern, caseSensitive) : Boolean__
+
+````
+Given aString will try to apply aPattern using '*' wildcards (to match zero or more characters) or '?' question-mark to match a single character. Will return true if the aPattern can be applied to aString. Optionally if caseSensitive=true the pattern will be tested with case sensitive.
 ````
 ### ow.format.string.wordWrap
 

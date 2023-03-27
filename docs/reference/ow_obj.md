@@ -111,11 +111,12 @@ If optionsMap.justDiff = true only the changed lines will be included.
 ````
 ### ow.obj.filter
 
-__ow.obj.filter(anArray, aMap) : Object__
+__ow.obj.filter(anObject, aMap) : Object__
 
 ````
-Given anArray will use $from with the options on aMap basically making all $from options map parameters. Example:
+Given anObject (either a map or array) will use $from with the options on aMap basically making all $from options map parameters.  If a "path" string is included it will fallback to $path. Example:
 \  filter:
+  #fromKey: arr
   where:
   - cond: equals
     args:

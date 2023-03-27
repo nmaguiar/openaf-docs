@@ -573,7 +573,7 @@ Shortcut for the JMESPath library for easy query and access to arrays/objects. T
   $path(arr, "a[*].b | [0]"); 
 
 [Functions]: 
-  abs(x), avg(x), contains(x, y), ceil(x), floor(x), join(x, arr), keys(obj), length(x), map(expr, arr), max(x), max_by(x, y), merge(a, b), min(a), min_by(a, b), not_null(a), reverse(arr), sort(arr), sort_by(a, y), starts_with(a, b), sum(a), to_array(a), to_string(a), to_number(a), type(a), values(a)
+  abs(x), avg(x), contains(x, y), ceil(x), floor(x), join(x, arr), keys(obj), length(x), map(expr, arr), max(x), max_by(x, y), merge(a, b), min(a), min_by(a, b), not_null(a), reverse(arr), sort(arr), sort_by(a, y), starts_with(a, b), ends_with(a, b), sum(a), to_array(a), to_string(a), to_number(a), type(a), values(a)
   $path(arr, "a[?contains(@, 'b') == `true`]")
 
 Custom functions:
@@ -2080,7 +2080,6 @@ See more in: http://fusejs.io/
 __loadHandlebars()__
 
 ````
-{% raw %}
 Loads the Handlebars javascript library into scope. Example:
 
 loadHandlebards();
@@ -2092,7 +2091,7 @@ data.lines.push({"name": "n3", "value": "v3"});
 print(template(data));
 
 See more documentation in: http://handlebarsjs.com/
-{% endraw %}
+
 
 ````
 ### loadHelp
@@ -2227,12 +2226,26 @@ __now() : Number__
 ````
 Will return the current system time in milliseconds.
 ````
+### nowE
+
+__nowE() : Number__
+
+````
+Returns the current epoch time in seconds.
+````
 ### nowNano
 
 __nowNano() : Number__
 
 ````
 Will return the current system time in nanoseconds.
+````
+### nowNanoE
+
+__nowNanoE() : Number__
+
+````
+Returns the current epoch time in nanoseconds.
 ````
 ### nowTZ
 
@@ -2591,10 +2604,10 @@ Prints the aStr to the stdout (without adding a new line on the end) (example: p
 ````
 ### printTable
 
-__printTable(anArrayOfEntries, aWidthLimit, displayCount, useAnsi, aTheme) : String__
+__printTable(anArrayOfEntries, aWidthLimit, displayCount, useAnsi, aTheme, aBgColor) : String__
 
 ````
-Returns a ASCII table representation of anArrayOfEntries where each entry is a Map with the same keys. Optionally you can specify aWidthLimit and useAnsi. If you want to include a count of rows just use displayCount = true. If useAnsi = true you can provide a theme (e.g. "utf" or "plain")
+Returns a ASCII table representation of anArrayOfEntries where each entry is a Map with the same keys. Optionally you can specify aWidthLimit, useAnsi and/or aBgColor. If you want to include a count of rows just use displayCount = true. If useAnsi = true you can provide a theme (e.g. "utf" or "plain")
 ````
 ### printTree
 
@@ -2802,6 +2815,21 @@ __splitBySeparator(aString, aSeparator) : Array__
 ````
 Will split aString using the provided aSeparator. If the aSeparator is escaped (for example if ';' is the aSeparator and  aString 'abc\\;def;123" only the second ';' will be considered.
 ````
+### splitKVBySeparator
+
+__splitKVBySeparator(aString, aOptions) : Map__
+
+````
+Given aString with multiple key/value entries will return a map with the same. Optionally you can provide aOptions:
+
+   sep  - the key/value entries separator (defaults to " ")
+   ksep - the key separator from a value (defaults to "=")
+   esc  - the escape character (defaults to "\\")
+   qto  - the quote character (defaults to "\"")
+   nul  - the null representation (defaults to null)
+
+
+````
 ### sprint
 
 __sprint(aStr)__
@@ -2953,14 +2981,12 @@ Converts the provided aString to a different anEncoding (by default UTF-8).
 __tprint(aTemplateString, someData)__
 
 ````
-{% raw %}
 Using Handlebars and the functionality provided in ow.template, will use the aTemplateString as a Handlebars template and print the parsed output. Optionally you can provide someData as data for the Handlebars template  otherwise the current scope will be used.
 
 Example:
 
 var someText = "Hello World!";
 tprint("Hi, {{someText}}"); // Hi, Hello World!
-{% endraw %}
 ````
 ### tprintErr
 
@@ -2979,28 +3005,24 @@ tprintErr("Hi, {{someText}}"); // Hi, Hello World!
 __tprintErrnl(aTemplateString, someData)__
 
 ````
-{% raw %}
 Using Handlebars and the functionality provided in ow.template, will use the aTemplateString as a Handlebars template and print, to the stderr without new line, the parsed output. Optionally you can provide someData as data for the Handlebars template  otherwise the current scope will be used.
 
 Example:
 
 var someText = "Hello World!";
 tprintErrnl("Hi, {{someText}}"); // Hi, Hello World!
-{% endraw %}
 ````
 ### tprintln
 
 __tprintln(aTemplateString, someData)__
 
 ````
-{% raw %}
 Using Handlebars and the functionality provided in ow.template, will use the aTemplateString as a Handlebars template and print, withouth a new line, the parsed output. Optionally you can provide someData as data for the Handlebars template  otherwise the current scope will be used.
 
 Example:
 
 var someText = "Hello World!";
 tprintln("Hi, {{someText}}"); // Hi, Hello World!
-{% endraw %}
 ````
 ### traverse
 
@@ -3029,6 +3051,13 @@ __utf8(aString) : String__
 
 ````
 Converts the provided aString into UTF-8 encoding.
+````
+### visibleLength
+
+__visibleLength(aString) : Number__
+
+````
+More complete af.visibleLength function
 ````
 ### watch
 
