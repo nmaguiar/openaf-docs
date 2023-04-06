@@ -66,7 +66,7 @@ ow.ch.utils.getElasticIndex('nattrmon-attrs', 'yyyy.ww')
 
 For each attribute value change a new entry will be created in ElasticSearch: 
 
-![elastic search entries](kibana_attrs.png "")
+![elastic search entries](kibana_attrs.png)
 
 The key is _id_ and it's a hash. Then you will have the _name_ of the attribute and the _date_ it was checked. The value will be in a key with the same name as the attribute. If the attribute has _categories_ the '/' will be converted to a '_'. In the example above: _Random_Number_ and _Random_Dice_. The stamp keys will also, of course, be part of the ElasticSearch entry.
 
@@ -74,10 +74,12 @@ The key is _id_ and it's a hash. Then you will have the _name_ of the attribute 
 
 To add warnings just create a new similar output changing it's name, the ElasticSearch index where the warnings will be kept and replace on the chSubscribe to use _nattrmon::warnings_ instead of _nattrmon::cvals_.
 
-![nattrmon warnings](nattrmon_es.png "") 
+![nattrmon warnings](nattrmon_es.png)
+
 _Example of an OpenAF channel accessing the ElasticSearch's nattrmon-warns index_
 
 The warnings instead of the name of the attribute have the title of the warning, level (e.g. High, Medium, Low, Info, Closed), the description, the date of the last update and date of creation. The stamp map will also be part of the ElasticSearch entry as expected.
 
-![kibana warnings](kibana_warns.png "")
+![kibana warnings](kibana_warns.png)
+
 _Example of a kibana dashboard using sample warnings from nAttrMon_
