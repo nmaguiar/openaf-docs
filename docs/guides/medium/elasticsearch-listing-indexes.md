@@ -50,7 +50,7 @@ To list the available indices just execute:
 
 You can sort the table by different fields. By index:
 
-````javascript
+````
 > table $from(es.getIndices()).sort("index").select()
 health│status│   index    │         uuid         │pri│rep│docs.count│docs.deleted│store.size│pri.store.size
 ──────┼──────┼────────────┼──────────────────────┼───┼───┼──────────┼────────────┼──────────┼──────────────
@@ -64,7 +64,7 @@ green │open  │test        │37NeTq9bSpK8hiPZhMxP5Q│1  │1  │0         
 
 By size:
 
-````javascript
+````
 > table $from(es.getIndices(true)).sort("primaryStoreSize").select()
 health│status│   index    │         uuid         │primaryShards│replicas│docsCount│docsDeleted│storeSize│primaryStoreSize
 ──────┼──────┼────────────┼──────────────────────┼─────────────┼────────┼─────────┼───────────┼─────────┼────────────────
@@ -79,7 +79,7 @@ green │open  │data-2020-03│IJZSnbnaTOujaYxlpHm-HQ│1            │1     
 
 By documents:
 
-````javascript
+````
 > table $from(es.getIndices()).sort("docsCount").select()
 health│status│   index    │         uuid         │pri│rep│docs.count│docs.deleted│store.size│pri.store.size
 ──────┼──────┼────────────┼──────────────────────┼───┼───┼──────────┼────────────┼──────────┼──────────────
@@ -93,7 +93,7 @@ green │open  │data-2020-04│ZOceFiU_RleQBZ6GV4jV1Q│1  │1  │10000     
 
 By index and reverse documents order:
 
-````javascript
+````
 > table $from(es.getIndices()).sort("index", "-docsCount").select()
 health│status│   index    │         uuid         │pri│rep│docs.count│docs.deleted│store.size│pri.store.size
 ──────┼──────┼────────────┼──────────────────────┼───┼───┼──────────┼────────────┼──────────┼──────────────
@@ -104,6 +104,8 @@ green │open  │data-2020-04│ZOceFiU_RleQBZ6GV4jV1Q│1  │1  │10000     
 green │open  │test        │37NeTq9bSpK8hiPZhMxP5Q│1  │1  │0         │0           │225b      │225b
 [#5 rows]
 ````
+
+There are many ways to filter and sort these listings. You can see more in [OpenAF $from](../../concepts/OpenAF-nLinq.md).
 
 ### 2.3 Exporting the list to CSV
 
