@@ -122,6 +122,7 @@ Outputs the current args and res values to help debug an ojob flow.
 Provides an alternative to print based debug.
 
 Example:
+
 ````yaml
   # ----------------
   - name: Sample job
@@ -230,6 +231,7 @@ __Expects:__
 Splits an args source into an array of maps (_list).
 
 Example:
+
 ````
   a source string with the value "abc, xyz, 1"
   + separator = ','
@@ -316,6 +318,7 @@ Adds new "todo" entries depending on the value of a provided args variable.
 
 Example:
 
+````yaml
   __optionOn : mode
   __lowerCase: true
   __todos    :
@@ -327,7 +330,7 @@ Example:
     - Job 3
   __default:
   - Job 2
-
+````
 
 __Expects:__
 
@@ -547,12 +550,13 @@ __Returns:__
 
 Changes the current state depending on the value of a provided args variable.
 
-  Example:
+Example:
 
+````yaml
     stateOn  : mode
     lowerCase: true
     default  : Help
-
+````
 
 __Expects:__
 
