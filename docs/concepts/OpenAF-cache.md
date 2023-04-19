@@ -158,6 +158,6 @@ $cache("weather")
 .fn(aLocation => $rest({ uriQuery: true }).get("https://a.weather.service", { loc: aLocation }))
 .create()
 
-// Second call to get the weather forecase in London that will get the cached result from Script A
+// Second call to get the weather forecast in London that will get the cached result from Script A
 $cache("weather").get("London-UK")
 ````
