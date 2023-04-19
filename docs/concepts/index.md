@@ -16,6 +16,7 @@ Main concepts
 * __[sBuckets](sBuckets.md)__
 * __[Channels](OpenAF-Channels.md)__
 * __[Promises](OpenAF-oPromise.md)__
+* __[$cache](OpenAF-cache.md)__
 * __[$from](OpenAF-nLinq.md)__
 * __[oJob.io](oJobIO.md)__
 * __[Shebang](shebang.md)__
