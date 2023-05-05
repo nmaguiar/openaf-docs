@@ -20,6 +20,8 @@ Template in OpenAF uses the [HandleBars](https://handlebarsjs.com/guide/) javasc
 
 ## OpenAF helpers
 
+> In some cases it might be necessary to load them using ````ow.loadTemplate().addOpenAFHelpers()````before using them.
+
 | Helper | Example | Description |
 |--------|---------|-------------|
 | $$     | ````{% raw %}{{$$ aProperty aDefaultValue}}{% endraw %}```` | Outputs the value of aProperty or, if not defined, returns the defaultValue. |
@@ -39,6 +41,8 @@ Template in OpenAF uses the [HandleBars](https://handlebarsjs.com/guide/) javasc
 | $switch, $case, $default | ````{% raw %}{{#$switch value}}{{#$case 'a'}}value a{{/$case}}{{$default 'no value'}}{{/$switch}}{% endraw }```` | Implements a switch function with case and default helpers. |
 
 ## Conditional helpers
+
+> In some cases it might be necessary to load them using ````ow.loadTemplate().addConditionalHelpers()````before using them.
 
 The conditional helpers included mimic the ones provided by [Assemble for comparison](https://assemble.io/helpers/helpers-comparison.html)
 
@@ -64,6 +68,8 @@ The conditional helpers included mimic the ones provided by [Assemble for compar
 | {% raw %}{{#unless_lteq}}{% endraw %} | {% raw %}{{#unless_lteq x compare=y}} ... {{/unless_lteq}}{% endraw %} |
 
 ## Format helpers
+
+> In some cases it might be necessary to load them using ````ow.loadTemplate().addFormatHelpers()````before using them.
 
 The format helpers are all the ow.format.* functions available. For example:
 

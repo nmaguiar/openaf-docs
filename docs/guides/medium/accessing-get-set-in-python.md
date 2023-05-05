@@ -45,7 +45,7 @@ Y = -1
 
 ````
 
-## Example using Python funciton _s
+## Example using Python function _s
 
 If a python job sets the key "test" with a dictionary another OpenAF block can retrieve the value using _$get_:
 
