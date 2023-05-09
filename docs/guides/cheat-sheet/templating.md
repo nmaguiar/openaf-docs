@@ -34,7 +34,7 @@ Template in OpenAF uses the [HandleBars](https://handlebarsjs.com/guide/) javasc
 | $f | ````{% raw %}[{{$f '%20s' aString}}]{% endraw %}```` | Performs a [$f operation](/docs/guides/cheat-sheet/string-formatter.md) with the provider parameter for the provided aString. |
 | $ft | ````{% raw %}[{{$ft '%20s' aString}}]{% endraw %}```` | Performs a [$ft operation](/docs/guides/cheat-sheet/string-formatter.md) with the provider parameter for the provided aString. |
 | $path | ````{% raw %}{{$path '@' anArray}}{% endraw %}```` | Executes the function [$path](/docs/concepts/OpenAF-path.md) over the provided element. |
-| $toSLON | ````{% raw %}{{$toSLON aMap}}{% endraw %}```` | Given a map will output the SLON version of it. |
+| $toSLON | ````{% raw %}{{$toSLON aMap}}{% endraw %}```` | Given a map will output the [SLON](https://github.com/nmaguiar/slon) version of it. |
 | $get | ````{% raw %}{{$get 'res'}}{% endraw %}```` | Performs the equivalent operation to OpenAF's $get. |
 | $getObj | ````{% raw %}{{$getObj 'res' 'elements'}}{% endraw %}```` | Performs the equivalent operation to OpenAF's $get and applies the function $path using the second parameter. |
 | $dateDiff | ````{% raw %}{{$dateDiff aDate 'days'}}{% endraw %}```` | Given aDate will output the time difference (using the third optional argument (seconds (default), minutes, hours, days, months, weeks or years)) |
