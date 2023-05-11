@@ -81,5 +81,5 @@ $ docker run --rm -ti openaf/oaf --ojob -e "ojob.io/generate jobs=JobA,JobB auth
 | get     | Retrieves the code of ojob.io                          | ````ojob ojob.io/get job=ojob.io/envs > envs.yaml```` |
 | help    | Downloads and returns the corresponding oJob help      | ````ojob ojob.io/help job=ojob.io/generate```` |
 | html    | Tries to open a browser with the map/array HTML representation | ````ojob ojob.io/pipe 0=ojob.io/help 0.job=ojob.io/generate 1=ojob.io/html```` |
-| map     | Selects only specific fields/keys from a map | ````ojob ojob.io/pipe 0=ojob.io/envs 1=map.yaml 1.fields=TEMP,TMP```` |
+| map     | Tries to open Excel with the list of environment variables | ````ojob ojob.io/pipe 0=ojob.io/envs 1=ojob.io/formats/toXLS```` |
 | pipe    | Pipes oJobs passing their output maps or lists between them | ````ojob ojob.io/pipe 0=ojob.io/news/bbc 1=ojob.io/map 1.fields=title,link 2=ojob.io/html```` |
