@@ -1601,9 +1601,9 @@ __getPid() : String__
 ````
 Tries to retrieve the current script execution operating system PID and returns it.
 ````
-### getUUID
+### genUUID
 
-__getUUID() : String__
+__genUUID() : String__
 
 ````
 Generates and returns an UUID using a javascript algorithm (if needed you can refer to the  AF operation AF.KeyGenerator.GenerateUUID).
