@@ -38,7 +38,7 @@ Template in OpenAF uses the [HandleBars](https://handlebarsjs.com/guide/) javasc
 | $get | ````{% raw %}{{$get 'res'}}{% endraw %}```` | Performs the equivalent operation to OpenAF's $get. |
 | $getObj | ````{% raw %}{{$getObj 'res' 'elements'}}{% endraw %}```` | Performs the equivalent operation to OpenAF's $get and applies the function $path using the second parameter. |
 | $dateDiff | ````{% raw %}{{$dateDiff aDate 'days'}}{% endraw %}```` | Given aDate will output the time difference (using the third optional argument (seconds (default), minutes, hours, days, months, weeks or years)) |
-| $switch, $case, $default | ````{% raw %}{{#$switch value}}{{#$case 'a'}}value a{{/$case}}{{$default 'no value'}}{{/$switch}}{% endraw }```` | Implements a switch function with case and default helpers. |
+| $switch, $case, $default | ````{% raw %}{{#$switch value}}{{#$case 'a'}}value a{{/$case}}{{$default 'no value'}}{{/$switch}}{% endraw %}```` | Implements a switch function with case and default helpers. |
 
 ## Conditional helpers
 
