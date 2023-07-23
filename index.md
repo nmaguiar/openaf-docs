@@ -73,12 +73,6 @@ After installing an update.sh (or update.bat in Windows) will be created. Simply
 
 ## Uninstall
 
-### Windows
-
-Simply delete the created folder ([current folder]/oaf or c:\\oaf)
-
-There might be also ".openaf*" files created on your home folder (c:\\users\\[your user]\\.openaf*)
-
 ### Linux
 
 ````bash
@@ -91,86 +85,15 @@ sudo ojob ojob.io/oaf/symlinks UNINSTALL=true && sudo rm -rf /opt/oaf
 rm -rf /Applications/OpenAF && sudo rm /etc/paths/OpenAF && rm ~/.openaf*
 ````
 
+### Windows
+
+Simply delete the created folder ([current folder]/oaf or c:\\oaf)
+
+There might be also ".openaf*" files created on your home folder (c:\\users\\[your user]\\.openaf*)
+
 ## Specific installs
 
-### Unix (x86 based)
-
-````bash
-$ mkdir oaf && cd oaf
-$ wget -O - https://openaf.io/unix64/install.sh | sh
-$ ./oafc
-````
-
-### Windows (64-bit)
-
-````
-C:\> mkdir oaf
-C:\> cd oaf
-C:\oaf> curl https://openaf.io/win64/install.bat -o install.bat
-C:\oaf> install.bat
-C:\oaf> oafc
-````
-
-### Mac OS (Intel based)
-
-````bash
-$ mkdir oaf && cd oaf
-$ curl -o install.sh https://openaf.io/mac64/install.sh
-$ sh install.sh
-$ ./oafc
-````
-
-### Mac OS (Apple silicon based)
-
-````bash
-$ mkdir oaf && cd oaf
-$ curl -o install.sh https://openaf.io/macarm/install.sh 
-$ sh install.sh
-$ ./oafc
-````
-
-### Docker
-
-````bash
-$ docker run --rm -ti openaf/openaf
-/openaf # oafc
-````
-
-### Unix (ARM 64)
-
-````bash
-$ mkdir oaf && cd oaf
-$ wget -O - https://openaf.io/arm64/install.sh | sh
-$ oafc
-````
-
-### Unix (ARM 32)
-
-````bash
-$ mkdir oaf && cd oaf
-$ wget -O - https://openaf.io/arm32/install.sh | sh
-$ oafc
-````
-
-## Unix generic install/uninstall
-
-### Install (with Java)
-
-````bash
-$ wget -O - https://openaf.io/install.sh | sh
-````
-
-### Install (without Java)
-
-````bash
-$ wget -O - https://openaf.io/download.sh | sh
-````
-
-### Uninstall
-
-````bash
-$ sudo ojob ojob.io/oaf/symlinks UNINSTALL=true && sudo rm -rf /opt/oaf
-````
+Follow the link for [specific architectures installations](installing.md).
 
 ### Nightly build
 
