@@ -28,3 +28,39 @@ The more recent versions of Mac OS use the _zsh_ on which you can quickly add th
 ````
 
 > If you are using an older Mac OS version based on _bash_ simply follow the instructions for Linux/Unix.
+
+## Testing
+
+On your bash/zsh session try to write and hit the _tab_ key:
+
+````
+ojob ojob.io/hel<TAB><TAB>
+ojob ojob.io/hello/w<TAB>
+ojob ojob.io/hellow/world<ENTER>
+````
+
+## Making the auto-complete functionality permanent
+
+### Linux/Unix
+
+On a Linux/Unix with a bash shell, you can edit your user's ~/.bashrc and append the following commands:
+
+````bash
+if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then ojob ojob.io/unix/ojobComplete > ~/.openaf-ojobio-complete; fi
+source ~/.openaf-ojobio-complete
+````
+
+> This will create a ~/.openaf-ojobio-complete file if it doesn't exist or it's older than 1 day (to refresh the list from ojob.io). Afterwards it loads the file into bash auto-complete functionality.
+
+### Mac OS
+
+In Mac OS, using zsh, you can edit your user's ~/.zshrc and append the following commands:
+
+````bash
+if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then ojob ojob.io/unix/ojobComplete > ~/.openaf-ojobio-complete; fi
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+source ~/.openaf-ojobio-complete
+````
+
+> This will create a ~/.openaf-ojobio-complete file if it doesn't exist or it's older than 1 day (to refresh the list from ojob.io). Afterwards it loads the file into zsh auto-complete functionality.
