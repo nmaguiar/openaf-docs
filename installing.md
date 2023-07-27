@@ -1,4 +1,11 @@
-# Specific installations
+---
+layout: default
+title: Specific installation instructions
+parent: How To
+grand_parent: OpenAF docs
+---
+
+# Specific installation instructions
 
 ## Unix (x86 based)
 
