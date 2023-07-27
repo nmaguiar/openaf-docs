@@ -24,7 +24,7 @@ When the _unix/ojobComplete_ runs a bash-compatible "complete" command string is
 The more recent versions of Mac OS use the _zsh_ on which you can quickly add the auto-complete to the current session by just executing:
 
 ````sh
-. <(curl https://ojob.io/unix/ojobComplete.sh)
+. <(curl -s https://ojob.io/unix/ojobComplete.sh)
 ````
 
 > If you are using an older Mac OS version based on _bash_ simply follow the instructions for Linux/Unix.
