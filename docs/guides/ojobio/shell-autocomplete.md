@@ -14,7 +14,7 @@ With hundreds of available oJob's in [ojob.io](https://ojob.io) it becomes usefu
 On Linux/Unix the auto-complete functionality is based on the _bash_ shell. To quickly add the auto-complete to the current session just execute:
 
 ````bash
-. <(ojob ojob.io/unix/ojobComplete)
+. <(curl https://ojob.io/autoComplete.sh)
 ````
 
 When the _unix/ojobComplete_ runs a bash-compatible "complete" command string is generated with the current contents of ojob.io. 
@@ -46,7 +46,7 @@ ojob ojob.io/hellow/world<ENTER>
 On a Linux/Unix with a bash shell, you can edit your user's ~/.bashrc and append the following commands:
 
 ````bash
-if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then ojob ojob.io/unix/ojobComplete > ~/.openaf-ojobio-complete; fi
+if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then curl https://ojob.io/autoComplete.sh > ~/.openaf-ojobio-complete; fi
 source ~/.openaf-ojobio-complete
 ````
 
@@ -57,7 +57,7 @@ source ~/.openaf-ojobio-complete
 In Mac OS, using zsh, you can edit your user's ~/.zshrc and append the following commands:
 
 ````bash
-if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then ojob ojob.io/unix/ojobComplete > ~/.openaf-ojobio-complete; fi
+if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then https://ojob.io/autoComplete.sh > ~/.openaf-ojobio-complete; fi
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 source ~/.openaf-ojobio-complete
