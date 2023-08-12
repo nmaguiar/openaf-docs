@@ -34,6 +34,8 @@ curl https://openaf.io/setup.sh | sh && cd oaf
 # ./oafc
 ````
 
+> If you don't have _sudo_, _curl_ or _wget_ but you do have bash [follow these instructions](docs/howto/Download-without-curl-or-wget.md).
+
 ### Mac OS
 
 ````bash

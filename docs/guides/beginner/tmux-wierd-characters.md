@@ -21,4 +21,4 @@ And then the correct mapping will occur:
 
 ![tmux_next.png](tmux_next.png)
 
-See more in https://github.com/tmux/tmux/wiki/FAQ#how-do-i-use-utf-8.
+See more in [https://github.com/tmux/tmux/wiki/FAQ#how-do-i-use-utf-8](https://github.com/tmux/tmux/wiki/FAQ#how-do-i-use-utf-8).
