@@ -142,7 +142,7 @@ echo
 echo --------------------------------------
 ```
 
-> You can also download it directly from https://ojob.io/setup.sh
+> You can also download it directly from [https://ojob.io/setup.sh](https://ojob.io/setup.sh)
 
 ## 2 - Create a setup.sh file
 
@@ -164,4 +164,4 @@ You can now run it from _/tmp/oaf/oaf_ or you execute:
 export PATH=/tmp/oaf:$PATH && . /tmp/oaf/autoComplete.sh
 ```
 
-and invoke _oaf_ or _oafc_ or _ojob_ (including auto-completing "ojob ojob.io") from anywhere.
+and invoke _oaf_ or _oafc_ or _ojob_ (including auto-completing _"ojob ojob.io"_) from anywhere.
