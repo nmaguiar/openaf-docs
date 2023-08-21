@@ -46,7 +46,7 @@ ojob ojob.io/hellow/world<ENTER>
 On a Linux/Unix with a bash shell, you can edit your user's ~/.bashrc and append the following commands:
 
 ````bash
-if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then curl https://ojob.io/autoComplete.sh > ~/.openaf-ojobio-complete; fi
+if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mmin +1440) ]; then curl -s https://ojob.io/autoComplete.sh -o ~/.openaf-ojobio-complete; fi
 source ~/.openaf-ojobio-complete
 ````
 
@@ -57,7 +57,7 @@ source ~/.openaf-ojobio-complete
 In Mac OS, using zsh, you can edit your user's ~/.zshrc and append the following commands:
 
 ````bash
-if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mtime +1) ]; then https://ojob.io/autoComplete.sh > ~/.openaf-ojobio-complete; fi
+if [ ! -e ~/.openaf-ojobio-complete ] || [ $(find ~/.openaf-ojobio-complete -mmin +1440) ]; then curl -s https://ojob.io/autoComplete.sh -o ~/.openaf-ojobio-complete; fi
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 source ~/.openaf-ojobio-complete
