@@ -7,6 +7,8 @@ grand_parent: Guides
 
 # oJob langs
 
+_(OpenAF version >= 20230828)_
+
 Quick examples, and reference, of the use of different languages as oJob's jobs.
 
 ## 🪟 Powershell
