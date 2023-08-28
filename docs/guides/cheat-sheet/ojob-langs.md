@@ -16,8 +16,8 @@ In Powershell the variable "$args" is reserved so OpenAF's oJob uses "$_args" in
 ```yaml
 jobs:
 - name: Powershell example
-    lang: powershell
-    exec: |
+  lang: powershell
+  exec: |
     # For an existing property in args
     $_args.firstName = "Scott"
 
@@ -34,8 +34,8 @@ Each Go OpenAF's job is already the main function.
 
 ```yaml
 - name: Go example
-    lang: go
-    exec: |
+  lang: go
+  exec: |
     args["name"] = fmt.Sprintf("%s %s", args["firstName"], args["lastName"])
 
 ```
@@ -48,8 +48,8 @@ The variable _args_ is available to be use in Ruby.
 
 ```yaml
 - name: Ruby example
-    lang: ruby
-    exec: |
+  lang: ruby
+  exec: |
     args["name"] = args["firstName"] + " " + args["lastName"]
 
 ```
@@ -68,8 +68,8 @@ Example with the JSON module installed:
 
 ```yaml
 - name: Perl example
-    lang: perl
-    exec: |
+  lang: perl
+  exec: |
     $args->{name} = $args->{firstName}.$args->{lastName};
 
 ```
@@ -80,8 +80,8 @@ Example without the JSON module installed:
 
 ```yaml
 - name: Perl example
-    lang: perl
-    exec: |
+  lang: perl
+  exec: |
     $name = '{{firstName}} {{lastName}}''
     
     # return name
@@ -98,8 +98,8 @@ Keep in mind that shell scripting only supports string-based variables on one le
 
 ```yaml
 - name: Shell example
-    lang: shell
-    exec: |
+  lang: shell
+  exec: |
     name="$firstName $lastName"
     other=\{{someMap.someProperty}}
     
@@ -115,13 +115,13 @@ Python runs in parallel with OpenAF's oJob and provides the map _args_ that can 
 
 ```yaml
 - name: Python example
-    lang: Python
-    exec: |
+  lang: Python
+  exec: |
     args["name"] = args["firstName"] + " " + args["lastName"]
     
     _s("paths", _("({ p: getOpenAFPath(), j: getOpenAFJar() })"))
     args["contentsOfPaths"] = _g("paths")
-    ãrgs["stringifyOfArgs"] = _d(args)
+    args["stringifyOfArgs"] = _d(args)
 
 ```
 
