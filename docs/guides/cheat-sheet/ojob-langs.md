@@ -99,6 +99,7 @@ Example without the JSON module installed:
 Keep in mind that shell scripting only supports string-based variables on one level. Each current _args_ will be transformed into an environment variable (such as $firstName and $lastName). For more complex cases you can use OpenAF's templating. To return values use the comment '# return ' followed by the shell script variables
 
 ```yaml
+# -------------------
 - name: Shell example
   lang: shell
   exec: |
@@ -107,6 +108,23 @@ Keep in mind that shell scripting only supports string-based variables on one le
     
     # return name, other
 
+# -----------------
+- name: SSH example
+  args:
+    host : myhost
+    port : 22
+    login: user
+    pass : badPassword1
+    #id : myKeyFile
+    #key:  
+    #timeout:
+  lang: ssh
+  exec: |
+    name="$firstName $lastName"
+    other=\{{someMap.someProperty}}
+    
+    # return name, other
+    
 ```
 
 ---
