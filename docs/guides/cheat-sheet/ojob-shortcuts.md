@@ -63,11 +63,11 @@ Expects:
 
 ```yaml 
 - (if     ): "'{{stuff}}' == 'something'"
-    ((then )):
-    - Do something
-    ((else )):
-    - Dont do anything
-    ((debug)): true
+  ((then )):
+  - Do something
+  ((else )):
+  - Dont do anything
+  ((debug)): true
 
 ```
 
@@ -82,8 +82,8 @@ Expects:
 
 ```yaml 
 - (repeat): 10
-    ((jobs)):
-    - Write on the board 'I will not do it again'
+  ((jobs)):
+  - Write on the board 'I will not do it again'
 
 ```
 
@@ -99,11 +99,11 @@ Expects:
 
 ```yaml 
 - (each  ): files
-    ((key )): myFilesList
-    ((jobs)):
-    - Copy file
-    - Process file
-    - Send processed file
+  ((key )): myFilesList
+  ((jobs)):
+  - Copy file
+  - Process file
+  - Send processed file
 
 ```
 
@@ -128,19 +128,19 @@ Expects:
 
 ```yaml 
 - (todo          ):
-    - First thing to do
-    - name        : Second thing to do
+  - First thing to do
+  - name        : Second thing to do
     args        :
         priority: HIGH
         level   : "\{{level}}"
     isolateArgs : true
     isolateJob  : false
     templateArgs: true
-    ((isolateArgs )): false
-    ((isolateJob  )): false
-    ((templateArgs)): false
-    ((shareArgs   )): false
-    ((debug       )): false
+  ((isolateArgs )): false
+  ((isolateJob  )): false
+  ((templateArgs)): false
+  ((shareArgs   )): false
+  ((debug       )): false
 
 ```
 
@@ -165,21 +165,21 @@ Expects:
 
 ```yaml 
 - (parallel      ):
-    - Do this
-    - Do that
-    - name: Also do the other thing
+  - Do this
+  - Do that
+  - name: Also do the other thing
     args:
         thing: "\{{stuff}}"
     isolateArgs : true
     isolateJob  : false
     templateArgs: true
-    ((isolateArgs )): false
-    ((isolateJob  )): false
-    ((templateArgs)): false
-    ((shareArgs   )): false
-    ((debug       )): false
+  ((isolateArgs )): false
+  ((isolateJob  )): false
+  ((templateArgs)): false
+  ((shareArgs   )): false
+  ((debug       )): false
 
-    ```
+```
 
 ### 🔖 (optionOn)
 
@@ -196,17 +196,17 @@ Expects:
 
 ```yaml 
 - (optionOn   ): op
-    ((lowerCase)): true
-    ((todos    )):
+  ((lowerCase)): true
+  ((todos    )):
     start:
     - Prepare jobs
     - Start jobs
     stop:
     - Stop jobs
     - Finalize jobs
-    ((default  )):
-    - Show help
-    ((async    )): false
+  ((default  )):
+  - Show help
+  ((async    )): false
 
 ```
 
@@ -224,13 +224,13 @@ Expects:
 
 ```yaml 
 - (stateOn      ): state
-    ((lowerCase  )): true
-    ((upperCase  )): false
-    ((validStates)):
-    - on
-    - off
-    - wait
-    ((default    )): on
+  ((lowerCase  )): true
+  ((upperCase  )): false
+  ((validStates)):
+  - on
+  - off
+  - wait
+  ((default    )): on
 
 ```
 
@@ -247,7 +247,7 @@ Expects:
 ```yaml 
 - (pass   ):
     test: "{{value}}"
-    ((debug)): true
+  ((debug)): true
 
 ```
 
@@ -262,7 +262,7 @@ Expects:
 
 ```yaml 
 - (code   ): -1
-    ((force)): true
+  ((force)): true
 
 ```
 
@@ -278,7 +278,7 @@ Expects:
 
 ```yaml 
 - (check    ): Check Hello World
-    ((actions)):
+  ((actions)):
     create   : Create Hello World
     overwrite: Overwrite Hello World
     delete   : Delete Hello World
@@ -331,18 +331,18 @@ todo:
 
 jobs:
 - name: get and set single value
-    to  :
-    - (ch  ): values
+  to  :
+  - (ch  ): values
     ((op)): set
     ((k )): test
     ((v )): value
 
 - name: get and show value
-    to  :
-    - (ch   ): values
+  to  :
+  - (ch   ): values
     ((op )): getall
     ((key)): output
-    - (output): output
+  - (output): output
 
 ```
 
@@ -361,7 +361,7 @@ Expects:
 
 ```yaml 
 - (get   ): values
-    ((path)): last
+  ((path)): last
 
 ```
 
@@ -380,9 +380,9 @@ Expects:
 
 ```yaml 
 - name: Retrieve list of hosts
-    to  :
-    - (fileget): listOfHosts.yml
-    ((out  )): listHosts
+  to  :
+  - (fileget): listOfHosts.yml
+  ((out  )): listHosts
 
 ```
 
@@ -404,14 +404,14 @@ Expects:
 
 ```yaml 
 - (query ): "equals(isDirectory, true)"
-    ((key )): list
+  ((key )): list
 
 ```
 
 ```yaml 
 - (query ): "[?isDirectory==`true`]"
-    ((type)): path
-    ((key )): list
+  ((type)): path
+  ((key )): list
 
 ```
 
@@ -430,7 +430,7 @@ Expects:
 
 ```yaml 
 - (set)   : values
-    ((path)): values
+  ((path)): values
     
 ```
 
@@ -504,9 +504,9 @@ Expects:
 ```yaml 
 todo:
 - (log    ): You can issue a log message.
-    ((level)): info
+  ((level)): info
 - (log    ): Even for errors.
-    ((level)): error
+  ((level)): error
 
 ```
 
@@ -529,8 +529,8 @@ Expects:
 ```yaml 
 jobs:
 - name: Replace text
-    from:
-    - (findReplace): 
+  from:
+  - (findReplace): 
         "|name|": Scott Tiger
     ((inputKey))): args
     ((inputPath)): text
@@ -539,8 +539,8 @@ jobs:
         Hello |name|, how are you doing?
 
         |name| is great!
-    - (print      ): "{{output}}"
-    ((key      )): args
+- (print      ): "{{output}}"
+  ((key      )): args
 
 todo:
 - Replace text
@@ -563,11 +563,11 @@ Expects:
 ```yaml 
 todo:
 - (runfile ): ojob.io/news/bbc
-    ((key   )): news
+  ((key   )): news
 - (query   ): "limit(5)"
-    ((key   )): news
+  ((key   )): news
 - (output  ): news
-    ((format)): stable
+  ((format)): stable
 
 ```
 
@@ -602,8 +602,8 @@ todo:
     - 2
     - 3
 - (output   ): output
-    ((path   )): output
-    ((format )): tree
+  ((path   )): output
+  ((format )): tree
 
 ```
 
@@ -626,13 +626,13 @@ Expects:
 ```yaml 
 todo:
 - (templateFolder): src
-    ((data        )):
+  ((data        )):
     name: test
     lst :
     - 1
     - 2
     - 3
-    ((outputFolder)): output
+  ((outputFolder)): output
     
 ```
 
@@ -672,7 +672,7 @@ todo:
 jobs:
 # ----------------
 - name: Sample job
-exec: |
+  exec: |
     //@ Declaring array
     var ar = [ 0, 1, 2, 3, 4, 5 ]
 
@@ -714,7 +714,7 @@ todo:
 jobs:
 # ----------------
 - name: Sample job
-exec: |
+  exec: |
     //@ Declaring array
     var ar = [ 0, 1, 2, 3, 4, 5 ]
 
@@ -744,9 +744,9 @@ Prints the current "args" and "res"
 ```yaml 
 jobs:
 - name: a
-    to  :
-    - (run  ): ojob.io/envs
-    - (debug) 
+  to  :
+  - (run  ): ojob.io/envs
+  - (debug) 
 
 ```
 
@@ -770,20 +770,20 @@ Expects:
 ```yaml 
 jobs:
 - name: Check clock on my server
-    from:
-    - (secget      ): mySSHkey
+  from:
+  - (secget      ): mySSHkey
     ((secBucket )): mykeys
     ((secOut    )): ssh
     ((secDontAsk)): true
-    to  :
-    - (pass   ):
-        clocks:
-        - host: "{{hostname}}"
+  to  :
+  - (pass   ):
+      clocks:
+      - host: "{{hostname}}"
         date: "{{date}}"
-    - (output ): args
+  - (output ): args
     ((path )): clocks
-    lang: ssh
-    exec: |
+  lang: ssh
+  exec: |
     hostname=$(hostname)
     date=$(date)
 
@@ -810,11 +810,11 @@ Expects:
 ```yaml 
 todo:
 - (fn    ): "io.listFiles"
-    ((key )): files
-    args    :
+  ((key )): files
+  args    :
     aFilePath: .
 - (output): files
-    ((path)): files
+  ((path)): files
 
 ```
 
@@ -837,10 +837,8 @@ Expects:
 ```yaml 
 jobs:
 - name: Get envs
-    to  :
-    - (run    ): ojob.io/envs
-    - (output ): res
+  to  :
+  - (run    ): ojob.io/envs
+  - (output ): res
 
 ```
-
----
