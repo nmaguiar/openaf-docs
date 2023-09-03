@@ -1,6 +1,6 @@
 ---
 layout: default
-title: oJob langs
+title: oJob shortcuts
 parent: cheat-sheet
 grand_parent: Guides
 ---
@@ -15,35 +15,36 @@ Here is a list of the included shorcuts:
 
 | Category      | Shortcut         | Description                                                |
 | ------------- | ---------------- | ---------------------------------------------------------- |
-| Control       | (if)             | If / Then / Else                                           |
-| Control       | (repeat)         | Repeat a series of jobs                                    |
-| Control       | (each)           | Repeat a series of jobs per each list element              |
-| Control       | (todo)           | Sub ToDo list                                              |
-| Control       | (parallel)       | Runs a list of jobs in parallel                            |
-| Control       | (optionOn)       | Selects a list of jobs to run based on an option           |
-| Control       | (state)          | Changes the current running state                          |
-| Control       | (pass)           | Represents a pass-through job                              |
-| Control       | (fail)           | Represents a failure job                                   |
-| Control       | (check)          | Organize idempotent jobs                                   |
-| Control       | (wait)           | Waits for a specific amount of time                        |
-| Data          | (ch)             | Operates data on an OpenAF channel                         |
-| Input         | (get)            | Retrieves a global value from a key                        |
-| Input         | (fileget)        | Retrieves arguments from a file                            |
-| Query         | (query)          | Queries a list of elements                                 |
-| Output        | (set)            | Sets a global value given a key                            |
-| Output        | (unset)          | Unsets a global value given a key                          |
-| Output        | (print)          | Prints a message                                           |
-| Output        | (printmd)        | Prints a message using markdown                            |
-| Output        | (log)            | Logs a message                                             |
-| Output        | (findReplace)    | Finds and replaces text                                    |
-| Output        | (output)         | Output's data in different formats                         |
-| Output        | (template)       | Generates an output based on a template                    |
-| Output        | (templateFolder) | Generates several outputs, based on templates, in a folder |
-| Debug         | (jobdebug)       | Sets debug for a single job                                |
-| Debug         | (jobsdebug)      | Sets debug for a series of jobs                            |
-| Security      | (secget)         | Obtains secret arguments (e.g. credentials)                |
-| Functionality | (fn)             | Access an OpenAF functionality / function                  |
-| Functionality | (runfile)        | Runs another local or remote oJob                          |
+| Control       | [(if)](#-if)             | If / Then / Else                                           |
+| Control       | [(repeat)](#-repeat)         | Repeat a series of jobs                                    |
+| Control       | [(each)](#-each)           | Repeat a series of jobs per each list element              |
+| Control       | [(todo)](#-todo)           | Sub ToDo list                                              |
+| Control       | [(parallel)](#-parallel)       | Runs a list of jobs in parallel                            |
+| Control       | [(optionOn)](#-optionOn)       | Selects a list of jobs to run based on an option           |
+| Control       | [(state)](#-state)          | Changes the current running state                          |
+| Control       | [(pass)](#-pass)           | Represents a pass-through job                              |
+| Control       | [(fail)](#-fail)           | Represents a failure job                                   |
+| Control       | [(check)](#-check)          | Organize idempotent jobs                                   |
+| Control       | [(wait)](#-wait)           | Waits for a specific amount of time                        |
+| Data          | [(ch)](#-ch)             | Operates data on an OpenAF channel                         |
+| Input         | [(get)](#-get)            | Retrieves a global value from a key                        |
+| Input         | [(fileget)](#-fileget)        | Retrieves arguments from a file                            |
+| Query         | [(query)](#-query)          | Queries a list of elements                                 |
+| Output        | [(set)](#-set)            | Sets a global value given a key                            |
+| Output        | [(unset)](#-unset)          | Unsets a global value given a key                          |
+| Output        | [(print)](#-print)          | Prints a message                                           |
+| Output        | [(printmd)](#-printmd)        | Prints a message using markdown                            |
+| Output        | [(log)](#-log)            | Logs a message                                             |
+| Output        | [(findReplace)](#-findReplace)    | Finds and replaces text                                    |
+| Output        | [(output)](#-output)         | Output's data in different formats                         |
+| Output        | [(template)](#-template)       | Generates an output based on a template                    |
+| Output        | [(templateFolder)](#-templateFolder) | Generates several outputs, based on templates, in a folder |
+| Debug         | [(debug)](#-debug) | Shows the current args and _res_ key. |
+| Debug         | [(jobdebug)](#-jobdebug)       | Sets debug for a single job                                |
+| Debug         | [(jobsdebug)](#-jobsdebug)      | Sets debug for a series of jobs                            |
+| Security      | [(secget)](#-secget)         | Obtains secret arguments (e.g. credentials)                |
+| Functionality | [(fn)](#-fn)             | Access an OpenAF functionality / function                  |
+| Functionality | [(runfile)](#-runfile--run)        | Runs another local or remote oJob                          |
 
 ---
 
