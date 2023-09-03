@@ -7,7 +7,7 @@ grand_parent: Guides
 
 # oJob shortcuts
 
-_(OpenAF version >= 20230704)_
+_(OpenAF version >= 20230903)_
 
 oJob shortcuts lets you write write easier to read oJob's *"todo"* sections with the macro logic that combines the different *"jobs"* available. It's based on the included [oJob building blocks](https://docs.openaf.io/docs/guides/ojob/ojob-building-blocks.html).
 
