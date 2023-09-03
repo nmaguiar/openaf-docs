@@ -1,0 +1,845 @@
+---
+layout: default
+title: oJob langs
+parent: cheat-sheet
+grand_parent: Guides
+---
+
+# oJob shortcuts
+
+_(OpenAF version >= 20230704)_
+
+oJob shortcuts lets you write write easier to read oJob's *"todo"* sections with the macro logic that combines the different *"jobs"* available. It's based on the included [oJob building blocks](https://docs.openaf.io/docs/guides/ojob/ojob-building-blocks.html).
+
+Here is a list of the included shorcuts:
+
+| Category      | Shortcut         | Description                                                |
+| ------------- | ---------------- | ---------------------------------------------------------- |
+| Control       | (if)             | If / Then / Else                                           |
+| Control       | (repeat)         | Repeat a series of jobs                                    |
+| Control       | (each)           | Repeat a series of jobs per each list element              |
+| Control       | (todo)           | Sub ToDo list                                              |
+| Control       | (parallel)       | Runs a list of jobs in parallel                            |
+| Control       | (optionOn)       | Selects a list of jobs to run based on an option           |
+| Control       | (state)          | Changes the current running state                          |
+| Control       | (pass)           | Represents a pass-through job                              |
+| Control       | (fail)           | Represents a failure job                                   |
+| Control       | (check)          | Organize idempotent jobs                                   |
+| Control       | (wait)           | Waits for a specific amount of time                        |
+| Data          | (ch)             | Operates data on an OpenAF channel                         |
+| Input         | (get)            | Retrieves a global value from a key                        |
+| Input         | (fileget)        | Retrieves arguments from a file                            |
+| Query         | (query)          | Queries a list of elements                                 |
+| Output        | (set)            | Sets a global value given a key                            |
+| Output        | (unset)          | Unsets a global value given a key                          |
+| Output        | (print)          | Prints a message                                           |
+| Output        | (printmd)        | Prints a message using markdown                            |
+| Output        | (log)            | Logs a message                                             |
+| Output        | (findReplace)    | Finds and replaces text                                    |
+| Output        | (output)         | Output's data in different formats                         |
+| Output        | (template)       | Generates an output based on a template                    |
+| Output        | (templateFolder) | Generates several outputs, based on templates, in a folder |
+| Debug         | (jobdebug)       | Sets debug for a single job                                |
+| Debug         | (jobsdebug)      | Sets debug for a series of jobs                            |
+| Security      | (secget)         | Obtains secret arguments (e.g. credentials)                |
+| Functionality | (fn)             | Access an OpenAF functionality / function                  |
+| Functionality | (runfile)        | Runs another local or remote oJob                          |
+
+---
+
+## 🗂️ Control
+
+### 🔖 (if)
+
+_If the provided "condition" is evaluated as true it will execute the "then" jobs otherwise it will execute the "else" jobs._
+
+Expects:
+
+* **(if)**     : An OpenAF code condition with templating functionality (example: "{{abc}} == 123")
+* **((then))** : One job or a list of jobs to execute if the "condition" is true
+* **((else))** : One job or a list of jobs to execute if the "condition" is false
+* **((debug))**: Boolean to indicate if should log the original condition and the parsed condition for debug proposes
+
+```yaml 
+- (if     ): "'{{stuff}}' == 'something'"
+    ((then )):
+    - Do something
+    ((else )):
+    - Dont do anything
+    ((debug)): true
+
+```
+
+### 🔖 (repeat)
+
+_Repeats sequentially, for a specific number of "times", the provided list of "jobs" (one or more)_
+
+Expects:
+
+* **(repeat)**: The number of times to repeat the provided list of jobs
+* **((jobs))**: One job or a list of jobs to execute each time
+
+```yaml 
+- (repeat): 10
+    ((jobs)):
+    - Write on the board 'I will not do it again'
+
+```
+
+### 🔖 (each)
+
+_Repeats the configured "jobs" (one or more jobs) sequentially for each element of the provided "key" list._
+
+Expects:
+
+* **(each)**  : The path to consider from **'key'**
+* **((key))** : Can be a global key or 'args'
+* **((jobs))**: One job or a list of jobs to execute each time
+
+```yaml 
+- (each  ): files
+    ((key )): myFilesList
+    ((jobs)):
+    - Copy file
+    - Process file
+    - Send processed file
+
+```
+
+### 🔖 (todo)
+
+_Executes an ojob sub-todo._
+> NOTE: doesn't perform any checks for recursive behaviour!
+
+Expects:
+
+* **(todo)**               : A string or array of todo' maps
+* **(todo)[].name**        : Name of the job to execute
+* **(todo)[].args**        : Arguments to merge (if isolateArgs is not true) with the main job arguments
+* **(todo)[].isolateArgs** : Boolean to indicate, for a specific todo, that args should be isolated from all others
+* **(todo)[].isolateJob**  : Boolean to indicate, for a specific todo, that the job should run in a different scope (e.g. deps will not work)
+* **(todo)[].templateArgs**: Boolean to indicate, for a specific todo, to apply template to each string of the provided args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true)
+* **((isolateArgs))**      : Boolean, false by default, to indicate that args should be isolated from all others
+* **((isolateJob))**       : Boolean, false by default, to indicate that the job should run in a different scope (e.g. deps will not work)
+* **((templateArgs))**     : Boolean, true by default, to indicate to apply template to each string of the provided args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true)
+* **((shareArgs))**        : Boolean, false by default, to indicate that args should be shared between all todo's jobs sequentially.
+* **((debug))**            : Boolean to indicate that each job execution parameters should be printed before executing
+
+```yaml 
+- (todo          ):
+    - First thing to do
+    - name        : Second thing to do
+    args        :
+        priority: HIGH
+        level   : "\{{level}}"
+    isolateArgs : true
+    isolateJob  : false
+    templateArgs: true
+    ((isolateArgs )): false
+    ((isolateJob  )): false
+    ((templateArgs)): false
+    ((shareArgs   )): false
+    ((debug       )): false
+
+```
+
+### 🔖 (parallel)
+
+_Executes an ojob sub-todo in parallel._
+> NOTE: doesn't perform any checks for recursive behaviour!
+
+Expects:
+    
+* **(todo)**               : A string or array of todo' maps
+* **(todo)[].name**        : Name of the job to execute
+* **(todo)[].args**        : Arguments to merge (if isolateArgs is not true) with the main job arguments
+* **(todo)[].isolateArgs** : Boolean to indicate, for a specific todo, that args should be isolated from all others
+* **(todo)[].isolateJob**  : Boolean to indicate, for a specific todo, that the job should run in a different scope (e.g. deps will not work)
+* **(todo)[].templateArgs**: Boolean to indicate, for a specific todo, to apply template to each string of the provided args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true)
+* **((isolateArgs))**      : Boolean, false by default, to indicate that args should be isolated from all others
+* **((isolateJob))**       : Boolean, false by default, to indicate that the job should run in a different scope (e.g. deps will not work)
+* **((templateArgs))**     : Boolean, true by default, to indicate to apply template to each string of the provided args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true)
+* **((shareArgs))**        : Boolean, false by default, to indicate that args should be shared between all todo's jobs sequentially.
+* **((debug))**            : Boolean to indicate that each job execution parameters should be printed before executing
+
+```yaml 
+- (parallel      ):
+    - Do this
+    - Do that
+    - name: Also do the other thing
+    args:
+        thing: "\{{stuff}}"
+    isolateArgs : true
+    isolateJob  : false
+    templateArgs: true
+    ((isolateArgs )): false
+    ((isolateJob  )): false
+    ((templateArgs)): false
+    ((shareArgs   )): false
+    ((debug       )): false
+
+    ```
+
+### 🔖 (optionOn)
+
+Adds new "todo" entries depending on the value of a provided args variable.
+
+Expects:
+
+* **(optionOn)**   : The variable in args that will define which set of "todo"s will be added (trimmed)
+* **((lowerCase))**: Boolean value to determine if should compare the optionOn in lower case (defaults to false)
+* **((upperCase))**: Boolean value to determine if should compare the optionOn in upper case (defaults to false)
+* **((todos))**    : (required) Map where each option value should have a list/array of "todo"s
+* **((default))**  : Default array of "todo"s
+* **((async))**    : Boolean value that if true, run the todos in async mode
+
+```yaml 
+- (optionOn   ): op
+    ((lowerCase)): true
+    ((todos    )):
+    start:
+    - Prepare jobs
+    - Start jobs
+    stop:
+    - Stop jobs
+    - Finalize jobs
+    ((default  )):
+    - Show help
+    ((async    )): false
+
+```
+
+### 🔖 (state)
+
+Changes the current state depending on the value of a provided args variable.
+
+Expects:
+
+* **(stateOn)**      : The variable in args that will define the current global set (to execute todo.when)
+* **((lowerCase))**  : A boolean value to determine if should compare the stateOn in lower case (defaults to false)
+* **((upperCase))**  : A boolean value to determine if should compare the stateOn in upper case (defaults to false)
+* **((validStates))**: An array of valid states to change to. If not included the default will be choosen (or none).
+* **((default))**    : Default value of state
+
+```yaml 
+- (stateOn      ): state
+    ((lowerCase  )): true
+    ((upperCase  )): false
+    ((validStates)):
+    - on
+    - off
+    - wait
+    ((default    )): on
+
+```
+
+### 🔖 (pass)
+
+Placeholder/pass job to allow for arguments injection.
+
+Expects:
+
+* **(pass          )**: The args to inject.
+* **((debug       ))**: Boolean to indicate that args to be inject should be printed before.
+* **((templateArgs))**: Boolean, true by default, to indicate to apply template to each string in args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true).
+
+```yaml 
+- (pass   ):
+    test: "{{value}}"
+    ((debug)): true
+
+```
+
+### 🔖 (fail)
+
+Ends all processing with an exit code.
+
+Expects:
+
+* **(code)**   : The exit code number to use.
+* **((force))**: A boolean indicating if instead of exit the processing should halt
+
+```yaml 
+- (code   ): -1
+    ((force)): true
+
+```
+
+### 🔖 (check)
+
+Provides a way to organize idempotent jobs. One or more "checks" jobs will be called to determine an args.\_action. Initially the args.\_action is set to "none". If the "checks" jobs determine an action it will call the corresponding jobs on "actions" jobs. If "\_go=true" is not provided, instead of running, it will only return a plan of actions.
+
+Expects:
+
+* **(check)**    : A list of one or more jobs to be called to perform checks to determine an args._action
+* **((actions))**: A map of possible values of args._action whose values are one or more jobs to execute
+* **_go**        : A boolean value (defaults to false) that controls if the *actions* jobs are called (when true) or not
+
+```yaml 
+- (check    ): Check Hello World
+    ((actions)):
+    create   : Create Hello World
+    overwrite: Overwrite Hello World
+    delete   : Delete Hello World
+
+```
+
+### 🔖 (wait)
+
+Waits for a specific amount of time.
+
+Expects:
+
+* **(wait)**: The amount of time, in ms, to pause execution
+
+```yaml 
+- (wait): 5000
+
+```
+
+---
+
+## 🗂️ Data
+
+### 🔖 (ch)
+
+Provides a set of operations over an OpenAF channel
+
+Expects:
+
+* **(ch)**     : The name of the OpenAF channel to use
+* **((op))**   : The operation to perform (e.g. setall, set, get, unset, unsetall, getkeys, getall and size)
+* **((key))**  : The key from where to retrieve the operation arguments (args to retrive from arguments)
+* **((kpath))**: If defined, the path over the values retrieved from __key where the key or keys of the operation are defined
+* **((k))**    : If defined, the key to use with the operations set, get and unset
+* **((ks))**   : If defined, the set of fields to use with the operations setall and unsetall
+* **((v))**    : If defined, the value to use with the operations set, get and unset
+* **((vs))**   : If defined, an array of values to use with the operations setall and unsetall
+* **((vpath))**: If defined, the path over the values retrieved from __key where the value or values of the operation are defined
+* **((extra))**: If defined, will provide an extra argument (usually a map), depending on channel type, for the getall and getkeys operations.
+
+```yaml 
+ojob:
+    channels:
+    create:
+    - name: values
+
+todo:
+- get and set single value
+- get and show value
+
+jobs:
+- name: get and set single value
+    to  :
+    - (ch  ): values
+    ((op)): set
+    ((k )): test
+    ((v )): value
+
+- name: get and show value
+    to  :
+    - (ch   ): values
+    ((op )): getall
+    ((key)): output
+    - (output): output
+
+```
+
+---
+
+## 🗂️ Input
+
+### 🔖 (get)
+
+Retrieves a specific map key (or path) using $get
+
+Expects:
+
+* **(get)**   : Map key to retrieve (key is also checked for compatibility)
+* **((path))**: The path to consider from the (get)
+
+```yaml 
+- (get   ): values
+    ((path)): last
+
+```
+
+### 🔖 (fileget)
+
+Retrieves a specific map key (or path) from an YAML or JSON file provided.
+
+Expects:
+
+* **(fileget)**: The file path to an YAML or JSON file
+* **((path))** : Path of the file contents 
+* **((cache))**: Boolean value that if false it won't cache the file contents (default: true)
+* **((ttl))**  : If cache is enabled lets you define a numeric ttl
+* **((out))**  : The path on args to set the map key/path contents
+* **((key))**  : If ((out)) is not defined will set the content into the provided key
+
+```yaml 
+- name: Retrieve list of hosts
+    to  :
+    - (fileget): listOfHosts.yml
+    ((out  )): listHosts
+
+```
+
+---
+
+## 🗂️ Query
+
+### 🔖 (query)
+
+Performs a query (using ow.obj.filter) to the existing args.
+
+Expects:
+
+* **(query)** : The query map for ow.obj.filter or af.fromNLinq
+* **((type))**: The type of query to perform (e.g. path, ow.obj.filter, af.fromNLinq)
+* **((from))**: The path to the args key to perform the query
+* **((to))**  : The path to where the results should be stores
+* **((key))** : If ((from)) and ((to)) not provided defaults to $get/$set on the provided key
+
+```yaml 
+- (query ): "equals(isDirectory, true)"
+    ((key )): list
+
+```
+
+```yaml 
+- (query ): "[?isDirectory==`true`]"
+    ((type)): path
+    ((key )): list
+
+```
+
+---
+
+## 🗂️ Output
+
+### 🔖 (set)
+
+Sets a "key" with the current value on a "path" using $set
+
+Expects:
+
+* **(set)**   : Map key
+* **((path))**: A key or path to a value from the current args
+
+```yaml 
+- (set)   : values
+    ((path)): values
+    
+```
+
+### 🔖 (unset)
+
+Unsets a "key" using $unset
+
+Expects:
+
+* **(unset)**: Map key
+
+```yaml 
+- (unset): values
+
+```
+
+### 🔖 (print)
+
+Prints a message line given an OpenAF template
+
+Expects:
+
+* **(print)**  : The message template to use
+* **((key))**  : Map key to retrieve ('args' for arguments)
+* **((path))** : The path to consider from the ((key))
+* **((level))**: The level of the message (info (default) or error)
+
+```yaml 
+- (print): This is a printed message.
+
+```
+
+### 🔖 (printmd)
+
+Parses an input text as simple ascii markdown
+
+Expects:
+
+* **(printmd)** : The text template to parse.
+* **((outputMD)): A boolean flag that if true will no parse the input text.
+
+```yaml 
+todo:
+- (printmd): |
+    # Chapter 1
+
+    This is a __markdown__ text.
+
+    | This | is | a | table |
+    |------|----|---|-------|
+    | 1    | 2  | 3 | 4     |
+
+    You can also use *\{{$acolor 'red' 'OpenAF templates'}}*.
+
+    ---
+
+```
+
+### 🔖 (log)
+
+Logs a message line given an OpenAF template.
+
+Expects:
+
+* **(log)**      : The message template to use
+* **((key))**    : Map key to retrieve ('args' for arguments)
+* **((path))**   : The path to consider from the (key)
+* **((level))**  : The level of the message (info (default), warn or error)
+* **((options))**: Extra options to provide to the tlog* functions. See more in the help of tlog, tlogErr and tlogWarn.
+
+```yaml 
+todo:
+- (log    ): You can issue a log message.
+    ((level)): info
+- (log    ): Even for errors.
+    ((level)): error
+
+```
+
+### 🔖 (findReplace)
+
+Performs an in-memory find/replace on a provided string or file and outputs to args.output or, optionally, to a file.
+
+Expects:
+
+* **(findReplace)**  : The key that holds template and/or data (default to 'res'). If 'args' it will use the current arguments.
+* **((path))**       : The path in (findReplace) where a map of replacements ([text/regexp]:[replace text]) can be found.
+* **((inputKey))**   : If defined, indicates the key that holds the string of data to replace.
+* **((inputPath))**  : If defined with inputKey, indicates the path to use to select the string of data to replace.
+* **((inputFile))**  : If defined the contents to be replaced will be read from the inputFile.
+* **((outputFile))** : If defined will output of the content replacement to the defined file. 
+* **((useRegExp))**  : Boolean value to determine if the map of replacements will be interpreted as a regexp or text.
+* **((flagsRegExp))**: If useRegExp=true the JavaScript reg exp flags to use (defaults to 'g').
+* **((logJob))**     : Optionally provide a logging job with the current args and __op with 'read' or 'write'
+
+```yaml 
+jobs:
+- name: Replace text
+    from:
+    - (findReplace): 
+        "|name|": Scott Tiger
+    ((inputKey))): args
+    ((inputPath)): text
+    args         :
+        text: |
+        Hello |name|, how are you doing?
+
+        |name| is great!
+    - (print      ): "{{output}}"
+    ((key      )): args
+
+todo:
+- Replace text
+
+```
+
+### 🔖 (output)
+
+Prints the current arguments to the console.
+
+Expects:
+
+* **(output)**    : The key string to retrieve previous results (defaults to 'res'). If "args" will retrieve from current args.
+* **((path))**    : A path string to a map/array over the results set on key.
+* **((format))**  : The output format (e.g. see ow.oJob.output help).
+* **((title))**   : Encapsulates the output map/array with a title key.
+* **((internal))**: Boolean value that if true it will display the internal oJob entries on the arguments (default false).
+* **((function))**: One of the OpenAF's print or log functions available
+
+```yaml 
+todo:
+- (runfile ): ojob.io/news/bbc
+    ((key   )): news
+- (query   ): "limit(5)"
+    ((key   )): news
+- (output  ): news
+    ((format)): stable
+
+```
+
+### 🔖 (template)
+
+Applies the OpenAF template over the provided data producing an output.
+
+Expects:
+
+* **(template)**      : If defined, will be used as template.
+* **((templateFile))**: If defined, it will use the provided template file.
+* **((data))**        : If defined, will be used as data.
+* **((dataFile))**    : If defined, it will use the provided data file (either yaml or json).
+* **((outputFile))**  : If defined, the output will be written to the provided file path.
+* **((key))**         : The key that holds template and/or data (default to 'res'). If 'args' it will use the current arguments.
+* **((tpath))**       : The path in ((key)) where a string with the template can be found.
+* **((dpath))**       : The path in ((key)) where a map/array data to use can be found.
+* **((outPath))**     : If defined the $set path where ((out)) will be set in the provided key.
+* **((out))**         : The output will be stored into the provided key (defaults to 'res')
+
+```yaml 
+todo:
+- (template): |
+    {{#each lst}}
+    -> {{{this}}}
+    {{/each}}
+    ((out   )): output
+    ((data  )):
+    name: test
+    lst :
+    - 1
+    - 2
+    - 3
+- (output   ): output
+    ((path   )): output
+    ((format )): tree
+
+```
+
+### 🔖 (templateFolder)
+
+Given a templateFolder it will execute '(template)' for each (recursively), with the provided data, to output to outputFolder. Optionally metaTemplate can be use where each json/yaml file in templateFolder all or part of the arguments for 'ojob template'.    
+
+Expects:
+    
+* **(templateFolder)**: The original folder where the templates are located.
+* **((templatePath))**: If defined, will apply a $path string over the recursive list of files in templateFolder.
+* **((data))**        : If defined, will be used as data.
+* **((dataFile))**    : If defined, it will use the provided data file (either yaml or json).
+* **((outputFolder))**: The path where the output should be stored.
+* **((key))**         : The key that holds template and/or data (default to 'res'). If 'args' it will use the current arguments.
+* **((dpath))**       : The path in __key where a map/array data to use can be found.
+* **((logJob))**      : A ojob job to log the 'ojob template' activity (receives the same arguments as 'ojob template').
+* **((metaTemplate))**: Boolean that if 'true' will interpret any json/yaml file, in the templateFolder, as a map/array of arguments to use when calling 'ojob template' overriden the defaults.
+
+```yaml 
+todo:
+- (templateFolder): src
+    ((data        )):
+    name: test
+    lst :
+    - 1
+    - 2
+    - 3
+    ((outputFolder)): output
+    
+```
+
+---
+
+## 🗂️ Debug
+
+### 🔖 (debug)
+
+Will print the current "args" and "res" contents.
+
+```yaml 
+todo:
+- (debug)
+
+```
+
+### 🔖 (jobdebug)
+
+Provides an alternative to print based debug to debug a single job (only for OpenAF's lang based jobs)
+
+Expects:
+
+* **(jobdebug)**     : The job to change to include debug.
+* **((lineColor))**  : The line color around the debug info.
+* **((textColor))**  : The text color around the debug info.
+* **((theme))**      : The withSideLineThemes theme to use.
+* **((emoticons))**  : If emoticons should be used or not.
+* **((signs))**      : A custom map of emoticons (keys: checkpoint, assert and print).
+* **((includeTime))**: A boolean value to indicate if a time indication should be included.
+
+```yaml 
+todo:
+- (jobdebug): Sample job
+- Sample job
+
+jobs:
+# ----------------
+- name: Sample job
+exec: |
+    //@ Declaring array
+    var ar = [ 0, 1, 2, 3, 4, 5 ]
+
+    //@ Start cycle
+    var ii = 0;
+    while(ii < ar.length) {
+    print("II = " + ii)
+    ii++
+    //# ii == 3
+    }
+    //@ End cycle
+    //? ii
+
+    //?s args
+    //?y args
+
+```  
+
+### 🔖 (jobsdebug)
+
+Provides an alternative to print based debug to debug multiple jobs (only for OpenAF's lang based jobs)
+
+Expects:
+
+* **(jobsdebug)**    : The jobs array to change to include debug.
+* **((lineColor))**  : The line color around the debug info.
+* **((textColor))**  : The text color around the debug info.
+* **((theme))**      : The withSideLineThemes theme to use.
+* **((emoticons))**  : If emoticons should be used or not.
+* **((signs))**      : A custom map of emoticons (keys: checkpoint, assert and print).
+* **((includeTime))**: A boolean value to indicate if a time indication should be included.
+
+```yaml 
+todo:
+- (jobsdebug): 
+    - Sample job
+- Sample job
+
+jobs:
+# ----------------
+- name: Sample job
+exec: |
+    //@ Declaring array
+    var ar = [ 0, 1, 2, 3, 4, 5 ]
+
+    //@ Start cycle
+    var ii = 0;
+    while(ii < ar.length) {
+    print("II = " + ii)
+    ii++
+    //# ii == 3
+    }
+    //@ End cycle
+    //? ii
+
+    //?s args
+    //?y args
+
+```  
+
+---
+
+## 🗂️ Security
+
+### 🔖 (debug)
+
+Prints the current "args" and "res"
+
+```yaml 
+jobs:
+- name: a
+    to  :
+    - (run  ): ojob.io/envs
+    - (debug) 
+
+```
+
+### 🔖 (secget)
+
+This job will get a SBucket secret and map it to oJob's args
+
+Expects:
+
+* **(secget)**       : The SBucket key
+* **((secRepo))**    : The SBucket repository
+* **((secBucket))**  : The SBucket name
+* **((secPass))**    : The SBucket password
+* **((secOut))**     : The args path to be mapped with the secret (defaults to secIn)
+* **((secMainPass))**: The SBucket repository password
+* **((secFile))**    : Optional provide a specific sbucket file
+* **((secDontAsk))** : Determine if passwords should be asked from the user (default=false)
+* **((secIgnore))**  : If true will ignore errors of sec parameters not being provided (default=false)
+* **((secEnv))**     : If true will set everything to retrieve the secret from an env variable
+
+```yaml 
+jobs:
+- name: Check clock on my server
+    from:
+    - (secget      ): mySSHkey
+    ((secBucket )): mykeys
+    ((secOut    )): ssh
+    ((secDontAsk)): true
+    to  :
+    - (pass   ):
+        clocks:
+        - host: "{{hostname}}"
+        date: "{{date}}"
+    - (output ): args
+    ((path )): clocks
+    lang: ssh
+    exec: |
+    hostname=$(hostname)
+    date=$(date)
+
+    # return hostname, date
+
+```
+
+---
+
+## 🗂️ Functionality
+
+### 🔖 (fn)
+
+Executes the provided function mapping any args to the function arguments using the odoc help available for the provided function.
+Note: accessing odoc might be slow on a first execution.
+
+Expects:
+
+* **(fn)**      : The function to execute.
+* **((key))**   : The key string to retrieve previous results (defaults to 'res').
+* **((path))**  : If defined the args path for the function arguments to consider.
+* **((fnPath))**: If defined the args path where to set the function result.
+
+```yaml 
+todo:
+- (fn    ): "io.listFiles"
+    ((key )): files
+    args    :
+    aFilePath: .
+- (output): files
+    ((path)): files
+
+```
+
+### 🔖 (runfile) / (run)
+    
+Executes an external YAML/JSON ojob file or a remote URL with the provided args.
+
+Expects:
+
+* **(run)**           : The YAML/JSON ojob file or remote URL to run.
+* **((args))**        : The args to provide to the external ojob file/url.
+* **((out))**         : The path on args to set the map key/path contents.
+* **((key))**         : If __out is not defined will set the content into the provided key.
+* **((inKey))**       : If defined, args will be merged with the content from the provided key.
+* **((usePM))**       : Output to __pm.
+* **((inPM))**        : Input from provided key to __pm.
+* **((templateArgs))**: Boolean to indicate to apply template to each string of the provided args (use only if typeArgs.noTemplateArgs = false OR job.templateArgs = true).
+* **((debug))**       : Boolean to indicate that the job execution parameters should be printed before executing.
+
+```yaml 
+jobs:
+- name: Get envs
+    to  :
+    - (run    ): ojob.io/envs
+    - (output ): res
+
+```
+
+---
