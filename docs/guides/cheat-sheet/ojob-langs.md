@@ -84,7 +84,7 @@ Example without the JSON module installed:
 - name: Perl example
   lang: perl
   exec: |
-    $name = '{{firstName}} {{lastName}}''
+    $name = '\{{firstName}} \{{lastName}}''
     
     # return name
 
