@@ -111,16 +111,17 @@ Keep in mind that shell scripting only supports string-based variables on one le
 # -----------------
 - name: SSH example
   args:
-    host : myhost
-    port : 22
-    login: user
-    pass : badPassword1
-    #id : myKeyFile
-    #key:  
-    #timeout:
+    ssh:
+      host : myhost
+      port : 22
+      login: user
+      pass : badPassword1
+      #id : myKeyFile
+      #key:  
+      #timeout:
   lang: ssh
   exec: |
-    name="$firstName $lastName"
+    name="\{{firstName}} \{{lastName}}"
     other=\{{someMap.someProperty}}
     
     # return name, other
