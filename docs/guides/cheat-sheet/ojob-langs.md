@@ -84,7 +84,7 @@ Example without the JSON module installed:
 - name: Perl example
   lang: perl
   exec: |
-    $name = '\{{firstName}} \{{lastName}}''
+    $name = '{% raw %}{{firstName}} {{lastName}}{% endraw %}''
     
     # return name
 
@@ -104,7 +104,7 @@ Keep in mind that shell scripting only supports string-based variables on one le
   lang: shell
   exec: |
     name="$firstName $lastName"
-    other=\{{someMap.someProperty}}
+    other={% raw %}{{someMap.someProperty}}{% endraw %}
     
     # return name, other
 
@@ -121,8 +121,8 @@ Keep in mind that shell scripting only supports string-based variables on one le
       #timeout:
   lang: ssh
   exec: |
-    name="\{{firstName}} \{{lastName}}"
-    other=\{{someMap.someProperty}}
+    name="{% raw %}{{firstName}} {{lastName}}{% endraw %}"
+    other={% raw %}{{someMap.someProperty}}{% endraw %}
     
     # return name, other
     
