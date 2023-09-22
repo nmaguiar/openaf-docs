@@ -32,6 +32,10 @@ curl https://openaf.io/install.sh | sh
 # Without sudo
 curl https://openaf.io/setup.sh | sh && cd oaf
 # ./oafc
+
+# With an existing java JRE/JDK >= 8
+curl https://ojob.io/get.sh | sh && cd oaf
+# ./oafc
 ````
 
 > If you don't have _sudo_, _curl_ or _wget_ but you do have bash [follow these instructions](docs/howto/Download-without-curl-or-wget.md).

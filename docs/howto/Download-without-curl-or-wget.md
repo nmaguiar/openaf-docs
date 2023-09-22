@@ -67,6 +67,20 @@ downloadURL() {
     mv $output.temp $output
 }
 
+help() {
+  echo Done.
+  echo
+  echo To run just execute: 
+  echo
+  echo "   --->  $IPATH/ojob ojob.io  <---"
+  echo 
+  echo "To auto-complete 'ojob ojob.io' in bash just execute:"
+  echo 
+  echo "   export PATH=$IPATH:\$PATH && . $IPATH/autoComplete.sh"
+  echo 
+  echo --------------------------------------
+}
+
 # Determine architecture
 case $ARCH in
   x86_64)
@@ -74,19 +88,19 @@ case $ARCH in
     then
       TARCH="M64"
       IPATH=${IPATH:-/Applications/OpenAF}
-    else
+    else 
       TARCH="64"
     fi
     ;;
   aarch64_be | aarch64 | armv8b | armv8l | arm64)
     if [ "$SYST" = "Darwin" ]
-    then
+    then 
       TARCH="MA"
       IPATH=${IPATH:-/Applications/OpenAF}
     else
       TARCH="A64"
     fi
-    ;;
+    ;; 
   arm | armv7l)
     TARCH="A32"
     ;;
@@ -100,14 +114,19 @@ IPATH=${IPATH:-oaf}
 # ---------
 echo -----------------------
 echo Creating sub-folder oaf
-mkdir oaf
-cd oaf
+mkdir $IPATH
+cd $IPATH
 
-echo -------------------
-echo Downloading java...
-url=http://openaf.io/java/java17_$TARCH.tgz
-output=jre.tgz
-downloadURL
+JAVA=false
+if java -version >/dev/null 2>&1; then
+  JAVA=true
+else
+  echo -------------------
+  echo Downloading java...
+  url=http://openaf.io/java/java17_$TARCH.tgz
+  output=jre.tgz
+  downloadURL
+fi
 
 echo ---------------------
 echo Downloading openaf...
@@ -123,26 +142,21 @@ downloadURL
 
 echo ------------
 echo Unpacking...
-tar xzf jre.tgz
-mv *jdk* jre
-`find . | egrep /bin/java$` -jar openaf.jar --install
-rm jre.tgz
-
-cdir=$(pwd)
-echo Done.
-echo
-echo To run just execute:
-echo
-echo "   --->  $cdir/ojob ojob.io  <---"
-echo
-echo "To auto-complete 'ojob ojob.io' in bash just execute:"
-echo
-echo "  export PATH=$cdir:\$PATH && . $cdir/autoComplete.sh"
-echo
-echo --------------------------------------
+if [ "$JAVA" = "false" ]; then
+  tar xzf jre.tgz
+  mv *jdk* jre
+  `find . | egrep /bin/java$` -jar openaf.jar --install
+  rm jre.tgz
+  echo
+  help
+else
+  java -jar openaf.jar --install
+  echo
+  help
+fi
 ```
 
-> You can also download it directly from [https://ojob.io/setup.sh](https://ojob.io/setup.sh)
+> You can also download it directly from [https://ojob.io/get.sh](https://ojob.io/get.sh)
 
 ## 2 - Create a setup.sh file
 
