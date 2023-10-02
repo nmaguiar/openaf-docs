@@ -47,6 +47,14 @@ Object.keys(f)
 
 > Note: You can even use it with ````for(i in f) { ... }```` for example.
 
+### Choosing a specific method signature
+
+In some cases a Java instance might have more than on method with the same name but different signature (e.g. different methods). In those cases it's possible to indicate one of them by calling the method like this:
+
+```javascript
+f.['list(java.lang.String,com.some.options.Options$ListOption[])'](arg1, arg2)
+```
+
 ## Implementing Java interfaces
 
 It's also possible to provide a Java inteface implementation directly in Javascript:
