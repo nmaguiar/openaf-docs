@@ -38,7 +38,12 @@ curl https://ojob.io/get.sh | sh && cd oaf
 # ./oafc
 ````
 
-> If you don't have _sudo_, _curl_ or _wget_ but you do have bash [follow these instructions](docs/howto/Download-without-curl-or-wget.md).
+If you don't have _sudo_, _curl_ or _wget_ but you do have bash you can just execute the following command or [follow these instructions](docs/howto/Download-without-curl-or-wget.md):
+
+```bash
+# With just bash
+/bin/bash -c "exec 3<>/dev/tcp/ojob.io/80 && echo -e \"GET /get.sh HTTP/1.1\nHost: ojob.io\nUser-Agent: curl\nConnection: close\n\n\" >&3 && cat <&3" | sed '1,/connection: close/d' | tail -n +2 | sh -s
+```
 
 ### Mac OS
 
