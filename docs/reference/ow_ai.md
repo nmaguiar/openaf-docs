@@ -29,23 +29,24 @@ __ow.ai.decisionTree(aMap) : Object__
 Provides a wrapper to access the existing decision tree algorithms included:
 
 ID3:
-  type              'id3'   trainingSet       (array of maps)   The training data
+  type              'id3'
+  trainingSet       (array of maps)   The training data
   categoryAttr      (key name)        The map key to build the decision tree on
   ignoredAttributes (array of keys)   The list of keys to be ignored in each map
 
 RandomForest:
-  type              'randomforest'   trainingSet       (array of maps)   The training data
+  type              'randomforest'
+  trainingSet       (array of maps)   The training data
   categoryAttr      (key name)        The map key to build the decision tree on
   ignoredAttributes (array of keys)   The list of keys to be ignored in each map
   treesNumber       (number)          The number of decision trees to use
 
 C45:
-  type              'c45'    data              (array of arrays) The training data
+  type              'c45'
+  data              (array of arrays) The training data
   features          (arrays of keys)  The keys name by order of each array data value
   featureTypes      (arrays of types) Categorization of each attribute between 'category' and 'number'
   target            (key)             The target key name (the last of each array data value)
-
-
 ````
 ### ow.ai.network
 
@@ -156,7 +157,7 @@ Tries to convert anArrayOfObjects into an array of array of values where each va
 ````
 ### ow.ai.normalize.withSchema
 
-__ow.ai.normalize.withSchema(aSimpleMapOfData, aMapSchema) : Array__
+__ow.ai.normalize.withSchema(aSimpleMapOfData, aMapSchema, convertBools) : Array__
 
 ````
 Tries to normalize and return aSimpleMapOfData normalized according with aMapSchema provided. Each element of aMapSchema should be a map describing how to normalize aSimpleMapOfData. Example:

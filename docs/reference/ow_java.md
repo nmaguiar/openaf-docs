@@ -246,6 +246,13 @@ __ow.java.getAddressType(aAddress) : Map__
 ````
 Given aAddress tries to return a map with the following flags: isValidAddress, hostname, ipv4, ipv6 and privateAddress
 ````
+### ow.java.getCCPU
+
+__ow.java.getCCPU(aReadFileFn) : Map__
+
+````
+Returns a map with the current cgroup cpu stats. Optionally you can provide a aReadFileFn that should expect the full path on a linux cgroup root filesystem and return a string with the corresponding contents.
+````
 ### ow.java.getClassPath
 
 __ow.java.getClassPath() : String__
@@ -262,10 +269,10 @@ Given the class array of bytes (aClassBytes), or a string from which the corresp
 ````
 ### ow.java.getCMemory
 
-__ow.java.getCMemory(shouldFormat) : Map__
+__ow.java.getCMemory(shouldFormat, aReadFileFn) : Map__
 
 ````
-Returns a map with the current cgroup runtime max, total, used and free memory. If shouldFormat = true ow.format.toBytesAbbreviation will be used.
+Returns a map with the current cgroup runtime max, total, used and free memory. If shouldFormat = true ow.format.toBytesAbbreviation will be used. Optionally you can provide a aReadFileFn that should expect the full path on a linux cgroup root filesystem and return a string with the corresponding contents.
 ````
 ### ow.java.getDigestAlgs
 
@@ -308,6 +315,20 @@ __ow.java.getLibraryPath() : String__
 
 ````
 Retrieves the initial OS library path.
+````
+### ow.java.getLinuxCPUInfo
+
+__ow.java.getLinuxCPUInfo(aReadFileFn) : Array__
+
+````
+Parses a Linux CPU info. Optionally you can provide a aReadFileFn that should expect the full path on a linux /proc root filesystem and return a string with the corresponding contents.
+````
+### ow.java.getLinuxUptime
+
+__ow.java.getLinuxUptime(aReadFileFn) : Array__
+
+````
+Parses a Linux uptme info. Optionally you can provide a aReadFileFn that should expect the full path on a linux /proc root filesystem and return a string with the corresponding contents.
 ````
 ### ow.java.getLocalJavaPIDs
 
@@ -426,6 +447,55 @@ Examples:
   ow.java.ini().loadFile("/etc/os-release").get()
   ow.java.ini().put(myMap).save()
 ````
+### ow.java.JMX
+
+__ow.java.JMX(aURL, aUser, aPass, aProvider) : JMX__
+
+````
+Creates a JMX connection to the provided URL (similar to service:jmx:rmi:///jndi/rmi://1.2.3.4:1234/jmxrmi or a map with a host and a port). Optionally, if necessary, aUser and aPass. To customize the JMX provider use aProvider.
+````
+### ow.java.JMX.getAll
+
+__ow.java.JMX.getAll() : Map__
+
+````
+Will query the JMX target for all registered domains, query the registered objects for each domain and returns a combined map of the corresponding values.
+````
+### ow.java.JMX.getDomains
+
+__ow.java.JMX.getDomains() : Array__
+
+````
+Will query the JMX target for existing domains to be used with ow.java.JMX.queryNames a return the corresponding list.
+````
+### ow.java.JMX.getJavaStd
+
+__ow.java.JMX.getJavaStd() : Map__
+
+````
+Will query the JMX target for the "java.lang.*" objects and return the corresponding map.
+````
+### ow.java.JMX.getObject
+
+__ow.java.JMX.getObject(anObject) : Map__
+
+````
+Given a JMX anObject will find all the corresponding attributes, retrieve their corresponding values and returning in a map. If any errors occurred a map entry "_errors" with an array of errors will be included in the returned map.
+````
+### ow.java.JMX.getObjects
+
+__ow.java.JMX.getObjects(aObjectName) : Map__
+
+````
+Given a JMX domain + name + type or JMX aQuery (similar to the provided to ow.java.JMX.queryNames) will retrieve all objects from each domain, name and type. The returned map will be organized by a map "name" entry with sub-map for each "type".
+````
+### ow.java.JMX.queryNames
+
+__ow.java.JMX.queryNames(aQuery) : Array__
+
+````
+Given aQuery (similar to 'java.lang:*') given a JMX domain it will query the JMX target and return a list of registered domain + name + type ready to be used with ow.java.JMX.getObject.
+````
 ### ow.java.maven.getFile
 
 __ow.java.maven.getFile(artifactId, aFilenameTemplate, aOutputDir)__
@@ -456,6 +526,13 @@ __ow.java.maven.getLatestVersion(aURI) : String__
 
 ````
 Get the latest version from the provide aURI for a Maven 2 repository.
+````
+### ow.java.maven.getLatestVersionString
+
+__ow.java.maven.getLatestVersionString(artifactId) : String__
+
+````
+Given the artifactId (prefixed with the group id using ".") will try to determine the latest version and return  the corresponding string.
 ````
 ### ow.java.maven.getLicenseByVersion
 

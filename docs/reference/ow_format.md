@@ -182,6 +182,13 @@ __ow.format.escapeHTML4(aString) : String__
 ````
 Uses Apache Commons Lang escape HTML4 functionality to convert aString into HTML4 entities where needed.
 ````
+### ow.format.escapeRE
+
+__ow.format.escapeRE(aString) : String__
+
+````
+Tries to escape in aString all characters that make up a RegExp.
+````
 ### ow.format.escapeString
 
 __ow.format.escapeString(aString, aExceptString) : String__
@@ -189,6 +196,20 @@ __ow.format.escapeString(aString, aExceptString) : String__
 ````
 Will escape, and return, aString for RegExp special characters with the exception of any characters in aExceptString.
 (available after ow.loadFormat())
+````
+### ow.format.fromBase16
+
+__ow.format.fromBase16(aString) : bytes__
+
+````
+Given a base 16 aString transforms it back to the original array of bytes.
+````
+### ow.format.fromBase32
+
+__ow.format.fromBase32(aString) : bytes__
+
+````
+Given a base 32 aString transforms it back to the original array of bytes.
 ````
 ### ow.format.fromBase36
 
@@ -582,7 +603,7 @@ Prints aMessage (if defined) with a aTemplate (template compiled function or str
 ````
 ### ow.format.printWithWaiting
 
-__ow.format.printWithWaiting(aMainFunc, aPrefixMsg, aCompleteMsg, aErrorMsg, aWaitSpeed, aTheme)__
+__ow.format.printWithWaiting(aMainFunc, aPrefixMsg, aCompleteMsg, aErrorMsg, aWaitSpeed, aTheme, printNLFn, useAsSuffix)__
 
 ````
 Executes aMainFunc while priting aPrefixMsg with a waiting aTheme (defaults to a sequence of chars with a rotating bar). When aMainFunc ends it will replace the priting with aCompleteMsg or aErrorMsg in case an exception is thrown. Optionally you can provide a different aWaitSpeed while cycling between the aTheme sequence of chars increasing/decreasing the "animation" effect.
@@ -654,10 +675,38 @@ To be used with sh, af.sh or ssh.exec as the callbackFunc. Returns a function th
 ````
 ### ow.format.streamSHPrefix
 
-__ow.format.streamSHPrefix(aPrefix, anEncoding, aSeparator, aTemplate) : Function__
+__ow.format.streamSHPrefix(aPrefix, anEncoding, aSeparator, aTemplate, aFnHandler) : Function__
 
 ````
-To be used with sh, af.sh or ssh.exec as the callbackFunc. Returns a function that will prefix each line with aPrefix and used the returned string with print and printErr. Optionally you can provide aTemplate to add "prefix" (defaults to "[{{prefix}}]")
+To be used with sh, af.sh or ssh.exec as the callbackFunc. Returns a function that will prefix each line with aPrefix and used the returned string with print and printErr. Optionally you can provide aTemplate to add "prefix" (defaults to "[{{prefix}}]") and/or provide aFnHandler to chain another streaming handling function (receives a stream and a boolean to indicate if its stdout or stderr)
+````
+### ow.format.string.ansiMoveDown
+
+__ow.format.string.ansiMoveDown(nLines)__
+
+````
+Moves the cursor nLines down.
+````
+### ow.format.string.ansiMoveLeft
+
+__ow.format.string.ansiMoveLeft(nChars)__
+
+````
+Moves the cursor left chars.
+````
+### ow.format.string.ansiMoveRight
+
+__ow.format.string.ansiMoveRight(nChars)__
+
+````
+Moves the cursor right chars.
+````
+### ow.format.string.ansiMoveUp
+
+__ow.format.string.ansiMoveUp(nLines)__
+
+````
+Moves the cursor nLines up.
 ````
 ### ow.format.string.bestPrefix
 
@@ -672,6 +721,13 @@ ow.format.string.bestPrefix("/u1", anArrayOfStrings); // Returns /u
 ow.format.string.bestPrefix("/userna", anArrayOfStrings); // Returns /user
 
 
+````
+### ow.format.string.bool
+
+__ow.format.string.bool(aBoolValue, isLight, anExtra) : String__
+
+````
+Given aBoolValue will return a green checkmark or a red cross character. If necessary anExtra ansiColor attributes can be added.
 ````
 ### ow.format.string.chart
 
@@ -692,6 +748,20 @@ ow.format.string.closest("/user/1", anArrayOfStrings); // Returns /user
 ow.format.string.closest("/u1", anArrayOfStrings); // Returns /u
 ow.format.string.closest("/userna", anArrayOfStrings); // Returns /user
 ow.format.string.closest("/usernam", anArrayOfStrings); // Returns /username
+````
+### ow.format.string.dataClean
+
+__ow.format.string.dataClean(aName)__
+
+````
+Given aName for data points entered using ow.format.string.chart and ow.format.string.dataLineChart will effectively delete all cached data. If aName is not provided it will eliminate of cached data.
+````
+### ow.format.string.dataLineChart
+
+__ow.format.string.dataLineChart(aName, aDataPoint, aHSIze, aVSize, aOptions) : String__
+
+````
+Given data aName will store, between calls, aDataPoint (number or array of numbers) provided to plot a line chart with a horizontal aHSize and a vertical aVSize. Optionally aOptions, equivalent to ow.format.string.lineChart options, can optionally also be provided.
 ````
 ### ow.format.string.distance
 
@@ -726,7 +796,13 @@ Returns an array of two 8 bit codes given an unicode astralCodePoint of 16 bits
 __ow.format.string.grid(aMatrix, aX, aY, aBgPattern, shouldReturn) : String__
 
 ````
-Will generate a aX per aY grid to be displayed with aBgPattern (defaults to " "). Each grid cell with use the contents on aMatrix array of an array. Each cell content can be a map with obj (a Map), a xspan/yspan for in cell spacing, a type (either map, table, func or string)  and a title. If shouldReturn = true it will just return the string content instead of trying to print it.
+Will generate a aX per aY grid to be displayed with aBgPattern (defaults to " "). Each grid cell with use the contents on aMatrix array of an array. Each cell content can be a map with obj (a Map), a xspan/yspan for in cell spacing, a type (either map, table, chart, area, bar, func or string)  and a title. If shouldReturn = true it will just return the string content instead of trying to print it.
+Extra options per type:
+
+ chart: the 'obj' check printChart format string
+ bar  : the 'obj' check printBar format stirng; 'max'; 'min'; 'indicator'; 'space'
+
+
 ````
 ### ow.format.string.leftPad
 
@@ -734,6 +810,34 @@ __ow.format.string.leftPad(aString, length, padExpression) : String__
 
 ````
 Using a padExpression will left pad aString for the given length.
+````
+### ow.format.string.lineChart
+
+__ow.format.string.lineChart(aSeries, aOptions) : String__
+
+````
+Given an array of values (1 series) or an array of arrays of values (multiple series) will plot a line chart in  ascii, with the provided aOptions, a return the corresponding string. Available options:
+
+  min     (number)   The minimum value to use in the chart
+  max     (number)   The maximum value to use in the chart
+  height  (number)   The line chart lines height to use
+  width   (number)   The maxium width of the line chart
+  colors  (array)    Array of color names to use for each series
+  label   (boolean)  Boolean value to indicate if y labels should be included (default true)
+  format  (function) Custom functions that receives a value and returns a formatted string for labels
+  dColor  (string)   The default color to use
+  offset  (number)   The offset to assume (default 2)
+  padding (string)   The chart padding string (default "")
+  fixed   (number)   If no custom format function is provided will be the fixed decimals to use (default 2)
+  symbols (array)    An array of 10 characters to replace the default symbols
+
+````
+### ow.format.string.lineChartLegend
+
+__ow.format.string.lineChartLegend(titles, options) : Array__
+
+````
+Given an array of titles and the options provided to ow.format.string.lineChart will return an array with each "symbol" and color used for each series and the corresponding "title".
 ````
 ### ow.format.string.lsHash
 
@@ -829,6 +933,13 @@ __ow.format.string.unicode(aCodeNumber) : String__
 ````
 Given a unicode aCodeNumber (8 or 16 bits) will convert to the necessary sequence of 8 bit. For example: ow.format.string.unicode(0x1F37A)
 ````
+### ow.format.string.updateLine
+
+__ow.format.string.updateLine(aPrintNLFn) : Function__
+
+````
+Facilitates updating a message in the same line without entering new-lines. It will use the aPrintNLFn (if not defined uses printnl). Returns an object with two functions: line(aMessage) and end(). The function line() should be called to change the current line message. On the  end calling the function end() will clean-up a return the cursor to the beginning of the line.
+````
 ### ow.format.string.wildcardRE
 
 __ow.format.string.wildcardRE(aPattern, caseSensitive) : RegExp__
@@ -849,6 +960,18 @@ __ow.format.string.wordWrap(aString, maxWidth, newLineSeparator, tabDefault) : S
 
 ````
 Given aString word wraps the text on it given the maxWidth length per line. Optionally you can provide a newLineSeparator otherwise '\n' will be used. Optionally tabDefault determines how many spaces a tab represents (default 4) (available after ow.loadFormat())
+````
+### ow.format.string.wordWrapArray
+
+__ow.format.string.wordWrapArray(anArray, maxTableSize, sepLen, sepFunc, useIndex) : Array__
+
+````
+Given anArray of maps will return an array suitable to use with printTable for a maxTableSize, a separator length (sepLen (which defaults to 1)) and an optional line separator function (sepFunc that receives the max length of a  column). Word-wrap is achieved by creating new map array entries whenever the calculated max size of each line  with sepLen is achieved. The boolean flag useIndex changes the result to a map with lines and idx (array of the positions on the lines array that are a new anArray entry). Example of usage:
+
+  __initializeCon()
+  var maxS = __con.getTerminal().getWidth()
+  print(printTable(ow.format.string.wordWrapArray(io.listFiles("js").files, maxS, 1, s => ansiColor("FAINT", repeat(s, "-"))), maxS))
+
 ````
 ### ow.format.testHost
 
@@ -901,6 +1024,20 @@ __ow.format.toAbbreviation(aNumber, aDigits) : String__
 Returns a number abbreviation to "k", "m", "b", "t". Will round number to 2 decimals if aDigits doesn't provide a different decimal digits to round to.
 (available after ow.loadFormat())
 ````
+### ow.format.toBase16
+
+__ow.format.toBase16(aString) : String__
+
+````
+Given aString or array of bytes transforms the contents to base 16.
+````
+### ow.format.toBase32
+
+__ow.format.toBase32(aString) : String__
+
+````
+Given aString or array of bytes transforms the contents to base 32.
+````
 ### ow.format.toBase36
 
 __ow.format.toBase36(aNumber, aLength) : String__
@@ -922,6 +1059,13 @@ __ow.format.toBytesAbbreviation(aNumber, aDigits) : String__
 ````
 Returns a number abbreviation to "bytes", "KB", "MB", "GB", "TB", etc. Will round number to 3 significant digits if aDigits doesn't provide a different number of precision digits to convert to.
 (available after ow.loadFormat())
+````
+### ow.format.toCSLON
+
+__ow.format.toCSLON(aObj, cTheme) : String__
+
+````
+Equivalent to ow.fornat.toSLON but includes ansi color.
 ````
 ### ow.format.toDate
 
@@ -1029,7 +1173,7 @@ Uses Apache Commons Lang unescape HTML4 functionality to unconvert aString with 
 __ow.format.withMD(aString, defaultAnsi) : String__
 
 ````
-Use aString with simple markdown and convert it to ANSI. Optionally you can add a defaultAnsi string to return back  after applying the ansi styles for markdown (use ansiColor function to provide the defaultAnsi). Currently supports only: bold, italic.
+Use aString with simple markdown and convert it to ANSI. Optionally you can add a defaultAnsi string to return back  after applying the ansi styles for markdown (use ansiColor function to provide the defaultAnsi). Currently supports only: bold, italic, tables, simple code blocks, line rule, bullets, numbered lines, links and blocks.
 ````
 ### ow.format.withSideLine
 

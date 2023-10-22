@@ -6,14 +6,13 @@ has_children: true
 nav_order: 4
 ---
 # Reference
-_version: 20230325_
+_version: 20231014_
 * __[afbase](afbase.md)__
 * __[bsdiff](bsdiff.md)__
 * __[console](console.md)__
 * __[csv](csv.md)__
 * __[db](db.md)__
 * __[email](email.md)__
-* __[git](git.md)__
 * __[http](http.md)__
 * __[httpd](httpd.md)__
 * __[index](index.md)__

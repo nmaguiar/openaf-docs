@@ -73,7 +73,7 @@ Creates an atomic object of aType (defaults to long) to be get/set atomically on
    boolean.get         - Get the current boolean
    boolean.set         - Set the current boolean
    boolean.getSet      - Get and Set the current boolean
-   boolean.setIf(t, n) - Set the current boolean to n if current value is t\
+   boolean.setIf(t, n) - Set the current boolean to n if current value is t
 
 
 ````
@@ -269,6 +269,7 @@ __$csv(aMap) : $csv__
 Provides a shortcut to access CSV functionality. Optionally you can provide options through aMap.
 
 Examples:
+  $cvs().fromInArray(anArray)
   $csv().fromInFile("test.csv").toOutArray()
   $csv().fromInFile("test.csv").toOutFn(m => print( af.toSLON(m) ))
   $csv().fromInString( $csv().fromInArray( io.listFiles(".").files ) ).toOutArray()
@@ -576,6 +577,9 @@ Shortcut for the JMESPath library for easy query and access to arrays/objects. T
   abs(x), avg(x), contains(x, y), ceil(x), floor(x), join(x, arr), keys(obj), length(x), map(expr, arr), max(x), max_by(x, y), merge(a, b), min(a), min_by(a, b), not_null(a), reverse(arr), sort(arr), sort_by(a, y), starts_with(a, b), ends_with(a, b), sum(a), to_array(a), to_string(a), to_number(a), type(a), values(a)
   $path(arr, "a[?contains(@, 'b') == `true`]")
 
+[OpenAF custom functions]: 
+  count_by(arr, 'field'), group(arr, 'field'), group_by(arr, 'field1,field2'), unique(arr), to_map(arr, 'field'), flat_map(x), search_keys(arr, 'text'), search_values(arr, 'text'), delete(map, 'field'), substring(a, ini, end)
+
 Custom functions:
   $path(2, "example(@)", { example: { _func: (a) => { return Number(a) + 10; }, _signature: [ { types: [ $path().number ] } ] } });
 
@@ -840,6 +844,13 @@ __$sh.getJson(aIdx) : Object__
 ````
 Immediately copies the result of executing aCmd string or array (and any other commands in queue added using sh) trying to parse it as json. If aIdx is provided it will return the map entry for the corresponding command on the array otherwise it will return the array.
 ````
+### $sh.getYaml
+
+__$sh.getYaml(aIdx) : Object__
+
+````
+Immediately copies the result of executing aCmd string or array (and any other commands in queue added using sh) trying to parse it as yaml. If aIdx is provided it will return the map entry for the corresponding command on the array otherwise it will return the array.
+````
 ### $sh.mkdir
 
 __$sh.mkdir(aDir) : $sh__
@@ -908,7 +919,7 @@ Forces the aEncoding to be used.
 __$ssh.$ssh(aMap) : $ssh__
 
 ````
-Builds an object to allow access through ssh. aMap should be a ssh string with the format: ssh://user:pass@host:port/identificationKey?timeout=1234&compression=true or a map with the keys: host, port, login, pass, id/key, compress and timeout. See "help SSH.SSH" for more info.
+Builds an object to allow access through ssh. aMap should be a ssh string with the format: ssh://user:pass@host:port/identificationKey?timeout=1234&compression=true or a map with the keys: host, port, login, pass, id (file key) / key (string representation), compress and timeout. See "help SSH.SSH" for more info.
 ````
 ### $ssh.cb
 
@@ -1132,12 +1143,40 @@ __AF.fromJavaArray(aJavaArray) : Array__
 ````
 Tries to convert aJavaArray into a native an array.
 ````
+### AF.fromNLinq
+
+__AF.fromNLinq(aString) : Map__
+
+````
+Converts a nLinq chained command line string representation into a suitable map to be used with $from.query.
+````
 ### af.fromObj2XML
 
-__af.fromObj2XML(aMap) : String__
+__af.fromObj2XML(aMap, sanitize) : String__
 
 ````
 Tries to convert aMap into a similiar XML strucuture returned as string. Note that no validation of XML strucuture is performed.  Tips: ensure each map is under a map key.
+````
+### AF.fromSLON
+
+__AF.fromSLON(aString) : Map__
+
+````
+Converts a SLON (https://github.com/nmaguiar/slon) string representation into the original map.
+````
+### AF.fromSQL
+
+__AF.fromSQL(aString) : Map__
+
+````
+Converts a SQL expression into an ASP map.
+````
+### AF.fromSQL2NLinq
+
+__AF.fromSQL2NLinq(aSQL) : Map__
+
+````
+Converts a SQL expression into a suitable map to be used with $from.query.
 ````
 ### af.fromXML2Obj
 
@@ -1188,6 +1227,13 @@ Example:
 
 
 ````
+### AF.toCSLON
+
+__AF.toCSLON(aObject, aTheme) : String__
+
+````
+Converts aObject map/array into SLON representation with ansi colors (see more in help for ow.format.toCSLON)
+````
 ### AF.toSLON
 
 __AF.toSLON(aObject, aTheme) : String__
@@ -1197,17 +1243,17 @@ Converts aObject map/array into SLON representation (see more in help for ow.for
 ````
 ### AF.toYAML
 
-__AF.toYAML(aJson, multiDoc) : String__
+__AF.toYAML(aJson, multiDoc, sanitize) : String__
 
 ````
-Tries to dump aJson into a YAML string. If multiDoc = true and aJson is an array the output will be multi-document.
+Tries to dump aJson into a YAML string. If multiDoc = true and aJson is an array the output will be multi-document. If sanitize = true all Java objects will be converted to avoid parsing errors.
 ````
 ### ansiColor
 
-__ansiColor(aAnsi, aString, force, noCache) : String__
+__ansiColor(aAnsi, aString, force, noCache, noReset) : String__
 
 ````
-Returns the ANSI codes together with aString, if determined that the current terminal can handle ANSI codes (overridden by force = true), with the attributes defined in aAnsi. Please use with ansiStart() and ansiStop(). The attributes separated by commas can be:
+Returns the ANSI codes together with aString, if determined that the current terminal can handle ANSI codes (overridden by force = true), with the attributes defined in aAnsi. Please use with ansiStart() and ansiStop(). The optional noReset boolean flag will remove ansi reset as part of the string returned. The attributes separated by commas can be:
 
 BLACK; RED; GREEN; YELLOW; BLUE; MAGENTA; CYAN; WHITE;
 FG_BLACK; FG_RED; FG_GREEN; FG_YELLOW; FG_BLUE; FG_MAGENTA; FG_CYAN; FG_WHITE;
@@ -1463,10 +1509,10 @@ Returns an array with collected log messages. Each entry has: d - timestamp; t -
 ````
 ### exit
 
-__exit(anExitCode)__
+__exit(anExitCode, force)__
 
 ````
-Immediately exits execution with the provided exit code
+Immediately exits execution with the provided exit code.  Optionally force=true can be provided but no shutdown triggers will be executed (use only as a last option)
 ````
 ### extend
 
@@ -1495,6 +1541,13 @@ __forkOpenAF(aCommandLineArray, preCommandLineArray) : Promise__
 
 ````
 Starts another OpenAF with the same command line, if aCommandLineArray is not provided.  If aCommandLineArray is provided each array element will be use sequentially to build the command line to start a new OpenAF instance. preCommandLineArray can be used to  provide java arguments if defined.
+````
+### genUUID
+
+__genUUID(useSecureRandom) : String__
+
+````
+Generates and returns an UUID using a javascript algorithm (if needed you can refer to the  AF operation AF.KeyGenerator.GenerateUUID).
 ````
 ### getChLog
 
@@ -1530,6 +1583,13 @@ __getEnvs() : Map__
 
 ````
 Returns a map of key and values with the operating system environment variables.
+````
+### getEnvsDef
+
+__getEnvsDef(aEnv, aVar, aDefault, isJson) : Object__
+
+````
+Given an environment variable aEnv name will check if a value is provided and return it if so. Otherwise it will check the value of aVar and return it if defined. If aVar is also not defined it will return aDefault. Optionally if isJson=true the value of the provided aEnv will be parsed from JSON.
 ````
 ### getFromZip
 
@@ -1601,19 +1661,19 @@ __getPid() : String__
 ````
 Tries to retrieve the current script execution operating system PID and returns it.
 ````
-### genUUID
-
-__genUUID() : String__
-
-````
-Generates and returns an UUID using a javascript algorithm (if needed you can refer to the  AF operation AF.KeyGenerator.GenerateUUID).
-````
 ### getVersion
 
 __getVersion() : String__
 
 ````
 Shortcut for the af.getVersion (see more af.getVersion) function. Will return the current version of OpenAF being used.
+````
+### hmacSHA1
+
+__hmacSHA1(data, key, toHex) : ArrayOfBytes__
+
+````
+Given data and a key will calculate the hash-based message authentication code (HMAC) using the SHA1 hash function. Optionally if toHex = true the output will be converted to hexadecimal lower case.
 ````
 ### hmacSHA256
 
@@ -1739,7 +1799,7 @@ Tries to read aYAMLFile into a javascript object.
 ````
 ### io.readLinesNDJSON
 
-__io.readLinesNDJSON(aNDJSONFile, aFuncCallback, aErrorCallback)__
+__io.readLinesNDJSON(aNDJSONFile, aFuncCallback, aErrorCallback, anEncoding)__
 
 ````
 Opens aNDJSONFile (a newline delimited JSON) (a filename or an input stream) as a stream call aFuncCallback with each parse JSON. If aFuncCallback returns true the cycle will be interrupted. For any parse error it calls the aErrorCallback  with each exception.
@@ -1781,10 +1841,10 @@ Given aTARfile (or output stream (with isGzip = true/false)) will write aArrayBy
 ````
 ### io.writeFileTARStream
 
-__io.writeFileTARStream(aTARfile, isGzip, aFunc)__
+__io.writeFileTARStream(aTARfile, isGzip, aFunc, aDefaultMap)__
 
 ````
-Given aTARfile (or output stream (with isGzip = true/false)) will call aFunc(tion) providing, as argument, a writer function with two arguments: aFilePath and a Java input stream for the contents.
+Given aTARfile (or output stream (with isGzip = true/false)) will call aFunc(tion) providing, as argument, a writer function with three arguments: aFilePath, a Java input stream for the contents and the modification date for the target file.  Optionally aDefaultDate can be provided to be used whenever a date is not provided or for folders.
 ````
 ### io.writeFileYAML
 
@@ -2012,7 +2072,7 @@ Mimics, using Java, the javascript RegExp test function. Supported mods are "g",
 ````
 ### jsonParse
 
-__jsonParse(aString) : Map__
+__jsonParse(aString, alternative, unsafe, ignoreNonJson) : Map__
 
 ````
 Shorcut for the native JSON.parse that returns an empty map if aString is not defined, empty or unparsable.
@@ -2022,7 +2082,7 @@ Shorcut for the native JSON.parse that returns an empty map if aString is not de
 __listFilesRecursive(aPath) : Map__
 
 ````
-Performs the io.listFiles function recursively given aPath. The returned map will be equivalent to the io.listFiles function (see more in io.listFiles).
+Performs the io.listFiles function recursively given aPath. The returned map will be equivalent to the io.listFiles function (see more in io.listFiles). Alternatively you can specify to usePosix=true and it will add to the map the owner, group and full permissions of each file and folder.
 ````
 ### load
 
@@ -2167,6 +2227,34 @@ __logWarn(msg, formatOptions)__
 
 ````
 Outputs to the current warning in a line composed of the current date, indication of WARN and the provided msg. Optionally you can provide a formatOptions map for overriding the defaults from setLog. Note: you can use startLog, stopLog and dumpLog to keep an internal record of theses messages.
+````
+### lprint
+
+__lprint(aStr, withColor)__
+
+````
+"SLONs" and prints the aStr to the stdout (with a new line on the end)
+````
+### lprintErr
+
+__lprintErr(aStr, withColor)__
+
+````
+"SLONs" and prints the aStr to the stderr (with a new line on the end)
+````
+### lprintErrnl
+
+__lprintErrnl(aStr, withColor)__
+
+````
+"SLONs" and prints the aStr to the stderr (without adding a new line on the end)
+````
+### lprintnl
+
+__lprintnl(aStr, withColor)__
+
+````
+"SLONs" and prints the aStr to the stdout (without adding a new line on the end)
 ````
 ### mapArray
 
@@ -2574,6 +2662,35 @@ __print(aStr)__
 ````
 Prints the aStr to the stdout (with a new line on the end) (example: print("hello world!"))
 ````
+### printBars
+
+__printBars(aFormatString, hSize, aMax, aMin, aIndicatorChar, aSpaceChar) : String__
+
+````
+Produces horizontal bars given aFormatString, a hSize (horizontal max size), aMax (the axis max value) and aMin  (the axis min value). The aFormatString should be composed of "<units> [<function[:color][:legend]> ...]":
+
+   The units can be: int, dec1, dec2, dec3, dec, bytes and si;
+   Each function should return the corresponding current value (optionally it can be a number directly);
+   Optionally each color should use any combinations similar to ansiColor (check 'help ansiColor');
+   Optionally each legend, if used, will be included in a bottom legend;
+
+
+````
+### printChart
+
+__printChart(aFormatString, hSize, vSize, aMax, aMin, dColor) : String__
+
+````
+Produces a line chart given aFormatString, a hSize (horizontal max size), a vSize (vertical max size), aMax (the axis max value) and aMin  (the axis min value). The aFormatString should be composed of "<dataset> <units> [<function[:color][:legend]> ...]":
+
+   The dataset should be an unique name (data can be cleaned with ow.format.string.dataClean);
+   The units can be: int, dec1, dec2, dec3, dec, bytes and si;
+   Each function should return the corresponding current value (optionally it can be a number directly);
+   Optionally each color should use any combinations similar to ansiColor (check 'help ansiColor');
+   Optionally each legend, if used, will be included in a bottom legend;
+
+
+````
 ### printErr
 
 __printErr(aStr)__
@@ -2604,10 +2721,10 @@ Prints the aStr to the stdout (without adding a new line on the end) (example: p
 ````
 ### printTable
 
-__printTable(anArrayOfEntries, aWidthLimit, displayCount, useAnsi, aTheme, aBgColor) : String__
+__printTable(anArrayOfEntries, aWidthLimit, displayCount, useAnsi, aTheme, aBgColor, wordWrap, useRowSep, bandRows) : String__
 
 ````
-Returns a ASCII table representation of anArrayOfEntries where each entry is a Map with the same keys. Optionally you can specify aWidthLimit, useAnsi and/or aBgColor. If you want to include a count of rows just use displayCount = true. If useAnsi = true you can provide a theme (e.g. "utf" or "plain")
+Returns a ASCII table representation of anArrayOfEntries where each entry is a Map with the same keys. Optionally you can specify aWidthLimit, useAnsi, bandRows and/or aBgColor. If you want to include a count of rows just use displayCount = true. If useAnsi = true you can provide a theme (e.g. "utf" or "plain")
 ````
 ### printTree
 
@@ -2621,7 +2738,7 @@ Given aObj(ect) will return a tree with the object elements. Optionaly you can s
 __printTreeOrS(aObj, aWidth, aOptions) : String__
 
 ````
-Tries to use printTree with the provided arguments. In case printTree throws an exception (like insuffisance width) if will fallback to colorify or stringify (if the noansi option is true).
+Tries to use printTree with the provided arguments. In case printTree throws an exception (like insufficient width) if will fallback to colorify or stringify (if the noansi option is true).
 ````
 ### processExpr
 
@@ -2796,10 +2913,10 @@ Shortcut for af.sleep function. Will pause execution for a given period of time 
 ````
 ### sortMapKeys
 
-__sortMapKeys(aMap) : Map__
+__sortMapKeys(aMap, moreLevels) : Map__
 
 ````
-Tries to sort the first level map keys returning the rewritten map.
+Tries to sort the first level map keys returning the rewritten map.  If moreLevels=true it will try to recursively map sub maps.
 ````
 ### splitArray
 
@@ -3075,10 +3192,10 @@ Builds and returns a wedoDate JSON object given either a year, a month, a day, a
 ````
 ### yprint
 
-__yprint(aObj, multidoc)__
+__yprint(aObj, multidoc, sanitize)__
 
 ````
-Prints aObj in YAML. If multiDoc = true and aJson is an array the output will be multi-document.
+Prints aObj in YAML. If multiDoc = true and aJson is an array the output will be multi-document. If sanitize = true all Java objects will be converted to avoid parsing errors.
 ````
 ### yprintErr
 

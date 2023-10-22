@@ -45,10 +45,10 @@ Returns true or false to determine if aFilename exists on the filesystem.
 ````
 ### io.fileInfo
 
-__io.fileInfo(aFilePath)__
+__io.fileInfo(aFilePath, usePosix)__
 
 ````
-Returns a file map with filename, filepath, lastModified, createTime, lastAccess,  size, permissions, isDirectory and isFile.
+Returns a file map with filename, filepath, lastModified, createTime, lastAccess,  size, permissions, isDirectory and isFile. Alternatively you can specify to usePosix=true and it will add to the map the owner, group and full permissions of each file and folder.
 ````
 ### io.getCanonicalPath
 

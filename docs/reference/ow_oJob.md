@@ -10,7 +10,7 @@ grand_parent: OpenAF docs
 
 ### oJob.__addLog
 
-__oJob.__addLog(aOperation, aJobName, aJobExecId, args, anErrorMessage, aId) : String__
+__oJob.__addLog(aOperation, aJobName, aJobExecId, args, anErrorMessage, aId, aTypeArgs) : String__
 
 ````
 Adds a new log entry to the channel oJob::log for the aJobName provided for the following operations:

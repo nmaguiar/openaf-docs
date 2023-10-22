@@ -398,6 +398,13 @@ __ow.server.httpd.getFromZip(aZipFile, aResource, inBytes, anEncoding) : anArray
 ````
 Retrieves aResource, as anArrayOfBytes, from aZipFile. This resource can be inBytes = true or not and anEncoding can be provided.
 ````
+### ow.server.httpd.getHS
+
+__ow.server.httpd.getHS(aPort) : HTTPd__
+
+````
+Returns the HTTPd object created, if any, for aPort.
+````
 ### ow.server.httpd.getMimeType
 
 __ow.server.httpd.getMimeType(aFilename) : String__

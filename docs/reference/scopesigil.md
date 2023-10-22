@@ -43,11 +43,24 @@ print($$(a).getI("B.D[0]")); // 0
 __$$.set(aPath, aNewValue) : Object__
 
 ````
-Given aObject it will try to parse the aPath a set the corresponding object under that path to aNewValue. Example:
+Given aObject it will try to parse the aPath and set the corresponding object under that path to aNewValue. Example:
 
 var a = { a : 1, b : { c: 2, d: [0, 1] } };
 
-sprint($$(a).set("b.c", 123); // { a : 1, b : { c: 123, d: [0, 1] } }
+sprint($$(a).set("b.c", 123)); // { a : 1, b : { c: 123, d: [0, 1] } }
+
+
+````
+### $$.unset
+
+__$$.unset(aPath) : Object__
+
+````
+Given aObject it will try to parse the aPath and unset the corresponding object under that path. Example:
+
+var a = { a : 1, b : { c: 2, d: [0, 1] } };
+
+sprint($$(a).set("b.c")); // { a : 1, b : { d: [0, 1] } }
 
 
 ````

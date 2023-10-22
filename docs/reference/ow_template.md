@@ -55,11 +55,14 @@ Adds custom helpers:
   - $stringify       -- stringify the parameter
   - $stringifyInLine -- stringify in the same line the parameter
   - $toYAML          -- returns the YAML version of the parameter
+  - $toJSON          -- returns the JSON version of the parameter
   - $env             -- returns the current environment variable identified by the parameter
   - $escape          -- returns an escaped version of the parameter
+  - $acolor          -- returns an ansi color (first argument) escape sequence of the string parameter (second argument)
   - $f               -- uses the $f format function
   - $ft              -- uses the $ft format function
   - $path            -- uses the $path function to query objects
+  - $from            -- uses the $from & fromNLinq to query objects
   - $toSLON          -- returns the ow.format.toSLON version of an object
   - $get             -- returns the corresponding value for a key on $get
   - $getObj          -- equivalent to $get with the extra parameter for $$.get path
@@ -67,6 +70,33 @@ Adds custom helpers:
   - $switch          -- equivalent to a javascript switch
   - $case            -- to be used with $switch for each case
   - $default         -- to be used with $switch for each case
+  - $ptable          -- returns an ansi ascii printTable representation of an object
+  - $ptree           -- returns an ansi ascii printTree representation of an object
+  - $cjson           -- returns an ansi ascii colority representation fo an object
+  - $cslon           -- returns an ansi ascii colored SLON representation of an object
+  - $pmap            -- returns an ansi ascii printMap representation of an object
+  - $jsmap           -- returns a HTML representation of an object
+  - $t               -- given a template and an object instance, as arguments, will process and return the template
+  - $date            -- converts the argument provided to date
+  - $isoDate         -- converts the argument provided to an ISO date string
+  - $number          -- casts the argument provided to number
+  - $boolean         -- casts the argument provided to boolean
+  - $string          -- casts the argument provided to string
+  - $keys            -- returns an array of keys of the provided map
+  - $values          -- returns an array of values of the provided map
+  - $__              -- returns a undefined value
+  - $alen            -- returns the ansi length of the argument provided
+  - $len             -- returns the string length of the argument provided
+  - $repeat          -- shortcut to the OpenAF's repeat function
+  - $range           -- shortcut to the OpenAF's range function
+  - $a2m             -- shortcut to the OpenAF's $a2m function
+  - $a4m             -- shortcut to the OpenAF's $a4m function
+  - $m2a             -- shortcut to the OpenAF's $m2a function
+  - $m4a             -- shortcut to the OpenAF's $m4a function
+  - $pass            -- returns an empty string
+  - $sline           -- shortcut to the OpenAF's format withSideLine
+  - $set             -- block set of a provided key
+  - $concat          -- concatenates all arguments as a single value
 ````
 ### ow.template.addPartial
 
@@ -245,7 +275,7 @@ Returns the results of using someData with the template defined on aFilename (ti
 ````
 ### ow.template.parseMD2HTML
 
-__ow.template.parseMD2HTML(aMarkdownString, isFull, removeMaxWidth) : String__
+__ow.template.parseMD2HTML(aMarkdownString, isFull, removeMaxWidth, extraDownOptions) : String__
 
 ````
 Given aMarkdownString will parse it with showdown (using the github flavor) and return the HTML in a string. If isFull = true it will produce a complete HTML with references for the highlight library+css and github markdown css included internally in OpenAF. Example:
