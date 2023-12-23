@@ -72,6 +72,7 @@ Adds custom helpers:
   - $default         -- to be used with $switch for each case
   - $ptable          -- returns an ansi ascii printTable representation of an object
   - $ptree           -- returns an ansi ascii printTree representation of an object
+  - $output          -- returns an $output representation of an object (aObj as 1st arg and options in slon as 2nd arg)
   - $cjson           -- returns an ansi ascii colority representation fo an object
   - $cslon           -- returns an ansi ascii colored SLON representation of an object
   - $pmap            -- returns an ansi ascii printMap representation of an object

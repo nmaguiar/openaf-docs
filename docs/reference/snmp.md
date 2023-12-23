@@ -54,8 +54,8 @@ Starts the client connection (usually already invoked by the SNMP constructor, s
 ````
 ### SNMP.trap
 
-__SNMP.trap(aOID, aDataArray, shouldInform)__
+__SNMP.trap(aOID,aSysUpTime,  aDataArray, shouldInform)__
 
 ````
-Tries to send a trap based on aOID and using aDataArray where each element should be a map with oid, type (i - integer, u - unsigned, c - counter32, s - string, x - hex string, d - decimal string, n - nullobj, o - objid, t - timeticks, a - ipaddress,) and value. Optionally you can determine if shouldInform instead of sending the trap.
+Tries to send a trap based on aOID, an aSysUpTime and using aDataArray where each element should be a map with oid, type (i - integer, u - unsigned, c - counter32, s - string, x - hex string, d - decimal string, n - nullobj, o - objid, t - timeticks, a - ipaddress,) and value. Optionally you can determine if shouldInform instead of sending the trap.
 ````

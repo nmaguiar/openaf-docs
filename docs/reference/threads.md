@@ -83,21 +83,21 @@ Uses a thread pool situable for cached threads. Note: it ignores any previous th
 __Threads.initFixedThreadPool(numberOfThreads)__
 
 ````
-Uses a thread pool situable for fixed threads where you can specify the numberOfThreads to use (by defauly the number of cores). Note: it ignores any previous thread added using addThread; It won't work if any of the other start* or init* methods has been used.
+Uses a thread pool situable for fixed threads where you can specify the numberOfThreads to use (by default the number of cores). Note: it ignores any previous thread added using addThread; It won't work if any of the other start* or init* methods has been used.
 ````
 ### Threads.initScheduledThreadPool
 
 __Threads.initScheduledThreadPool(numberOfThreads)__
 
 ````
-Uses a thread pool situable for scheduled threads where you can specify the numberOfThreads to use (by defauly the number of cores). Note: it ignores any previous thread added using addThread; It won't work if any of the other start* or init* methods has been used.
+Uses a thread pool situable for scheduled threads where you can specify the numberOfThreads to use (by default the number of cores). Note: it ignores any previous thread added using addThread; It won't work if any of the other start* or init* methods has been used.
 ````
 ### Threads.initSingleThreadPool
 
 __Threads.initSingleThreadPool(numberOfThreads)__
 
 ````
-Uses a thread pool situable for single threads where you can specify the numberOfThreads to use (by defauly the number of cores). Note: it ignores any previous thread added using addThread; It won't work if any of the other start* or init* methods has been used.
+Uses a thread pool situable for single threads where you can specify the numberOfThreads to use (by default the number of cores). Note: it ignores any previous thread added using addThread; It won't work if any of the other start* or init* methods has been used.
 ````
 ### Threads.start
 

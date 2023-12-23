@@ -15,19 +15,19 @@ __CSV.clear()__
 ````
 Clears all internal structures. This will clear all data stored previously in this instance.
 ````
-### CSV.CSV
-
-__CSV.CSV(aCsvString)__
-
-````
-Creates a new instance of the CSV object. Optionally you can provide a string that contains a CSV.
-````
 ### CSV.csv
 
 __CSV.csv() : Array__
 
 ````
 Returns a javascript array of maps with the current internal CSV representation.
+````
+### CSV.CSV
+
+__CSV.CSV(aCsvString)__
+
+````
+Creates a new instance of the CSV object. Optionally you can provide a string that contains a CSV.
 ````
 ### CSV.fromCSV
 

@@ -82,7 +82,7 @@ Creates an atomic object of aType (defaults to long) to be get/set atomically on
 __$await(aName) : Object__
 
 ````
-Wrapper around the Java wait/notify mechanism. For the provided name will returen an object with the following  functions wait (will block until a notify is invoked), notify (will notify and unblock all wait invocations) and destroy existing references to aName.
+Wrapper around the Java wait/notify mechanism. For the provided name will returen an object with the following  functions wait (will block until a notify is invoked), notify (will notify and unblock one of the wait invocations),  notifyAll (will notify and unblock all wait invocations) and destroy existing references to aName.
 ````
 ### $bottleneck.destroy
 
@@ -455,6 +455,13 @@ __$job(aJob, args, aId) : Object__
 
 ````
 Shortcut to oJobRunJob and ow.oJob.runJob to execute aJob with args and returned the changed arguments. Optionally aId can be also provided.
+````
+### $llm
+
+__$llm(aModel) : $llm__
+
+````
+Shortcut for $gpt on the owrap.AI library.
 ````
 ### $lock.destroy
 
@@ -914,6 +921,15 @@ __$sh.useEncoding(aEncoding) : $sh__
 ````
 Forces the aEncoding to be used.
 ````
+### $sql
+
+__$sql(aObject, aSQL, aMethod) : Array__
+
+````
+Given an aObject (map or array) will try to execute aSQL (SQL expression) and return the corresponding results. Optionally you can provide aMethod to be used (e.g. "auto" (default) or "nlinq" or "h2"). "nlinq" it's the fastest but doesn't support aggregations or multi-field combinations; "h2" is the more complete but will require a lot more resources, it's slower.
+
+NOTE: In "h2" you can use the table _TMP for your queries.
+````
 ### $ssh.$ssh
 
 __$ssh.$ssh(aMap) : $ssh__
@@ -1311,6 +1327,13 @@ __ask1(aPrompt, allowed) : String__
 ````
 Stops for user interaction prompting aPrompt waiting for a single character within the allowed string (a set of characters). Returns the user input.
 ````
+### askChoose
+
+__askChoose(aPrompt, anArray, aMaxDisplay) : Number__
+
+````
+Stops for user interaction prompting aPrompt waiting for a single character to choose from the provided anArray of options. Optionally you can provide aMaxDisplay to limit the number of options displayed at a time. Returns the index of the chosen option.
+````
 ### askDef
 
 __askDef(aInit, aQuestion, isSecret, isVoidable) : String__
@@ -1607,7 +1630,7 @@ Given a javascript anException, if it's a wrapped or directly a java exception i
 ````
 ### getNumberOfCores
 
-__getNumberOfCores() : Number__
+__getNumberOfCores(realValue) : Number__
 
 ````
 Try to identify the current number of cores on the system where the script is being executed.
@@ -2688,6 +2711,9 @@ Produces a line chart given aFormatString, a hSize (horizontal max size), a vSiz
    Each function should return the corresponding current value (optionally it can be a number directly);
    Optionally each color should use any combinations similar to ansiColor (check 'help ansiColor');
    Optionally each legend, if used, will be included in a bottom legend;
+
+   If function "-min" it will overwrite the aMin
+   If function "-max" it will overwrite the aMax
 
 
 ````

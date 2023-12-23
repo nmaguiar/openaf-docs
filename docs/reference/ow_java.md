@@ -269,7 +269,7 @@ Given the class array of bytes (aClassBytes), or a string from which the corresp
 ````
 ### ow.java.getCMemory
 
-__ow.java.getCMemory(shouldFormat, aReadFileFn) : Map__
+__ow.java.getCMemory(shouldFormat, aReadFileFn, aFileExistsFn) : Map__
 
 ````
 Returns a map with the current cgroup runtime max, total, used and free memory. If shouldFormat = true ow.format.toBytesAbbreviation will be used. Optionally you can provide a aReadFileFn that should expect the full path on a linux cgroup root filesystem and return a string with the corresponding contents.

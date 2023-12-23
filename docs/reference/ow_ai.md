@@ -8,6 +8,104 @@ grand_parent: OpenAF docs
 
 ## ow.ai
 
+### $gpt
+
+__$gpt(aModel) : $gpt__
+
+````
+Creates a GPT AI model of aType (e.g. "openai" or "ollama") with aOptions.
+````
+### $gpt.close
+
+__$gpt.close()__
+
+````
+Closes the current GPT model.
+````
+### $gpt.iniPrompt
+
+__$gpt.iniPrompt(aPrompt, aRole, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) after cleaning the current conversation.
+````
+### $gpt.prompt
+
+__$gpt.prompt(aPrompt, aRole, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor).
+````
+### $gpt.promptBool
+
+__$gpt.promptBool(aPrompt, aRole, aModel, aTemperature) : boolean__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a boolean.
+````
+### $gpt.promptImage
+
+__$gpt.promptImage(aPrompt, aImage, aDetailLevel, aRole, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aImage (a file path or a base64 string representation), aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### $gpt.promptJSON
+
+__$gpt.promptJSON(aPrompt, aModel, aTemperature)__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a Javascript function.
+````
+### $gpt.promptMD
+
+__$gpt.promptMD(aPrompt, aRole, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a markdown string.
+````
+### $gpt.promptPath
+
+__$gpt.promptPath(aPrompt, aJSONSchemaDef, aModel, aTemperature)__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a JMESPath query.
+````
+### $gpt.promptSQL
+
+__$gpt.promptSQL(aPrompt, aTableDefs, aDBName, aModel, aTemperature)__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a SQL query.
+````
+### $gpt.sysPrompt
+
+__$gpt.sysPrompt(aPrompt, aModel, aTemperature) : String__
+
+````
+Tries to prompt system aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor).
+````
+### $gpt.withContext
+
+__$gpt.withContext(anObject, aContext) : ow.ai.gpt__
+
+````
+Adds a context to the current conversation.
+````
+### $gpt.withJSONAssert
+
+__$gpt.withJSONAssert(aPath, anAssert) : ow.ai.gpt__
+
+````
+Adds a JSON path aPath to be asserted with anAssert (e.g. isArray or isMap).
+````
+### $gpt.withSQLTables
+
+__$gpt.withSQLTables(aDBName, aTablesDefs) : ow.ai.gpt__
+
+````
+Adds aDBName with aTableDefs to be used with promptSQL.
+````
 ### ow.ai.cluster
 
 __ow.ai.cluster(args) : Object__
@@ -47,6 +145,126 @@ C45:
   features          (arrays of keys)  The keys name by order of each array data value
   featureTypes      (arrays of types) Categorization of each attribute between 'category' and 'number'
   target            (key)             The target key name (the last of each array data value)
+````
+### ow.ai.gpt
+
+__ow.ai.gpt(aType, aOptions) : ow.ai.gpt__
+
+````
+Creates a GPT AI model of aType (e.g. "openai" or "ollama") with aOptions.
+
+````
+### ow.ai.gpt.addPrompt
+
+__ow.ai.gpt.addPrompt(aPrompt, aRole) : ow.ai.gpt__
+
+````
+Adds aPrompt (a string or an array of strings) with aRole (defaults to "user") to the current conversation.
+````
+### ow.ai.gpt.addSystemPrompt
+
+__ow.ai.gpt.addSystemPrompt(aPrompt) : ow.ai.gpt__
+
+````
+Adds aPrompt (a string or an array of strings) with aRole (defaults to "user") to the current conversation.
+````
+### ow.ai.gpt.addUserPrompt
+
+__ow.ai.gpt.addUserPrompt(aPrompt) : ow.ai.gpt__
+
+````
+Adds aPrompt (a string or an array of strings) with aRole (defaults to "user") to the current conversation.
+````
+### ow.ai.gpt.booleanPrompt
+
+__ow.ai.gpt.booleanPrompt(aPrompt, aModel, aTemperature) : boolean__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.cleanPrompt
+
+__ow.ai.gpt.cleanPrompt() : ow.ai.gpt__
+
+````
+Cleans the current conversation.
+````
+### ow.ai.gpt.codePrompt
+
+__ow.ai.gpt.codePrompt(aPrompt, aModel, aTemperature, aCommentChars) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.getConversation
+
+__ow.ai.gpt.getConversation() : Array__
+
+````
+Returns the current conversation.
+````
+### ow.ai.gpt.jsonPrompt
+
+__ow.ai.gpt.jsonPrompt(aPrompt, aModel, aTemperature) : Object__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.parseCode
+
+__ow.ai.gpt.parseCode(anAnswer) : String__
+
+````
+Tries to parse anAnswer and return the code between \``` and \```.
+````
+### ow.ai.gpt.pathPrompt
+
+__ow.ai.gpt.pathPrompt(aPrompt, aJSONSchemaDef, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.prompt
+
+__ow.ai.gpt.prompt(aPrompt, aRole, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.promptImage
+
+__ow.ai.gpt.promptImage(aPrompt, aImage, aDetailLevel, aRole, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aImage (a file path or a base64 string representation), aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.rawPrompt
+
+__ow.ai.gpt.rawPrompt(aPrompt, aRole, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.setConversation
+
+__ow.ai.gpt.setConversation(aConversation) : ow.ai.gpt__
+
+````
+Sets the current conversation to aConversation.
+````
+### ow.ai.gpt.setInstructions
+
+__ow.ai.gpt.setInstructions(aType) : ow.ai.gpt__
+
+````
+Sets the instructions for the current conversation. aType can be a string (e.g. json, boolean, sql, js and path) or an array of strings.
+````
+### ow.ai.gpt.sqlPrompt
+
+__ow.ai.gpt.sqlPrompt(aPrompt, aTableDefs, aDBName, aModel, aTemperature) : String__
+
+````
+Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
 ````
 ### ow.ai.network
 

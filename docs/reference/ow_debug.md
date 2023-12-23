@@ -77,9 +77,16 @@ Equivalent to OpenAF's "require" but registering the debug preparser. The commen
   //?  printVarA
   //?s printInSLONVarA
   //?y printInYAMLVarA
+  //?t printInTableVarA
+  //?r printInTreeVarA
+  //{  begin of unique block with prefix
+  //}  end of unique block with prefix
   //[  begin of unique profile block
   //]  end of unique profile block
-
+  //{[ begin of unique profile block with prefix
+  //]} end of unique profile block with prefix
+  //+  incrementVarA
+  //-  decrementVarA\  
 
 ````
 ### ow.debug.unregister

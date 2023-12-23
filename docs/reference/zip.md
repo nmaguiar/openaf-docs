@@ -104,6 +104,20 @@ __ZIP.remove(aFilename)__
 ````
 Will remove aFilename from the ZIP contents.
 ````
+### ZIP.streamCreate
+
+__ZIP.streamCreate(aFilePath)__
+
+````
+Creates an empty ZIP file on aFilePath.
+````
+### ZIP.streamCreateFolder
+
+__ZIP.streamCreateFolder(aFilePath, aFolder) : boolean__
+
+````
+Creates aFolder on aFilePath ZIP file. Returns true if the folder was created or false if it already existed.
+````
 ### ZIP.streamGetFile
 
 __ZIP.streamGetFile(aFilePath, aName) : anArrayOfBytes__

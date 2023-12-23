@@ -16,6 +16,13 @@ __ow.format.addNumberSeparator(aNumber, aSeparator) : String__
 Returns a formatted number with decimal separators (default is comma but you can provide a custom aSeparator).
 (available after ow.loadFormat())
 ````
+### ow.format.bool
+
+__ow.format.bool(aBoolValue, isLight, anExtra) : String__
+
+````
+Given aBoolValue will return a green checkmark or a red cross character. If necessary anExtra ansiColor attributes can be added.
+````
 ### ow.format.cron.howManyAgo
 
 __ow.format.cron.howManyAgo(aCron, lastUpdate, aLimit) : Map__
@@ -140,6 +147,20 @@ __ow.format.dateDiff.inYears(dateBefore, dateAfter) : Number__
 
 ````
 Difference between dateAfter and dateBefore in years.
+````
+### ow.format.dateTimeTransition
+
+__ow.format.dateTimeTransition(aZone, aDate) : Map__
+
+````
+Given aZone (defaults to Europe/London) and aDate (defaults to now) will return a map with the previous  and next date/time transition.
+````
+### ow.format.dateTimeZones
+
+__ow.format.dateTimeZones() : Array__
+
+````
+List all available Java zone ids.
 ````
 ### ow.format.elapsedTime
 
@@ -562,6 +583,13 @@ __ow.format.logWithWaiting(aMainFunc, aPrefixMsg, aCompleteMsg, aErrorMsg, aWait
 
 ````
 Executes aMainFunc while log aPrefixMsg with a waiting aTheme (defaults to a sequence of chars with a rotating bar). When aMainFunc ends it will replace the log with aCompleteMsg or aErrorMsg in case an exception is thrown. Optionally you can provide a different aWaitSpeed while cycling between the aTheme sequence of chars increasing/decreasing the "animation" effect.
+````
+### ow.format.percentile
+
+__ow.format.percentile(aArray, aPercentile) : Number__
+
+````
+Will return the percentile (aPercentile between 0 and 1) for the provided aArray of numbers.
 ````
 ### ow.format.percProgressReport
 
