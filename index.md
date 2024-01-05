@@ -1,10 +1,10 @@
 ---
 layout: default
-title: OpenAF docs
+title: OpenAF
 has_children: true
 ---
 
-# OpenAF documentation
+# OpenAF
 
 OpenAF (_pronounced open-a-f_) is a Java & Javascript based "swiss-army knife" scripting DevOps tool for different automation challenges with minimal requirements and footprint, extensible through packages ([oPacks](docs/concepts/oPack.md)) and with easy code orchestration ([oJob](docs/concepts/oJob.md) and [oJob.io](docs/concepts/oJobIO.md)).
 ## Topics
