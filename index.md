@@ -1,6 +1,6 @@
 ---
 layout: default
-title: OpenAF
+title: OpenAF docs
 has_children: true
 ---
 
