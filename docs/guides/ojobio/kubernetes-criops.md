@@ -116,7 +116,7 @@ ojob ojob.io/kube/criOps op=interacted node=node1 [options for your kube distrib
 To run without internet you will need:
 * an OpenAF runtime (you can use a [static installation]](../concepts/static-installation.md) )
 * the ojob.io/kube/criOps yaml file (e.g. wget https://ojob.io/kube/criOps.yaml)
-* a copy of the *nmaguiar/imgutils*
+* a copy of the *nmaguiar/imgutils* on an accessible private registry
 * the OpenAF's Kube oPack (e.g. wget https://openaf.io/opacks/Kube.opack)
 
 Then, on a folder of a target unix machine after installing the OpenAF runtime execute:
