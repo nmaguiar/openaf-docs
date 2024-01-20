@@ -83,3 +83,31 @@ $ docker run --rm -ti openaf/oaf --ojob -e "ojob.io/generate jobs=JobA,JobB auth
 | html    | Tries to open a browser with the map/array HTML representation | ````ojob ojob.io/pipe 0=ojob.io/help 0.job=ojob.io/generate 1=ojob.io/html```` |
 | map     | Tries to open Excel with the list of environment variables | ````ojob ojob.io/pipe 0=ojob.io/envs 1=ojob.io/formats/toXLS```` |
 | pipe    | Pipes oJobs passing their output maps or lists between them | ````ojob ojob.io/pipe 0=ojob.io/news/bbc 1=ojob.io/map 1.fields=title,link 2=ojob.io/html```` |
+
+## Formatting the results
+
+Most oJobs in ojob.io output results using the function *ow.oJob.output* or *$output* or *$o*. This allows to control how the results will be formatted. To select a different format just add the argument *__format**:
+
+| Format | Argument | Category | Description |
+|--------|----------|----------|-------------|
+| CSV | __format=csv __csv="{}" | List/Array results | CSV like format |
+| YAML | __format=yaml | List/Array/Map results | Output in YAML |
+| JSON | __format=json | List/Array/Map results | Output in JSON |
+| CJSON | __format=cjson | List/Array/Map results | Output in colored JSON |
+| NDJSON | __format=ndjson | List/Array results | JSON newline-delimited output |
+| SLON | __format=slon | List/Array/Map results | [SLON](https://github.com/nmaguiar/slon) output. |
+| CSLON | __format=cslon | List/Array/Map results | Colored [SLON](https://github.com/nmaguiar/slon) output. |
+| PRETTYJSON | __format=pretty | List/Array/Map results | JSON formatted in human-readable format. |
+| MAP | __format=map | List/Array/Map results | List on a rectangular human-readable form. |
+| TABLE | __format=table | List/Array results | Output on a table. |
+| CTABLE | __format=ctable | List/Array results | Output in a table with row colors and word-wrap. |
+| STABLE | __format=stable | List/Array results | Output in a table with row dividers and word-wrap. |
+| TREE | __format=tree | List/Array/Map results | Output in tres ASCII format. |
+| HTML | __format=html | List/Array/Map results | Output in HTML format. |
+| PM | __format=pm | List/Array/Map results | Output into a global variable __pm._list. |
+| RES | __format=res | List/Array/Map results | Output into the oJob $get("res") global data. |
+| KEY | __format=key __key=specific-key | List/Array/Map results | Output into the oJob specific global data key. |
+| ARGS | __format=args | List/Array/Map results | Output into args._list or args._map. |
+| TEXT | __format=text | String results | Output in string text representation (if possible) | 
+| MD | __format=md | String results | Output in markdown parsing (if possible) |
+| HUMAN | __format=human | String results | Output in the raw human-readable representation |
