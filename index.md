@@ -64,13 +64,14 @@ C:\oaf> oafc
 
 For specific platforms:
 
-* [Unix (x86)](#unix-x86-based)
-* [Unix (ARM 64)](#unix-arm-64)
-* [Unix (ARM 32)](#unix-arm-32)
-* [Windows (64-bit)](#windows-64-bit)
-* [Mac OS (Intel)](#mac-os-intel-based)
-* [Mac OS (Apple silicon)](#mac-os-apple-silicon-based)
-* [Docker](#docker)
+| OS | Architecture | Link |
+|---------------------|----|--------------|------|
+| Linux | x86_64 | [openaf.io/oaf-linux-x86_64](https://openaf.io/oaf-linux-x86_64) |
+| Linux | aarch64 | [openaf.io/oaf-linux-aarch64](https://openaf.io/oaf-linux-aarch64) |
+| Alpine Linux | x86_64 | [openaf.io/oaf-alpine-x86_64](https://openaf.io/oaf-alpine-x86_64) |
+| Alpine Linux | aarch64 | [openaf.io/oaf-alpine-aarch64](https://openaf.io/oaf-alpine-aarch64) |
+| Mac | x64_64 | [openaf.io/oaf-mac-x86_64](https://openaf.io/oaf-mac-x86_64) |
+| Mac | aarch64 | [openaf.io/oaf-mac-aarch64](https://openaf.io/oaf-mac-aarch64) |
 
 ## Move to a different folder
 
