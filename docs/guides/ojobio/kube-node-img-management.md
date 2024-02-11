@@ -25,6 +25,8 @@ The oJob uses the [nmaguiar/imgutils](https://github.com/nmaguiar/imgutils) but 
 
 > By default the pods will be launched on the 'kube-system' namespace but you can control this using the option 'ns=some-namespace'.
 
+> You can use the image _nmaguiar/imgutils:lite_ which is smaller than the original _nmaguiar/imgutils_.
+
 ### Requirements
 
 You will need to execute *ojob.io/kube/criOps* on a machine where you have *kubectl* correclty configured to access the target Kubernetes cluster with enough permissons to create privileged containers.
