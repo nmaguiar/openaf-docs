@@ -51,3 +51,25 @@ arp | oafp in=lines linesvisual=true linesjoin=true out=ctable
 ```bash
 oafp cmd="netstat -tun | sed \"1d\"" in=lines linesvisual=true linesjoin=true linesvisualsepre="\\s+(\\?\!Address)" out=ctable loop=1
 ```
+
+### Converting the Unix’s systemctl list-timers
+```bash
+systemctl list-timers | head -n -3 | oafp in=lines linesvisual=true linesjoin=true out=ctable
+```
+
+### Converting the Unix’s systemctl list-units
+```bash
+systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=true path="[].delete(@,'')" out=ctable
+```
+
+### Converting the Unix’s systemctl list-units into an overview table
+```bash
+systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=true path="[].delete(@,'')" sql="select \"LOAD\", \"ACTIVE SUB\", count
+(1) as \"COUNT\" group by \"LOAD\", \"ACTIVE SUB\"" sqlfilter=advanced out=ctable
+```
+
+### Converting the Unix's df output
+```bash
+df --output=target,fstype,size,used,avail,pcent | tail -n +2 | oafp in=lines linesjoin=true path="[].split_re(@, ' +').{filesystem:[0],type:[1],size:[2],used:[3
+],available:[4],use:[5]}" out=ctable
+```
