@@ -1,8 +1,8 @@
 ---
 layout: default
-title: oafp template
-parent: Concepts
-grand_parent: OpenAF docs
+title: OpenAF processor template
+parent: oafp
+grand_parent: Guides
 ---
 
 # OpenAF processor template

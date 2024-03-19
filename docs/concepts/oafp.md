@@ -18,8 +18,8 @@ or you can check it here:
 
 | Document |
 |----------|
-| [oafp usage](oafp-usage) |
-| [oafp filters](oafp-filters) |
-| [oafp templates](oafp-templates) |
+| [oafp usage](../guides/oafp-usage) |
+| [oafp filters](../guides/oafp-filters) |
+| [oafp templates](../guides/oafp-templates) |
 
 You can check several example of usage in the [oafp guides](../guides/oafp/)

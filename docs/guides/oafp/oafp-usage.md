@@ -1,8 +1,8 @@
 ---
 layout: default
-title: oafp usage
-parent: Concepts
-grand_parent: OpenAF docs
+title: OpenAF processor usage
+parent: oafp
+grand_parent: Guides
 ---
 
 # OpenAF processor

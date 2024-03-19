@@ -1,8 +1,8 @@
 ---
 layout: default
-title: oafp filters
-parent: Concepts
-grand_parent: OpenAF docs
+title: OpenAF processor filters
+parent: oafp
+grand_parent: Guides
 ---
 
 # OpenAF processor filters

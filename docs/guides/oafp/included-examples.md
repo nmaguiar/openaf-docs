@@ -1,6 +1,6 @@
 ---
 layout: default
-title: oafp included examples
+title: OpenAF processor examples
 parent: oafp
 grand_parent: Guides
 ---
