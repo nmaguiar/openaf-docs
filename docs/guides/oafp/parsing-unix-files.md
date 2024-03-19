@@ -7,6 +7,8 @@ grand_parent: Guides
 
 # oafp to parse Unix files
 
+List of examples of use of oafp to parse unix files:
+
 ### Converting the Unix’s syslog into a json output
 
 ```bash

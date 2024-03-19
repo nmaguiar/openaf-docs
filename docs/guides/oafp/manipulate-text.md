@@ -7,6 +7,8 @@ grand_parent: Guides
 
 # oafp to manipulate text
 
+List of examples of use of oafp to manipulate text:
+
 ### Get a json with the lyrics of a song
 
 ```bash
