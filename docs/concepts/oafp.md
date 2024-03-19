@@ -14,4 +14,12 @@ The tool comes with it's own built-in documentation that can be accessed by exec
 oafp -h
 ```
 
+or you can check it here:
+
+| Document |
+|----------|
+| [oafp usage](oafp-usage) |
+| [oafp filters](oafp-filters) |
+| [oafp templates](oafp-templates) |
+
 You can check several example of usage in the [oafp guides](../guides/oafp/)
