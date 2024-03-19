@@ -7,6 +7,8 @@ grand_parent: Guides
 
 # oafp to Excel
 
+List of examples of use of oafp to parse data to Excel:
+
 ### Processes each json file in /some/data creating and updating the data.xlsx file with a sheet for each file 
 
 ```bash

@@ -7,6 +7,8 @@ grand_parent: Guides
 
 # oafp with Kubectl
 
+List of examples of use of oafp with Kubectl:
+
 ### List of pods per namespace and kind
 
 ```bash
