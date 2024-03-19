@@ -13,3 +13,5 @@ The tool comes with it's own built-in documentation that can be accessed by exec
 ```bash
 oafp -h
 ```
+
+You can check several example of usage in the [oafp guides](../guides/oafp/)
