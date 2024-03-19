@@ -19,6 +19,7 @@ Main concepts
 * __[$cache](OpenAF-cache.md)__
 * __[$from](OpenAF-nLinq.md)__
 * __[oJob.io](oJobIO.md)__
+* __[oafp](oafp.md)__
 * __[Shebang](shebang.md)__
 * __[Java Support](java.md)__
 * __[$path](OpenAF-path.md)__
