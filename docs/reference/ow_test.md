@@ -82,10 +82,10 @@ Stops an existing timer for the provided aKey to determine the elapsed time sinc
 ````
 ### ow.test.test
 
-__ow.test.test(aTest, aFunction) : Object__
+__ow.test.test(aTest, aFunction, aArgMap) : Object__
 
 ````
-Test aFunction for a test named aTest.  If aTest is divided with "::" the first part sill be consider to be a test suite name. Will return whatever the function returns.
+Test aFunction for a test named aTest.  If aTest is divided with "::" the first part sill be consider to be a test suite name. Will return whatever the function returns. Optionally you can provide aArgMap with a map of arguments to be used by aFunction. The aFunction will receive two arguments: (1) a function that will output/log any map, array or string provided;  (2) the aArgMap if provided.
 (available after ow.loadTest())
 ````
 ### ow.test.testExternally

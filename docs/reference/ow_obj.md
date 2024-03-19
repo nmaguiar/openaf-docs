@@ -163,10 +163,10 @@ Converts any structured arrayOfMaps into a flat array of maps with only one leve
 ````
 ### ow.obj.fromArray2DB
 
-__ow.obj.fromArray2DB(anArray, aDB, aDBTable, useParallel,caseSensitive) : Number__
+__ow.obj.fromArray2DB(anArray, aDB, aDBTable, useParallel, caseSensitive, errorFn) : Number__
 
 ````
-Given anArray composed of maps where each key is a field name tries to insert into the aDBTable for a provided aDB. Optionally you can specify how many threads should be used with useParallel and use the case sensitive name of fields with caseSensitive = true. This function doesn't perform any database commit. Returns the number of records inserted. (available after ow.loadObj())
+Given anArray composed of maps where each key is a field name tries to insert into the aDBTable for a provided aDB. Optionally you can specify how many threads should be used with useParallel and use the case sensitive name of fields with caseSensitive = true. The errorFn, if defined, will be called with the exception, the sql statement and the value that caused the exception. This function doesn't perform any database commit. Returns the number of records inserted. (available after ow.loadObj())
 ````
 ### ow.obj.fromArray2Obj
 
@@ -258,10 +258,10 @@ fromObj2Array(a, "key");
 ````
 ### ow.obj.fromObj2DBTableCreate
 
-__ow.obj.fromObj2DBTableCreate(aTableName, aMap, aOverrideMap, enforceCase) : String__
+__ow.obj.fromObj2DBTableCreate(aTableName, aMapOrArray, aOverrideMap, enforceCase) : String__
 
 ````
-Returns a DB table create, for aTableName, from the provided aMap key entries. To override the default field type guessing a aOverrideMap can  be provided with field entries and the corresponding type as value. Optionally if enforceCase = true table name and fields names will be enforced case by using double quotes.
+Returns a DB table create, for aTableName, from the provided aMapOrArray (only a few entries) key entries. To override the default field type guessing a aOverrideMap can  be provided with field entries and the corresponding type as value. Optionally if enforceCase = true table name and fields names will be enforced case by using double quotes.
 ````
 ### ow.obj.fromOrderedObj2Array
 

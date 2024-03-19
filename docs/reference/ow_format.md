@@ -736,6 +736,20 @@ __ow.format.string.ansiMoveUp(nLines)__
 ````
 Moves the cursor nLines up.
 ````
+### ow.format.string.ansiScrollDown
+
+__ow.format.string.ansiScrollDown(nLines)__
+
+````
+Scrolls the screen down by nLines.
+````
+### ow.format.string.ansiScrollUp
+
+__ow.format.string.ansiScrollUp(nLines)__
+
+````
+Scrolls the screen up by nLines.
+````
 ### ow.format.string.bestPrefix
 
 __ow.format.string.bestPrefix(aString, anArrayOfStrings) : aString__
@@ -890,6 +904,13 @@ __ow.format.string.nLinesTemplate(aSourceTemplate, initMap, alternativeTemplate,
 ````
 Returns a function to print multiple lines at the same time (using ansi cursor up). The function accepts a map parameter since it's based on the aSourceTemplate (handlebars). The initial render is performed using initMap. If ansi support is not  available and if alternativeTemplate is defined (and different of "" otherwise it defaults to aSourceTemplate) it will use it as alternative. Optionally it's also possible to define a different print function (alternativePrintFunction) to print (like log, for example).
 ````
+### ow.format.string.pauseString
+
+__ow.format.string.pauseString(aString, aMsg)__
+
+````
+Given aString starts an interactive paging of the contents of aString.  Optionally aMsg can be provided to be displayed with the paging percentage (use \{{percentage}} to be replaced by the percentage).
+````
 ### ow.format.string.printable
 
 __ow.format.string.printable(aByteArray, aDefaultChar) : String__
@@ -902,7 +923,7 @@ Tries to convert aByteArray into a printable string. If aDefaultChar to replace 
 __ow.format.string.progress(aNumericValue, aMax, aMin, aSize, aIndicator, aSpace) : String__
 
 ````
-Outputs an in-line progress bar given aNumericValue, aMax value, aMin value, the aSize of the bar and the aIndicator to use. If not provided, aMax defaults to aValue, aMin defaults to 0, aSize defaults to 5, aIndicator defaults to "#"  and aSpace defaults to " ". Example:
+Outputs an in-line progress bar given aNumericValue, aMax value, aMin value, the aSize of the bar and the aIndicator to use. If not provided, aMax defaults to aValue, aMin defaults to 0, aSize defaults to the current screen width (or 5 if  if can be determined), aIndicator defaults to "#"  and aSpace defaults to " ". If aSize is a negative value and it's possible to determine the current screen width it will subtract to the screen width. Example:
 
 loadLodash(); ow.loadFormat();
 var arr = [-30, -25, -10, 0, 3, 5], max = _.max(arr), min = _.min(arr);
@@ -939,6 +960,13 @@ __ow.format.string.separatorsToWindows(aFilenamePath) : String__
 
 ````
 Tries to convert the provided aFilenamePath into a path with windows folder separators.
+````
+### ow.format.string.tabExpand
+
+__ow.format.string.tabExpand(aStr, aTabSize) : String__
+
+````
+Given an input aStr and, optionally, aTabSize will expand the tabs in the string to the provided aTabSize ( similar to the unix expand command).  If aTabSize is not provided it will default to 8.
 ````
 ### ow.format.string.toHex
 

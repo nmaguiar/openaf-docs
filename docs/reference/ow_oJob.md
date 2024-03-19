@@ -245,6 +245,13 @@ ojob:
 
 
 ````
+### ow.oJob.loadJobs
+
+__ow.oJob.loadJobs(aFile, args, noReturn) : Array__
+
+````
+
+````
 ### ow.oJob.loadJSON
 
 __ow.oJob.loadJSON(aJSON, dontLoadTodos) : Object__

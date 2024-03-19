@@ -269,7 +269,7 @@ __$csv(aMap) : $csv__
 Provides a shortcut to access CSV functionality. Optionally you can provide options through aMap.
 
 Examples:
-  $cvs().fromInArray(anArray)
+  $csv().fromInArray(anArray)
   $csv().fromInFile("test.csv").toOutArray()
   $csv().fromInFile("test.csv").toOutFn(m => print( af.toSLON(m) ))
   $csv().fromInString( $csv().fromInArray( io.listFiles(".").files ) ).toOutArray()
@@ -451,10 +451,10 @@ Returns a value previously set with $set with aKey.
 ````
 ### $job
 
-__$job(aJob, args, aId) : Object__
+__$job(aJob, args, aId, isolate) : Object__
 
 ````
-Shortcut to oJobRunJob and ow.oJob.runJob to execute aJob with args and returned the changed arguments. Optionally aId can be also provided.
+Shortcut to oJobRunJob and ow.oJob.runJob to execute aJob with args and returned the changed arguments. Optionally aId can be also provided. If isolate=true it will also clean the key 'res' and try to return the result of ow.oJob.output.
 ````
 ### $llm
 
@@ -585,7 +585,11 @@ Shortcut for the JMESPath library for easy query and access to arrays/objects. T
   $path(arr, "a[?contains(@, 'b') == `true`]")
 
 [OpenAF custom functions]: 
-  count_by(arr, 'field'), group(arr, 'field'), group_by(arr, 'field1,field2'), unique(arr), to_map(arr, 'field'), flat_map(x), search_keys(arr, 'text'), search_values(arr, 'text'), delete(map, 'field'), substring(a, ini, end)
+  a2m(arrFields, arrValues), a4m(arr, 'key', dontRemove), m2a(arrFields, obj), m4a(obj, 'key'), count_by(arr, 'field'), format(x, 'format'), formatn(x, 'format'), group(arr, 'field'), group_by(arr, 'field1,field2'), unique(arr), to_map(arr, 'field'), to_date(x), to_datef(x, format) from_datef(x, format), to_isoDate(x), flat_map(x), search_keys(arr, 'text'), search_values(arr, 'text'), delete(map, 'field'), substring(a, ini, end),
+ template(a, 'template'), t(a, 'template'), templateF(x, 'template'), tF(x, 'template'), to_bytesAbbr(x), to_numAbbr(x), from_bytesAbbr(x), from_siAbbr(x), from_timeAbbr(x), timeago(x), from_ms(x, 'format'), replace(x, 're', 'flags', 'replaceText'), split(x, 'sep'), trim(x), index_of(x, 'search'), last_index_of(x, 'search'), lower_case(x), upper_case(x), concat(x, y), match(x, 're', 'flags'), amerge(x, y), to_slon(x), from_slon(x), to_json(x), from_json(x, str), to_yaml(x, isMultiDoc), from_yaml(x), trim(x), nvl(x, v) add(x, y), sub(x, y), mul(x, y), div(x, y), mod(x, y)
+split(x, sep), split_re(x, sepRE), split_sep(x, sepRE, encls), date_diff(d, unit, nullValue)
+insert(obj, 'field', value), now(negativeTimeDiff)
+get(nameOrPath), set(obj, path), setp(obj, path, name)
 
 Custom functions:
   $path(2, "example(@)", { example: { _func: (a) => { return Number(a) + 10; }, _signature: [ { types: [ $path().number ] } ] } });
@@ -1159,6 +1163,13 @@ __AF.fromJavaArray(aJavaArray) : Array__
 ````
 Tries to convert aJavaArray into a native an array.
 ````
+### AF.fromJSSLON
+
+__AF.fromJSSLON(aString) : Object__
+
+````
+Tries to convert the provided aString into an object. The string might be JSON or SLON.
+````
 ### AF.fromNLinq
 
 __AF.fromNLinq(aString) : Map__
@@ -1196,10 +1207,10 @@ Converts a SQL expression into a suitable map to be used with $from.query.
 ````
 ### af.fromXML2Obj
 
-__af.fromXML2Obj(xml, ignored) : Object__
+__af.fromXML2Obj(xml, ignored, aPrefix, reverseIgnored) : Object__
 
 ````
-Tries to convert a XML object into a javascript object. Tag attributes will be ignored unless the corresponding tag name is included on the ignored array and attributes will be added to the corresponding map with a prefix "_".
+Tries to convert a XML object into a javascript object. Tag attributes will be ignored unless the corresponding tag name is included on the ignored array and attributes will be added to the corresponding map with a prefix "_" (or aPrefix). Optionally if reverseIgnored = true the ignored array will be used to not include the tag name in the ignored array.
 ````
 ### AF.fromYAML
 
@@ -1445,6 +1456,13 @@ __compress(anObject) : ArrayOfBytes__
 
 ````
 Compresses a JSON object into an array of bytes suitable to be uncompressed using the uncompress function.
+````
+### conReset
+
+__conReset() : boolean__
+
+````
+Tries to reset the console to its original state. Returns true if successful.
 ````
 ### cprint
 
@@ -2102,7 +2120,7 @@ Shorcut for the native JSON.parse that returns an empty map if aString is not de
 ````
 ### listFilesRecursive
 
-__listFilesRecursive(aPath) : Map__
+__listFilesRecursive(aPath, usePosix) : Map__
 
 ````
 Performs the io.listFiles function recursively given aPath. The returned map will be equivalent to the io.listFiles function (see more in io.listFiles). Alternatively you can specify to usePosix=true and it will add to the map the owner, group and full permissions of each file and folder.
@@ -2123,7 +2141,7 @@ Tries to load an OpenAF script as a compiled class. If a compiled class file doe
 ````
 ### loadCompiledLib
 
-__loadCompiledLib(aLibClass, forceReload, aFunction) : boolean__
+__loadCompiledLib(aLibClass, forceReload, aFunction, withSync) : boolean__
 
 ````
 Loads the corresponding compiled javascript library class and keeps track if it was already loaded or not (in __loadedLibs). Optionally you can force reload and provide aFunction to execute after the successful loading. Returns true if successfull, false otherwise.
@@ -2540,6 +2558,13 @@ __ow.loadObj()__
 ````
 Loads OpenWrap object functionality.
 ````
+### ow.loadOBook
+
+__ow.loadOBook()__
+
+````
+Loads OpenWrap oBook functionality.
+````
 ### ow.loadOJob
 
 __ow.loadOJob()__
@@ -2707,13 +2732,15 @@ __printChart(aFormatString, hSize, vSize, aMax, aMin, dColor) : String__
 Produces a line chart given aFormatString, a hSize (horizontal max size), a vSize (vertical max size), aMax (the axis max value) and aMin  (the axis min value). The aFormatString should be composed of "<dataset> <units> [<function[:color][:legend]> ...]":
 
    The dataset should be an unique name (data can be cleaned with ow.format.string.dataClean);
-   The units can be: int, dec1, dec2, dec3, dec, bytes and si;
+   The units can be: int, dec1, dec2, dec3, dec4, dec, bytes and si;
    Each function should return the corresponding current value (optionally it can be a number directly);
    Optionally each color should use any combinations similar to ansiColor (check 'help ansiColor');
    Optionally each legend, if used, will be included in a bottom legend;
 
    If function "-min" it will overwrite the aMin
    If function "-max" it will overwrite the aMax
+   If function "-hsize" it will overwrite the hSize
+   If function "-vsize" it will overwrite the vSize
 
 
 ````
@@ -2957,6 +2984,13 @@ __splitBySeparator(aString, aSeparator) : Array__
 
 ````
 Will split aString using the provided aSeparator. If the aSeparator is escaped (for example if ';' is the aSeparator and  aString 'abc\\;def;123" only the second ';' will be considered.
+````
+### splitBySepWithEnc
+
+__splitBySepWithEnc(text, separator, enclosures, includeEnclosures) : array__
+
+````
+Given a text, a separator, a list of enclosures and a flag includeEnclosures, this function will split the text by the separator while ignoring the separator inside the enclosures. If includeEnclosures is true, the enclosures will be included in the result. If includeEnclosures is false, the enclosures will be removed from the result.
 ````
 ### splitKVBySeparator
 

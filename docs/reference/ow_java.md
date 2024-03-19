@@ -447,6 +447,13 @@ Examples:
   ow.java.ini().loadFile("/etc/os-release").get()
   ow.java.ini().put(myMap).save()
 ````
+### ow.java.jcmd
+
+__ow.java.jcmd(aPid, aJCmd) : String__
+
+````
+Tries to attach to local JVM with aPid and execute aJCmd returning the output.
+````
 ### ow.java.JMX
 
 __ow.java.JMX(aURL, aUser, aPass, aProvider) : JMX__
@@ -574,10 +581,18 @@ __ow.java.parseHSPerf(aByteArrayOrFile, retFlat) : Map__
 ````
 Given aByteArray or a file path for a java (hotspot jvm) hsperf file (using ow.java.getLocalJavaPIDs or similar) will return the java performance information parsed into a map. If retFlat = true the returned map will be a flat map with each java performance metric and correspondent value plus additional calculations with the prefix "__"
 ````
+### ow.java.pidThreadDump
+
+__ow.java.pidThreadDump(aPid) : String__
+
+````
+Tries to attach to local JVM with aPid and execute a thread dump returning the output.
+````
 ### ow.java.setIgnoreSSLDomains
 
 __ow.java.setIgnoreSSLDomains(aList, aPassword)__
 
 ````
-Replaces the current Java SSL socket factory with a version with a custom trust manager that will "ignore" verification of SSL certificates whose domains are part of aList. Optionally aPassword for the key store can be forced. WARNING: this should only be used in advanced setups where you know what are doing since it DISABLES IMPORTANT SECURITY FEATURES.
+Replaces the current Java SSL socket factory with a version with a custom trust manager that will "ignore" verification of SSL certificates whose domains are part of aList (if no aList is provided defaults DANGEROUSLY to all). Optionally  aPassword for the key store can be forced.
+WARNING: this should only be used in advanced setups where you know what are doing since it DISABLES IMPORTANT SECURITY FEATURES.
 ````

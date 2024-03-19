@@ -226,7 +226,7 @@ Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults t
 ````
 ### ow.ai.gpt.prompt
 
-__ow.ai.gpt.prompt(aPrompt, aRole, aModel, aTemperature) : String__
+__ow.ai.gpt.prompt(aPrompt, aRole, aModel, aTemperature, aJsonFlag) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
@@ -240,7 +240,7 @@ Tries to prompt aPrompt (a string or an array of strings) with aImage (a file pa
 ````
 ### ow.ai.gpt.rawPrompt
 
-__ow.ai.gpt.rawPrompt(aPrompt, aRole, aModel, aTemperature) : String__
+__ow.ai.gpt.rawPrompt(aPrompt, aRole, aModel, aTemperature, aJsonFlag) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
