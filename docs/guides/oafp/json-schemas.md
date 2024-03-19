@@ -7,6 +7,8 @@ grand_parent: Guides
 
 # oafp with JSON schemas
 
+List of examples of use of oafp with JSON schemas:
+
 ### Get a list of schemas
 
 ```bash

@@ -7,6 +7,8 @@ grand_parent: Guides
 
 # oafp with external APIs
 
+List of examples of use of oafp with external APIs:
+
 ### Generating a simple table of the current public IP address
 ```bash
 curl -s https://ifconfig.co/json | oafp flatmap=true out=map
