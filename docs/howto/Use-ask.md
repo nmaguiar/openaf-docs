@@ -14,6 +14,7 @@ When running OpenAF scripts it's possible to "ask" for user input. This can be a
 |----------|-------------|
 | ask | Asks for an entire input line optionally masking with a char (e.g. masking with '*' all characters). |
 | ask1 | Asks for just a single key of input from a list of possible key values. | 
+| askChoose | Displays a scrollable list of choices for the user to choose one (since version >= 20231222) |
 | askEncrypt | Asks for user input to produce an encrypted string. |
 | askN | Asks for multi-line input providing a function to decide each lien prompt and a stop function to decide when the input is finished. |  
 
@@ -77,3 +78,39 @@ second line
 
 >
 ````
+
+## Using 'askChoose'
+
+> Available on versions >= 20231222
+
+Asking a choice within a list of possible choices:
+
+```javascript
+var result = askChoose("Do you want to proceed?", [ 'Yes', 'No' ])
+? Do you want to proceed?
+> Yes
+  No
+[...]
+✓ Do you want to proceed?[Yes]
+> print(result)
+0
+```
+
+With more choices but just showing 3:
+
+```javascript
+> var result = askChoose("Which configuration you want to use?", [ 'Config 1', 'Config 2', 'Config 3', 'Config 4', 'Config 5' ], 3)
+? Which configuration you want to use?
+> Config 1
+  Config 2
+v Config 3
+[...]
+? Which configuration you want to use?
+^ Config 2
+  Config 3
+> Config 4
+[...]
+✓ Which configuration you want to use?[Config 4]
+> print(result)
+3
+```
