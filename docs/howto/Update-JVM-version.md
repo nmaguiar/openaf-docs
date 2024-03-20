@@ -34,6 +34,8 @@ That's it. Since Java is in the same path nothing needs to change.
 
 > Before starting the upgrade, on a system with Internet access and OpenAF, you can follow the [instructions to prepare a Java JRE tgz](../guides/ojobio/quickly_download_java.md).
 
+> You can use ```ojob ojob.io/oaf/javaUpdate``` to determine if an update is needed and download a jre.tgz accordingly.
+
 ## In container images
 
 There is no need to upgrade the JVM inside an OpenAF image. Just simply update the image and it should bring the latest JVM avalable at time of build.
