@@ -22,7 +22,7 @@ todo:
 The problem with this YAML file is on the 4th line since the 3rd line started a map as part of the jobs array but the 4th line is a map entry. One way to quickly check this is using another "one-liner":
 
 ````bash
-$ openaf -i script -e "io.readFileYAML('aYAMLFile.yaml')"
+$ oaf -c "io.readFileYAML('aYAMLFile.yaml')"
 ````
 
 In this case the result would be:
@@ -48,6 +48,6 @@ todo:
 Executing the same one-liner now the result is no errors:
 
 ````bash
-$ openaf -i script -e "io.readFileYAML('aYAMLFile.yaml')"
+$ oaf -c "io.readFileYAML('aYAMLFile.yaml')"
 $
 ````
