@@ -17,6 +17,7 @@ List of functions to help you get started with any OpenAF script programming.
 | [Convert JSON to a string and vice-versa](#convert-json-to-a-string-and-vice-versa) |
 | [Running a shell command](#running-a-shell-command) |
 | [Asking for user input](#asking-for-user-input) |
+| [Continue learning](#continue-learning) |
 
 ## My first Hello World
 
@@ -190,3 +191,13 @@ print("Your name is " + name)
 You can learn more how to interactively ask for user input in OpenAF in:
 
 * [How to - Use ask](../../howto/Use-ask.md)
+
+## Continue learning
+
+To continue you can check some base OpenAF concepts in [Concepts](../../concepts/index.md). You don't need to know them all but it will get you up-to-speed on some functionality you might be more interested on.
+
+You can check the [how-to guides](../../howto/index.md) that expand on the base core functionaly cover on the previous chapters.
+
+You also have some [specific guides](../../guides/index.md) for specific functionality. The [beginner guides](../../guides/beginner/) are a great place to start.
+
+And lastly you can search this site (on the top search bar) and check the comprehensive [reference](../../reference/index.md).
