@@ -14,13 +14,50 @@ OpenAF (_pronounced open-a-f_) is a Java & Javascript based "swiss-army knife" s
 * __[How to](docs/howto/index.md)__ - core functionality exemplified.
 * __[Guides](docs/guides/index.md)__ - guides with example code from beginner to advanced topics.
 
-## Installing
+## Installing/Setup
 
 ### Docker
 
 ````bash
 docker run --pull always --rm -ti openaf/oaf
 # ./oafc
+````
+
+## Single file download
+
+Download the specific file for your OS and architecture (see below for Windows):
+
+| OS | Architecture | Link |
+|------------------|----|--------------|
+| Linux | x86_64 | [openaf.io/oaf-linux-x86_64](https://openaf.io/oaf-linux-x86_64) |
+| Linux | aarch64 | [openaf.io/oaf-linux-aarch64](https://openaf.io/oaf-linux-aarch64) |
+| Alpine Linux | x86_64 | [openaf.io/oaf-alpine-x86_64](https://openaf.io/oaf-alpine-x86_64) |
+| Alpine Linux | aarch64 | [openaf.io/oaf-alpine-aarch64](https://openaf.io/oaf-alpine-aarch64) |
+| Mac | x64_64 | [openaf.io/oaf-mac-x86_64](https://openaf.io/oaf-mac-x86_64) |
+| Mac | aarch64 | [openaf.io/oaf-mac-aarch64](https://openaf.io/oaf-mac-aarch64) |
+
+
+After downloading the file, execute:
+
+```bash
+chmod u+x oaf-*
+./oaf-*
+# Please use the created symlinks: oaf, ojob, opack, oafc, oafp, oaf-sb or ojob-sb
+# ./oafc
+``` 
+
+This will provide it with execution permissons and, afterwards, simply execute it.
+
+For a more permanent or portable install follow the next instructions.
+
+### Windows
+
+````
+C:\> mkdir oaf
+C:\> cd oaf
+C:\oaf> curl https://openaf.io/install.bat -o install.bat
+C:\oaf> install.bat
+C:\oaf> oafc
 ````
 
 ### Linux
@@ -52,27 +89,6 @@ If you don't have _sudo_, _curl_ or _wget_ but you do have bash you can just exe
 curl -o setup.sh https://openaf.io/setup.sh && sh setup.sh && rm setup.sh && mv oaf /Applications/OpenAF && sudo sh -c "echo "/Applications/OpenAF" > /etc/paths.d/OpenAF"
 # oafc
 ````
-
-### Windows
-
-````
-C:\> mkdir oaf
-C:\> cd oaf
-C:\oaf> curl https://openaf.io/install.bat -o install.bat
-C:\oaf> install.bat
-C:\oaf> oafc
-````
-
-For specific platforms:
-
-| OS | Architecture | Link |
-|---------------------|----|--------------|------|
-| Linux | x86_64 | [openaf.io/oaf-linux-x86_64](https://openaf.io/oaf-linux-x86_64) |
-| Linux | aarch64 | [openaf.io/oaf-linux-aarch64](https://openaf.io/oaf-linux-aarch64) |
-| Alpine Linux | x86_64 | [openaf.io/oaf-alpine-x86_64](https://openaf.io/oaf-alpine-x86_64) |
-| Alpine Linux | aarch64 | [openaf.io/oaf-alpine-aarch64](https://openaf.io/oaf-alpine-aarch64) |
-| Mac | x64_64 | [openaf.io/oaf-mac-x86_64](https://openaf.io/oaf-mac-x86_64) |
-| Mac | aarch64 | [openaf.io/oaf-mac-aarch64](https://openaf.io/oaf-mac-aarch64) |
 
 ## Move to a different folder
 
