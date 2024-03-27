@@ -29,12 +29,12 @@ Download the specific file for your OS and architecture (see below for Windows):
 
 | OS | Architecture | Link |
 |------------------|----|--------------|
-| Linux | x86_64 | [openaf.io/oaf-linux-x86_64](https://openaf.io/oaf-linux-x86_64) |
-| Linux | aarch64 | [openaf.io/oaf-linux-aarch64](https://openaf.io/oaf-linux-aarch64) |
-| Alpine Linux | x86_64 | [openaf.io/oaf-alpine-x86_64](https://openaf.io/oaf-alpine-x86_64) |
-| Alpine Linux | aarch64 | [openaf.io/oaf-alpine-aarch64](https://openaf.io/oaf-alpine-aarch64) |
-| Mac | x64_64 | [openaf.io/oaf-mac-x86_64](https://openaf.io/oaf-mac-x86_64) |
-| Mac | aarch64 | [openaf.io/oaf-mac-aarch64](https://openaf.io/oaf-mac-aarch64) |
+| Linux | x86_64 (Intel) | [openaf.io/oaf-linux-x86_64](https://openaf.io/oaf-linux-x86_64) |
+| Linux | aarch64 (Arm) | [openaf.io/oaf-linux-aarch64](https://openaf.io/oaf-linux-aarch64) |
+| Alpine Linux | x86_64 (Intel) | [openaf.io/oaf-alpine-x86_64](https://openaf.io/oaf-alpine-x86_64) |
+| Alpine Linux | aarch64 (Arm) | [openaf.io/oaf-alpine-aarch64](https://openaf.io/oaf-alpine-aarch64) |
+| Mac | x64_64 (Intel) | [openaf.io/oaf-mac-x86_64](https://openaf.io/oaf-mac-x86_64) |
+| Mac | aarch64 (Apple Silicon) | [openaf.io/oaf-mac-aarch64](https://openaf.io/oaf-mac-aarch64) |
 
 
 After downloading the file, execute:
