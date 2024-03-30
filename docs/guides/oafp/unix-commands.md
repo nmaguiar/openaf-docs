@@ -9,6 +9,8 @@ grand_parent: Guides
 
 List of examples of use of oafp with unix commands:
 
+## Generic
+
 ### Creates a data.ndjson file where each record is formatted from json files in /some/data
 
 ```bash
@@ -72,4 +74,12 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ```bash
 df --output=target,fstype,size,used,avail,pcent | tail -n +2 | oafp in=lines linesjoin=true path="[].split_re(@, ' +').{filesystem:[0],type:[1],size:[2],used:[3
 ],available:[4],use:[5]}" out=ctable
+```
+
+## Debian/Ubuntu
+
+### List all installed packages
+
+```bash
+apt list --installed | sed "1d" | oafp in=lines linesjoin=true path="[].split(@,' ').{pack:split([0],'/')[0],version:[1],arch:[2]}" out=ctable
 ```
