@@ -1,0 +1,31 @@
+---
+layout: default
+title: oafp examples
+parent: oafp
+grand_parent: Guides
+---
+
+# oafp examples
+
+Examples of use of _oafp_ avaiable also in https://ojob.io/oafp-examples.yaml.
+
+## 📚 Contents
+
+| Category | Sub-category | #   | Description |
+|:---------|:-------------|:----|:------------|
+{{#each ($from data 'sort(c,s,d)')}}
+| {{c}} | {{s}} | [{{$path @index 'add(@, `1`)'}}](#{{$path @index 'add(@, `1`)'}}) | {{d}} |
+{{/each}}
+
+## 📗 Examples
+
+{{#each ($from data 'sort(c,s,d)')}}
+---
+
+##### {{$path @index 'add(@, `1`)'}}
+### 📖 {{c}} | {{s}}
+{{d}}
+```bash
+{{{e}}}
+```
+{{/each}}
