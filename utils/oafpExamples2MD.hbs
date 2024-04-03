@@ -7,7 +7,7 @@ grand_parent: Guides
 
 # oafp examples
 
-Examples of use of _oafp_ avaiable also in https://ojob.io/oafp-examples.yaml.
+Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](https://ojob.io/oafp-examples.yaml).
 
 ## 📚 Contents
 

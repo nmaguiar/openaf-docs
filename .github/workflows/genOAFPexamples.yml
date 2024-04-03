@@ -1,0 +1,51 @@
+name: Generate OAFP examples
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  oafp-examples:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+    # --------------------------
+    - name: Cache OpenAF runtime
+      uses: actions/cache@v1.2.1
+      with:
+        key : oaf-nightly
+        path: /tmp/oaf  
+
+    # -------------------------
+    - uses: actions/checkout@v3
+
+    # ---------------------
+    - name: Update counters
+      uses: openaf/ojob-action@v4
+      with:
+        dist: nightly
+        def : |
+          todo:
+          - Generate oafp examples
+
+          jobs:
+          - name: Generate oafp examples
+            lang: shell
+            exec: |
+              /tmp/oaf/oafp url="https://ojob.io/oafp-examples.yaml" in=yaml out=template template=utils/oafpExamples2MD.hbs > docs/guides/oafp/oafp-examples.md
+    
+    # --------------------
+    - name: Commit changes
+      env :
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: openaf/ojob-action@v4
+      with:
+        ojob: 'ojob.io/git/hub/contentIn'
+        args: 'message="Update\ OAFP\ examples" paths="docs/guides/oafp/"'
+        dist: nightly
