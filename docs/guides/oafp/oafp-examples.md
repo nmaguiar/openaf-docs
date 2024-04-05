@@ -1,11 +1,11 @@
 ---
 layout: default
-title: oafp examples
+title: oafp reference list of examples
 parent: oafp
 grand_parent: Guides
 ---
 
-# oafp examples
+# oafp reference list of examples
 
 Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](https://ojob.io/oafp-examples.yaml).
 
