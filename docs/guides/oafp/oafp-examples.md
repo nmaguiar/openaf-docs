@@ -109,10 +109,11 @@ Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](
 | Unix | SystemCtl | [94](#94) | Converting the Unix&#x27;s systemctl list-units |
 | Unix | SystemCtl | [95](#95) | Converting the Unix&#x27;s systemctl list-units into an overview table |
 | Unix | UBI | [96](#96) | List all installed packages in an UBI system |
-| Windows | Network | [97](#97) | Output a table with the current route table using Windows&#x27; PowerShell |
-| Windows | Network | [98](#98) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
-| Windows | PnP | [99](#99) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
-| Windows | Storage | [100](#100) | Output a table with the attached disk information using Windows&#x27; PowerShell |
+| Unix | named | [97](#97) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
+| Windows | Network | [98](#98) | Output a table with the current route table using Windows&#x27; PowerShell |
+| Windows | Network | [99](#99) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
+| Windows | PnP | [100](#100) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
+| Windows | Storage | [101](#101) | Output a table with the attached disk information using Windows&#x27; PowerShell |
 
 ## 📗 Examples
 
@@ -939,6 +940,14 @@ microdnf repoquery --setopt=cachedir=/tmp --installed | oafp in=lines linesjoin=
 ---
 
 ##### 97
+### 📖 Unix | named
+Converts a Linux&#x27;s named log, for client queries, into a CSV
+```bash
+cat named.log | oafp in=lines linesjoin=true path="[?contains(@,' client ')==\`true\`].split(@,' ').{datetime:to_datef(concat([0],concat(' ',[1])),'dd-MMM-yyyy HH:mm:ss.SSS'),session:[3],sourceIP:replace([4],'(.+)#(\d+)','','\$1'),sourcePort:replace([4],'(.+)#(\d+)','','\$2'),target:replace([5],'\((.+)\):','','\$1'),query:join(' ',[6:])}" out=csv
+```
+---
+
+##### 98
 ### 📖 Windows | Network
 Output a table with the current route table using Windows&#x27; PowerShell
 ```bash
@@ -946,7 +955,7 @@ Get-NetRoute | ConvertTo-Json | .\oafp.bat path="[].{destination:DestinationPref
 ```
 ---
 
-##### 98
+##### 99
 ### 📖 Windows | Network
 Output a table with the list of network interfaces using Windows&#x27; PowerShell
 ```bash
@@ -954,7 +963,7 @@ Get-NetIPAddress | ConvertTo-Json | .\oafp.bat path="[].{ipAddress:IPAddress,pre
 ```
 ---
 
-##### 99
+##### 100
 ### 📖 Windows | PnP
 Output a table with USB/PnP devices using Windows&#x27; PowerShell
 ```bash
@@ -962,7 +971,7 @@ Get-PnpDevice -PresentOnly | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=cs
 ```
 ---
 
-##### 100
+##### 101
 ### 📖 Windows | Storage
 Output a table with the attached disk information using Windows&#x27; PowerShell
 ```bash
