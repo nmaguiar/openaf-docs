@@ -22,4 +22,17 @@ or you can check it here:
 | [oafp filters documentation](../guides/oafp/oafp-filters) |
 | [oafp templates documentation](../guides/oafp/oafp-template) |
 
-You can check several example of usage in the [oafp guides](../guides/oafp/)
+If you have internet access you can also access a library of examples:
+
+```bash
+oafp -examples
+oafp examples=unix::
+oafp examples=kubernetes::kubectl
+oafp examples=env
+```
+
+You can also check the library of examples in [oafp examples](../guides/oafp/oafp-examples.md).
+
+---
+
+You can check more examples of usage in the [oafp guides](../guides/oafp/).
