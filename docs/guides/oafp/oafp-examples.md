@@ -81,50 +81,53 @@ Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](
 | Kubernetes | Kubectl | [66](#66) | List of Kubernetes pods per namespace and kind using kubectl |
 | Mac | Activity | [67](#67) | Uses the Mac terminal command &#x27;last&#x27; output to build an activity table with user, tty, from, login-time and logout-time |
 | Mac | Brew | [68](#68) | List all the packages and corresponding versions installed in a Mac by brew. |
-| Mac | Info | [69](#69) | Parses the current Mac OS overview information |
-| Mac | Safari | [70](#70) | Get a list of all Mac OS Safari bookmarks into a CSV file. |
-| OpenAF | Channels | [71](#71) | Copy the json result of a command into an etcd database using OpenAF&#x27;s channels |
-| OpenAF | Channels | [72](#72) | Getting all data stored in an etcd database using OpenAF&#x27;s channels |
-| OpenAF | Channels | [73](#73) | Perform a query to a metric &amp; label, with a start and end time, to a Prometheus server using OpenAF&#x27;s channels |
-| OpenAF | Channels | [74](#74) | Retrieve all keys stores in a H2 MVStore file using OpenAF&#x27;s channels |
-| OpenAF | Channels | [75](#75) | Store and retrieve data from a Redis database |
-| OpenAF | Channels | [76](#76) | Store and retrieve data from a RocksDB database |
-| OpenAF | Channels | [77](#77) | Store the json results of a command into a H2 MVStore file using OpenAF&#x27;s channels |
-| OpenAF | Network | [78](#78) | List all MX (mail servers) network addresses from the current DNS server for a hostname using OpenAF |
-| OpenAF | Network | [79](#79) | List all network addresses returned from the current DNS server for a hostname using OpenAF |
-| OpenAF | OS | [80](#80) | Current OS information visible to OpenAF |
-| OpenAF | OS | [81](#81) | Using OpenAF parse the current environment variables |
-| OpenAF | TLS | [82](#82) | List the TLS certificates of a target host with a sorted alternative names using OpenAF |
-| OpenAF | oPacks | [83](#83) | Listing all currently accessible OpenAF&#x27;s oPacks |
-| OpenAF | oafp | [84](#84) | Filter the OpenAF&#x27;s oafp examples list by a specific word in the description |
-| OpenAF | oafp | [85](#85) | List the OpenAF&#x27;s oafp examples by category, sub-category and description |
-| OpenVPN | List | [86](#86) | When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date |
-| Unix | Activity | [87](#87) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity |
-| Unix | Alpine | [88](#88) | List all installed packages in an Alpine system |
-| Unix | Compute | [89](#89) | Parses the Linux /proc/cpuinfo into an array |
-| Unix | Debian/Ubuntu | [90](#90) | List all installed packages in a Debian/Ubuntu system |
-| Unix | Envs | [91](#91) | Converts the Linux envs command result into a table of environment variables and corresponding values |
-| Unix | Files | [92](#92) | Converting the Linux&#x27;s /etc/os-release to SQL insert statements. |
-| Unix | Files | [93](#93) | Converting the Unix&#x27;s syslog into a json output. |
-| Unix | Files | [94](#94) | Parses the Linux /etc/passwd to a table order by uid and gid. |
-| Unix | Generic | [95](#95) | Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data |
-| Unix | Network | [96](#96) | Loop over the current Linux active network connections |
-| Unix | Network | [97](#97) | Parse the Linux &#x27;arp&#x27; command output |
-| Unix | Network | [98](#98) | Parse the Linux &#x27;ip tcp_metrics&#x27; command |
-| Unix | Network | [99](#99) | Parse the result of the Linux route command |
-| Unix | OpenSuse | [100](#100) | List all installed packages in an OpenSuse system or zypper based system |
-| Unix | RedHat | [101](#101) | List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available) |
-| Unix | Storage | [102](#102) | Converting the Unix&#x27;s df output |
-| Unix | Storage | [103](#103) | Parses the result of the Unix ls command |
-| Unix | SystemCtl | [104](#104) | Converting the Unix&#x27;s systemctl list-timers |
-| Unix | SystemCtl | [105](#105) | Converting the Unix&#x27;s systemctl list-units |
-| Unix | SystemCtl | [106](#106) | Converting the Unix&#x27;s systemctl list-units into an overview table |
-| Unix | UBI | [107](#107) | List all installed packages in an UBI system |
-| Unix | named | [108](#108) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
-| Windows | Network | [109](#109) | Output a table with the current route table using Windows&#x27; PowerShell |
-| Windows | Network | [110](#110) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
-| Windows | PnP | [111](#111) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
-| Windows | Storage | [112](#112) | Output a table with the attached disk information using Windows&#x27; PowerShell |
+| Mac | Info | [69](#69) | Parses the current Mac OS hardware information |
+| Mac | Info | [70](#70) | Parses the current Mac OS overview information |
+| Mac | Safari | [71](#71) | Get a list of all Mac OS Safari bookmarks into a CSV file. |
+| OpenAF | Channels | [72](#72) | Copy the json result of a command into an etcd database using OpenAF&#x27;s channels |
+| OpenAF | Channels | [73](#73) | Getting all data stored in an etcd database using OpenAF&#x27;s channels |
+| OpenAF | Channels | [74](#74) | Perform a query to a metric &amp; label, with a start and end time, to a Prometheus server using OpenAF&#x27;s channels |
+| OpenAF | Channels | [75](#75) | Retrieve all keys stores in a H2 MVStore file using OpenAF&#x27;s channels |
+| OpenAF | Channels | [76](#76) | Store and retrieve data from a Redis database |
+| OpenAF | Channels | [77](#77) | Store and retrieve data from a RocksDB database |
+| OpenAF | Channels | [78](#78) | Store the json results of a command into a H2 MVStore file using OpenAF&#x27;s channels |
+| OpenAF | Network | [79](#79) | List all MX (mail servers) network addresses from the current DNS server for a hostname using OpenAF |
+| OpenAF | Network | [80](#80) | List all network addresses returned from the current DNS server for a hostname using OpenAF |
+| OpenAF | OS | [81](#81) | Current OS information visible to OpenAF |
+| OpenAF | OS | [82](#82) | Using OpenAF parse the current environment variables |
+| OpenAF | TLS | [83](#83) | List the TLS certificates of a target host with a sorted alternative names using OpenAF |
+| OpenAF | oJob.io | [84](#84) | Parses ojob.io/news results into a clickable news title HMTL page. |
+| OpenAF | oJob.io | [85](#85) | Retrieves the list of oJob.io&#x27;s jobs and filters which start by &#x27;ojob.io/news&#x27; to display them in a rectangle |
+| OpenAF | oPacks | [86](#86) | Listing all currently accessible OpenAF&#x27;s oPacks |
+| OpenAF | oafp | [87](#87) | Filter the OpenAF&#x27;s oafp examples list by a specific word in the description |
+| OpenAF | oafp | [88](#88) | List the OpenAF&#x27;s oafp examples by category, sub-category and description |
+| OpenVPN | List | [89](#89) | When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date |
+| Unix | Activity | [90](#90) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity |
+| Unix | Alpine | [91](#91) | List all installed packages in an Alpine system |
+| Unix | Compute | [92](#92) | Parses the Linux /proc/cpuinfo into an array |
+| Unix | Debian/Ubuntu | [93](#93) | List all installed packages in a Debian/Ubuntu system |
+| Unix | Envs | [94](#94) | Converts the Linux envs command result into a table of environment variables and corresponding values |
+| Unix | Files | [95](#95) | Converting the Linux&#x27;s /etc/os-release to SQL insert statements. |
+| Unix | Files | [96](#96) | Converting the Unix&#x27;s syslog into a json output. |
+| Unix | Files | [97](#97) | Parses the Linux /etc/passwd to a table order by uid and gid. |
+| Unix | Generic | [98](#98) | Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data |
+| Unix | Network | [99](#99) | Loop over the current Linux active network connections |
+| Unix | Network | [100](#100) | Parse the Linux &#x27;arp&#x27; command output |
+| Unix | Network | [101](#101) | Parse the Linux &#x27;ip tcp_metrics&#x27; command |
+| Unix | Network | [102](#102) | Parse the result of the Linux route command |
+| Unix | OpenSuse | [103](#103) | List all installed packages in an OpenSuse system or zypper based system |
+| Unix | RedHat | [104](#104) | List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available) |
+| Unix | Storage | [105](#105) | Converting the Unix&#x27;s df output |
+| Unix | Storage | [106](#106) | Parses the result of the Unix ls command |
+| Unix | SystemCtl | [107](#107) | Converting the Unix&#x27;s systemctl list-timers |
+| Unix | SystemCtl | [108](#108) | Converting the Unix&#x27;s systemctl list-units |
+| Unix | SystemCtl | [109](#109) | Converting the Unix&#x27;s systemctl list-units into an overview table |
+| Unix | UBI | [110](#110) | List all installed packages in an UBI system |
+| Unix | named | [111](#111) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
+| Windows | Network | [112](#112) | Output a table with the current route table using Windows&#x27; PowerShell |
+| Windows | Network | [113](#113) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
+| Windows | PnP | [114](#114) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
+| Windows | Storage | [115](#115) | Output a table with the attached disk information using Windows&#x27; PowerShell |
 
 ## 📗 Examples
 
@@ -213,7 +216,7 @@ oafp url="https://wttr.in?format=j2" llmcontext="current and forecast weather" l
 ### 📖 AI | TogetherAI
 List all available LLM models at together.ai with their corresponding type and price components order by the more expensive, for input and output
 ```bash
-# export OAFP_MODEL="(type: openai, model: 'meta-llama/Meta-Llama-3-70B0, url: 'https://api.together.xyz', key: '...', timeout: 9000000, temperature: 0)"
+# export OAFP_MODEL="(type: openai, model: 'meta-llama/Meta-Llama-3-70B', url: 'https://api.together.xyz', key: '...', timeout: 9000000, temperature: 0)"
 oafp in=llmmodels data="()" path="[].{id:id,name:display_name,type:type,ctxLen:context_length,priceHour:pricing.hourly,priceIn:pricing.input,priceOut:pricing.output,priceBase:pricing.base,priceFineTune:pricing.finetune}" sql="select * order by priceIn desc,priceOut desc" out=ctable
 ```
 ---
@@ -278,7 +281,7 @@ TRM="Mozart" && oafp url="https://itunes.apple.com/search?term=$TRM" out=ctree
 ### 📖 AWS | EC2
 Given all AWS EC2 instances in an account produces a table with name, type, vpc and private ip sorted by vpc
 ```bash
-aws ec2 describe-instances | ./oafp path="Reservations[].Instances[].{name:join('',Tags[?Key=='Name'].Value),type:InstanceType,vpc:VpcId,ip:PrivateIpAddress} | sort_by(@, &vpc)" output=ctable
+aws ec2 describe-instances | oafp path="Reservations[].Instances[].{name:join('',Tags[?Key=='Name'].Value),type:InstanceType,vpc:VpcId,ip:PrivateIpAddress} | sort_by(@, &vpc)" output=ctable
 ```
 ---
 
@@ -731,13 +734,21 @@ brew list --versions | oafp in=lines linesjoin=true path="[].split(@,' ').{packa
 
 ##### 69
 ### 📖 Mac | Info
+Parses the current Mac OS hardware information
+```bash
+system_profiler SPHardwareDataType -json | oafp path="SPHardwareDataType[0]" out=ctree
+```
+---
+
+##### 70
+### 📖 Mac | Info
 Parses the current Mac OS overview information
 ```bash
 system_profiler SPSoftwareDataType -json | oafp path="SPSoftwareDataType[0]" out=ctree
 ```
 ---
 
-##### 70
+##### 71
 ### 📖 Mac | Safari
 Get a list of all Mac OS Safari bookmarks into a CSV file.
 ```bash
@@ -746,7 +757,7 @@ oafp ~/Library/Safari/Bookmarks.plist libs=Mac path="Children[].map(&{category:g
 ```
 ---
 
-##### 71
+##### 72
 ### 📖 OpenAF | Channels
 Copy the json result of a command into an etcd database using OpenAF&#x27;s channels
 ```bash
@@ -754,7 +765,7 @@ oaf -c "\$o(io.listFiles('.').files,{__format:'json'})" | oafp out=ch ch="(type:
 ```
 ---
 
-##### 72
+##### 73
 ### 📖 OpenAF | Channels
 Getting all data stored in an etcd database using OpenAF&#x27;s channels
 ```bash
@@ -762,7 +773,7 @@ echo "" | oafp in=ch inch="(type: etcd3, options: (host: localhost, port: 2379),
 ```
 ---
 
-##### 73
+##### 74
 ### 📖 OpenAF | Channels
 Perform a query to a metric &amp; label, with a start and end time, to a Prometheus server using OpenAF&#x27;s channels
 ```bash
@@ -770,7 +781,7 @@ oafp in=ch inch="(type:prometheus,options:(urlQuery:'http://prometheus.local'))"
 ```
 ---
 
-##### 74
+##### 75
 ### 📖 OpenAF | Channels
 Retrieve all keys stores in a H2 MVStore file using OpenAF&#x27;s channels
 ```bash
@@ -778,7 +789,7 @@ echo "" | oafp in=ch inch="(type: mvs, options: (file: data.db))" out=ctable
 ```
 ---
 
-##### 75
+##### 76
 ### 📖 OpenAF | Channels
 Store and retrieve data from a Redis database
 ```bash
@@ -791,7 +802,7 @@ echo "" | oafp in=ch inch="(type: redis, lib: redis.js, options: (host: '127.0.0
 ```
 ---
 
-##### 76
+##### 77
 ### 📖 OpenAF | Channels
 Store and retrieve data from a RocksDB database
 ```bash
@@ -804,7 +815,7 @@ echo "" | oafp in=ch inch="(type: rocksdb, lib: rocksdb.js, options: (path: db))
 ```
 ---
 
-##### 77
+##### 78
 ### 📖 OpenAF | Channels
 Store the json results of a command into a H2 MVStore file using OpenAF&#x27;s channels
 ```bash
@@ -812,7 +823,7 @@ oaf -c "\$o(listFilesRecursive('.'),{__format:'json'})" | oafp out=ch ch="(type:
 ```
 ---
 
-##### 78
+##### 79
 ### 📖 OpenAF | Network
 List all MX (mail servers) network addresses from the current DNS server for a hostname using OpenAF
 ```bash
@@ -820,7 +831,7 @@ DOMAIN=gmail.com && TYPE=MX && oaf -c "sprint(ow.loadNet().getDNS('$DOMAIN','$TY
 ```
 ---
 
-##### 79
+##### 80
 ### 📖 OpenAF | Network
 List all network addresses returned from the current DNS server for a hostname using OpenAF
 ```bash
@@ -828,7 +839,7 @@ DOMAIN=yahoo.com && oaf -c "sprint(ow.loadNet().getDNS('$DOMAIN'))" | oafp from=
 ```
 ---
 
-##### 80
+##### 81
 ### 📖 OpenAF | OS
 Current OS information visible to OpenAF
 ```bash
@@ -836,7 +847,7 @@ oafp -v path=os
 ```
 ---
 
-##### 81
+##### 82
 ### 📖 OpenAF | OS
 Using OpenAF parse the current environment variables
 ```bash
@@ -844,7 +855,7 @@ oaf -c "sprint(getEnvs())" | oafp sortmapkeys=true out=ctree
 ```
 ---
 
-##### 82
+##### 83
 ### 📖 OpenAF | TLS
 List the TLS certificates of a target host with a sorted alternative names using OpenAF
 ```bash
@@ -852,7 +863,23 @@ DOMAIN=yahoo.com && oaf -c "sprint(ow.loadNet().getTLSCertificates('$DOMAIN',443
 ```
 ---
 
-##### 83
+##### 84
+### 📖 OpenAF | oJob.io
+Parses ojob.io/news results into a clickable news title HMTL page.
+```bash
+ojob ojob.io/news/awsnews __format=json | oafp path="[].{title:replace(t(@,'[{{title}}]({{link}})'),'\|','g','\\|'),date:date}" from="sort(-date)" out=mdtable | oafp in=md out=html
+```
+---
+
+##### 85
+### 📖 OpenAF | oJob.io
+Retrieves the list of oJob.io&#x27;s jobs and filters which start by &#x27;ojob.io/news&#x27; to display them in a rectangle
+```bash
+oafp url="https://ojob.io/index.json" path="sort(init.l)[].replace(@,'^https://(.+)\.(yaml|json)$','','\$1')|[?starts_with(@, 'ojob.io/news')]" out=map
+```
+---
+
+##### 86
 ### 📖 OpenAF | oPacks
 Listing all currently accessible OpenAF&#x27;s oPacks
 ```bash
@@ -860,7 +887,7 @@ oaf -c "sprint(getOPackRemoteDB())" | oafp maptoarray=true opath="[].{name:name,
 ```
 ---
 
-##### 84
+##### 87
 ### 📖 OpenAF | oafp
 Filter the OpenAF&#x27;s oafp examples list by a specific word in the description
 ```bash
@@ -868,7 +895,7 @@ oafp url="https://ojob.io/oafp-examples.yaml" in=yaml out=template path=data tem
 ```
 ---
 
-##### 85
+##### 88
 ### 📖 OpenAF | oafp
 List the OpenAF&#x27;s oafp examples by category, sub-category and description
 ```bash
@@ -876,7 +903,7 @@ oafp url="https://ojob.io/oafp-examples.yaml" in=yaml path="data[].{category:c,s
 ```
 ---
 
-##### 86
+##### 89
 ### 📖 OpenVPN | List
 When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date
 ```bash
@@ -884,7 +911,7 @@ oafp cmd="docker exec openvpn ovpn_listclients" in=csv path="[].{name:name,begin
 ```
 ---
 
-##### 87
+##### 90
 ### 📖 Unix | Activity
 Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity
 ```bash
@@ -892,7 +919,7 @@ oafp cmd="last" in=lines linesjoin=true path="[:-3]|[?contains(@,'no logout')==\
 ```
 ---
 
-##### 88
+##### 91
 ### 📖 Unix | Alpine
 List all installed packages in an Alpine system
 ```bash
@@ -900,15 +927,15 @@ apk list -I | oafp in=lines linesjoin=true path="[].replace(@,'(.+) (.+) {(.+)} 
 ```
 ---
 
-##### 89
+##### 92
 ### 📖 Unix | Compute
 Parses the Linux /proc/cpuinfo into an array
 ```bash
-cat /proc/cpuinfo | sed "s/^$/---/mg" | ./oafp in=yaml path="[?not_null(@)]" out=ctree
+cat /proc/cpuinfo | sed "s/^$/---/mg" | oafp in=yaml path="[?not_null(@)]|[?type(processor)=='number']" out=ctree
 ```
 ---
 
-##### 90
+##### 93
 ### 📖 Unix | Debian/Ubuntu
 List all installed packages in a Debian/Ubuntu system
 ```bash
@@ -916,7 +943,7 @@ apt list --installed | sed "1d" | oafp in=lines linesjoin=true path="[].split(@,
 ```
 ---
 
-##### 91
+##### 94
 ### 📖 Unix | Envs
 Converts the Linux envs command result into a table of environment variables and corresponding values
 ```bash
@@ -924,7 +951,7 @@ env | oafp in=ini path="map(&{key:@,value:to_string(get(@))},sort(keys(@)))" out
 ```
 ---
 
-##### 92
+##### 95
 ### 📖 Unix | Files
 Converting the Linux&#x27;s /etc/os-release to SQL insert statements.
 ```bash
@@ -932,7 +959,7 @@ oafp cmd="cat /etc/os-release" in=ini outkey=release path="[@]" sql="select '$HO
 ```
 ---
 
-##### 93
+##### 96
 ### 📖 Unix | Files
 Converting the Unix&#x27;s syslog into a json output.
 ```bash
@@ -940,7 +967,7 @@ cat syslog | oafp in=raw path="split(trim(@),'\n').map(&split(@, ' ').{ date: co
 ```
 ---
 
-##### 94
+##### 97
 ### 📖 Unix | Files
 Parses the Linux /etc/passwd to a table order by uid and gid.
 ```bash
@@ -948,7 +975,7 @@ oafp cmd="cat /etc/passwd" in=csv inputcsv="(withHeader: false, withDelimiter: '
 ```
 ---
 
-##### 95
+##### 98
 ### 📖 Unix | Generic
 Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data
 ```bash
@@ -956,7 +983,7 @@ find /some/data -name "*.json" -exec oafp {} output=json \; > data.ndjson
 ```
 ---
 
-##### 96
+##### 99
 ### 📖 Unix | Network
 Loop over the current Linux active network connections
 ```bash
@@ -964,7 +991,7 @@ oafp cmd="netstat -tun | sed \"1d\"" in=lines linesvisual=true linesjoin=true li
 ```
 ---
 
-##### 97
+##### 100
 ### 📖 Unix | Network
 Parse the Linux &#x27;arp&#x27; command output
 ```bash
@@ -972,7 +999,7 @@ arp | oafp in=lines linesvisual=true linesjoin=true out=ctable
 ```
 ---
 
-##### 98
+##### 101
 ### 📖 Unix | Network
 Parse the Linux &#x27;ip tcp_metrics&#x27; command
 ```bash
@@ -980,7 +1007,7 @@ ip tcp_metrics | sed 's/^/target: /g' | sed 's/$/\n\n---\n/g' | sed 's/ \([a-z]*
 ```
 ---
 
-##### 99
+##### 102
 ### 📖 Unix | Network
 Parse the result of the Linux route command
 ```bash
@@ -988,7 +1015,7 @@ route | sed "1d" | oafp in=lines linesjoin=true linesvisual=true linesvisualsepr
 ```
 ---
 
-##### 100
+##### 103
 ### 📖 Unix | OpenSuse
 List all installed packages in an OpenSuse system or zypper based system
 ```bash
@@ -996,7 +1023,7 @@ zypper se -is | egrep "^i" | oafp in=lines linesjoin=true path="[].split(@,'|').
 ```
 ---
 
-##### 101
+##### 104
 ### 📖 Unix | RedHat
 List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available)
 ```bash
@@ -1004,7 +1031,7 @@ rpm -qa --qf "%{NAME}|%{VERSION}|%{PACKAGER}|%{VENDOR}|%{ARCH}\n" | oafp in=line
 ```
 ---
 
-##### 102
+##### 105
 ### 📖 Unix | Storage
 Converting the Unix&#x27;s df output
 ```bash
@@ -1012,7 +1039,7 @@ df --output=target,fstype,size,used,avail,pcent | tail -n +2 | oafp in=lines lin
 ```
 ---
 
-##### 103
+##### 106
 ### 📖 Unix | Storage
 Parses the result of the Unix ls command
 ```bash
@@ -1020,7 +1047,7 @@ ls -lad --time-style="+%Y-%m-%d %H:%M" * | oafp in=lines path="map(&split_re(@,'
 ```
 ---
 
-##### 104
+##### 107
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-timers
 ```bash
@@ -1028,7 +1055,7 @@ systemctl list-timers | head -n -3 | oafp in=lines linesvisual=true linesjoin=tr
 ```
 ---
 
-##### 105
+##### 108
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-units
 ```bash
@@ -1036,7 +1063,7 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ```
 ---
 
-##### 106
+##### 109
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-units into an overview table
 ```bash
@@ -1044,7 +1071,7 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ```
 ---
 
-##### 107
+##### 110
 ### 📖 Unix | UBI
 List all installed packages in an UBI system
 ```bash
@@ -1052,7 +1079,7 @@ microdnf repoquery --setopt=cachedir=/tmp --installed | oafp in=lines linesjoin=
 ```
 ---
 
-##### 108
+##### 111
 ### 📖 Unix | named
 Converts a Linux&#x27;s named log, for client queries, into a CSV
 ```bash
@@ -1060,7 +1087,7 @@ cat named.log | oafp in=lines linesjoin=true path="[?contains(@,' client ')==\`t
 ```
 ---
 
-##### 109
+##### 112
 ### 📖 Windows | Network
 Output a table with the current route table using Windows&#x27; PowerShell
 ```bash
@@ -1068,7 +1095,7 @@ Get-NetRoute | ConvertTo-Json | .\oafp.bat path="[].{destination:DestinationPref
 ```
 ---
 
-##### 110
+##### 113
 ### 📖 Windows | Network
 Output a table with the list of network interfaces using Windows&#x27; PowerShell
 ```bash
@@ -1076,7 +1103,7 @@ Get-NetIPAddress | ConvertTo-Json | .\oafp.bat path="[].{ipAddress:IPAddress,pre
 ```
 ---
 
-##### 111
+##### 114
 ### 📖 Windows | PnP
 Output a table with USB/PnP devices using Windows&#x27; PowerShell
 ```bash
@@ -1084,7 +1111,7 @@ Get-PnpDevice -PresentOnly | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=cs
 ```
 ---
 
-##### 112
+##### 115
 ### 📖 Windows | Storage
 Output a table with the attached disk information using Windows&#x27; PowerShell
 ```bash
