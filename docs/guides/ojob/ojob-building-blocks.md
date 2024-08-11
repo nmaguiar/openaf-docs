@@ -43,6 +43,7 @@ To enrich the oJob building blocks there is a set of jobs to help minimize codin
 | State | [ojob state](#ojob-state) | Changes the current state depending on the value of a provided args variable. |
 | State | [ojob get state](#ojob-get-state) | Gets the current state into args.state. |
 | State | [ojob set state](#ojob-set-state) | Changes the current state. |
+| AI    | [ojob llm](llm-shortcut) | Enable interaction with LLM (Large Language Models) AI models. |
 
 ## How to start using it 
 
