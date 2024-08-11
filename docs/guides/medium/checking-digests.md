@@ -7,7 +7,7 @@ grand_parent: Guides
 
 # Checking hash digests
 
-(OpenAF >= 20221216)
+(OpenAF version >= 20221216)
 
 There are several hash algorithms. OpenAF through Java has functions for the most common algorithms:
 
