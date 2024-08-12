@@ -306,7 +306,8 @@ This OpenAF implementation connects to an ElasticSearch (ES) server/cluster. The
    - size        (Number)          Optionally getAll/getKeys to return more than 10 records (up to 10000).
    - stamp       (Map)             Optionally merge with stamp map.
    - timeout     (Number)          Optional request timeout in ms.
- 
+   - preAction   (Function)        Optional function to be called before every request.
+
 The getAll/getKeys functions accept an extra argument to provide a ES query map to restrict the results.
 ````
 ### ow.ch.types.file
@@ -316,15 +317,19 @@ __ow.ch.types.file__
 ````
 This OpenAF implementation implements a simple channel on a single JSON or YAML file. The creation options are:
 
-   - file      (String)  The filepath to the JSON or YAML file to use
+   - file      (String)  The filepath to the JSON or YAML file to use (if multifile is false)
+   - path      (String)  The path to use to store JSON or YAML objects to use (if multifile is true)
    - yaml      (Boolean) Use YAML instead of JSON (defaults to false)
    - compact   (Boolean) If JSON and compact = true the JSON format will be compacted (defaults to false or shouldCompress option)
+   - multifile (Boolean) If true instead of keeping values in one file it will be kept in multiple files (*)
    - multipart (Boolean) If YAML and multipart = true the YAML file will be multipart
    - key       (String)  If a key contains "key" it will be replaced by the "key" value
    - multipath (Boolean) Supports string keys with paths (e.g. ow.obj.setPath) (defaults to false)
    - lock      (String)  If defined the filepath to a dummy file for filesystem lock while accessing the file
    - gzip      (Boolean) If true the output file will be gzip (defaults to false)
    - tmp       (Boolean) If true "file" will be temporary and destroyed upon execution/process end
+
+(*) - Be aware that althought there is a very small probability of collision between the unique id (sha-512) for filenames it still exists
 
 
 ````

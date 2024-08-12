@@ -121,6 +121,13 @@ __$bottleneck.maxWait(aMs) : Object__
 ````
 Creates a bottleneck holding the function execution for a max period of aMs.
 ````
+### $cache.byPopularity
+
+__$cache.byPopularity() : Object__
+
+````
+Changes the behaviour of the cache to use the most popular entries and prefer to discard the least popular ones  when the cache is full (maxSize is defined).
+````
 ### $cache.ch
 
 __$cache.ch(aChannelName) : Object__
@@ -586,10 +593,21 @@ Shortcut for the JMESPath library for easy query and access to arrays/objects. T
 
 [OpenAF custom functions]: 
   a2m(arrFields, arrValues), a4m(arr, 'key', dontRemove), m2a(arrFields, obj), m4a(obj, 'key'), count_by(arr, 'field'), format(x, 'format'), formatn(x, 'format'), group(arr, 'field'), group_by(arr, 'field1,field2'), unique(arr), to_map(arr, 'field'), to_date(x), to_datef(x, format) from_datef(x, format), to_isoDate(x), flat_map(x), search_keys(arr, 'text'), search_values(arr, 'text'), delete(map, 'field'), substring(a, ini, end),
- template(a, 'template'), t(a, 'template'), templateF(x, 'template'), tF(x, 'template'), to_bytesAbbr(x), to_numAbbr(x), from_bytesAbbr(x), from_siAbbr(x), from_timeAbbr(x), timeago(x), from_ms(x, 'format'), replace(x, 're', 'flags', 'replaceText'), split(x, 'sep'), trim(x), index_of(x, 'search'), last_index_of(x, 'search'), lower_case(x), upper_case(x), concat(x, y), match(x, 're', 'flags'), amerge(x, y), to_slon(x), from_slon(x), to_json(x), from_json(x, str), to_yaml(x, isMultiDoc), from_yaml(x), trim(x), nvl(x, v) add(x, y), sub(x, y), mul(x, y), div(x, y), mod(x, y)
+ template(a, 'template'), t(a, 'template'), templateF(x, 'template'), tF(x, 'template'), to_bytesAbbr(x), to_numAbbr(x), from_bytesAbbr(x), from_siAbbr(x), from_timeAbbr(x), timeago(x), from_ms(x, 'format'), replace(x, 're', 'flags', 'replaceText'), split(x, 'sep'), trim(x), index_of(x, 'search'), last_index_of(x, 'search'), lower_case(x), upper_case(x), concat(x, y), match(x, 're', 'flags'), amerge(x, y), to_slon(x), from_slon(x), to_json(x), from_json(x, str), to_yaml(x, isMultiDoc), from_yaml(x), trim(x), nvl(x, v), to_toml(x), from_toml(x) add(x, y), sub(x, y), mul(x, y), div(x, y), mod(x, y)
 split(x, sep), split_re(x, sepRE), split_sep(x, sepRE, encls), date_diff(d, unit, nullValue)
 insert(obj, 'field', value), now(negativeTimeDiff)
 get(nameOrPath), set(obj, path), setp(obj, path, name)
+range(count), ranges(count, start, step)
+inc(name), dec(name), getc(name), unset(obj, name)
+k2a(map, keyre, outkey, removeNulls), geta(nameOrPath, arrayIndex)
+sql_format(sql, options), sort_semver(arrayVersions), sort_by_semver(arrayMaps, jmespathStringToVersionField)
+semver(version, operation, argument)
+progress(value, max, min, size, indicator, space),
+to_csv(array, options), from_csv(str, options)
+ch(name, op, arg1, arg2), path(obj, jmespath), opath(jmespath)
+to_ms(date), timeagoAbbr(x)
+env(str), envs(regex)
+oafp(json/slon)
 
 Custom functions:
   $path(2, "example(@)", { example: { _func: (a) => { return Number(a) + 10; }, _signature: [ { types: [ $path().number ] } ] } });
@@ -1205,6 +1223,13 @@ __AF.fromSQL2NLinq(aSQL) : Map__
 ````
 Converts a SQL expression into a suitable map to be used with $from.query.
 ````
+### af.fromTOML
+
+__af.fromTOML(aTOML) : Object__
+
+````
+Tries to parse aTOML into a javascript object
+````
 ### af.fromXML2Obj
 
 __af.fromXML2Obj(xml, ignored, aPrefix, reverseIgnored) : Object__
@@ -1267,6 +1292,13 @@ __AF.toSLON(aObject, aTheme) : String__
 
 ````
 Converts aObject map/array into SLON representation (see more in help for ow.format.toSLON)
+````
+### af.toTOML
+
+__af.toTOML(aObj) : String__
+
+````
+Tries to convert aObj into a TOML string.
 ````
 ### AF.toYAML
 
@@ -1340,10 +1372,17 @@ Stops for user interaction prompting aPrompt waiting for a single character with
 ````
 ### askChoose
 
-__askChoose(aPrompt, anArray, aMaxDisplay) : Number__
+__askChoose(aPrompt, anArray, aMaxDisplay, aHelpText) : Number__
 
 ````
 Stops for user interaction prompting aPrompt waiting for a single character to choose from the provided anArray of options. Optionally you can provide aMaxDisplay to limit the number of options displayed at a time. Returns the index of the chosen option.
+````
+### askChooseMultiple
+
+__askChooseMultiple(aPrompt, anArray, aMaxDisplay, aHelpText) : Array__
+
+````
+Stops for user interaction prompting aPrompt waiting for a single character to choose multiple from the provided anArray of options. Optionally you can provide aMaxDisplay to limit the number of options displayed at a time. Returns an array with the chosen options.
 ````
 ### askDef
 
@@ -1365,6 +1404,31 @@ __askN(aPromptFn, aStopFn) : String__
 
 ````
 Stops for a multi-line user interaction prompting, for each line, the result of calling aPromptFn that receives the current user input  (if a string is provided it will default to a function that returns that string). The interaction will stop when aStopFn function, that receives the current user input as an argument, returns true (if the function is not provided it will default to 3 new lines).
+````
+### askStruct
+
+__askStruct(anArrayOfQuestions) : Array__
+
+````
+Given anArrayOfQuestions with a structure like:
+
+[
+ { name: "question1", prompt: "Question 1", type: "question" },
+ { name: "question2", prompt: "Question 2", type: "secret" },
+ { name: "question3", prompt: "Question 3", type: "char", options: "YN" },
+ { name: "question4", prompt: "Question 4", type: "choose", options: ["Option 1", "Option 2", "Option 3"], output: "index" },
+ { name: "question5", prompt: "Question 5", type: "multiple", options: ["Option 1", "Option 2", "Option 3"], max: 2 }
+]
+
+Will prompt the user for each question and return an array with the answers.
+
+The type can be:
+
+- "question" (default)
+- "secret"
+- "char" (requires options)
+- "choose" (requires options)
+- "multiple" (requires options)
 ````
 ### bcrypt
 
@@ -1831,6 +1895,13 @@ __io.readFileTARStream(aTARFile, aFilePath, isGzip, aFunc)__
 ````
 Given aTARFile (or stream) will try to retrieve aFilePath and call aFunc(tion) with the corresponding Java input stream. If aTARFile is a stream you should specify with isGzip = true/false if it has been "gzipped".
 ````
+### io.readFileTOML
+
+__io.readFileTOML(aFile) : Object__
+
+````
+Tries to read aFile and parse it as TOML into a javascript object.
+````
 ### io.readFileYAML
 
 __io.readFileYAML(aYAMLFile) : Object__
@@ -1886,6 +1957,13 @@ __io.writeFileTARStream(aTARfile, isGzip, aFunc, aDefaultMap)__
 
 ````
 Given aTARfile (or output stream (with isGzip = true/false)) will call aFunc(tion) providing, as argument, a writer function with three arguments: aFilePath, a Java input stream for the contents and the modification date for the target file.  Optionally aDefaultDate can be provided to be used whenever a date is not provided or for folders.
+````
+### io.writeFileTOML
+
+__io.writeFileTOML(aFile, aObj)__
+
+````
+Tries to write aObj into aFile as TOML.
 ````
 ### io.writeFileYAML
 
@@ -1962,7 +2040,7 @@ Returns true if aObj is an array, false otherwise.
 __isBinaryArray(anArrayOfChars, confirmLimit, previousResult) : boolean__
 
 ````
-Tries to determine if the provided anArrayOfChars is binary or text. The detection is performed with the first 1024 chars ( that can be changed if confirmLimit is provided). Additionally is possible to link multiple calls providing the last result on previousResult for multiple subsequences of a main array of chars sequence. Should work for utf8, iso-8859-1, iso-8859-7, *  windows-1252 and windows-1253. Returns true if file is believed to be binary.
+Tries to determine if the provided anArrayOfChars is binary or text. The detection is performed with the first 1024 chars ( that can be changed if confirmLimit is provided). Additionally is possible to link multiple calls providing the last result on previousResult for multiple subsequences of a main array of chars sequence. Should work for utf8, iso-8859-1, iso-8859-7,  windows-1252 and windows-1253. Returns true if file is believed to be binary.
 ````
 ### isBoolean
 
@@ -2019,6 +2097,13 @@ __isInteger(aObj) : boolean__
 
 ````
 Returns true if aObj doesn't have a decimal component.
+````
+### isJavaArray
+
+__isJavaArray(aObj) : boolean__
+
+````
+Returns true if aObj is a Java array, false otherwise
 ````
 ### isJavaClass
 
@@ -2120,10 +2205,10 @@ Shorcut for the native JSON.parse that returns an empty map if aString is not de
 ````
 ### listFilesRecursive
 
-__listFilesRecursive(aPath, usePosix) : Map__
+__listFilesRecursive(aPath, usePosix, aFnErr) : Map__
 
 ````
-Performs the io.listFiles function recursively given aPath. The returned map will be equivalent to the io.listFiles function (see more in io.listFiles). Alternatively you can specify to usePosix=true and it will add to the map the owner, group and full permissions of each file and folder.
+Performs the io.listFiles function recursively given aPath. The returned map will be equivalent to the io.listFiles function (see more in io.listFiles). Alternatively you can specify to usePosix=true and it will add to the map the owner, group and full permissions of each file and folder. When __flags.ALTERNATIVES.listFilesRecursive=true the processing will be done in parallel and aFnErr will be called in case of an error.
 ````
 ### load
 
@@ -2224,6 +2309,23 @@ __loadLodash()__
 Loads the loadash javascript library.
 
 See more in https://lodash.com/docs
+````
+### loadOAFP
+
+__loadOAFP()__
+
+````
+Loads the OpenAF processor that can be used with the function oafp. Example:
+
+# Thread unsafe example
+oafp({ data: "(abc: 123, xyz: 456)", out: "pm" })
+sprint(__pm._map)
+
+# Thread safe example
+oafp({ data: "(abc: 123, xyz: 456)", out: "key", __key: "myresult" })
+sprint($get("myresult"))
+
+
 ````
 ### loadPy
 
@@ -2646,6 +2748,24 @@ __persistDBInMem(aDB, aFilename) : Array__
 
 ````
 Tries to persist a in-memory database, aDB object, previously created by the function createDBInMem into a SQL aFilename. This can later be used to load again using the loadDBInMem function.
+````
+### pForEach
+
+__pForEach(anArray, aFn, aErrFn, aUseSeq) : Array__
+
+````
+Given anArray, divides it in subsets for processing in a specific number of threads. In each thread aFn(aValue, index) will be executed for each value in sequence. The results of each aFn will be returned in the same order as the original array. If an error occurs during the execution of aFn, aErrFn will be called with the error. If aUseSeq is true the sequential execution will be forced.
+
+Example:
+
+var res = pForEach(thingsToProcess,
+  function(aValue, index) {
+    return processValue(aValue)
+  },
+  function(e) {
+    printErr(e)
+  } )
+
 ````
 ### pidCheck
 

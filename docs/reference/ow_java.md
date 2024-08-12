@@ -127,6 +127,13 @@ __ow.java.cipher.getCert4File(aFile) : Java__
 ````
 Given a X509 certificate aFile will return the corresponding Java certificate object.
 ````
+### ow.java.cipher.getCert4String
+
+__ow.java.cipher.getCert4String(aString) : Java__
+
+````
+Given a X509 certificate string will return the corresponding Java certificate object.
+````
 ### ow.java.cipher.key2encode
 
 __ow.java.cipher.key2encode(aKey) : String__

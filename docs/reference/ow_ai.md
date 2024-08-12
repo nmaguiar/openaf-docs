@@ -45,10 +45,17 @@ Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults t
 ````
 ### $gpt.promptImage
 
-__$gpt.promptImage(aPrompt, aImage, aDetailLevel, aRole, aModel, aTemperature) : String__
+__$gpt.promptImage(aPrompt, aImage, aDetailLevel, aRole, aModel, aTemperature, jsonFlag) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aImage (a file path or a base64 string representation), aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### $gpt.promptImgGen
+
+__$gpt.promptImgGen(aPrompt, aModel, aPath) : Array__
+
+````
+Tries to prompt aPrompt and aModel (defaults to the one provided on the constructor) to generate one or more images and aPath to which the number of the image and ".png" will be saved to. Returns an array of the image files generated.
 ````
 ### $gpt.promptJSON
 
@@ -233,10 +240,31 @@ Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults t
 ````
 ### ow.ai.gpt.promptImage
 
-__ow.ai.gpt.promptImage(aPrompt, aImage, aDetailLevel, aRole, aModel, aTemperature) : String__
+__ow.ai.gpt.promptImage(aPrompt, aImage, aDetailLevel, aRole, aModel, aTemperature, jsonFlag) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aImage (a file path or a base64 string representation), aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
+````
+### ow.ai.gpt.promptImgGen
+
+__ow.ai.gpt.promptImgGen(aPrompt, aModel, anOutputPathPrefix) : Array__
+
+````
+Tries to prompt aPrompt (a string or an array of strings), aModel (defaults to the one provided on the constructor) to generate one or more images and anOutputPathPrefix to which the number of the image and ".png" will be appended. Returns an array of the files generated.
+````
+### ow.ai.gpt.prototype.getModels
+
+__ow.ai.gpt.prototype.getModels() : Array__
+
+````
+Returns the available models from the GPT AI service.
+````
+### ow.ai.gpt.rawImgGen
+
+__ow.ai.gpt.rawImgGen(aPrompt, aModel) : Map__
+
+````
+Tries to generate an image based on aPrompt (a string or an array of strings) with aModel (defaults to the one provided on the constructor). Returns the raw result.
 ````
 ### ow.ai.gpt.rawPrompt
 
@@ -271,7 +299,21 @@ Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults t
 __ow.ai.network(aMap) : ow.ai.network__
 
 ````
-Creates a neural network given the parameters in aMap. aMap should contain a "type" parameter to indicate the type of network (perceptron, lstm, liquid or hopfield). Then aMap should contain a "args" parameter to provide each network inialization parameters. Please see "help ow.ai.network.[type of network]" for more details about each one.
+Creates a neural network given the parameters in aMap. aMap should contain a "type" parameter to indicate the type of network (synaptic: perceptron, lstm, liquid or hopfield; brainjs: neuralnetwork, rnntimestep, lstmtimestep, grutimestep, rnn, lstm or gru).  Then aMap should contain a "args" parameter to provide each network inialization parameters. Please see "help ow.ai.network.[type of network]" for more details about each one.
+````
+### ow.ai.network.feedfoward
+
+__ow.ai.network.feedfoward(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#neural-network-types Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
+````
+### ow.ai.network.forecast
+
+__ow.ai.network.forecast(aInput, aCount) : Array__
+
+````
+
 ````
 ### ow.ai.network.fromJson
 
@@ -286,6 +328,34 @@ __ow.ai.network.get(inputArray) : Array__
 
 ````
 Given an inputArray of decimal values, normalize between 0 and 1, will activate the current network and  return an output array of decimal values between 0 and 1.
+````
+### ow.ai.network.getBrainJSObject
+
+__ow.ai.network.getBrainJSObject() : Object__
+
+````
+Returns the current BrainJS object.
+````
+### ow.ai.network.getSynapticObject
+
+__ow.ai.network.getSynapticObject() : Object__
+
+````
+Returns the current Synaptic object.
+````
+### ow.ai.network.gru
+
+__ow.ai.network.gru(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#for-training-with-rnn-lstm-and-gru Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
+````
+### ow.ai.network.grutimestep
+
+__ow.ai.network.grutimestep(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#for-training-with-rnntimestep-lstmtimestep-and-grutimestep Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
 ````
 ### ow.ai.network.hopfield
 
@@ -308,6 +378,20 @@ __ow.ai.network.lstm(args) : ow.ai.network__
 ````
 LSTM (Long short-term memory) are well-suited to learn from experience to classify, process and predict time series when there are very long time lags of unknown size between important events. There is a minimum of 3 layers (input, memory block (input, memory cell, forget gate, output gate), output). args = [2, 6, 1] means 2 input, 6 memory blocks, 1 output; args = [2, 4, 4, 4, 1] means 2 input neurons, 3 memory blocks and 1 output.
 ````
+### ow.ai.network.lstmtimestep
+
+__ow.ai.network.lstmtimestep(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#for-training-with-rnntimestep-lstmtimestep-and-grutimestep Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
+````
+### ow.ai.network.neuralnetwork
+
+__ow.ai.network.neuralnetwork(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#for-training-with-neuralnetwork Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
+````
 ### ow.ai.network.perceptron
 
 __ow.ai.network.perceptron(args) : ow.ai.network__
@@ -328,6 +412,27 @@ __ow.ai.network.readFile(aFile)__
 
 ````
 Rebuilds a network from a map stored in aFile previously with ow.ai.network.writeFile.
+````
+### ow.ai.network.recurrent
+
+__ow.ai.network.recurrent(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#neural-network-types Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
+````
+### ow.ai.network.rnn
+
+__ow.ai.network.rnn(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#for-training-with-rnn-lstm-and-gru Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
+````
+### ow.ai.network.rnntimestep
+
+__ow.ai.network.rnntimestep(args) : ow.ai.network__
+
+````
+Examples: https://github.com/BrainJS/brain.js?tab=readme-ov-file#examples Data format: https://github.com/BrainJS/brain.js?tab=readme-ov-file#for-training-with-rnntimestep-lstmtimestep-and-grutimestep Train: https://github.com/BrainJS/brain.js?tab=readme-ov-file#training-options
 ````
 ### ow.ai.network.toJson
 
@@ -352,6 +457,13 @@ __ow.ai.network.writeFile(aFile)__
 ````
 Writes a compressed file with the map representation of the current network.
 ````
+### ow.ai.normalize.denormalizeWithSchema
+
+__ow.ai.normalize.denormalizeWithSchema(aMapOfNormalizedData, aMapSchema, convertBools) : Map__
+
+````
+Tries to denormalize aMapOfNormalizedData (result from ow.ai.normalize.withSchema) according with aMapSchema provided.
+````
 ### ow.ai.normalize.intArray
 
 __ow.ai.normalize.intArray(anArray) : Array__
@@ -359,12 +471,26 @@ __ow.ai.normalize.intArray(anArray) : Array__
 ````
 Returns anArray where all numbers have been rounded to an integer value.
 ````
+### ow.ai.normalize.quantitize
+
+__ow.ai.normalize.quantitize(anArray, aLevels) : Array__
+
+````
+Given anArray of numbers tries to quantitize returning an array of values between 0 and aLevels. If aLevels is not provided it will default to 10.
+````
 ### ow.ai.normalize.scaleArray
 
 __ow.ai.normalize.scaleArray(anArray, aMax, aMin) : Array__
 
 ````
 Given anArray of numbers tries to normalize returning an array of values between 0 and 1. If aMax or aMin are not provided they will be infered from the provided anArray.
+````
+### ow.ai.normalize.softMax
+
+__ow.ai.normalize.softMax(anArray, aTemperature) : Array__
+
+````
+Given anArray of numbers tries to apply a Softmax function returning an array of values between 0 and 1. If aTemperature is provided it will be used to control the smoothness of the output.
 ````
 ### ow.ai.normalize.toFeaturesArray
 

@@ -304,6 +304,13 @@ __ow.obj.isSigned(aMap) : boolean__
 ````
 Verifies if the provided aMap was signed with ow.obj.sign function.
 ````
+### ow.obj.key2array
+
+__ow.obj.key2array(aMap, aREMatch, outkey, removeEmptys) : Object__
+
+````
+Given aMap will return an array of values where the keys match the aREMatch regular expression. Optionally you can provide an outkey to have return map with a key with the resulting array. If removeEmptys is true it will remove any undefined, null or empty values.
+````
 ### ow.obj.oneOf
 
 __ow.obj.oneOf(anArray, aWeightField) : Object__
@@ -870,4 +877,102 @@ __ow.obj.syncArray.toArray() : Array__
 
 ````
 Returns the internal array/list as a javascript array.
+````
+### ow.obj.syncMap
+
+__ow.obj.syncMap(aMap) : ow.obj.syncMap__
+
+````
+Creates an instance of a thread-safe map. Optionally it can be initialized with aMap.
+````
+### ow.obj.syncMap.clear
+
+__ow.obj.syncMap.clear()__
+
+````
+Clears the internal map.
+````
+### ow.obj.syncMap.containsKey
+
+__ow.obj.syncMap.containsKey(aKey) : boolean__
+
+````
+Returns true if the internal map contains aKey.
+````
+### ow.obj.syncMap.containsValue
+
+__ow.obj.syncMap.containsValue(aValue) : boolean__
+
+````
+Returns true if the internal map contains aValue.
+````
+### ow.obj.syncMap.get
+
+__ow.obj.syncMap.get(aKey) : Object__
+
+````
+Returns the value of aKey in the internal map.
+````
+### ow.obj.syncMap.getJavaObject
+
+__ow.obj.syncMap.getJavaObject() : Object__
+
+````
+Returns the internal java object.
+````
+### ow.obj.syncMap.getKeys
+
+__ow.obj.syncMap.getKeys() : Array__
+
+````
+Returns an array with the entries of the internal map.
+````
+### ow.obj.syncMap.getValues
+
+__ow.obj.syncMap.getValues() : Array__
+
+````
+Returns an array with the values of the internal map.
+````
+### ow.obj.syncMap.isEmpty
+
+__ow.obj.syncMap.isEmpty() : boolean__
+
+````
+Returns true if the internal map is empty.
+````
+### ow.obj.syncMap.put
+
+__ow.obj.syncMap.put(aKey, aValue) : ow.obj.syncMap__
+
+````
+Puts aKey with aValue in the internal map.
+````
+### ow.obj.syncMap.putAll
+
+__ow.obj.syncMap.putAll(aMap) : ow.obj.syncMap__
+
+````
+Puts all the entries of aMap in the internal map.
+````
+### ow.obj.syncMap.remove
+
+__ow.obj.syncMap.remove(aKey) : Object__
+
+````
+Removes the entry identified by aKey from the internal map.
+````
+### ow.obj.syncMap.size
+
+__ow.obj.syncMap.size() : Number__
+
+````
+Returns the current size of the internal map.
+````
+### ow.obj.syncMap.toMap
+
+__ow.obj.syncMap.toMap() : Map__
+
+````
+Returns the internal map as a javascript map.
 ````

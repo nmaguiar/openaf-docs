@@ -651,6 +651,61 @@ __ow.format.round(aNumber, aDigits) : String__
 Will return aNumber rounded to 0 decimal digits or aDigits decimal digits.
 (available after ow.loadFormat())
 ````
+### ow.format.semver
+
+__ow.format.semver(aVersion) : ow.format.semver__
+
+````
+Creates a new instance of ow.format.semver for the provided aVersion:
+  - nextMajor
+  - nextMinor
+  - nextPatch
+  - getMajor
+  - getMinor
+  - getPatch
+  - greater(aVersion)
+  - lower(aVersion)
+  - greaterEquals(aVersion)
+  - lowerEquals(aVersion)
+  - equals(aVersion)
+````
+### ow.format.sortSemanticVersions
+
+__ow.format.sortSemanticVersions(aArray) : Array__
+
+````
+Will sort the provided aArray of semantic versions (e.g. 1.0.0, 1.0.1, 1.1.0, 2.0.0, ...)
+(available after ow.loadFormat())
+````
+### ow.format.sqlFormat
+
+__ow.format.sqlFormat(aSQL, aMap) : String__
+
+````
+Will format aSQL using the sql-formatter library. Optionally you can provide aMap with the following options:
+
+  - indent: the indentation string (defaults to "  ")
+  - uppercase: if true will uppercase the SQL (defaults to false)
+  - linesBetweenQueries: number of lines between queries (defaults to 1)
+  - maxColumnLength: maximum column length (defaults to 50)
+  - skipWhitespaceNearBlockParentheses: if true will whitespace near block parentheses (defaults to false)
+  - language: the SQL language dialect (defaults to "StandardSql")
+
+The language can be one of the following:
+
+  - Db2
+  - MariaDb
+  - MySql
+  - N1ql
+  - PlSql
+  - PostgreSql
+  - Redshift
+  - SparkSql
+  - StandardSql
+  - TSql
+
+
+````
 ### ow.format.sshProgress
 
 __ow.format.sshProgress(aFn) : Object__
@@ -703,10 +758,10 @@ To be used with sh, af.sh or ssh.exec as the callbackFunc. Returns a function th
 ````
 ### ow.format.streamSHPrefix
 
-__ow.format.streamSHPrefix(aPrefix, anEncoding, aSeparator, aTemplate, aFnHandler) : Function__
+__ow.format.streamSHPrefix(aPrefix, anEncoding, aSeparator, aTemplate, aFnHandler, infoFn, errorFn) : Function__
 
 ````
-To be used with sh, af.sh or ssh.exec as the callbackFunc. Returns a function that will prefix each line with aPrefix and used the returned string with print and printErr. Optionally you can provide aTemplate to add "prefix" (defaults to "[{{prefix}}]") and/or provide aFnHandler to chain another streaming handling function (receives a stream and a boolean to indicate if its stdout or stderr)
+To be used with sh, af.sh or ssh.exec as the callbackFunc. Returns a function that will prefix each line with aPrefix and used the returned string with print and printErr. Optionally you can provide aTemplate to add "prefix" (defaults to "[{{prefix}}]") and/or provide aFnHandler to chain another streaming handling function (receives a stream and a boolean to indicate if its stdout or stderr). It's also possible to provide a infoFn and errorFn to handle the output. If infoFn or errorFn are not provided they will default to print and printErr or to log and logErr if __flags.SH.prefixLog is true.
 ````
 ### ow.format.string.ansiMoveDown
 
