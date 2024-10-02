@@ -62,14 +62,14 @@ If you want to set the proxy to be set permanently you can use _ow.obj.set*Proxy
 Set for a single execution (for example, to use with _oafp_) you can use _OAF\_JARGS_ for this. For example:
 
 ```bash
-OAF_JARS="-DsocksProxyHost=my.socks.proxy -DsocksProxyPort=12345" oafp url="https://ifconfig.co/json"
+OAF_JARGS="-DsocksProxyHost=my.socks.proxy -DsocksProxyPort=12345" oafp url="https://ifconfig.co/json"
 ```
 
 List of proxy variables to use per execution:
 
 | Type | Settings |
 |------|----------|
-| SOCKS | ```OAF_JARS="-DsocksProxyHost=my.socks.proxy -DsocksProxyPort=12345 -Djava.net.socks.username=scott -Djava.net.socks.password=tiger"``` |
-| HTTP | ```OAF_JARS="-Dhttp.proxyHost=my.http.proxy -Dhttp.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"``` |
-| HTTPS | ```OAF_JARS="-Dhttps.proxyHost=my.http.proxy -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"``` |
-| FTP | ```OAF_JARS="-Dftp.proxyHost=my.http.proxy -Dftp.proxyPort=3128 -Dftp.nonProxyHosts=localhost"``` |
+| SOCKS | ```OAF_JARGS="-DsocksProxyHost=my.socks.proxy -DsocksProxyPort=12345 -Djava.net.socks.username=scott -Djava.net.socks.password=tiger"``` |
+| HTTP | ```OAF_JARGS="-Dhttp.proxyHost=my.http.proxy -Dhttp.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"``` |
+| HTTPS | ```OAF_JARGS="-Dhttps.proxyHost=my.http.proxy -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"``` |
+| FTP | ```OAF_JARGS="-Dftp.proxyHost=my.http.proxy -Dftp.proxyPort=3128 -Dftp.nonProxyHosts=localhost"``` |
