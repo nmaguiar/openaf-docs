@@ -37,3 +37,9 @@ You can also check the library of examples in [oafp examples](../guides/oafp/oaf
 ---
 
 You can check more examples of usage in the [oafp guides](../guides/oafp/).
+
+---
+
+## Concepts
+
+![oafp concepts](oafp-diagram.png)
