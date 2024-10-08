@@ -43,3 +43,5 @@ You can check more examples of usage in the [oafp guides](../guides/oafp/).
 ## Concepts
 
 ![oafp concepts](oafp-diagram.png)
+
+_oafp_ reads input data format, filters that data into an internal JSON representation. Then the internal JSON representation can be transformed and filtered again to an output data format.
