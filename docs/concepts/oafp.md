@@ -21,6 +21,7 @@ or you can check it here:
 | [oafp usage documentation](../guides/oafp/oafp-usage) |
 | [oafp filters documentation](../guides/oafp/oafp-filters) |
 | [oafp templates documentation](../guides/oafp/oafp-template) |
+| [oafp basic examples](../guides/oafp/oafp-basic-examples) |
 
 If you have internet access you can also access a library of examples:
 
