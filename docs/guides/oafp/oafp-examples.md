@@ -15,174 +15,177 @@ Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](
 |:---------|:-------------|:----|:------------|
 | AI | Classification | [1](#1) | Given a list of news titles with corresponding dates and sources add a category and sub-category field to each |
 | AI | Conversation | [2](#2) | Send multiple requests to an OpenAI model keeping the conversation between interactions and setting the temperature parameter |
-| AI | Generate data | [3](#3) | Generates synthetic data using a LLM model and then uses the recorded conversation to generate more data respecting the provided instructions |
-| AI | Groq | [4](#4) | Calculation |
-| AI | Mistral | [5](#5) | List all available LLM models at mistral.ai |
-| AI | Ollama | [6](#6) | Setting up access to Ollama and ask for data to an AI LLM model |
-| AI | OpenAI | [7](#7) | Setting up the OpenAI LLM model and gather the data into a data.json file |
-| AI | Prompt | [8](#8) | Example of generating data from an AI LLM prompt |
-| AI | Scaleway | [9](#9) | Setting up a Scaleway Generative API LLM connection and ask for a list of all Roman emperors. |
-| AI | Summarize | [10](#10) | Use an AI LLM model to summarize the weather information provided in a JSON format |
-| AI | TogetherAI | [11](#11) | List all available LLM models at together.ai with their corresponding type and price components order by the more expensive, for input and output |
-| APIs | NASA | [12](#12) | Markdown table of near Earth objects by name, magnitude, if is potentially hazardous asteroids and corresponding distance |
-| APIs | Network | [13](#13) | Converting the Cloudflare DNS trace info |
-| APIs | Network | [14](#14) | Converting the Google DNS DoH query result |
-| APIs | Network | [15](#15) | Generating a simple map of the current public IP address |
-| APIs | Public Holidays | [16](#16) | Return the public holidays for a given country on a given year |
-| APIs | Space | [17](#17) | How many people are in space and in which craft currently in space |
-| APIs | iTunes | [18](#18) | Search the Apple&#x27;s iTunes database for a specific term |
-| AWS | DynamoDB | [19](#19) | Given an AWS DynamoDB table &#x27;my-table&#x27; will produce a ndjson output with all table items. |
-| AWS | DynamoDB | [20](#20) | Given an AWS DynamoDB table &#x27;my-users&#x27; will produce a colored tree output by getting the item for the email key &#x27;scott.tiger@example.com&#x27; |
-| AWS | EC2 | [21](#21) | Given all AWS EC2 instances in an account produces a table with name, type, vpc and private ip sorted by vpc |
-| AWS | EKS | [22](#22) | Builds an excel spreadsheet with all persistent volumes associated with an AWS EKS &#x27;XYZ&#x27; with the corresponding Kubernetes namespace, pvc and pv names |
-| AWS | Lambda | [23](#23) | Prepares a table of AWS Lambda functions with their corresponding main details |
-| AWS | Lambda | [24](#24) | Prepares a table, for a specific AWS Lambda function during a specific time periods, with number of invocations and minimum, average and maximum duration per periods from AWS CloudWatch |
-| Azure | Bing | [25](#25) | Given an Azure Bing Search API key and a query returns the corresponding search result from Bing. |
-| Channels | S3 | [26](#26) | Given a S3 bucket will load data from a previously store data in a provided prefix |
-| Channels | S3 | [27](#27) | Given a S3 bucket will save a list of data (the current list of name and versions of OpenAF&#x27;s oPacks) within a provided prefix |
-| Chart | Unix | [28](#28) | Output a chart with the current Unix load using uptime |
-| DB | H2 | [29](#29) | Perform a SQL query over a H2 database. |
-| DB | H2 | [30](#30) | Perform queries and DML SQL statements over a H2 databases |
-| DB | H2 | [31](#31) | Store the json result of a command into a H2 database table. |
-| DB | List | [32](#32) | List all OpenAF&#x27;s oPack pre-prepared JDBC drivers |
-| DB | Mongo | [33](#33) | List all records from a specific MongoDB database and collection from a remote Mongo database. |
-| DB | SQLite | [34](#34) | Lists all files in openaf.jar, stores the result in a &#x27;data&#x27; table on a SQLite data.db file and performs a query over the stored data. |
-| DB | SQLite | [35](#35) | Perform a query over a database using JDBC. |
-| DB | SQLite | [36](#36) | Store the json result on a SQLite database table. |
-| Diff | Envs | [37](#37) | Given two JSON files with environment variables performs a diff and returns a colored result with the corresponding differences |
-| Diff | Lines | [38](#38) | Performing a diff between two long command lines to spot differences |
-| Diff | Path | [39](#39) | Given two JSON files with the parsed PATH environment variable performs a diff and returns a colored result with the corresponding differences |
-| Docker | Containers | [40](#40) | Output a table with the list of running containers. |
-| Docker | Listing | [41](#41) | List all containers with the docker-compose project, service name, file, id, name, image, creation time, status, networks and ports. |
-| Docker | Listing | [42](#42) | List all containers with their corresponding labels parsed and sorted. |
-| Docker | Network | [43](#43) | Output a table with the docker networks info. |
-| Docker | Registry | [44](#44) | List all a table of docker container images repository and corresponding tags of a private registry. |
-| Docker | Registry | [45](#45) | List all the docker container image repositories of a private registry. |
-| Docker | Registry | [46](#46) | List all the docker container image repository tags of a private registry. |
-| Docker | Stats | [47](#47) | Output a table with the docker stats broken down for each value. |
-| Docker | Storage | [48](#48) | Output a table with the docker volumes info. |
-| ElasticSearch | Cluster | [49](#49) | Get an ElasticSearch/OpenSearch cluster nodes overview |
-| ElasticSearch | Cluster | [50](#50) | Get an ElasticSearch/OpenSearch cluster per host data allocation |
-| ElasticSearch | Cluster | [51](#51) | Get an ElasticSearch/OpenSearch cluster settings flat |
-| ElasticSearch | Cluster | [52](#52) | Get an ElasticSearch/OpenSearch cluster settings non-flatted |
-| ElasticSearch | Cluster | [53](#53) | Get an ElasticSearch/OpenSearch cluster stats per node |
-| ElasticSearch | Cluster | [54](#54) | Get an overview of an ElasticSearch/OpenSearch cluster health |
-| ElasticSearch | Indices | [55](#55) | Get an ElasticSearch/OpenSearch count per index |
-| ElasticSearch | Indices | [56](#56) | Get an ElasticSearch/OpenSearch indices overview |
-| ElasticSearch | Indices | [57](#57) | Get an ElasticSearch/OpenSearch settings for a specific index |
-| GIT | History | [58](#58) | Give a GIT repository will retrieve the current log history and parse it to an Excel (XLS) file. |
-| GPU | Nvidia | [59](#59) | Builds a grid with two charts providing a visualization over a Nvidia GPU usage and the corresponding memory usage for a specific GPU_IDX (gpu index) |
-| GPU | Nvidia | [60](#60) | Get current Nvidia per-gpu usage |
-| Generic | Arrays | [61](#61) | Converting an array of strings into an array of maps |
-| Generic | Avro | [62](#62) | Given an Avro data file outputs it&#x27;s corresponding statistics |
-| Generic | Avro | [63](#63) | Given an Avro data file outputs the correspoding schema |
-| Generic | Avro | [64](#64) | Reads an Avro data file as input |
-| Generic | Avro | [65](#65) | Write an Avro data file as an output |
-| Generic | Base64 | [66](#66) | Encode/decode data (or text-like files) to/from gzip base64 representation for easier packing and transport. |
-| Generic | Excel | [67](#67) | Building an Excel file with the AWS IPv4 and IPv6 ranges (1). |
-| Generic | Excel | [68](#68) | Building an Excel file with the AWS IPv4 and IPv6 ranges (2). |
-| Generic | Excel | [69](#69) | Building an Excel file with the AWS IPv4 and IPv6 ranges (3). |
-| Generic | Excel | [70](#70) | Processes each json file in /some/data creating and updating the data.xlsx file with a sheet for each file. |
-| Generic | Excel | [71](#71) | Store and retrieve data from an Excel spreadsheet |
-| Generic | HTML | [72](#72) | Generate a HTML with table of emoticons/emojis by category, group, name, unicode and html code. |
-| Generic | Hex | [73](#73) | Outputs an hexadecimal representation of the characters of the file provided allowing to adjust how many per line/row. |
-| Generic | List files | [74](#74) | After listing all files and folders recursively producing a count table by file extension. |
-| Generic | RSS | [75](#75) | Builds an HTML file with the current linked news titles, publication date and source from Google News RSS. |
-| Generic | RSS | [76](#76) | Example of generating a HTML list of titles, links and publication dates from a RSS feed |
-| Generic | RSS | [77](#77) | Generates a HTML page with the current news from Google News, order by date, and opens a browser with it. |
-| Generic | RSS | [78](#78) | Parses the Slashdot&#x27;s RSS feed news into a quick clickable HTML page in a browser |
-| Generic | Set | [79](#79) | Given two json files, with arrays of component versions, generate a table with the difference on one of the sides. |
-| Generic | Set | [80](#80) | Given two json files, with arrays of component versions, generate a table with the union of the two sides. |
-| Generic | Template | [81](#81) | Given a meal name will search &#x27;The Meal DB&#x27; site for the corresponding recipe and render a markdown HTML of the corresponding recipe. |
-| Generic | Text | [82](#82) | Get a json with lyrics of a song. |
-| Generic | Text | [83](#83) | Search a word in the English dictionary returning phonetic, meanings, synonyms, antonyms, etc. |
-| Generic | YAML | [84](#84) | Given an YAML file with a data array composed of maps with fields &#x27;c&#x27;, &#x27;s&#x27;, &#x27;d&#x27; and &#x27;e&#x27; filter by any record where any field doesn&#x27;t have contents. |
-| GitHub | GIST | [85](#85) | Using GitHub&#x27;s GIST functionality retrieves and parses an oAFp examples YAML file with the template and the corresponding data. |
-| GitHub | Releases | [86](#86) | Builds a table of GitHub project releases |
-| GitHub | Releases | [87](#87) | Parses the latest GitHub project release markdown notes |
-| Grid | Java | [88](#88) | Parses a Java hsperf data + the current rss java process memory into a looping grid. |
-| Grid | Java | [89](#89) | Parses a Java hsperf data into a looping grid. |
-| Grid | Kubernetes | [90](#90) | Displays a continuous updating grid with a line chart with the number of CPU throtlles and bursts recorded in the Linux cgroup cpu stats of a container running in Kubernetes and the source cpu.stats data |
-| Grid | Mac | [91](#91) | Shows a grid with the Mac network metrics and 4 charts for in, out packets and in, out bytes |
-| Grid | Mac | [92](#92) | Shows a grid with the Mac storage metrics and 4 charts for read, write IOPS and read, write bytes per second |
-| Grid | Unix | [93](#93) | On an Unix/Linux system supporting &#x27;ps&#x27; output formats %cpu and %mem, will output a chart with the percentage of cpu and memory usage of a provided pid (e.g. 12345) |
-| JSON Schemas | Lists | [94](#94) | Get a list of JSON schemas from Schema Store catalog |
-| Java | Certificates | [95](#95) | Given a Java keystore will obtain a list of certificates and output them order by the ones that will expire first. |
-| Kubernetes | Containers | [96](#96) | Parse the Linux cgroup cpu stats on a container running in Kubernetes |
-| Kubernetes | Kubectl | [97](#97) | Build an output table with Kubernetes pods with namespace, pod name, container name and corresponding resources using kubectl |
-| Kubernetes | Kubectl | [98](#98) | Build an output table with Kubernetes pods with node, namespace, pod name, container name and corresponding resources using kubectl |
-| Kubernetes | Kubectl | [99](#99) | Executes a recursive file list find command in a specific pod, namespace and path converting the result into a table. |
-| Kubernetes | Kubectl | [100](#100) | Given the list of all Kubernetes objects will produce a list of objects per namespace, kind, apiVersiom, creation timestamp, name and owner. |
-| Kubernetes | Kubectl | [101](#101) | List of Kubernetes CPU, memory and storage stats per node using kubectl |
-| Kubernetes | Kubectl | [102](#102) | List of Kubernetes pods per namespace and kind using kubectl |
-| Kubernetes | Kubectl | [103](#103) | Produces a list of pods&#x27; containers per namespace with the corresponding images and assigned nodes. |
-| Kubernetes | PVC | [104](#104) | Produces a table with all Kubernetes persistent volume claims (PVCs) in use by pods. |
-| Mac | Activity | [105](#105) | Uses the Mac terminal command &#x27;last&#x27; output to build an activity table with user, tty, from, login-time and logout-time |
-| Mac | Brew | [106](#106) | List all the packages and corresponding versions installed in a Mac by brew. |
-| Mac | Chart | [107](#107) | On a Mac OS produce a looping chart with the total percentage of current CPU usage. |
-| Mac | Info | [108](#108) | Get a list of the current logged users in Mac OS |
-| Mac | Info | [109](#109) | Parses the current Mac OS hardware information |
-| Mac | Info | [110](#110) | Parses the current Mac OS overview information |
-| Mac | Safari | [111](#111) | Get a list of all Mac OS Safari bookmarks into a CSV file. |
-| Mac | Tunnelblink | [112](#112) | In a Mac OS with Tunnelblink, if you want to copy all your OpenVPN configurations into ovpn files. |
-| Markdown | Tables | [113](#113) | For an input markdown file, parse all tables, transform it to JSON and output as a colored table |
-| Network | ASN | [114](#114) | Retrieve an IP to ASN list list and converts it to ndjson |
-| Network | ASN | [115](#115) | Retrieve the list of ASN number and names from RIPE and transforms it to a CSV. |
-| Network | Latency | [116](#116) | Given a host and a port will display a continuously updating line chart with network latency, in ms, between the current device and the target host and port |
-| Ollama | List models | [117](#117) | Parses the list of models currently in an Ollama deployment |
-| OpenAF | Channels | [118](#118) | Copy the json result of a command into an etcd database using OpenAF&#x27;s channels |
-| OpenAF | Channels | [119](#119) | Getting all data stored in an etcd database using OpenAF&#x27;s channels |
-| OpenAF | Channels | [120](#120) | Given a Prometheus database will query for a specific metric (go_memstats_alloc_bytes), during a defined period, every 5 seconds (step) will produce a static chart with the corresponding metric values. |
-| OpenAF | Channels | [121](#121) | Perform a query to a metric &amp; label, with a start and end time, to a Prometheus server using OpenAF&#x27;s channels |
-| OpenAF | Channels | [122](#122) | Retrieve all keys stores in a H2 MVStore file using OpenAF&#x27;s channels |
-| OpenAF | Channels | [123](#123) | Store and retrieve data from a Redis database |
-| OpenAF | Channels | [124](#124) | Store and retrieve data from a RocksDB database |
-| OpenAF | Channels | [125](#125) | Store the json results of a command into a H2 MVStore file using OpenAF&#x27;s channels |
-| OpenAF | Network | [126](#126) | Gets all the DNS host addresses for a provided domain and ensures that the output is always a list |
-| OpenAF | Network | [127](#127) | List all MX (mail servers) network addresses from the current DNS server for a hostname using OpenAF |
-| OpenAF | Network | [128](#128) | List all network addresses returned from the current DNS server for a hostname using OpenAF |
-| OpenAF | OS | [129](#129) | Current OS information visible to OpenAF |
-| OpenAF | OS | [130](#130) | Using OpenAF parse the current environment variables |
-| OpenAF | OpenVPN | [131](#131) | Using OpenAF code to perform a more complex parsing of the OpenVPN status data running on an OpenVPN container (nmaguiar/openvpn) called &#x27;openvpn&#x27; |
-| OpenAF | SFTP | [132](#132) | Generates a file list with filepath, size, permissions, create and last modified time from a SFTP connection with user and password |
-| OpenAF | SFTP | [133](#133) | Generates a file list with filepath, size, permissions, create and last modified time from a SFTP connection with user, private key and password |
-| OpenAF | TLS | [134](#134) | List the TLS certificates of a target host with a sorted alternative names using OpenAF |
-| OpenAF | oJob.io | [135](#135) | Parses ojob.io/news results into a clickable news title HMTL page. |
-| OpenAF | oJob.io | [136](#136) | Retrieves the list of oJob.io&#x27;s jobs and filters which start by &#x27;ojob.io/news&#x27; to display them in a rectangle |
-| OpenAF | oPacks | [137](#137) | Listing all currently accessible OpenAF&#x27;s oPacks |
-| OpenAF | oafp | [138](#138) | Filter the OpenAF&#x27;s oafp examples list by a specific word in the description |
-| OpenAF | oafp | [139](#139) | List the OpenAF&#x27;s oafp examples by category, sub-category and description |
-| OpenVPN | List | [140](#140) | When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date |
-| Unix | Activity | [141](#141) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for Debian based Linuxs |
-| Unix | Activity | [142](#142) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for RedHat based Linuxs |
-| Unix | Alpine | [143](#143) | List all installed packages in an Alpine system |
-| Unix | Compute | [144](#144) | Parses the Linux /proc/cpuinfo into an array |
-| Unix | Debian/Ubuntu | [145](#145) | List all installed packages in a Debian/Ubuntu system |
-| Unix | Envs | [146](#146) | Converts the Linux envs command result into a table of environment variables and corresponding values |
-| Unix | Files | [147](#147) | Converting the Linux&#x27;s /etc/os-release to SQL insert statements. |
-| Unix | Files | [148](#148) | Converting the Unix&#x27;s syslog into a json output. |
-| Unix | Files | [149](#149) | Executes a recursive file list find command converting the result into a table. |
-| Unix | Files | [150](#150) | Parses the Linux /etc/passwd to a table order by uid and gid. |
-| Unix | Generic | [151](#151) | Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data |
-| Unix | Memory map | [152](#152) | Given an Unix process will output a table with process&#x27;s components memory address, size in bytes, permissions and owner |
-| Unix | Network | [153](#153) | Loop over the current Linux active network connections |
-| Unix | Network | [154](#154) | Parse the Linux &#x27;arp&#x27; command output |
-| Unix | Network | [155](#155) | Parse the Linux &#x27;ip tcp_metrics&#x27; command |
-| Unix | Network | [156](#156) | Parse the result of the Linux route command |
-| Unix | OpenSuse | [157](#157) | List all installed packages in an OpenSuse system or zypper based system |
-| Unix | RedHat | [158](#158) | List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available) |
-| Unix | Storage | [159](#159) | Converting the Unix&#x27;s df output |
-| Unix | Storage | [160](#160) | Parses the result of the Unix ls command |
-| Unix | SystemCtl | [161](#161) | Converting the Unix&#x27;s systemctl list-timers |
-| Unix | SystemCtl | [162](#162) | Converting the Unix&#x27;s systemctl list-units |
-| Unix | SystemCtl | [163](#163) | Converting the Unix&#x27;s systemctl list-units into an overview table |
-| Unix | UBI | [164](#164) | List all installed packages in an UBI system |
-| Unix | named | [165](#165) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
-| Windows | Network | [166](#166) | Output a table with the current route table using Windows&#x27; PowerShell |
-| Windows | Network | [167](#167) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
-| Windows | PnP | [168](#168) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
-| Windows | Storage | [169](#169) | Output a table with the attached disk information using Windows&#x27; PowerShell |
-| XML | Maven | [170](#170) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
+| AI | Generate data | [3](#3) | Generates synthetic data making parallel prompts to a LLM model and then cleaning up the result removing duplicate records into a final csv file. |
+| AI | Generate data | [4](#4) | Generates synthetic data using a LLM model and then uses the recorded conversation to generate more data respecting the provided instructions |
+| AI | Groq | [5](#5) | Calculation |
+| AI | Mistral | [6](#6) | List all available LLM models at mistral.ai |
+| AI | Ollama | [7](#7) | Setting up access to Ollama and ask for data to an AI LLM model |
+| AI | OpenAI | [8](#8) | Setting up the OpenAI LLM model and gather the data into a data.json file |
+| AI | Prompt | [9](#9) | Example of generating data from an AI LLM prompt |
+| AI | Scaleway | [10](#10) | Setting up a Scaleway Generative API LLM connection and ask for a list of all Roman emperors. |
+| AI | Summarize | [11](#11) | Use an AI LLM model to summarize the weather information provided in a JSON format |
+| AI | TogetherAI | [12](#12) | List all available LLM models at together.ai with their corresponding type and price components order by the more expensive, for input and output |
+| APIs | NASA | [13](#13) | Markdown table of near Earth objects by name, magnitude, if is potentially hazardous asteroids and corresponding distance |
+| APIs | Network | [14](#14) | Converting the Cloudflare DNS trace info |
+| APIs | Network | [15](#15) | Converting the Google DNS DoH query result |
+| APIs | Network | [16](#16) | Generating a simple map of the current public IP address |
+| APIs | Public Holidays | [17](#17) | Return the public holidays for a given country on a given year |
+| APIs | Space | [18](#18) | How many people are in space and in which craft currently in space |
+| APIs | iTunes | [19](#19) | Search the Apple&#x27;s iTunes database for a specific term |
+| AWS | DynamoDB | [20](#20) | Given an AWS DynamoDB table &#x27;my-table&#x27; will produce a ndjson output with all table items. |
+| AWS | DynamoDB | [21](#21) | Given an AWS DynamoDB table &#x27;my-users&#x27; will produce a colored tree output by getting the item for the email key &#x27;scott.tiger@example.com&#x27; |
+| AWS | EC2 | [22](#22) | Given all AWS EC2 instances in an account produces a table with name, type, vpc and private ip sorted by vpc |
+| AWS | EKS | [23](#23) | Builds an excel spreadsheet with all persistent volumes associated with an AWS EKS &#x27;XYZ&#x27; with the corresponding Kubernetes namespace, pvc and pv names |
+| AWS | Lambda | [24](#24) | Prepares a table of AWS Lambda functions with their corresponding main details |
+| AWS | Lambda | [25](#25) | Prepares a table, for a specific AWS Lambda function during a specific time periods, with number of invocations and minimum, average and maximum duration per periods from AWS CloudWatch |
+| Azure | Bing | [26](#26) | Given an Azure Bing Search API key and a query returns the corresponding search result from Bing. |
+| Channels | S3 | [27](#27) | Given a S3 bucket will load data from a previously store data in a provided prefix |
+| Channels | S3 | [28](#28) | Given a S3 bucket will save a list of data (the current list of name and versions of OpenAF&#x27;s oPacks) within a provided prefix |
+| Chart | Unix | [29](#29) | Output a chart with the current Unix load using uptime |
+| DB | H2 | [30](#30) | Perform a SQL query over a H2 database. |
+| DB | H2 | [31](#31) | Perform queries and DML SQL statements over a H2 databases |
+| DB | H2 | [32](#32) | Store the json result of a command into a H2 database table. |
+| DB | List | [33](#33) | List all OpenAF&#x27;s oPack pre-prepared JDBC drivers |
+| DB | Mongo | [34](#34) | List all records from a specific MongoDB database and collection from a remote Mongo database. |
+| DB | SQLite | [35](#35) | Lists all files in openaf.jar, stores the result in a &#x27;data&#x27; table on a SQLite data.db file and performs a query over the stored data. |
+| DB | SQLite | [36](#36) | Perform a query over a database using JDBC. |
+| DB | SQLite | [37](#37) | Store the json result on a SQLite database table. |
+| Diff | Envs | [38](#38) | Given two JSON files with environment variables performs a diff and returns a colored result with the corresponding differences |
+| Diff | Lines | [39](#39) | Performing a diff between two long command lines to spot differences |
+| Diff | Path | [40](#40) | Given two JSON files with the parsed PATH environment variable performs a diff and returns a colored result with the corresponding differences |
+| Docker | Containers | [41](#41) | Output a table with the list of running containers. |
+| Docker | Listing | [42](#42) | List all containers with the docker-compose project, service name, file, id, name, image, creation time, status, networks and ports. |
+| Docker | Listing | [43](#43) | List all containers with their corresponding labels parsed and sorted. |
+| Docker | Network | [44](#44) | Output a table with the docker networks info. |
+| Docker | Registry | [45](#45) | List all a table of docker container images repository and corresponding tags of a private registry. |
+| Docker | Registry | [46](#46) | List all the docker container image repositories of a private registry. |
+| Docker | Registry | [47](#47) | List all the docker container image repository tags of a private registry. |
+| Docker | Stats | [48](#48) | Output a table with the docker stats broken down for each value. |
+| Docker | Storage | [49](#49) | Output a table with the docker volumes info. |
+| ElasticSearch | Cluster | [50](#50) | Get an ElasticSearch/OpenSearch cluster nodes overview |
+| ElasticSearch | Cluster | [51](#51) | Get an ElasticSearch/OpenSearch cluster per host data allocation |
+| ElasticSearch | Cluster | [52](#52) | Get an ElasticSearch/OpenSearch cluster settings flat |
+| ElasticSearch | Cluster | [53](#53) | Get an ElasticSearch/OpenSearch cluster settings non-flatted |
+| ElasticSearch | Cluster | [54](#54) | Get an ElasticSearch/OpenSearch cluster stats per node |
+| ElasticSearch | Cluster | [55](#55) | Get an overview of an ElasticSearch/OpenSearch cluster health |
+| ElasticSearch | Indices | [56](#56) | Get an ElasticSearch/OpenSearch count per index |
+| ElasticSearch | Indices | [57](#57) | Get an ElasticSearch/OpenSearch indices overview |
+| ElasticSearch | Indices | [58](#58) | Get an ElasticSearch/OpenSearch settings for a specific index |
+| GIT | History | [59](#59) | Give a GIT repository will retrieve the current log history and parse it to an Excel (XLS) file. |
+| GPU | Nvidia | [60](#60) | Builds a grid with two charts providing a visualization over a Nvidia GPU usage and the corresponding memory usage for a specific GPU_IDX (gpu index) |
+| GPU | Nvidia | [61](#61) | Get current Nvidia per-gpu usage |
+| Generic | Arrays | [62](#62) | Converting an array of strings into an array of maps |
+| Generic | Avro | [63](#63) | Given an Avro data file outputs it&#x27;s corresponding statistics |
+| Generic | Avro | [64](#64) | Given an Avro data file outputs the correspoding schema |
+| Generic | Avro | [65](#65) | Reads an Avro data file as input |
+| Generic | Avro | [66](#66) | Write an Avro data file as an output |
+| Generic | Base64 | [67](#67) | Encode/decode data (or text-like files) to/from gzip base64 representation for easier packing and transport. |
+| Generic | Commands | [68](#68) | Given an input array with phone numbers will run parallel output commands, calling ojob.io/telco/phoneNumber, for each entry effectively building an output from those multiple command executions. |
+| Generic | Excel | [69](#69) | Building an Excel file with the AWS IPv4 and IPv6 ranges (1). |
+| Generic | Excel | [70](#70) | Building an Excel file with the AWS IPv4 and IPv6 ranges (2). |
+| Generic | Excel | [71](#71) | Building an Excel file with the AWS IPv4 and IPv6 ranges (3). |
+| Generic | Excel | [72](#72) | Processes each json file in /some/data creating and updating the data.xlsx file with a sheet for each file. |
+| Generic | Excel | [73](#73) | Store and retrieve data from an Excel spreadsheet |
+| Generic | HTML | [74](#74) | Generate a HTML with table of emoticons/emojis by category, group, name, unicode and html code. |
+| Generic | Hex | [75](#75) | Outputs an hexadecimal representation of the characters of the file provided allowing to adjust how many per line/row. |
+| Generic | List files | [76](#76) | After listing all files and folders recursively producing a count table by file extension. |
+| Generic | RSS | [77](#77) | Builds an HTML file with the current linked news titles, publication date and source from Google News RSS. |
+| Generic | RSS | [78](#78) | Example of generating a HTML list of titles, links and publication dates from a RSS feed |
+| Generic | RSS | [79](#79) | Generates a HTML page with the current news from Google News, order by date, and opens a browser with it. |
+| Generic | RSS | [80](#80) | Parses the Slashdot&#x27;s RSS feed news into a quick clickable HTML page in a browser |
+| Generic | Set | [81](#81) | Given two json files, with arrays of component versions, generate a table with the difference on one of the sides. |
+| Generic | Set | [82](#82) | Given two json files, with arrays of component versions, generate a table with the union of the two sides. |
+| Generic | Template | [83](#83) | Given a meal name will search &#x27;The Meal DB&#x27; site for the corresponding recipe and render a markdown HTML of the corresponding recipe. |
+| Generic | Text | [84](#84) | Get a json with lyrics of a song. |
+| Generic | Text | [85](#85) | Search a word in the English dictionary returning phonetic, meanings, synonyms, antonyms, etc. |
+| Generic | YAML | [86](#86) | Given an YAML file with a data array composed of maps with fields &#x27;c&#x27;, &#x27;s&#x27;, &#x27;d&#x27; and &#x27;e&#x27; filter by any record where any field doesn&#x27;t have contents. |
+| GitHub | GIST | [87](#87) | Using GitHub&#x27;s GIST functionality retrieves and parses an oAFp examples YAML file with the template and the corresponding data. |
+| GitHub | Releases | [88](#88) | Builds a table of GitHub project releases |
+| GitHub | Releases | [89](#89) | Parses the latest GitHub project release markdown notes |
+| Grid | Java | [90](#90) | Parses a Java hsperf data + the current rss java process memory into a looping grid. |
+| Grid | Java | [91](#91) | Parses a Java hsperf data into a looping grid. |
+| Grid | Kubernetes | [92](#92) | Displays a continuous updating grid with a line chart with the number of CPU throtlles and bursts recorded in the Linux cgroup cpu stats of a container running in Kubernetes and the source cpu.stats data |
+| Grid | Mac | [93](#93) | Shows a grid with the Mac network metrics and 4 charts for in, out packets and in, out bytes |
+| Grid | Mac | [94](#94) | Shows a grid with the Mac storage metrics and 4 charts for read, write IOPS and read, write bytes per second |
+| Grid | Unix | [95](#95) | On an Unix/Linux system supporting &#x27;ps&#x27; output formats %cpu and %mem, will output a chart with the percentage of cpu and memory usage of a provided pid (e.g. 12345) |
+| JSON Schemas | Lists | [96](#96) | Get a list of JSON schemas from Schema Store catalog |
+| Java | Certificates | [97](#97) | Given a Java keystore will obtain a list of certificates and output them order by the ones that will expire first. |
+| Kubernetes | Containers | [98](#98) | Parse the Linux cgroup cpu stats on a container running in Kubernetes |
+| Kubernetes | Kubectl | [99](#99) | Build an output table with Kubernetes pods with namespace, pod name, container name and corresponding resources using kubectl |
+| Kubernetes | Kubectl | [100](#100) | Build an output table with Kubernetes pods with node, namespace, pod name, container name and corresponding resources using kubectl |
+| Kubernetes | Kubectl | [101](#101) | Executes a recursive file list find command in a specific pod, namespace and path converting the result into a table. |
+| Kubernetes | Kubectl | [102](#102) | Given the list of all Kubernetes objects will produce a list of objects per namespace, kind, apiVersiom, creation timestamp, name and owner. |
+| Kubernetes | Kubectl | [103](#103) | List of Kubernetes CPU, memory and storage stats per node using kubectl |
+| Kubernetes | Kubectl | [104](#104) | List of Kubernetes pods per namespace and kind using kubectl |
+| Kubernetes | Kubectl | [105](#105) | Produces a list of pods&#x27; containers per namespace with the corresponding images and assigned nodes. |
+| Kubernetes | PVC | [106](#106) | Produces a table with all Kubernetes persistent volume claims (PVCs) in use by pods. |
+| Mac | Activity | [107](#107) | Uses the Mac terminal command &#x27;last&#x27; output to build an activity table with user, tty, from, login-time and logout-time |
+| Mac | Brew | [108](#108) | List all the packages and corresponding versions installed in a Mac by brew. |
+| Mac | Chart | [109](#109) | On a Mac OS produce a looping chart with the total percentage of current CPU usage. |
+| Mac | Info | [110](#110) | Get a list of the current logged users in Mac OS |
+| Mac | Info | [111](#111) | Parses the current Mac OS hardware information |
+| Mac | Info | [112](#112) | Parses the current Mac OS overview information |
+| Mac | Safari | [113](#113) | Get a list of all Mac OS Safari bookmarks into a CSV file. |
+| Mac | Tunnelblink | [114](#114) | In a Mac OS with Tunnelblink, if you want to copy all your OpenVPN configurations into ovpn files. |
+| Markdown | Tables | [115](#115) | For an input markdown file, parse all tables, transform it to JSON and output as a colored table |
+| Network | ASN | [116](#116) | Retrieve an IP to ASN list list and converts it to ndjson |
+| Network | ASN | [117](#117) | Retrieve the list of ASN number and names from RIPE and transforms it to a CSV. |
+| Network | Latency | [118](#118) | Given a host and a port will display a continuously updating line chart with network latency, in ms, between the current device and the target host and port |
+| Ollama | List models | [119](#119) | Parses the list of models currently in an Ollama deployment |
+| OpenAF | Channels | [120](#120) | Copy the json result of a command into an etcd database using OpenAF&#x27;s channels |
+| OpenAF | Channels | [121](#121) | Getting all data stored in an etcd database using OpenAF&#x27;s channels |
+| OpenAF | Channels | [122](#122) | Given a Prometheus database will query for a specific metric (go_memstats_alloc_bytes), during a defined period, every 5 seconds (step) will produce a static chart with the corresponding metric values. |
+| OpenAF | Channels | [123](#123) | Perform a query to a metric &amp; label, with a start and end time, to a Prometheus server using OpenAF&#x27;s channels |
+| OpenAF | Channels | [124](#124) | Retrieve all keys stores in a H2 MVStore file using OpenAF&#x27;s channels |
+| OpenAF | Channels | [125](#125) | Store and retrieve data from a Redis database |
+| OpenAF | Channels | [126](#126) | Store and retrieve data from a RocksDB database |
+| OpenAF | Channels | [127](#127) | Store the json results of a command into a H2 MVStore file using OpenAF&#x27;s channels |
+| OpenAF | Flags | [128](#128) | List the current values of OpenAF/oAFp internal flags |
+| OpenAF | Network | [129](#129) | Gets all the DNS host addresses for a provided domain and ensures that the output is always a list |
+| OpenAF | Network | [130](#130) | List all MX (mail servers) network addresses from the current DNS server for a hostname using OpenAF |
+| OpenAF | Network | [131](#131) | List all network addresses returned from the current DNS server for a hostname using OpenAF |
+| OpenAF | OS | [132](#132) | Current OS information visible to OpenAF |
+| OpenAF | OS | [133](#133) | Using OpenAF parse the current environment variables |
+| OpenAF | OpenVPN | [134](#134) | Using OpenAF code to perform a more complex parsing of the OpenVPN status data running on an OpenVPN container (nmaguiar/openvpn) called &#x27;openvpn&#x27; |
+| OpenAF | SFTP | [135](#135) | Generates a file list with filepath, size, permissions, create and last modified time from a SFTP connection with user and password |
+| OpenAF | SFTP | [136](#136) | Generates a file list with filepath, size, permissions, create and last modified time from a SFTP connection with user, private key and password |
+| OpenAF | TLS | [137](#137) | List the TLS certificates of a target host with a sorted alternative names using OpenAF |
+| OpenAF | oJob.io | [138](#138) | Parses ojob.io/news results into a clickable news title HMTL page. |
+| OpenAF | oJob.io | [139](#139) | Retrieves the list of oJob.io&#x27;s jobs and filters which start by &#x27;ojob.io/news&#x27; to display them in a rectangle |
+| OpenAF | oPacks | [140](#140) | Listing all currently accessible OpenAF&#x27;s oPacks |
+| OpenAF | oafp | [141](#141) | Filter the OpenAF&#x27;s oafp examples list by a specific word in the description |
+| OpenAF | oafp | [142](#142) | List the OpenAF&#x27;s oafp examples by category, sub-category and description |
+| OpenVPN | List | [143](#143) | When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date |
+| Unix | Activity | [144](#144) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for Debian based Linuxs |
+| Unix | Activity | [145](#145) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for RedHat based Linuxs |
+| Unix | Alpine | [146](#146) | List all installed packages in an Alpine system |
+| Unix | Compute | [147](#147) | Parses the Linux /proc/cpuinfo into an array |
+| Unix | Debian/Ubuntu | [148](#148) | List all installed packages in a Debian/Ubuntu system |
+| Unix | Envs | [149](#149) | Converts the Linux envs command result into a table of environment variables and corresponding values |
+| Unix | Files | [150](#150) | Converting the Linux&#x27;s /etc/os-release to SQL insert statements. |
+| Unix | Files | [151](#151) | Converting the Unix&#x27;s syslog into a json output. |
+| Unix | Files | [152](#152) | Executes a recursive file list find command converting the result into a table. |
+| Unix | Files | [153](#153) | Parses the Linux /etc/passwd to a table order by uid and gid. |
+| Unix | Generic | [154](#154) | Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data |
+| Unix | Memory map | [155](#155) | Given an Unix process will output a table with process&#x27;s components memory address, size in bytes, permissions and owner |
+| Unix | Network | [156](#156) | Loop over the current Linux active network connections |
+| Unix | Network | [157](#157) | Parse the Linux &#x27;arp&#x27; command output |
+| Unix | Network | [158](#158) | Parse the Linux &#x27;ip tcp_metrics&#x27; command |
+| Unix | Network | [159](#159) | Parse the result of the Linux route command |
+| Unix | OpenSuse | [160](#160) | List all installed packages in an OpenSuse system or zypper based system |
+| Unix | RedHat | [161](#161) | List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available) |
+| Unix | Storage | [162](#162) | Converting the Unix&#x27;s df output |
+| Unix | Storage | [163](#163) | Parses the result of the Unix ls command |
+| Unix | SystemCtl | [164](#164) | Converting the Unix&#x27;s systemctl list-timers |
+| Unix | SystemCtl | [165](#165) | Converting the Unix&#x27;s systemctl list-units |
+| Unix | SystemCtl | [166](#166) | Converting the Unix&#x27;s systemctl list-units into an overview table |
+| Unix | UBI | [167](#167) | List all installed packages in an UBI system |
+| Unix | named | [168](#168) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
+| Windows | Network | [169](#169) | Output a table with the current route table using Windows&#x27; PowerShell |
+| Windows | Network | [170](#170) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
+| Windows | PnP | [171](#171) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
+| Windows | Storage | [172](#172) | Output a table with the attached disk information using Windows&#x27; PowerShell |
+| XML | Maven | [173](#173) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
 
 ## 📗 Examples
 
@@ -214,6 +217,19 @@ rm cvst.json
 
 ##### 3
 ### 📖 AI | Generate data
+Generates synthetic data making parallel prompts to a LLM model and then cleaning up the result removing duplicate records into a final csv file.
+```bash
+# Set the LLM model to use
+export OAFP_MODEL="(type: openai, url: 'https://api.scaleway.ai', key: '111-222-333', model: 'llama-3.1-70b-instruct', headers: (Content-Type: application/json))"
+# Run 5 parallel prompts to generate data
+oafp data="()" path="range(\`5\`)" out=cmd outcmdtmpl=true outcmd="oafp data='generate a list of 10 maps each with firstName, lastName, city and country' in=llm out=ndjson" > data.ndjson
+# Clean-up generate data removing duplicates
+oafp data.ndjson in=ndjson ndjsonjoin=true removedups=true out=csv > data.csv
+```
+---
+
+##### 4
+### 📖 AI | Generate data
 Generates synthetic data using a LLM model and then uses the recorded conversation to generate more data respecting the provided instructions
 ```bash
 export OAFP_MODEL="(type: ollama, model: 'llama3', url: 'https://models.local', timeout: 900000)"
@@ -223,7 +239,7 @@ oafp data.ndjson ndjsonjoin=true out=ctable sql="select * order by transaction_i
 ```
 ---
 
-##### 4
+##### 5
 ### 📖 AI | Groq
 Calculation
 ```bash
@@ -232,7 +248,7 @@ oafp in=llm data="how much does light take to travel from Tokyo to Osaka in ms; 
 ```
 ---
 
-##### 5
+##### 6
 ### 📖 AI | Mistral
 List all available LLM models at mistral.ai
 ```bash
@@ -241,7 +257,7 @@ oafp in=llmmodels data="()" path="sort([].id)"
 ```
 ---
 
-##### 6
+##### 7
 ### 📖 AI | Ollama
 Setting up access to Ollama and ask for data to an AI LLM model
 ```bash
@@ -251,7 +267,7 @@ oafp data.json output=ctable sql="select * order by population desc"
 ```
 ---
 
-##### 7
+##### 8
 ### 📖 AI | OpenAI
 Setting up the OpenAI LLM model and gather the data into a data.json file
 ```bash
@@ -260,7 +276,7 @@ echo "list all United Nations secretaries with their corresponding 'name', their
 ```
 ---
 
-##### 8
+##### 9
 ### 📖 AI | Prompt
 Example of generating data from an AI LLM prompt
 ```bash
@@ -269,7 +285,7 @@ oafp in=llm data="produce a list of 25 species of 'flowers' with their english a
 ```
 ---
 
-##### 9
+##### 10
 ### 📖 AI | Scaleway
 Setting up a Scaleway Generative API LLM connection and ask for a list of all Roman emperors.
 ```bash
@@ -278,7 +294,7 @@ oafp data="list all roman emperors" in=llm getlist=true out=ctable
 ```
 ---
 
-##### 10
+##### 11
 ### 📖 AI | Summarize
 Use an AI LLM model to summarize the weather information provided in a JSON format
 ```bash
@@ -287,7 +303,7 @@ oafp url="https://wttr.in?format=j2" llmcontext="current and forecast weather" l
 ```
 ---
 
-##### 11
+##### 12
 ### 📖 AI | TogetherAI
 List all available LLM models at together.ai with their corresponding type and price components order by the more expensive, for input and output
 ```bash
@@ -296,7 +312,7 @@ oafp in=llmmodels data="()" path="[].{id:id,name:display_name,type:type,ctxLen:c
 ```
 ---
 
-##### 12
+##### 13
 ### 📖 APIs | NASA
 Markdown table of near Earth objects by name, magnitude, if is potentially hazardous asteroids and corresponding distance
 ```bash
@@ -304,7 +320,7 @@ curl -s "https://api.nasa.gov/neo/rest/v1/feed?API_KEY=DEMO_KEY" | oafp path="ne
 ```
 ---
 
-##### 13
+##### 14
 ### 📖 APIs | Network
 Converting the Cloudflare DNS trace info
 ```bash
@@ -312,7 +328,7 @@ curl -s https://1.1.1.1/cdn-cgi/trace | oafp in=ini out=ctree
 ```
 ---
 
-##### 14
+##### 15
 ### 📖 APIs | Network
 Converting the Google DNS DoH query result
 ```bash
@@ -320,7 +336,7 @@ DOMAIN=yahoo.com && oafp path=Answer from="sort(data)" out=ctable url="https://8
 ```
 ---
 
-##### 15
+##### 16
 ### 📖 APIs | Network
 Generating a simple map of the current public IP address
 ```bash
@@ -328,7 +344,7 @@ curl -s https://ifconfig.co/json | oafp flatmap=true out=map
 ```
 ---
 
-##### 16
+##### 17
 ### 📖 APIs | Public Holidays
 Return the public holidays for a given country on a given year
 ```bash
@@ -336,7 +352,7 @@ COUNTRY=US && YEAR=2024 && oafp url="https://date.nager.at/api/v2/publicholidays
 ```
 ---
 
-##### 17
+##### 18
 ### 📖 APIs | Space
 How many people are in space and in which craft currently in space
 ```bash
@@ -344,7 +360,7 @@ curl -s http://api.open-notify.org/astros.json | oafp path="people" sql="select 
 ```
 ---
 
-##### 18
+##### 19
 ### 📖 APIs | iTunes
 Search the Apple&#x27;s iTunes database for a specific term
 ```bash
@@ -352,7 +368,7 @@ TRM="Mozart" && oafp url="https://itunes.apple.com/search?term=$TRM" out=ctree
 ```
 ---
 
-##### 19
+##### 20
 ### 📖 AWS | DynamoDB
 Given an AWS DynamoDB table &#x27;my-table&#x27; will produce a ndjson output with all table items.
 ```bash
@@ -361,7 +377,7 @@ oafp libs="@AWS/aws.js" in=ch inch="(type: dynamo, options: (region: us-west-1, 
 ```
 ---
 
-##### 20
+##### 21
 ### 📖 AWS | DynamoDB
 Given an AWS DynamoDB table &#x27;my-users&#x27; will produce a colored tree output by getting the item for the email key &#x27;scott.tiger@example.com&#x27;
 ```bash
@@ -370,7 +386,7 @@ oafp in=ch inch="(type: dynamo, options: (region: eu-west-1, tableName: my-users
 ```
 ---
 
-##### 21
+##### 22
 ### 📖 AWS | EC2
 Given all AWS EC2 instances in an account produces a table with name, type, vpc and private ip sorted by vpc
 ```bash
@@ -378,7 +394,7 @@ aws ec2 describe-instances | oafp path="Reservations[].Instances[].{name:join(''
 ```
 ---
 
-##### 22
+##### 23
 ### 📖 AWS | EKS
 Builds an excel spreadsheet with all persistent volumes associated with an AWS EKS &#x27;XYZ&#x27; with the corresponding Kubernetes namespace, pvc and pv names
 ```bash
@@ -387,7 +403,7 @@ aws ec2 describe-volumes | oafp path="Volumes[?Tags[?Key=='kubernetes.io/cluster
 ```
 ---
 
-##### 23
+##### 24
 ### 📖 AWS | Lambda
 Prepares a table of AWS Lambda functions with their corresponding main details
 ```bash
@@ -395,7 +411,7 @@ aws lambda list-functions | oafp path="Functions[].{Name:FunctionName,Runtime:Ru
 ```
 ---
 
-##### 24
+##### 25
 ### 📖 AWS | Lambda
 Prepares a table, for a specific AWS Lambda function during a specific time periods, with number of invocations and minimum, average and maximum duration per periods from AWS CloudWatch
 ```bash
@@ -408,7 +424,7 @@ oafp data.ndjson ndjsonjoin=true opath="[].{ts:ts,cnt:nvl(cnt,\`0\`),min:nvl(min
 ```
 ---
 
-##### 25
+##### 26
 ### 📖 Azure | Bing
 Given an Azure Bing Search API key and a query returns the corresponding search result from Bing.
 ```bash
@@ -416,7 +432,7 @@ QUERY="OpenAF" && KEY="12345" && curl -X GET "https://api.bing.microsoft.com/v7.
 ```
 ---
 
-##### 26
+##### 27
 ### 📖 Channels | S3
 Given a S3 bucket will load data from a previously store data in a provided prefix
 ```bash
@@ -425,7 +441,7 @@ oafp libs="@S3/s3.js" in=ch inch="(type: s3, options: (s3url: 'https://play.min.
 ```
 ---
 
-##### 27
+##### 28
 ### 📖 Channels | S3
 Given a S3 bucket will save a list of data (the current list of name and versions of OpenAF&#x27;s oPacks) within a provided prefix
 ```bash
@@ -434,7 +450,7 @@ oafp libs="@S3/s3.js" -v path="openaf.opacks" out=ch ch="(type: s3, options: (s3
 ```
 ---
 
-##### 28
+##### 29
 ### 📖 Chart | Unix
 Output a chart with the current Unix load using uptime
 ```bash
@@ -442,7 +458,7 @@ oafp cmd="uptime" in=raw path="replace(trim(@), '.+ ([\d\.]+),? ([\d\.]+),? ([\d
 ```
 ---
 
-##### 29
+##### 30
 ### 📖 DB | H2
 Perform a SQL query over a H2 database.
 ```bash
@@ -450,7 +466,7 @@ echo "select * from \"data\"" | oafp in=db indbjdbc="jdbc:h2:./data" indbuser=sa
 ```
 ---
 
-##### 30
+##### 31
 ### 📖 DB | H2
 Perform queries and DML SQL statements over a H2 databases
 ```bash
@@ -465,7 +481,7 @@ SQL='select * from newdata' && oafp in=db indbjdbc="jdbc:h2:./data" indbuser=sa 
 ```
 ---
 
-##### 31
+##### 32
 ### 📖 DB | H2
 Store the json result of a command into a H2 database table.
 ```bash
@@ -473,7 +489,7 @@ oaf -c "\$o(listFilesRecursive('.'),{__format:'json'})" | oafp out=db dbjdbc="jd
 ```
 ---
 
-##### 32
+##### 33
 ### 📖 DB | List
 List all OpenAF&#x27;s oPack pre-prepared JDBC drivers
 ```bash
@@ -481,7 +497,7 @@ oaf -c "sprint(getOPackRemoteDB())" | oafp maptoarray=true opath="[].{name:name,
 ```
 ---
 
-##### 33
+##### 34
 ### 📖 DB | Mongo
 List all records from a specific MongoDB database and collection from a remote Mongo database.
 ```bash
@@ -490,7 +506,7 @@ oafp libs="@Mongo/mongo.js" in=ch inch="(type: mongo, options: (database: defaul
 ```
 ---
 
-##### 34
+##### 35
 ### 📖 DB | SQLite
 Lists all files in openaf.jar, stores the result in a &#x27;data&#x27; table on a SQLite data.db file and performs a query over the stored data.
 ```bash
@@ -503,7 +519,7 @@ SQL='select count(1) numberOfFiles, round(avg("size")) avgSize, sum("size") tota
 ```
 ---
 
-##### 35
+##### 36
 ### 📖 DB | SQLite
 Perform a query over a database using JDBC.
 ```bash
@@ -513,7 +529,7 @@ echo "select * from data" | oafp in=db indbjdbc="jdbc:sqlite:data.db" indbtable=
 ```
 ---
 
-##### 36
+##### 37
 ### 📖 DB | SQLite
 Store the json result on a SQLite database table.
 ```bash
@@ -523,7 +539,7 @@ oaf -c "\$o(listFilesRecursive('.'),{__format:'json'})" | oafp out=db dbjdbc="jd
 ```
 ---
 
-##### 37
+##### 38
 ### 📖 Diff | Envs
 Given two JSON files with environment variables performs a diff and returns a colored result with the corresponding differences
 ```bash
@@ -534,7 +550,7 @@ oafp in=oafp data="[(file: data1.json)|(file: data2.json)]" diff="(a:'[0]',b:'[1
 ```
 ---
 
-##### 38
+##### 39
 ### 📖 Diff | Lines
 Performing a diff between two long command lines to spot differences
 ```bash
@@ -549,7 +565,7 @@ after: URL="http://localhost:9090" && METRIC="go_memstats_alloc_bytes" && TYPE="
 ```
 ---
 
-##### 39
+##### 40
 ### 📖 Diff | Path
 Given two JSON files with the parsed PATH environment variable performs a diff and returns a colored result with the corresponding differences
 ```bash
@@ -560,7 +576,7 @@ oafp in=oafp data="[(file: data1.json)|(file: data2.json)]" diff="(a:'sort([0])'
 ```
 ---
 
-##### 40
+##### 41
 ### 📖 Docker | Containers
 Output a table with the list of running containers.
 ```bash
@@ -568,7 +584,7 @@ oafp cmd="docker ps --format json" input=ndjson ndjsonjoin=true path="[].{id:ID,
 ```
 ---
 
-##### 41
+##### 42
 ### 📖 Docker | Listing
 List all containers with the docker-compose project, service name, file, id, name, image, creation time, status, networks and ports.
 ```bash
@@ -576,7 +592,7 @@ docker ps -a --format=json | oafp in=ndjson ndjsonjoin=true out=ctree path="[].i
 ```
 ---
 
-##### 42
+##### 43
 ### 📖 Docker | Listing
 List all containers with their corresponding labels parsed and sorted.
 ```bash
@@ -584,7 +600,7 @@ docker ps -a --format=json | oafp in=ndjson ndjsonjoin=true out=ctree path="[].i
 ```
 ---
 
-##### 43
+##### 44
 ### 📖 Docker | Network
 Output a table with the docker networks info.
 ```bash
@@ -592,7 +608,7 @@ docker network ls --format json | oafp in=ndjson ndjsonjoin=true out=ctable
 ```
 ---
 
-##### 44
+##### 45
 ### 📖 Docker | Registry
 List all a table of docker container images repository and corresponding tags of a private registry.
 ```bash
@@ -602,7 +618,7 @@ oafp libs=dockerregistry in=registryrepos data="()" inregistryurl=http://localho
 ```
 ---
 
-##### 45
+##### 46
 ### 📖 Docker | Registry
 List all the docker container image repositories of a private registry.
 ```bash
@@ -612,7 +628,7 @@ oafp libs=dockerregistry data="()" in=registryrepos inregistryurl=http://localho
 ```
 ---
 
-##### 46
+##### 47
 ### 📖 Docker | Registry
 List all the docker container image repository tags of a private registry.
 ```bash
@@ -622,7 +638,7 @@ oafp libs=dockerregistry data="library/nginx" in=registrytags inregistryurl=http
 ```
 ---
 
-##### 47
+##### 48
 ### 📖 Docker | Stats
 Output a table with the docker stats broken down for each value.
 ```bash
@@ -630,7 +646,7 @@ oafp cmd="docker stats --no-stream" in=lines linesvisual=true linesjoin=true out
 ```
 ---
 
-##### 48
+##### 49
 ### 📖 Docker | Storage
 Output a table with the docker volumes info.
 ```bash
@@ -638,7 +654,7 @@ docker volume ls --format json | oafp in=ndjson ndjsonjoin=true out=ctable
 ```
 ---
 
-##### 49
+##### 50
 ### 📖 ElasticSearch | Cluster
 Get an ElasticSearch/OpenSearch cluster nodes overview
 ```bash
@@ -648,7 +664,7 @@ curl -s "$ES_URL/_cat/nodes?format=json" $ES_EXTRA | oafp sql="select * order by
 ```
 ---
 
-##### 50
+##### 51
 ### 📖 ElasticSearch | Cluster
 Get an ElasticSearch/OpenSearch cluster per host data allocation
 ```bash
@@ -658,7 +674,7 @@ curl -s "$ES_URL/_cat/allocation?format=json&bytes=b" $ES_EXTRA | oafp sql="sele
 ```
 ---
 
-##### 51
+##### 52
 ### 📖 ElasticSearch | Cluster
 Get an ElasticSearch/OpenSearch cluster settings flat
 ```bash
@@ -668,7 +684,7 @@ curl -s "$ES_URL/_cluster/settings?include_defaults=true&flat_settings=true" $ES
 ```
 ---
 
-##### 52
+##### 53
 ### 📖 ElasticSearch | Cluster
 Get an ElasticSearch/OpenSearch cluster settings non-flatted
 ```bash
@@ -678,7 +694,7 @@ curl -s "$ES_URL/_cluster/settings?include_defaults=true" $ES_EXTRA | oafp out=c
 ```
 ---
 
-##### 53
+##### 54
 ### 📖 ElasticSearch | Cluster
 Get an ElasticSearch/OpenSearch cluster stats per node
 ```bash
@@ -688,7 +704,7 @@ curl -s "$ES_URL/_nodes/stats/indices/search" $ES_EXTRA | oafp out=ctree
 ```
 ---
 
-##### 54
+##### 55
 ### 📖 ElasticSearch | Cluster
 Get an overview of an ElasticSearch/OpenSearch cluster health
 ```bash
@@ -698,7 +714,7 @@ curl -s "$ES_URL/_cat/health?format=json" $ES_EXTRA | oafp out=ctable
 ```
 ---
 
-##### 55
+##### 56
 ### 📖 ElasticSearch | Indices
 Get an ElasticSearch/OpenSearch count per index
 ```bash
@@ -708,7 +724,7 @@ curl -s "$ES_URL/kibana_sample_data_flights/_count" $ES_EXTRA | oafp
 ```
 ---
 
-##### 56
+##### 57
 ### 📖 ElasticSearch | Indices
 Get an ElasticSearch/OpenSearch indices overview
 ```bash
@@ -718,7 +734,7 @@ curl -s "$ES_URL/_cat/indices?format=json&bytes=b" $ES_EXTRA | oafp sql="select 
 ```
 ---
 
-##### 57
+##### 58
 ### 📖 ElasticSearch | Indices
 Get an ElasticSearch/OpenSearch settings for a specific index
 ```bash
@@ -728,7 +744,7 @@ curl -s "$ES_URL/kibana_sample_data_flights/_settings" $ES_EXTRA | oafp out=ctre
 ```
 ---
 
-##### 58
+##### 59
 ### 📖 GIT | History
 Give a GIT repository will retrieve the current log history and parse it to an Excel (XLS) file.
 ```bash
@@ -737,7 +753,7 @@ git log --pretty=format:'{c:"%H",a:"%an",d:"%ad",m:"%s"}' | oafp in=ndjson ndjso
 ```
 ---
 
-##### 59
+##### 60
 ### 📖 GPU | Nvidia
 Builds a grid with two charts providing a visualization over a Nvidia GPU usage and the corresponding memory usage for a specific GPU_IDX (gpu index)
 ```bash
@@ -745,7 +761,7 @@ GPU_IDX=0 &&oafp cmd="nvidia-smi --query-gpu=index,name,memory.total,memory.used
 ```
 ---
 
-##### 60
+##### 61
 ### 📖 GPU | Nvidia
 Get current Nvidia per-gpu usage
 ```bash
@@ -753,7 +769,7 @@ nvidia-smi --query-gpu=index,name,memory.total,memory.used,memory.free,utilizati
 ```
 ---
 
-##### 61
+##### 62
 ### 📖 Generic | Arrays
 Converting an array of strings into an array of maps
 ```bash
@@ -761,7 +777,7 @@ oafp -v path="java.params[].insert(from_json('{}'), 'param', @).insert(@, 'len',
 ```
 ---
 
-##### 62
+##### 63
 ### 📖 Generic | Avro
 Given an Avro data file outputs it&#x27;s corresponding statistics
 ```bash
@@ -770,7 +786,7 @@ oafp libs=avro data.avro inavrostats=true
 ```
 ---
 
-##### 63
+##### 64
 ### 📖 Generic | Avro
 Given an Avro data file outputs the correspoding schema
 ```bash
@@ -779,7 +795,7 @@ oafp libs=avro data.avro inavroschema=true
 ```
 ---
 
-##### 64
+##### 65
 ### 📖 Generic | Avro
 Reads an Avro data file as input
 ```bash
@@ -788,7 +804,7 @@ oafp data.avro libs=avro out=ctable
 ```
 ---
 
-##### 65
+##### 66
 ### 📖 Generic | Avro
 Write an Avro data file as an output
 ```bash
@@ -797,7 +813,7 @@ oafp data.json libs=avro out=avro avrofile=data.avro
 ```
 ---
 
-##### 66
+##### 67
 ### 📖 Generic | Base64
 Encode/decode data (or text-like files) to/from gzip base64 representation for easier packing and transport.
 ```bash
@@ -808,7 +824,15 @@ oafp data.gb64 in=gb64json out=json > data.json
 ```
 ---
 
-##### 67
+##### 68
+### 📖 Generic | Commands
+Given an input array with phone numbers will run parallel output commands, calling ojob.io/telco/phoneNumber, for each entry effectively building an output from those multiple command executions.
+```bash
+oafp data="[(p:911234567)|(p:+18004564567)]" in=slon out=cmd outcmdtmpl=true outcmd="ojob ojob.io/telco/phoneNumber country=PT number={{p}} -json" | oafp in=ndjson ndjsonjoin=true path="[].phoneInfo" out=ctree
+```
+---
+
+##### 69
 ### 📖 Generic | Excel
 Building an Excel file with the AWS IPv4 and IPv6 ranges (1).
 ```bash
@@ -816,7 +840,7 @@ curl https://ip-ranges.amazonaws.com/ip-ranges.json > ip-ranges.json
 ```
 ---
 
-##### 68
+##### 70
 ### 📖 Generic | Excel
 Building an Excel file with the AWS IPv4 and IPv6 ranges (2).
 ```bash
@@ -824,7 +848,7 @@ oafp ip-ranges.json path=prefixes out=xls xlsfile=aws-ip-ranges.xlsx xlssheet=ip
 ```
 ---
 
-##### 69
+##### 71
 ### 📖 Generic | Excel
 Building an Excel file with the AWS IPv4 and IPv6 ranges (3).
 ```bash
@@ -832,7 +856,7 @@ oafp ip-ranges.json path=ipv6_prefixes out=xls xlsfile=aws-ip-ranges.xlsx xlsshe
 ```
 ---
 
-##### 70
+##### 72
 ### 📖 Generic | Excel
 Processes each json file in /some/data creating and updating the data.xlsx file with a sheet for each file.
 ```bash
@@ -840,7 +864,7 @@ find /some/data -name "*.json" | xargs -I '{}' /bin/sh -c 'oafp file={} output=x
 ```
 ---
 
-##### 71
+##### 73
 ### 📖 Generic | Excel
 Store and retrieve data from an Excel spreadsheet
 ```bash
@@ -851,7 +875,7 @@ oafp in=xls file=data.xlsx xlscol=A xlsrow=1 out=pjson
 ```
 ---
 
-##### 72
+##### 74
 ### 📖 Generic | HTML
 Generate a HTML with table of emoticons/emojis by category, group, name, unicode and html code.
 ```bash
@@ -859,7 +883,7 @@ oafp url="https://emojihub.yurace.pro/api/all" path="[].{category:category,group
 ```
 ---
 
-##### 73
+##### 75
 ### 📖 Generic | Hex
 Outputs an hexadecimal representation of the characters of the file provided allowing to adjust how many per line/row.
 ```bash
@@ -867,7 +891,7 @@ oafp some.file in=rawhex inrawhexline=15 out=ctable
 ```
 ---
 
-##### 74
+##### 76
 ### 📖 Generic | List files
 After listing all files and folders recursively producing a count table by file extension.
 ```bash
@@ -875,7 +899,7 @@ FPATH="git/ojob.io" && oafp in=ls lsrecursive=true data="$FPATH" path="[].insert
 ```
 ---
 
-##### 75
+##### 77
 ### 📖 Generic | RSS
 Builds an HTML file with the current linked news titles, publication date and source from Google News RSS.
 ```bash
@@ -883,7 +907,7 @@ RSS="https://news.google.com/rss" && oafp url="$RSS" path="rss.channel.item[].{t
 ```
 ---
 
-##### 76
+##### 78
 ### 📖 Generic | RSS
 Example of generating a HTML list of titles, links and publication dates from a RSS feed
 ```bash
@@ -891,7 +915,7 @@ oafp url="https://blog.google/rss" path="rss.channel.item" sql="select title, li
 ```
 ---
 
-##### 77
+##### 79
 ### 📖 Generic | RSS
 Generates a HTML page with the current news from Google News, order by date, and opens a browser with it.
 ```bash
@@ -899,7 +923,7 @@ oafp url="https://news.google.com/rss" path="rss.channel.item[].{title:title,lin
 ```
 ---
 
-##### 78
+##### 80
 ### 📖 Generic | RSS
 Parses the Slashdot&#x27;s RSS feed news into a quick clickable HTML page in a browser
 ```bash
@@ -907,7 +931,7 @@ RSS="http://rss.slashdot.org/Slashdot/slashdot" && oafp url="$RSS" path="RDF.ite
 ```
 ---
 
-##### 79
+##### 81
 ### 📖 Generic | Set
 Given two json files, with arrays of component versions, generate a table with the difference on one of the sides.
 ```bash
@@ -915,7 +939,7 @@ oafp data="[(file: versions-latest.json)|(file: versions-build.json)]" in=oafp s
 ```
 ---
 
-##### 80
+##### 82
 ### 📖 Generic | Set
 Given two json files, with arrays of component versions, generate a table with the union of the two sides.
 ```bash
@@ -923,7 +947,7 @@ oafp data="[(file: versions-latest.json)|(file: versions-build.json)]" in=oafp s
 ```
 ---
 
-##### 81
+##### 83
 ### 📖 Generic | Template
 Given a meal name will search &#x27;The Meal DB&#x27; site for the corresponding recipe and render a markdown HTML of the corresponding recipe.
 ```bash
@@ -931,7 +955,7 @@ MEAL="Pizza" && echo "# {{strMeal}}\n> {{strCategory}} | {{strArea}}\n<a href=\"
 ```
 ---
 
-##### 82
+##### 84
 ### 📖 Generic | Text
 Get a json with lyrics of a song.
 ```bash
@@ -939,7 +963,7 @@ curl -s https://api.lyrics.ovh/v1/Coldplay/Viva%20La%20Vida | oafp path="substri
 ```
 ---
 
-##### 83
+##### 85
 ### 📖 Generic | Text
 Search a word in the English dictionary returning phonetic, meanings, synonyms, antonyms, etc.
 ```bash
@@ -947,7 +971,7 @@ WORD="google" && oafp url="https://api.dictionaryapi.dev/api/v2/entries/en/$WORD
 ```
 ---
 
-##### 84
+##### 86
 ### 📖 Generic | YAML
 Given an YAML file with a data array composed of maps with fields &#x27;c&#x27;, &#x27;s&#x27;, &#x27;d&#x27; and &#x27;e&#x27; filter by any record where any field doesn&#x27;t have contents.
 ```bash
@@ -955,7 +979,7 @@ oafp oafp-examples.yaml path="data[?length(nvl(c, \'\')) == \`0\` || length(nvl(
 ```
 ---
 
-##### 85
+##### 87
 ### 📖 GitHub | GIST
 Using GitHub&#x27;s GIST functionality retrieves and parses an oAFp examples YAML file with the template and the corresponding data.
 ```bash
@@ -964,7 +988,7 @@ oafp libs="@GIST/gist.js" in=ch inch="(type: gist)" data="(id: '557e12e4a840d513
 ```
 ---
 
-##### 86
+##### 88
 ### 📖 GitHub | Releases
 Builds a table of GitHub project releases
 ```bash
@@ -972,7 +996,7 @@ curl -s https://api.github.com/repos/openaf/openaf/releases | oafp sql="select n
 ```
 ---
 
-##### 87
+##### 89
 ### 📖 GitHub | Releases
 Parses the latest GitHub project release markdown notes
 ```bash
@@ -980,7 +1004,7 @@ curl -s https://api.github.com/repos/openaf/openaf/releases | oafp path="[0].bod
 ```
 ---
 
-##### 88
+##### 90
 ### 📖 Grid | Java
 Parses a Java hsperf data + the current rss java process memory into a looping grid.
 ```bash
@@ -988,7 +1012,7 @@ JPID=12345 && HSPERF=/tmp/hsperfdata_openvscode-server/$JPID && oafp in=oafp dat
 ```
 ---
 
-##### 89
+##### 91
 ### 📖 Grid | Java
 Parses a Java hsperf data into a looping grid.
 ```bash
@@ -996,7 +1020,7 @@ HSPERF=/tmp/hsperfdata_user/12345 && oafp $HSPERF in=hsperf path=java out=grid g
 ```
 ---
 
-##### 90
+##### 92
 ### 📖 Grid | Kubernetes
 Displays a continuous updating grid with a line chart with the number of CPU throtlles and bursts recorded in the Linux cgroup cpu stats of a container running in Kubernetes and the source cpu.stats data
 ```bash
@@ -1004,7 +1028,7 @@ oafp cmd="cat /sys/fs/cgroup/cpu.stat | sed 's/ /: /g'" in=yaml out=grid grid="[
 ```
 ---
 
-##### 91
+##### 93
 ### 📖 Grid | Mac
 Shows a grid with the Mac network metrics and 4 charts for in, out packets and in, out bytes
 ```bash
@@ -1014,7 +1038,7 @@ oafp libs=Mac cmd="sudo powermetrics --format=plist --show-initial-usage -n 0 --
 ```
 ---
 
-##### 92
+##### 94
 ### 📖 Grid | Mac
 Shows a grid with the Mac storage metrics and 4 charts for read, write IOPS and read, write bytes per second
 ```bash
@@ -1024,7 +1048,7 @@ oafp libs=Mac cmd="sudo powermetrics --format=plist --show-initial-usage -n 0 --
 ```
 ---
 
-##### 93
+##### 95
 ### 📖 Grid | Unix
 On an Unix/Linux system supporting &#x27;ps&#x27; output formats %cpu and %mem, will output a chart with the percentage of cpu and memory usage of a provided pid (e.g. 12345)
 ```bash
@@ -1032,7 +1056,7 @@ oafp cmd="ps -p 12345 -o %cpu,%mem" in=lines linesvisual=true linesvisualsepre="
 ```
 ---
 
-##### 94
+##### 96
 ### 📖 JSON Schemas | Lists
 Get a list of JSON schemas from Schema Store catalog
 ```bash
@@ -1040,7 +1064,7 @@ oafp cmd="curl https://raw.githubusercontent.com/SchemaStore/schemastore/master/
 ```
 ---
 
-##### 95
+##### 97
 ### 📖 Java | Certificates
 Given a Java keystore will obtain a list of certificates and output them order by the ones that will expire first.
 ```bash
@@ -1049,7 +1073,7 @@ ojob ojob.io/java/certs op=list keystore=mycerts -json | oafp out=ctable sql="se
 ```
 ---
 
-##### 96
+##### 98
 ### 📖 Kubernetes | Containers
 Parse the Linux cgroup cpu stats on a container running in Kubernetes
 ```bash
@@ -1057,7 +1081,7 @@ cat /sys/fs/cgroup/cpu.stat | sed 's/ /: /g' | oafp in=yaml out=ctree
 ```
 ---
 
-##### 97
+##### 99
 ### 📖 Kubernetes | Kubectl
 Build an output table with Kubernetes pods with namespace, pod name, container name and corresponding resources using kubectl
 ```bash
@@ -1065,7 +1089,7 @@ kubectl get pods -A -o json | oafp path="items[].amerge({ ns: metadata.namespace
 ```
 ---
 
-##### 98
+##### 100
 ### 📖 Kubernetes | Kubectl
 Build an output table with Kubernetes pods with node, namespace, pod name, container name and corresponding resources using kubectl
 ```bash
@@ -1073,7 +1097,7 @@ kubectl get pods -A -o json | oafp path="items[].amerge({ node: spec.nodeName, n
 ```
 ---
 
-##### 99
+##### 101
 ### 📖 Kubernetes | Kubectl
 Executes a recursive file list find command in a specific pod, namespace and path converting the result into a table.
 ```bash
@@ -1081,7 +1105,7 @@ NS=default && POD=my-pod-5c9cfb87d4-r6dlp && LSPATH=/data && kubectl exec -n $NS
 ```
 ---
 
-##### 100
+##### 102
 ### 📖 Kubernetes | Kubectl
 Given the list of all Kubernetes objects will produce a list of objects per namespace, kind, apiVersiom, creation timestamp, name and owner.
 ```bash
@@ -1089,7 +1113,7 @@ oafp cmd="kubectl get all -A -o json" path="items[].{ns:metadata.namespace,kind:
 ```
 ---
 
-##### 101
+##### 103
 ### 📖 Kubernetes | Kubectl
 List of Kubernetes CPU, memory and storage stats per node using kubectl
 ```bash
@@ -1097,7 +1121,7 @@ oafp cmd="kubectl get nodes -o json" path="items[].{node:metadata.name,totalCPU:
 ```
 ---
 
-##### 102
+##### 104
 ### 📖 Kubernetes | Kubectl
 List of Kubernetes pods per namespace and kind using kubectl
 ```bash
@@ -1105,7 +1129,7 @@ oafp cmd="kubectl get pods -A -o json" path="items[].{ns:metadata.namespace,kind
 ```
 ---
 
-##### 103
+##### 105
 ### 📖 Kubernetes | Kubectl
 Produces a list of pods&#x27; containers per namespace with the corresponding images and assigned nodes.
 ```bash
@@ -1113,7 +1137,7 @@ kubectl get pods -A -o json | oafp path="items[].amerge({namespace: metadata.nam
 ```
 ---
 
-##### 104
+##### 106
 ### 📖 Kubernetes | PVC
 Produces a table with all Kubernetes persistent volume claims (PVCs) in use by pods.
 ```bash
@@ -1121,7 +1145,7 @@ oafp cmd="kubectl get pods -A -o json" path="items[].spec.set(@,'m').volumes[?pe
 ```
 ---
 
-##### 105
+##### 107
 ### 📖 Mac | Activity
 Uses the Mac terminal command &#x27;last&#x27; output to build an activity table with user, tty, from, login-time and logout-time
 ```bash
@@ -1129,7 +1153,7 @@ oafp cmd="last --libxo json" path="\"last-information\".last" out=ctable
 ```
 ---
 
-##### 106
+##### 108
 ### 📖 Mac | Brew
 List all the packages and corresponding versions installed in a Mac by brew.
 ```bash
@@ -1137,7 +1161,7 @@ brew list --versions | oafp in=lines linesjoin=true path="[].split(@,' ').{packa
 ```
 ---
 
-##### 107
+##### 109
 ### 📖 Mac | Chart
 On a Mac OS produce a looping chart with the total percentage of current CPU usage.
 ```bash
@@ -1145,7 +1169,7 @@ oafp cmd="top -l 1 | grep 'CPU usage' | awk '{print \$3 + \$5}'" out=chart chart
 ```
 ---
 
-##### 108
+##### 110
 ### 📖 Mac | Info
 Get a list of the current logged users in Mac OS
 ```bash
@@ -1153,7 +1177,7 @@ oafp cmd="who -aH" in=lines linesvisual=true linesjoin=true out=ctable path="[0:
 ```
 ---
 
-##### 109
+##### 111
 ### 📖 Mac | Info
 Parses the current Mac OS hardware information
 ```bash
@@ -1161,7 +1185,7 @@ system_profiler SPHardwareDataType -json | oafp path="SPHardwareDataType[0]" out
 ```
 ---
 
-##### 110
+##### 112
 ### 📖 Mac | Info
 Parses the current Mac OS overview information
 ```bash
@@ -1169,7 +1193,7 @@ system_profiler SPSoftwareDataType -json | oafp path="SPSoftwareDataType[0]" out
 ```
 ---
 
-##### 111
+##### 113
 ### 📖 Mac | Safari
 Get a list of all Mac OS Safari bookmarks into a CSV file.
 ```bash
@@ -1178,7 +1202,7 @@ oafp ~/Library/Safari/Bookmarks.plist libs=Mac path="Children[].map(&{category:g
 ```
 ---
 
-##### 112
+##### 114
 ### 📖 Mac | Tunnelblink
 In a Mac OS with Tunnelblink, if you want to copy all your OpenVPN configurations into ovpn files.
 ```bash
@@ -1186,7 +1210,7 @@ oafp in=ls data="$HOME/Library/Application Support/Tunnelblick/Configurations" p
 ```
 ---
 
-##### 113
+##### 115
 ### 📖 Markdown | Tables
 For an input markdown file, parse all tables, transform it to JSON and output as a colored table
 ```bash
@@ -1194,7 +1218,7 @@ oafp url="https://raw.githubusercontent.com/OpenAF/sh/refs/heads/main/README.md"
 ```
 ---
 
-##### 114
+##### 116
 ### 📖 Network | ASN
 Retrieve an IP to ASN list list and converts it to ndjson
 ```bash
@@ -1202,7 +1226,7 @@ oafp cmd="curl https://api.iptoasn.com/data/ip2asn-combined.tsv.gz | gunzip" in=
 ```
 ---
 
-##### 115
+##### 117
 ### 📖 Network | ASN
 Retrieve the list of ASN number and names from RIPE and transforms it to a CSV.
 ```bash
@@ -1210,7 +1234,7 @@ oafp url="https://ftp.ripe.net/ripe/asnames/asn.txt" in=lines linesjoin=true pat
 ```
 ---
 
-##### 116
+##### 118
 ### 📖 Network | Latency
 Given a host and a port will display a continuously updating line chart with network latency, in ms, between the current device and the target host and port
 ```bash
@@ -1218,7 +1242,7 @@ HOST=1.1.1.1 && PORT=53 && oafp in=oaf data="ow.loadNet().testPortLatency('$HOST
 ```
 ---
 
-##### 117
+##### 119
 ### 📖 Ollama | List models
 Parses the list of models currently in an Ollama deployment
 ```bash
@@ -1227,7 +1251,7 @@ oafp in=llmmodels data="()" out=ctable path="[].{name:name,parameters:details.pa
 ```
 ---
 
-##### 118
+##### 120
 ### 📖 OpenAF | Channels
 Copy the json result of a command into an etcd database using OpenAF&#x27;s channels
 ```bash
@@ -1235,7 +1259,7 @@ oaf -c "\$o(io.listFiles('.').files,{__format:'json'})" | oafp out=ch ch="(type:
 ```
 ---
 
-##### 119
+##### 121
 ### 📖 OpenAF | Channels
 Getting all data stored in an etcd database using OpenAF&#x27;s channels
 ```bash
@@ -1243,7 +1267,7 @@ echo "" | oafp in=ch inch="(type: etcd3, options: (host: localhost, port: 2379),
 ```
 ---
 
-##### 120
+##### 122
 ### 📖 OpenAF | Channels
 Given a Prometheus database will query for a specific metric (go_memstats_alloc_bytes), during a defined period, every 5 seconds (step) will produce a static chart with the corresponding metric values.
 ```bash
@@ -1251,7 +1275,7 @@ URL="http://localhost:9090" && METRIC="go_memstats_alloc_bytes" && TYPE="bytes" 
 ```
 ---
 
-##### 121
+##### 123
 ### 📖 OpenAF | Channels
 Perform a query to a metric &amp; label, with a start and end time, to a Prometheus server using OpenAF&#x27;s channels
 ```bash
@@ -1259,7 +1283,7 @@ oafp in=ch inch="(type:prometheus,options:(urlQuery:'http://prometheus.local'))"
 ```
 ---
 
-##### 122
+##### 124
 ### 📖 OpenAF | Channels
 Retrieve all keys stores in a H2 MVStore file using OpenAF&#x27;s channels
 ```bash
@@ -1267,7 +1291,7 @@ echo "" | oafp in=ch inch="(type: mvs, options: (file: data.db))" out=ctable
 ```
 ---
 
-##### 123
+##### 125
 ### 📖 OpenAF | Channels
 Store and retrieve data from a Redis database
 ```bash
@@ -1280,7 +1304,7 @@ echo "" | oafp in=ch inch="(type: redis, lib: redis.js, options: (host: '127.0.0
 ```
 ---
 
-##### 124
+##### 126
 ### 📖 OpenAF | Channels
 Store and retrieve data from a RocksDB database
 ```bash
@@ -1293,7 +1317,7 @@ echo "" | oafp in=ch inch="(type: rocksdb, lib: rocksdb.js, options: (path: db))
 ```
 ---
 
-##### 125
+##### 127
 ### 📖 OpenAF | Channels
 Store the json results of a command into a H2 MVStore file using OpenAF&#x27;s channels
 ```bash
@@ -1301,7 +1325,15 @@ oaf -c "\$o(listFilesRecursive('.'),{__format:'json'})" | oafp out=ch ch="(type:
 ```
 ---
 
-##### 126
+##### 128
+### 📖 OpenAF | Flags
+List the current values of OpenAF/oAFp internal flags
+```bash
+oafp in=oaf data="__flags"
+```
+---
+
+##### 129
 ### 📖 OpenAF | Network
 Gets all the DNS host addresses for a provided domain and ensures that the output is always a list
 ```bash
@@ -1309,7 +1341,7 @@ DOMAIN="nattrmon.io" && oafp in=oaf data="ow.loadNet().getDNS('$DOMAIN','a',__,t
 ```
 ---
 
-##### 127
+##### 130
 ### 📖 OpenAF | Network
 List all MX (mail servers) network addresses from the current DNS server for a hostname using OpenAF
 ```bash
@@ -1317,7 +1349,7 @@ DOMAIN=gmail.com && TYPE=MX && oaf -c "sprint(ow.loadNet().getDNS('$DOMAIN','$TY
 ```
 ---
 
-##### 128
+##### 131
 ### 📖 OpenAF | Network
 List all network addresses returned from the current DNS server for a hostname using OpenAF
 ```bash
@@ -1325,7 +1357,7 @@ DOMAIN=yahoo.com && oaf -c "sprint(ow.loadNet().getDNS('$DOMAIN'))" | oafp from=
 ```
 ---
 
-##### 129
+##### 132
 ### 📖 OpenAF | OS
 Current OS information visible to OpenAF
 ```bash
@@ -1333,7 +1365,7 @@ oafp -v path=os
 ```
 ---
 
-##### 130
+##### 133
 ### 📖 OpenAF | OS
 Using OpenAF parse the current environment variables
 ```bash
@@ -1341,7 +1373,7 @@ oaf -c "sprint(getEnvs())" | oafp sortmapkeys=true out=ctree
 ```
 ---
 
-##### 131
+##### 134
 ### 📖 OpenAF | OpenVPN
 Using OpenAF code to perform a more complex parsing of the OpenVPN status data running on an OpenVPN container (nmaguiar/openvpn) called &#x27;openvpn&#x27;
 ```bash
@@ -1349,7 +1381,7 @@ oafp in=oaf data='(function(){return(b=>{var a=b.split("\n"),c=a.indexOf("ROUTIN
 ```
 ---
 
-##### 132
+##### 135
 ### 📖 OpenAF | SFTP
 Generates a file list with filepath, size, permissions, create and last modified time from a SFTP connection with user and password
 ```bash
@@ -1357,7 +1389,7 @@ HOST="my.server" && PORT=22 && LOGIN="user" && PASS=$"abc123" && LSPATH="." && o
 ```
 ---
 
-##### 133
+##### 136
 ### 📖 OpenAF | SFTP
 Generates a file list with filepath, size, permissions, create and last modified time from a SFTP connection with user, private key and password
 ```bash
@@ -1365,7 +1397,7 @@ HOST="my.server" && PORT=22 && PRIVID=".ssh/id_rsa" && LOGIN="user" && PASS=$"ab
 ```
 ---
 
-##### 134
+##### 137
 ### 📖 OpenAF | TLS
 List the TLS certificates of a target host with a sorted alternative names using OpenAF
 ```bash
@@ -1373,7 +1405,7 @@ DOMAIN=yahoo.com && oaf -c "sprint(ow.loadNet().getTLSCertificates('$DOMAIN',443
 ```
 ---
 
-##### 135
+##### 138
 ### 📖 OpenAF | oJob.io
 Parses ojob.io/news results into a clickable news title HMTL page.
 ```bash
@@ -1381,7 +1413,7 @@ ojob ojob.io/news/awsnews __format=json | oafp path="[].{title:replace(t(@,'[{{t
 ```
 ---
 
-##### 136
+##### 139
 ### 📖 OpenAF | oJob.io
 Retrieves the list of oJob.io&#x27;s jobs and filters which start by &#x27;ojob.io/news&#x27; to display them in a rectangle
 ```bash
@@ -1389,7 +1421,7 @@ oafp url="https://ojob.io/index.json" path="sort(init.l)[].replace(@,'^https://(
 ```
 ---
 
-##### 137
+##### 140
 ### 📖 OpenAF | oPacks
 Listing all currently accessible OpenAF&#x27;s oPacks
 ```bash
@@ -1397,7 +1429,7 @@ oaf -c "sprint(getOPackRemoteDB())" | oafp maptoarray=true opath="[].{name:name,
 ```
 ---
 
-##### 138
+##### 141
 ### 📖 OpenAF | oafp
 Filter the OpenAF&#x27;s oafp examples list by a specific word in the description
 ```bash
@@ -1405,7 +1437,7 @@ oafp url="https://ojob.io/oafp-examples.yaml" in=yaml out=template path=data tem
 ```
 ---
 
-##### 139
+##### 142
 ### 📖 OpenAF | oafp
 List the OpenAF&#x27;s oafp examples by category, sub-category and description
 ```bash
@@ -1413,7 +1445,7 @@ oafp url="https://ojob.io/oafp-examples.yaml" in=yaml path="data[].{category:c,s
 ```
 ---
 
-##### 140
+##### 143
 ### 📖 OpenVPN | List
 When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date
 ```bash
@@ -1421,7 +1453,7 @@ oafp cmd="docker exec openvpn ovpn_listclients" in=csv path="[].{name:name,begin
 ```
 ---
 
-##### 141
+##### 144
 ### 📖 Unix | Activity
 Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for Debian based Linuxs
 ```bash
@@ -1429,7 +1461,7 @@ oafp cmd="last" in=lines linesjoin=true path="[:-3]|[?contains(@,'no logout')==\
 ```
 ---
 
-##### 142
+##### 145
 ### 📖 Unix | Activity
 Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for RedHat based Linuxs
 ```bash
@@ -1437,7 +1469,7 @@ last | sed '/^$/d;$d;$d' | oafp in=lines linesjoin=true path="[].split_re(@, '\\
 ```
 ---
 
-##### 143
+##### 146
 ### 📖 Unix | Alpine
 List all installed packages in an Alpine system
 ```bash
@@ -1445,7 +1477,7 @@ apk list -I | oafp in=lines linesjoin=true path="[].replace(@,'(.+) (.+) {(.+)} 
 ```
 ---
 
-##### 144
+##### 147
 ### 📖 Unix | Compute
 Parses the Linux /proc/cpuinfo into an array
 ```bash
@@ -1453,7 +1485,7 @@ cat /proc/cpuinfo | sed "s/^$/---/mg" | oafp in=yaml path="[?not_null(@)]|[?type
 ```
 ---
 
-##### 145
+##### 148
 ### 📖 Unix | Debian/Ubuntu
 List all installed packages in a Debian/Ubuntu system
 ```bash
@@ -1461,7 +1493,7 @@ apt list --installed | sed "1d" | oafp in=lines linesjoin=true path="[].split(@,
 ```
 ---
 
-##### 146
+##### 149
 ### 📖 Unix | Envs
 Converts the Linux envs command result into a table of environment variables and corresponding values
 ```bash
@@ -1469,7 +1501,7 @@ env | oafp in=ini path="map(&{key:@,value:to_string(get(@))},sort(keys(@)))" out
 ```
 ---
 
-##### 147
+##### 150
 ### 📖 Unix | Files
 Converting the Linux&#x27;s /etc/os-release to SQL insert statements.
 ```bash
@@ -1477,7 +1509,7 @@ oafp cmd="cat /etc/os-release" in=ini outkey=release path="[@]" sql="select '$HO
 ```
 ---
 
-##### 148
+##### 151
 ### 📖 Unix | Files
 Converting the Unix&#x27;s syslog into a json output.
 ```bash
@@ -1485,7 +1517,7 @@ cat syslog | oafp in=raw path="split(trim(@),'\n').map(&split(@, ' ').{ date: co
 ```
 ---
 
-##### 149
+##### 152
 ### 📖 Unix | Files
 Executes a recursive file list find command converting the result into a table.
 ```bash
@@ -1493,7 +1525,7 @@ LSPATH=/openaf && find $LSPATH -exec stat -c '{"t":"%F", "p": "%n", "s": %s, "m"
 ```
 ---
 
-##### 150
+##### 153
 ### 📖 Unix | Files
 Parses the Linux /etc/passwd to a table order by uid and gid.
 ```bash
@@ -1501,7 +1533,7 @@ oafp cmd="cat /etc/passwd" in=csv inputcsv="(withHeader: false, withDelimiter: '
 ```
 ---
 
-##### 151
+##### 154
 ### 📖 Unix | Generic
 Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data
 ```bash
@@ -1509,7 +1541,7 @@ find /some/data -name "*.json" -exec oafp {} output=json \; > data.ndjson
 ```
 ---
 
-##### 152
+##### 155
 ### 📖 Unix | Memory map
 Given an Unix process will output a table with process&#x27;s components memory address, size in bytes, permissions and owner
 ```bash
@@ -1517,7 +1549,7 @@ pmap 12345 | sed '1d;$d' | oafp in=lines linesjoin=true path="[].split_re(@, '\\
 ```
 ---
 
-##### 153
+##### 156
 ### 📖 Unix | Network
 Loop over the current Linux active network connections
 ```bash
@@ -1525,7 +1557,7 @@ oafp cmd="netstat -tun | sed \"1d\"" in=lines linesvisual=true linesjoin=true li
 ```
 ---
 
-##### 154
+##### 157
 ### 📖 Unix | Network
 Parse the Linux &#x27;arp&#x27; command output
 ```bash
@@ -1533,7 +1565,7 @@ arp | oafp in=lines linesvisual=true linesjoin=true out=ctable
 ```
 ---
 
-##### 155
+##### 158
 ### 📖 Unix | Network
 Parse the Linux &#x27;ip tcp_metrics&#x27; command
 ```bash
@@ -1541,7 +1573,7 @@ ip tcp_metrics | sed 's/^/target: /g' | sed 's/$/\n\n---\n/g' | sed 's/ \([a-z]*
 ```
 ---
 
-##### 156
+##### 159
 ### 📖 Unix | Network
 Parse the result of the Linux route command
 ```bash
@@ -1549,7 +1581,7 @@ route | sed "1d" | oafp in=lines linesjoin=true linesvisual=true linesvisualsepr
 ```
 ---
 
-##### 157
+##### 160
 ### 📖 Unix | OpenSuse
 List all installed packages in an OpenSuse system or zypper based system
 ```bash
@@ -1557,7 +1589,7 @@ zypper se -is | egrep "^i" | oafp in=lines linesjoin=true path="[].split(@,'|').
 ```
 ---
 
-##### 158
+##### 161
 ### 📖 Unix | RedHat
 List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available)
 ```bash
@@ -1565,7 +1597,7 @@ rpm -qa --qf "%{NAME}|%{VERSION}|%{PACKAGER}|%{VENDOR}|%{ARCH}\n" | oafp in=line
 ```
 ---
 
-##### 159
+##### 162
 ### 📖 Unix | Storage
 Converting the Unix&#x27;s df output
 ```bash
@@ -1573,7 +1605,7 @@ df --output=target,fstype,size,used,avail,pcent | tail -n +2 | oafp in=lines lin
 ```
 ---
 
-##### 160
+##### 163
 ### 📖 Unix | Storage
 Parses the result of the Unix ls command
 ```bash
@@ -1581,7 +1613,7 @@ ls -lad --time-style="+%Y-%m-%d %H:%M" * | oafp in=lines path="map(&split_re(@,'
 ```
 ---
 
-##### 161
+##### 164
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-timers
 ```bash
@@ -1589,7 +1621,7 @@ systemctl list-timers | head -n -3 | oafp in=lines linesvisual=true linesjoin=tr
 ```
 ---
 
-##### 162
+##### 165
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-units
 ```bash
@@ -1597,7 +1629,7 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ```
 ---
 
-##### 163
+##### 166
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-units into an overview table
 ```bash
@@ -1605,7 +1637,7 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ```
 ---
 
-##### 164
+##### 167
 ### 📖 Unix | UBI
 List all installed packages in an UBI system
 ```bash
@@ -1613,7 +1645,7 @@ microdnf repoquery --setopt=cachedir=/tmp --installed | oafp in=lines linesjoin=
 ```
 ---
 
-##### 165
+##### 168
 ### 📖 Unix | named
 Converts a Linux&#x27;s named log, for client queries, into a CSV
 ```bash
@@ -1621,7 +1653,7 @@ cat named.log | oafp in=lines linesjoin=true path="[?contains(@,' client ')==\`t
 ```
 ---
 
-##### 166
+##### 169
 ### 📖 Windows | Network
 Output a table with the current route table using Windows&#x27; PowerShell
 ```bash
@@ -1629,7 +1661,7 @@ Get-NetRoute | ConvertTo-Json | .\oafp.bat path="[].{destination:DestinationPref
 ```
 ---
 
-##### 167
+##### 170
 ### 📖 Windows | Network
 Output a table with the list of network interfaces using Windows&#x27; PowerShell
 ```bash
@@ -1637,7 +1669,7 @@ Get-NetIPAddress | ConvertTo-Json | .\oafp.bat path="[].{ipAddress:IPAddress,pre
 ```
 ---
 
-##### 168
+##### 171
 ### 📖 Windows | PnP
 Output a table with USB/PnP devices using Windows&#x27; PowerShell
 ```bash
@@ -1645,7 +1677,7 @@ Get-PnpDevice -PresentOnly | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=cs
 ```
 ---
 
-##### 169
+##### 172
 ### 📖 Windows | Storage
 Output a table with the attached disk information using Windows&#x27; PowerShell
 ```bash
@@ -1653,7 +1685,7 @@ Get-Disk | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=csv path="[].{id:tri
 ```
 ---
 
-##### 170
+##### 173
 ### 📖 XML | Maven
 Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId.
 ```bash
