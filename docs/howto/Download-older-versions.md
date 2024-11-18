@@ -24,7 +24,6 @@ $ java -jar openaf.jar --install
 
 | Version | URL | Status |
 |---------|:----|--------|
-| 20190809 | [https://openaf.io/openaf-20190809.jar](https://openaf.io/openaf-20190809.jar) | |
 | 20191002 | [https://openaf.io/openaf-20191002.jar](https://openaf.io/openaf-20191002.jar) | |
 | 20201008 | [https://openaf.io/openaf-20200108.jar](https://openaf.io/openaf-20200108.jar) | |
 | 20200202 | [https://openaf.io/openaf-20200202.jar](https://openaf.io/openaf-20200202.jar) | | 
@@ -44,7 +43,8 @@ $ java -jar openaf.jar --install
 | 20231014 | [https://openaf.io/openaf-20231014.jar](https://openaf.io/openaf-20231014.jar) | |
 | 20231222 | [https://openaf.io/openaf-20231222.jar](https://openaf.io/openaf-20231222.jar) | |
 | 20240318 | [https://openaf.io/openaf-20240318.jar](https://openaf.io/openaf-20240318.jar) | |
-| 20240812 | [https://openaf.io/openaf-20240812.jar](https://openaf.io/openaf-20240812.jar) | latest |
+| 20240812 | [https://openaf.io/openaf-20240812.jar](https://openaf.io/openaf-20240812.jar) | |
+| 20241117 | [https://openaf.io/openaf-20241117.jar](https://openaf.io/openaf-20241117.jar) | latest |
 
 > Note: you can also check the [GitHub releases list](https://github.com/OpenAF/openaf/releases)
 
