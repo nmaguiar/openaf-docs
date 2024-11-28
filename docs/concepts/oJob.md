@@ -14,18 +14,18 @@ A oJob is mainly defined by a YAML file (although it can also be defined in JSON
 jobs:
    - name: Get eggs
    - name: Get sugar
-   - name: Get floor
+   - name: Get flour
    
    - name: Make cake
      deps:
        - Get eggs
        - Get sugar
-       - Get floor
+       - Get flour
 
 todo:
    - Get eggs
    - Get sugar
-   - Get floor
+   - Get flour
    - Make cake
 ````
 
