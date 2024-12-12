@@ -34,6 +34,8 @@ oafp examples=env
 
 You can also check the library of examples in [oafp examples](../guides/oafp/oafp-examples.md).
 
+If you don't find a suitable example you can also use [OAFP ChatGPT](https://chatgpt.com/g/g-uBUaPluLw-oafp).
+
 ---
 
 ## Concepts
