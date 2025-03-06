@@ -603,7 +603,7 @@ oaf -c "\$o(listFilesRecursive('.'),{__format:'json'})" | oafp out=db dbjdbc="jd
 ### 📖 DB | List
 List all OpenAF&#x27;s oPack pre-prepared JDBC drivers
 ```bash
-oaf -c "sprint(getOPackRemoteDB())" | oafp maptoarray=true opath="[].{name:name,description:description,version:version}" sql="select * where name like 'jdbc-%' order by name" out=ctable
+oafp in=oaf data="getOPackRemoteDB()" maptoarray=true opath="[].{name:name,description:description,version:version}" from="sort(name)" out=ctable
 ```
 ---
 
