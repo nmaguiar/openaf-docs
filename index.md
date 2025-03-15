@@ -71,7 +71,7 @@ curl https://openaf.io/install.sh | sh
 curl https://openaf.io/setup.sh | sh && cd oaf
 # ./oafc
 
-# With an existing java JRE/JDK >= 8
+# With an existing java JRE/JDK >= 21
 curl https://ojob.io/get.sh | sh && cd oaf
 # ./oafc
 ````
