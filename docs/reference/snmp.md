@@ -8,6 +8,13 @@ grand_parent: OpenAF docs
 
 ## snmp
 
+### SNMP.close
+
+__SNMP.close()__
+
+````
+Closes the current connection and object.
+````
 ### SNMP.get
 
 __SNMP.get(aOID) : Object__

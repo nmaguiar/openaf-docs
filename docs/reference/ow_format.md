@@ -302,12 +302,27 @@ __ow.format.fromHex(aString) : Number__
 ````
 Converts a provided hexadecimal aString into the decimal number.
 ````
+### ow.format.fromISODate
+
+__ow.format.fromISODate(aISODate) : Date__
+
+````
+Converts a ISO date string into a javascript Date.
+````
 ### ow.format.fromLDAPDate
 
 __ow.format.fromLDAPDate(aLDAPDate) : Date__
 
 ````
 Converts a numeric aLDAPDate (also known as Windows NT time format, Active Directory timestamps) into a javascript Date.
+````
+### ow.format.fromNumberSpacing
+
+__ow.format.fromNumberSpacing(aNumber, aSpacer) : Number__
+
+````
+Returns a number from a string with aSpacer as thousands separator.
+(available after ow.loadFormat())
 ````
 ### ow.format.fromOctal
 
@@ -1224,6 +1239,14 @@ __ow.format.toLDAPDate(aDate) : Number__
 
 ````
 Converts a javascript Date into a LDAP date (also known as Windows NT time format, Active Directory timestamps)
+````
+### ow.format.toNumberSpacing
+
+__ow.format.toNumberSpacing(aNumber, aSpacer) : String__
+
+````
+Returns a number with aSpacer as thousands separator.
+(available after ow.loadFormat())
 ````
 ### ow.format.toOctal
 

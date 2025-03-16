@@ -72,6 +72,16 @@ __$sec.list(aBucket, aLockSecret) : Array__
 ````
 Returns a map with a list of all the sBuckets on the current repo. If a specifc sBucket and aLockSecret isn't provide the current sBucket will have an associated array with the list of corresponding keys.
 ````
+### $sec.procMap
+
+__$sec.procMap(aMap, aPath) : Map__
+
+````
+Given aMap will process it and replace any secKey with the corresponding secret. Optionally you can provide aPath to process only a specific path of the map. 
+  secKey, secRepo, secBucket, secPass, secMainPass, secFile
+
+
+````
 ### $sec.set
 
 __$sec.set(aKey, aObj, aBucket, aLockSecret) : Object__

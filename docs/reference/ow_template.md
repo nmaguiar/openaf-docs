@@ -99,6 +99,7 @@ Adds custom helpers:
   - $m2a             -- shortcut to the OpenAF's $m2a function
   - $m4a             -- shortcut to the OpenAF's $m4a function
   - $pass            -- returns an empty string
+  - $p               -- returns the provided literal
   - $sline           -- shortcut to the OpenAF's format withSideLine
   - $set             -- block set of a provided key
   - $concat          -- concatenates all arguments as a single value
@@ -187,12 +188,26 @@ __ow.template.html.inlineSrcURL(aURL, aPrefix, aSuffix) : String__
 ````
 Returns a base64 representation of aURL to include in markdown/html content. If aPrefix and/or aSuffix is provided it will be prefixed and suffixed to the output.
 ````
-### ow.template.html.parseMap
+### ow.template.html.njsmapAutoTheme
 
-__ow.template.html.parseMap(aMapOrArray, genParts) : Object__
+__ow.template.html.njsmapAutoTheme() : String__
 
 ````
-Returns a string with a HTML representation of the aMapOrArray provided or, if genParts = true, a map with the style css and the out string necessary.
+Returns a script to automatically set the njsmap theme based on the user's preference if the MD_DARKMODE flag is set to "auto".
+````
+### ow.template.html.parseMap
+
+__ow.template.html.parseMap(aMapOrArray, genParts, forceDark) : Object__
+
+````
+Returns a string with a HTML representation of the aMapOrArray provided or, if genParts = true, a map with the style css and the out string necessary. If forceDark = true it will force the dark mode.
+````
+### ow.template.html.parseMapInHTML
+
+__ow.template.html.parseMapInHTML(aMapOrArray, forceDark) : String__
+
+````
+Returns a full HTML page with the nJSMap representation of the aMapOrArray provided. If forceDark = true it will force the dark mode.
 ````
 ### ow.template.html.thinFontCSS
 
@@ -280,10 +295,10 @@ Returns the results of using someData with the template defined on aFilename (ti
 ````
 ### ow.template.parseMD2HTML
 
-__ow.template.parseMD2HTML(aMarkdownString, isFull, removeMaxWidth, extraDownOptions) : String__
+__ow.template.parseMD2HTML(aMarkdownString, isFull, removeMaxWidth, extraDownOptions, forceDark) : String__
 
 ````
-Given aMarkdownString will parse it with showdown (using the github flavor) and return the HTML in a string. If isFull = true it will produce a complete HTML with references for the highlight library+css and github markdown css included internally in OpenAF. Example:
+Given aMarkdownString will parse it with showdown (using the github flavor) and return the HTML in a string. If isFull = true it will produce a complete HTML with references for the highlight library+css and github markdown css included internally in OpenAF. If removeMaxWidth = true it will remove the max-width css style. You can provide extraDownOptions to be used with showdown and forceDark to force the dark mode. Example:
 
 ow.server.httpd.route(hs, ow.server.httpd.mapRoutesWithLibs(hs, { 
    "/md": (req) => { return hs.replyOKHTML(ow.template.parseMD2HTML(io.readFileString("README.md"), true)) }

@@ -297,6 +297,167 @@ print(ow.obj.getPath(a, "b.d[0]")); // 0
 
 
 ````
+### ow.obj.http
+
+__ow.obj.http(aURL, aRequestType, aIn, aRequestMap, isBytes, aTimeout, returnStream, options) : Object__
+
+````
+Creates a new instance of an HTTP client to be used to execute a request to aURL using aRequestType (GET, POST, PUT, DELETE, HEAD, PATCH, OPTIONS, TRACE). Optionally you can provide aIn (the body of the request), aRequestMap (a map with the headers), isBytes (if the body is bytes), aTimeout (timeout in milliseconds), returnStream (if the response should be a stream) and options (a map with the following options:
+
+  - timeout: the connection timeout in milliseconds
+  - readTimeout: the read timeout in milliseconds
+  - writeTimeout: the write timeout in milliseconds
+  - callTimeout: the call timeout in milliseconds
+  - followRedirects: if should follow redirects
+  - followSslRedirects: if should follow ssl redirects
+  - delayBuild: if should delay the build of the client
+
+Example:
+
+  var http = ow.obj.http("http://www.google.com", "GET");
+  var res = http.exec();
+
+````
+### ow.obj.http.close
+
+__ow.obj.http.close()__
+
+````
+Closes the current http connection.
+````
+### ow.obj.http.exec
+
+__ow.obj.http.exec(aURL, aRequestType, aIn, aRequestMap, isBytes, aTimeout, returnStream, options) : Object__
+
+````
+Executes a request to aURL with the provided aRequestType, aIn, aRequestMap, isBytes, aTimeout and returnStream. Optionally you can provide options. Returns a map with the response code, the content type and the response.
+````
+### ow.obj.http.get
+
+__ow.obj.http.get(aURL, aIn, aRequestMap, isBytes, aTimeout, returnStream, options) : Object__
+
+````
+Executes a GET request to aURL with the provided aIn, aRequestMap, isBytes, aTimeout and returnStream. Optionally you can provide options. Returns a map with the response code, the content type and the response.
+````
+### ow.obj.http.getBytes
+
+__ow.obj.http.getBytes(aURL, aIn, aRequestMap, aTimeout, options) : Object__
+
+````
+Executes a GET request to aURL with the provided aIn, aRequestMap, aTimeout and options. Returns the response as bytes.
+````
+### ow.obj.http.getCookieStore
+
+__ow.obj.http.getCookieStore() : String__
+
+````
+Returns the current cookie store name channel.
+````
+### ow.obj.http.getErrorResponse
+
+__ow.obj.http.getErrorResponse(parseJson) : Object__
+
+````
+Returns the response object with the response and responseBytes parsed as JSON if parseJson is true.
+````
+### ow.obj.http.getResponse
+
+__ow.obj.http.getResponse() : Object__
+
+````
+Returns the response object.
+````
+### ow.obj.http.getStream
+
+__ow.obj.http.getStream(aURL, aIn, aRequestMap, aTimeout, options) : Object__
+
+````
+Executes a GET request to aURL with the provided aIn, aRequestMap, aTimeout and options. Returns the response as a stream.
+````
+### ow.obj.http.head
+
+__ow.obj.http.head(aURL, aIn, aRequestMap, isBytes, aTimeout) : Map__
+
+````
+Executes a HEAD request to aURL with the provided aIn, aRequestMap, isBytes and aTimeout. Returns a map with the response headers.
+````
+### ow.obj.http.login
+
+__ow.obj.http.login(aUser, aPassword, forceBasic, urlPartial)__
+
+````
+Sets the login credentials to be used with the next request. If forceBasic is true it will always use basic authentication.
+````
+### ow.obj.http.post
+
+__ow.obj.http.post(aURL, aIn, aRequestMap, isBytes, aTimeout, returnStream, options) : Object__
+
+````
+Executes a POST request to aURL with the provided aIn, aRequestMap, isBytes, aTimeout and returnStream. Optionally you can provide options. Returns a map with the response code, the content type and the response.
+````
+### ow.obj.http.response
+
+__ow.obj.http.response() : String__
+
+````
+Returns the response as a string.
+````
+### ow.obj.http.responseBytes
+
+__ow.obj.http.responseBytes() : Object__
+
+````
+Returns the response as bytes.
+````
+### ow.obj.http.responseCode
+
+__ow.obj.http.responseCode() : Number__
+
+````
+Returns the response code.
+````
+### ow.obj.http.responseHeaders
+
+__ow.obj.http.responseHeaders() : Map__
+
+````
+Returns the response headers.
+````
+### ow.obj.http.responseStream
+
+__ow.obj.http.responseStream() : Object__
+
+````
+Returns the response as a stream.
+````
+### ow.obj.http.responseType
+
+__ow.obj.http.responseType() : String__
+
+````
+Returns the response content type.
+````
+### ow.obj.http.setCookieStore
+
+__ow.obj.http.setCookieStore(aCh)__
+
+````
+Sets the cookie store channel to be used with the current http object.
+````
+### ow.obj.http.setThrowExceptions
+
+__ow.obj.http.setThrowExceptions(should)__
+
+````
+Sets if the http object should throw exceptions or not.
+````
+### ow.obj.http.upload
+
+__ow.obj.http.upload(aName, aFile)__
+
+````
+Sets the file to be uploaded with the next request.
+````
 ### ow.obj.isSigned
 
 __ow.obj.isSigned(aMap) : boolean__
@@ -829,6 +990,13 @@ __ow.obj.syncArray.clear()__
 ````
 Clears the internal array/list.
 ````
+### ow.obj.syncArray.forEach
+
+__ow.obj.syncArray.forEach(aFunction)__
+
+````
+Executes aFunction for each element in the internal array/list. The function should have the signature function(value).
+````
 ### ow.obj.syncArray.get
 
 __ow.obj.syncArray.get(aIndex) : Object__
@@ -905,6 +1073,13 @@ __ow.obj.syncMap.containsValue(aValue) : boolean__
 
 ````
 Returns true if the internal map contains aValue.
+````
+### ow.obj.syncMap.forEach
+
+__ow.obj.syncMap.forEach(aFunction)__
+
+````
+Executes aFunction for each entry in the internal map. The function should have the signature function(key, value).
 ````
 ### ow.obj.syncMap.get
 

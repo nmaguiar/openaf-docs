@@ -41,7 +41,7 @@ Determines if metric aName is currenly assigned.
 __ow.metrics.fromObj2OpenMetrics(aObj, aPrefix, aTimestamp, aHelpMap, aConvMap) : String__
 
 ````
-Given aObj will return a string of open metric (prometheus) metric strings. Optionally you can provide a prefix (defaults to "metric")  and/or aTimestamp (that will be used for all aObj values) and aConvMap composed of a key with a map of possible values and corresponding translation to numbers. Note: prefixes should not start with a digit.
+Given aObj will return a string of open metric (prometheus) metric strings. Optionally you can provide a prefix (defaults to "metric")  and/or aTimestamp (a number in seconds or a label field, that will be used for all aObj values) and aConvMap composed of a key with a map of possible values and corresponding translation to numbers. Note: prefixes should not start with a digit.
 ````
 ### ow.metrics.fromOpenMetrics2Array
 

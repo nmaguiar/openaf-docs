@@ -45,10 +45,10 @@ Will retrieve a list of aliases, issuer DN, subject DN, expire notBefore and not
 ````
 ### ow.net.getDNS
 
-__ow.net.getDNS(aName, aType, aServer) : Object__
+__ow.net.getDNS(aName, aType, aServer, aExtended) : Object__
 
 ````
-Given aName will do a DNS search for aType (defaults to "a") optionally using dns server aServer. Returns an object or an array of objects.
+Given aName will do a DNS search for aType (defaults to "a") optionally using dns server aServer. Returns an object or an array of objects. If aExtended is true it will return a more detailed JSON object.
 ````
 ### ow.net.getDoH
 
@@ -77,6 +77,20 @@ __ow.net.getHostName() : String__
 
 ````
 Returns the current hostname.
+````
+### ow.net.getIP2ASN
+
+__ow.net.getIP2ASN(aIP, aIP2ASNCache, aTimeout) : Map__
+
+````
+Given an aIP will try to retrieve the corresponding ASN information from the aIP2ASNCache (defaults to the one retrieved by ow.net.getIP2ASNCache()). If aIP2ASNCache is not provided it will be retrieved and cached as "ow.net.ip2asn" with aTimeout by default of 24 hours. Returns a map with the ASN information.
+````
+### ow.net.getIP2ASNCache
+
+__ow.net.getIP2ASNCache() : Array__
+
+````
+Retrieves the current IP to ASN cache from the iptoasn.com service returning as an array.
 ````
 ### ow.net.getIP2Host
 

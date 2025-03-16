@@ -339,10 +339,10 @@ Parses a Linux uptme info. Optionally you can provide a aReadFileFn that should 
 ````
 ### ow.java.getLocalJavaPIDs
 
-__ow.java.getLocalJavaPIDs(aUserID) : Array__
+__ow.java.getLocalJavaPIDs(aUserID, aTmpDir) : Array__
 
 ````
-Will return an array with the pid and the path for hsperf (to use with ow.java.parseHSPerf) that are currently running (hotspot jvms only) in the current system.  If aUserID is not provided the current user name will be used.
+Will return an array with the pid and the path for hsperf (to use with ow.java.parseHSPerf) that are currently running (hotspot jvms only) in the current system.  If aUserID is not provided the current user name will be used. Optionally you can provide aTmpDir to use a different temporary directory.
 ````
 ### ow.java.getMemory
 

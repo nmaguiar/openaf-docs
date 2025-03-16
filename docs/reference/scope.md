@@ -337,6 +337,30 @@ Examples:
 
 
 ````
+### $fetch
+
+__$fetch(aURL, aOptions) : oPromise__
+
+````
+Tries to fetch aURL using the provided aOptions (a map with the following possible keys: method, body, headers, requestHeaders, downloadResume, connectionTimeout, uriQuery, urlEncode, login, pass, httpClient and retry). The method will return a promise that will resolve to a response object with the following methods: body, bodyUsed, headers, ok, status, json, bytes, blob and text. Example:
+
+var response = $fetch("https://httpbin.org/post", { method: "POST", body: { a: 1, b: 2 }, headers: { "Content-Type": "application/json" } });
+response.then(function(aResponse) { print(aResponse.status); });
+
+The response object will have the following methods:
+
+- body() : returns a Java InputStream with the response body
+- bodyUsed : returns true if the body was already read
+- headers : returns a map with the response headers
+- ok : returns true if the response status is between 200 and 299
+- status : returns the response status
+- json() : returns the response body as a JSON object
+- bytes() : returns the response body as a byte array
+- blob() : returns the response body as a byte array
+- text() : returns the response body as a string
+
+
+````
 ### $flock.destroy
 
 __$flock.destroy()__
@@ -608,6 +632,14 @@ ch(name, op, arg1, arg2), path(obj, jmespath), opath(jmespath)
 to_ms(date), timeagoAbbr(x)
 env(str), envs(regex)
 oafp(json/slon)
+if(cond, then, else)
+assign(obj, path, value), assignp(objPathStr, path, value)
+random(min, max), srandom(min, max)
+at(arrayIndex)
+to_numSpace(num, space), from_numSpace(num, space)
+ Functions only active if flag PATH_SAFE is false:
+  ojob(name, argsJSSLON)
+  sh(command, stdin), sh_json(command, stdin), sh_jsslon(command, stdin), sh_yaml(command, stdin)
 
 Custom functions:
   $path(2, "example(@)", { example: { _func: (a) => { return Number(a) + 10; }, _signature: [ { types: [ $path().number ] } ] } });
@@ -620,6 +652,13 @@ __$py(aPythonCodeOrFile, aInput, aOutputArray) : Map__
 
 ````
 Executes aPythonCodeOrFile using a map aInput as variables in python and returns a map with python  variables in aOutputArray.
+````
+### $pyExec
+
+__$pyExec(aPythonCodeOrFile, aInput)__
+
+````
+Executes aPythonCodeOrFile using a map aInput as variables in python. The python execution will be 'standalone', with access to OpenAF functionality, but no output will be returned.
 ````
 ### $pyStart
 
@@ -871,7 +910,14 @@ Immediately copies the result of executing aCmd string or array (and any other c
 __$sh.getJson(aIdx) : Object__
 
 ````
-Immediately copies the result of executing aCmd string or array (and any other commands in queue added using sh) trying to parse it as json. If aIdx is provided it will return the map entry for the corresponding command on the array otherwise it will return the array.
+Immediately copies the result of executing aCmd string or array (and any other commands in queue added using sh) trying to parse it as json (will ingore non json content). If aIdx is provided it will return the map entry for the corresponding command on the array otherwise it will return the array.
+````
+### $sh.getJsSlon
+
+__$sh.getJsSlon(aIdx) : Object__
+
+````
+Immediately copies the result of executing aCmd string or array (and any other commands in queue added using sh) trying to parse it as json or slon. If aIdx is provided it will return the map entry for the corresponding command on the array otherwise it will return the array.
 ````
 ### $sh.getYaml
 
@@ -1197,10 +1243,10 @@ Converts a nLinq chained command line string representation into a suitable map 
 ````
 ### af.fromObj2XML
 
-__af.fromObj2XML(aMap, sanitize) : String__
+__af.fromObj2XML(aMap, sanitize, aAttrKey) : String__
 
 ````
-Tries to convert aMap into a similiar XML strucuture returned as string. Note that no validation of XML strucuture is performed.  Tips: ensure each map is under a map key.
+Tries to convert aMap into a similiar XML strucuture returned as string. Note that no validation of XML strucuture is performed.  If aAttrKey string is defined it will be used to prefix attributes (from af.fromXML2Obj). Tips: ensure each map is under a map key.
 ````
 ### AF.fromSLON
 
@@ -1279,6 +1325,13 @@ Example:
 
 
 ````
+### AF.setInteractiveTerminal
+
+__AF.setInteractiveTerminal()__
+
+````
+Sets the current terminal to be interactive (no echo, no buffering).
+````
 ### AF.toCSLON
 
 __AF.toCSLON(aObject, aTheme) : String__
@@ -1302,10 +1355,17 @@ Tries to convert aObj into a TOML string.
 ````
 ### AF.toYAML
 
-__AF.toYAML(aJson, multiDoc, sanitize) : String__
+__AF.toYAML(aJson, multiDoc, sanitize, shouldColor) : String__
 
 ````
 Tries to dump aJson into a YAML string. If multiDoc = true and aJson is an array the output will be multi-document. If sanitize = true all Java objects will be converted to avoid parsing errors.
+````
+### AF.unsetInteractiveTerminal
+
+__AF.unsetInteractiveTerminal()__
+
+````
+Unsets the current terminal to be interactive (no echo, no buffering).
 ````
 ### ansiColor
 
@@ -1694,7 +1754,7 @@ Returns a map of key and values with the operating system environment variables.
 __getEnvsDef(aEnv, aVar, aDefault, isJson) : Object__
 
 ````
-Given an environment variable aEnv name will check if a value is provided and return it if so. Otherwise it will check the value of aVar and return it if defined. If aVar is also not defined it will return aDefault. Optionally if isJson=true the value of the provided aEnv will be parsed from JSON.
+Given an environment variable aEnv name will check if a value is provided and return it if so. Otherwise it will check the value of aVar and return it if defined. If aVar is also not defined it will return aDefault. Optionally if isJson=true the value of the provided aEnv will be parsed from JSON or SLON.
 ````
 ### getFromZip
 
@@ -1930,6 +1990,17 @@ Example:
 
 
 ````
+### io.unzip
+
+__io.unzip(zipFile, targetDir, logFn, logErrFn)__
+
+````
+Tries to unzip a zipFile into targetDir. Optionally you can provide a logFn and logErrFn to log the progress. The logFn will receive the following object:
+
+  { type: "file" | "dir", source: [zip entry], target: [targetPath] }
+
+
+````
 ### io.writeFileJSON
 
 __io.writeFileJSON(aJSONFile, aObj, aSpace)__
@@ -1978,6 +2049,17 @@ __io.writeLineNDJSON(aNDJSONFile, aObj, aEncode)__
 
 ````
 Writes aObj into a single line on aNDJSONFile (newline delimited JSON) (or an output stream). Optionally you can provide an encoding (only is a string filename is provided)
+````
+### io.zip
+
+__io.zip(targetDir, zipFile, logFn, logErrFn)__
+
+````
+Tries to zip a targetDir into a zipFile. Optionally you can provide a logFn and logErrFn to log the progress. The logFn will receive the following object:
+
+  { type: "file" | "dir", source: [io.listFile entry], target: [targetPath] }
+
+
 ````
 ### ioSetNIO
 
@@ -2357,6 +2439,13 @@ __logErr(msg, formatOptions)__
 ````
 Outputs to the current stderr a line composed of the current date, indication of ERROR and the provided msg. Optionally you can provide a formatOptions map for overriding the defaults from setLog. Note: you can use startLog, stopLog and dumpLog to keep an internal record of theses messages.
 ````
+### logFlush
+
+__logFlush(aTimeout)__
+
+````
+Will wait for the current log promise to finish. Optionally you can provide aTimeout in milliseconds.
+````
 ### lognl
 
 __lognl(msg, formatOptions)__
@@ -2501,10 +2590,10 @@ Given aObj (a map or an array) will try to assess if aStr is an aObj key (using 
 ````
 ### oJob
 
-__oJob(aFile, args, aId, aOptionsMap)__
+__oJob(aFile, args, aId, aOptionsMap, shouldReturn)__
 
 ````
-Shortcut for oJobRunFile return the result on the variable __pm. Keep in mind that it doesn't support concurrency.
+Shortcut for oJobRunFile return the result on the variable __pm. Keep in mind that it doesn't support concurrency. If shouldReturn is true it will return the result (from ow.oJob.output if used) of the job instead of the __pm variable.
 ````
 ### oJobRun
 
@@ -3372,7 +3461,7 @@ Builds and returns a wedoDate JSON object given either a year, a month, a day, a
 ````
 ### yprint
 
-__yprint(aObj, multidoc, sanitize)__
+__yprint(aObj, multidoc, sanitize, shouldColor)__
 
 ````
 Prints aObj in YAML. If multiDoc = true and aJson is an array the output will be multi-document. If sanitize = true all Java objects will be converted to avoid parsing errors.

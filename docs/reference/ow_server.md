@@ -438,20 +438,19 @@ Builds the map response for a HTTP server request using aObject (map, array, str
 __ow.server.httpd.replyFile(aHTTPd, aBaseFilePath, aBaseURI, aURI, notFoundFunction, documentRootArray, mapOfHeaders) : Map__
 
 ````
-Provides a helper aHTTPd reply that will enable the download of a file, from aBaseFilePath, given aURI part of  aBaseURI. Optionally you can also provide a notFoundFunction and an array of file strings (documentRootArraY) to replace as documentRoot. Example:
+Provides a helper aHTTPd reply that will enable the download of a file, from aBaseFilePath (a file path or java stream), given aURI part of  aBaseURI. Optionally you can also provide a notFoundFunction and an array of file strings (documentRootArraY) to replace as documentRoot. Example:
 
 ow.server.httpd.route(hs, ow.server.httpd.mapRoutesWithLibs(hs, {
    "/stuff/to/server": r => ow.server.httpd.replyFile(hs, "/some/path/to/serve/files", "/stuff/to/server", req.uri)
 }), r => hs.replyOKText("nothing here...") );
-
-
+\
 ````
 ### ow.server.httpd.replyFileMD
 
 __ow.server.httpd.replyFileMD(aHTTPd, aBaseFilePath, aBaseURI, aURI, notFoundFunction, documentRootArray, mapOfHeaders, noMaxWidth) : Map__
 
 ````
-Provides a helper aHTTPd reply that will enable the parsing markdown file-based sites, from aBaseFilePath, given aURI part of  aBaseURI. Optionally you can also provide a notFoundFunction and an array of file strings (documentRootArraY) to replace as documentRoot. Example:
+Provides a helper aHTTPd reply that will enable the parsing markdown file-based sites, from aBaseFilePath (a file path or stream), given aURI part of  aBaseURI. Optionally you can also provide a notFoundFunction and an array of file strings (documentRootArraY) to replace as documentRoot. Example:
 
 ow.server.httpd.route(hs, ow.server.httpd.mapRoutesWithLibs(hs, {
    "/stuff/to/server": function(req) {

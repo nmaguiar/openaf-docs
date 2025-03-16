@@ -31,14 +31,14 @@ Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults t
 ````
 ### $gpt.prompt
 
-__$gpt.prompt(aPrompt, aRole, aModel, aTemperature) : String__
+__$gpt.prompt(aPrompt, aRole, aModel, aTemperature, tools) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor).
 ````
 ### $gpt.promptBool
 
-__$gpt.promptBool(aPrompt, aRole, aModel, aTemperature) : boolean__
+__$gpt.promptBool(aPrompt, aRole, aModel, aTemperature, tools) : boolean__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a boolean.
@@ -66,7 +66,7 @@ Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults t
 ````
 ### $gpt.promptMD
 
-__$gpt.promptMD(aPrompt, aRole, aModel, aTemperature) : String__
+__$gpt.promptMD(aPrompt, aRole, aModel, aTemperature, tools) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a markdown string.
@@ -80,10 +80,17 @@ Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults t
 ````
 ### $gpt.promptSQL
 
-__$gpt.promptSQL(aPrompt, aTableDefs, aDBName, aModel, aTemperature)__
+__$gpt.promptSQL(aPrompt, aTableDefs, aDBName, aModel, aTemperature, tools)__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) and aModel (defaults to the one provided on the constructor) returning a SQL query.
+````
+### $gpt.setTool
+
+__$gpt.setTool(aName, aDesc, aParams, aFn) : ow.ai.gpt__
+
+````
+Sets a tool with aName, aDesc (description), aParams (a json schema) and aFn (a javascript function tha receives a map according with the provided json schema and returns a map)
 ````
 ### $gpt.sysPrompt
 
@@ -161,6 +168,13 @@ __ow.ai.gpt(aType, aOptions) : ow.ai.gpt__
 Creates a GPT AI model of aType (e.g. "openai" or "ollama") with aOptions.
 
 ````
+### ow.ai.gpt.addDeveloperPrompt
+
+__ow.ai.gpt.addDeveloperPrompt(aPrompt) : ow.ai.gpt__
+
+````
+Adds aPrompt (a string or an array of strings) with aRole (defaults to "developer") to the current conversation.
+````
 ### ow.ai.gpt.addPrompt
 
 __ow.ai.gpt.addPrompt(aPrompt, aRole) : ow.ai.gpt__
@@ -184,7 +198,7 @@ Adds aPrompt (a string or an array of strings) with aRole (defaults to "user") t
 ````
 ### ow.ai.gpt.booleanPrompt
 
-__ow.ai.gpt.booleanPrompt(aPrompt, aModel, aTemperature) : boolean__
+__ow.ai.gpt.booleanPrompt(aPrompt, aModel, aTemperature, tools) : boolean__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
@@ -212,7 +226,7 @@ Returns the current conversation.
 ````
 ### ow.ai.gpt.jsonPrompt
 
-__ow.ai.gpt.jsonPrompt(aPrompt, aModel, aTemperature) : Object__
+__ow.ai.gpt.jsonPrompt(aPrompt, aModel, aTemperature, tools) : Object__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
@@ -226,14 +240,14 @@ Tries to parse anAnswer and return the code between \``` and \```.
 ````
 ### ow.ai.gpt.pathPrompt
 
-__ow.ai.gpt.pathPrompt(aPrompt, aJSONSchemaDef, aModel, aTemperature) : String__
+__ow.ai.gpt.pathPrompt(aPrompt, aJSONSchemaDef, aModel, aTemperature, tools) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
 ````
 ### ow.ai.gpt.prompt
 
-__ow.ai.gpt.prompt(aPrompt, aRole, aModel, aTemperature, aJsonFlag) : String__
+__ow.ai.gpt.prompt(aPrompt, aRole, aModel, aTemperature, aJsonFlag, tools) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
@@ -268,7 +282,7 @@ Tries to generate an image based on aPrompt (a string or an array of strings) wi
 ````
 ### ow.ai.gpt.rawPrompt
 
-__ow.ai.gpt.rawPrompt(aPrompt, aRole, aModel, aTemperature, aJsonFlag) : String__
+__ow.ai.gpt.rawPrompt(aPrompt, aRole, aModel, aTemperature, aJsonFlag, tools) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
@@ -287,9 +301,16 @@ __ow.ai.gpt.setInstructions(aType) : ow.ai.gpt__
 ````
 Sets the instructions for the current conversation. aType can be a string (e.g. json, boolean, sql, js and path) or an array of strings.
 ````
+### ow.ai.gpt.setTool
+
+__ow.ai.gpt.setTool(aName, aDesc, aParams, aFn) : ow.ai.gpt__
+
+````
+Sets a tool with aName, aDesc (description), aParams (a json schema) and aFn (a javascript function tha receives a map according with the provided json schema and returns a map)
+````
 ### ow.ai.gpt.sqlPrompt
 
-__ow.ai.gpt.sqlPrompt(aPrompt, aTableDefs, aDBName, aModel, aTemperature) : String__
+__ow.ai.gpt.sqlPrompt(aPrompt, aTableDefs, aDBName, aModel, aTemperature, tools) : String__
 
 ````
 Tries to prompt aPrompt (a string or an array of strings) with aRole (defaults to "user") and aModel (defaults to the one provided on the constructor).
@@ -544,4 +565,19 @@ Returns a Regression with the following functions:
    options - map to determine the order and precision ({ order: 2, precision: 5})
 
 
+````
+### ow.ai.valuesArray
+
+__ow.ai.valuesArray(entriesspan) : Map__
+
+````
+Creates a valuesArray object with the following functions:
+
+  getValues()     : Array
+  push(value)     : void
+  deviation()     : Number
+  variance()      : Number
+  movingAverage() : Number
+
+entriesspan - number of entries to keep
 ````
