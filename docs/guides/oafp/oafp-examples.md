@@ -210,12 +210,13 @@ Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](
 | Unix | UBI | [195](#195) | List all installed packages in an UBI system |
 | Unix | named | [196](#196) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
 | Unix | strace | [197](#197) | Given a strace unix command will produce a summary table of the system calls invoked including a small line chart of the percentage of time of each. |
-| Windows | Network | [198](#198) | Output a table with the current route table using Windows&#x27; PowerShell |
-| Windows | Network | [199](#199) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
-| Windows | PnP | [200](#200) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
-| Windows | Storage | [201](#201) | Output a table with the attached disk information using Windows&#x27; PowerShell |
-| XML | Maven | [202](#202) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
-| nAttrMon | Plugs | [203](#203) | Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition. |
+| VSCode | Extensions | [198](#198) | Check a Visual Studio Code (vscode) extension (vsix) manifest. |
+| Windows | Network | [199](#199) | Output a table with the current route table using Windows&#x27; PowerShell |
+| Windows | Network | [200](#200) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
+| Windows | PnP | [201](#201) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
+| Windows | Storage | [202](#202) | Output a table with the attached disk information using Windows&#x27; PowerShell |
+| XML | Maven | [203](#203) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
+| nAttrMon | Plugs | [204](#204) | Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition. |
 
 ## 📗 Examples
 
@@ -1954,6 +1955,14 @@ strace -c -o '!oafp in=lines linesvisual=true linesjoin=true opath="[1:-2].merge
 ---
 
 ##### 198
+### 📖 VSCode | Extensions
+Check a Visual Studio Code (vscode) extension (vsix) manifest.
+```bash
+oafp in=xml file="Org.my-extension.vsix::extension.vsixmanifest" out=ctree
+```
+---
+
+##### 199
 ### 📖 Windows | Network
 Output a table with the current route table using Windows&#x27; PowerShell
 ```bash
@@ -1961,7 +1970,7 @@ Get-NetRoute | ConvertTo-Json | .\oafp.bat path="[].{destination:DestinationPref
 ```
 ---
 
-##### 199
+##### 200
 ### 📖 Windows | Network
 Output a table with the list of network interfaces using Windows&#x27; PowerShell
 ```bash
@@ -1969,7 +1978,7 @@ Get-NetIPAddress | ConvertTo-Json | .\oafp.bat path="[].{ipAddress:IPAddress,pre
 ```
 ---
 
-##### 200
+##### 201
 ### 📖 Windows | PnP
 Output a table with USB/PnP devices using Windows&#x27; PowerShell
 ```bash
@@ -1977,7 +1986,7 @@ Get-PnpDevice -PresentOnly | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=cs
 ```
 ---
 
-##### 201
+##### 202
 ### 📖 Windows | Storage
 Output a table with the attached disk information using Windows&#x27; PowerShell
 ```bash
@@ -1985,7 +1994,7 @@ Get-Disk | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=csv path="[].{id:tri
 ```
 ---
 
-##### 202
+##### 203
 ### 📖 XML | Maven
 Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId.
 ```bash
@@ -1993,7 +2002,7 @@ oafp pom.xml path="project.dependencies.dependency" out=ctable sql="select * ord
 ```
 ---
 
-##### 203
+##### 204
 ### 📖 nAttrMon | Plugs
 Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition.
 ```bash
