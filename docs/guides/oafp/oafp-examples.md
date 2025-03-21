@@ -174,44 +174,49 @@ Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](
 | OpenAF | TLS | [159](#159) | List the TLS certificates of a target host with a sorted alternative names using OpenAF |
 | OpenAF | oJob.io | [160](#160) | Parses ojob.io/news results into a clickable news title HMTL page. |
 | OpenAF | oJob.io | [161](#161) | Retrieves the list of oJob.io&#x27;s jobs and filters which start by &#x27;ojob.io/news&#x27; to display them in a rectangle |
-| OpenAF | oPacks | [162](#162) | Listing all currently accessible OpenAF&#x27;s oPacks |
-| OpenAF | oafp | [163](#163) | Filter the OpenAF&#x27;s oafp examples list by a specific word in the description |
-| OpenAF | oafp | [164](#164) | List the OpenAF&#x27;s oafp examples by category, sub-category and description |
-| OpenAF | oafp | [165](#165) | Produce a colored table with all the current oafp input and output formats supported. |
-| OpenVPN | List | [166](#166) | When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date |
-| Unix | Activity | [167](#167) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for Debian based Linuxs |
-| Unix | Activity | [168](#168) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for RedHat based Linuxs |
-| Unix | Alpine | [169](#169) | List all installed packages in an Alpine system |
-| Unix | Ask | [170](#170) | Unix bash script to ask for a path and choose between filetypes to perform an unix find command. |
-| Unix | Compute | [171](#171) | Parses the Linux /proc/cpuinfo into an array |
-| Unix | Debian/Ubuntu | [172](#172) | List all installed packages in a Debian/Ubuntu system |
-| Unix | Envs | [173](#173) | Converts the Linux envs command result into a table of environment variables and corresponding values |
-| Unix | Files | [174](#174) | Converting the Linux&#x27;s /etc/os-release to SQL insert statements. |
-| Unix | Files | [175](#175) | Converting the Unix&#x27;s syslog into a json output. |
-| Unix | Files | [176](#176) | Executes a recursive file list find command converting the result into a table. |
-| Unix | Files | [177](#177) | Parses the Linux /etc/passwd to a table order by uid and gid. |
-| Unix | Generic | [178](#178) | Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data |
-| Unix | Memory map | [179](#179) | Given an Unix process will output a table with process&#x27;s components memory address, size in bytes, permissions and owner |
-| Unix | Network | [180](#180) | Loop over the current Linux active network connections |
-| Unix | Network | [181](#181) | Parse the Linux &#x27;arp&#x27; command output |
-| Unix | Network | [182](#182) | Parse the Linux &#x27;ip tcp_metrics&#x27; command |
-| Unix | Network | [183](#183) | Parse the result of the Linux route command |
-| Unix | OpenSuse | [184](#184) | List all installed packages in an OpenSuse system or zypper based system |
-| Unix | RedHat | [185](#185) | List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available) |
-| Unix | Storage | [186](#186) | Converting the Unix&#x27;s df output |
-| Unix | Storage | [187](#187) | Parses the result of the Unix ls command |
-| Unix | SystemCtl | [188](#188) | Converting the Unix&#x27;s systemctl list-timers |
-| Unix | SystemCtl | [189](#189) | Converting the Unix&#x27;s systemctl list-units |
-| Unix | SystemCtl | [190](#190) | Converting the Unix&#x27;s systemctl list-units into an overview table |
-| Unix | UBI | [191](#191) | List all installed packages in an UBI system |
-| Unix | named | [192](#192) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
-| Unix | strace | [193](#193) | Given a strace unix command will produce a summary table of the system calls invoked including a small line chart of the percentage of time of each. |
-| Windows | Network | [194](#194) | Output a table with the current route table using Windows&#x27; PowerShell |
-| Windows | Network | [195](#195) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
-| Windows | PnP | [196](#196) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
-| Windows | Storage | [197](#197) | Output a table with the attached disk information using Windows&#x27; PowerShell |
-| XML | Maven | [198](#198) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
-| nAttrMon | Plugs | [199](#199) | Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition. |
+| OpenAF | oPacks | [162](#162) | Given a folder of expanded oPacks folders will process each folder .package.yaml file and join each corresponding oPack name and dependencies into a sinlge output map. |
+| OpenAF | oPacks | [163](#163) | Listing all currently accessible OpenAF&#x27;s oPacks |
+| OpenAF | oafp | [164](#164) | Filter the OpenAF&#x27;s oafp examples list by a specific word in the description |
+| OpenAF | oafp | [165](#165) | List the OpenAF&#x27;s oafp examples by category, sub-category and description |
+| OpenAF | oafp | [166](#166) | Produce a colored table with all the current oafp input and output formats supported. |
+| OpenVPN | List | [167](#167) | When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date |
+| QR | Encode JSON | [168](#168) | Given a JSON input encode and decote it from a QR-code png file. |
+| QR | Read QR-code | [169](#169) | Given a QR-code png file output the corresponding contents. |
+| QR | URL | [170](#170) | Generate a QR-code for a provided URL. |
+| Unix | Activity | [171](#171) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for Debian based Linuxs |
+| Unix | Activity | [172](#172) | Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for RedHat based Linuxs |
+| Unix | Alpine | [173](#173) | List all installed packages in an Alpine system |
+| Unix | Ask | [174](#174) | Unix bash script to ask for a path and choose between filetypes to perform an unix find command. |
+| Unix | Compute | [175](#175) | Parses the Linux /proc/cpuinfo into an array |
+| Unix | Debian/Ubuntu | [176](#176) | List all installed packages in a Debian/Ubuntu system |
+| Unix | Envs | [177](#177) | Converts the Linux envs command result into a table of environment variables and corresponding values |
+| Unix | Files | [178](#178) | Converting the Linux&#x27;s /etc/os-release to SQL insert statements. |
+| Unix | Files | [179](#179) | Converting the Unix&#x27;s syslog into a json output. |
+| Unix | Files | [180](#180) | Executes a recursive file list find command converting the result into a table. |
+| Unix | Files | [181](#181) | Parses the Linux /etc/passwd to a table order by uid and gid. |
+| Unix | Generic | [182](#182) | Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data |
+| Unix | Memory map | [183](#183) | Given an Unix process will output a table with process&#x27;s components memory address, size in bytes, permissions and owner |
+| Unix | Network | [184](#184) | Loop over the current Linux active network connections |
+| Unix | Network | [185](#185) | Parse the Linux &#x27;arp&#x27; command output |
+| Unix | Network | [186](#186) | Parse the Linux &#x27;ip tcp_metrics&#x27; command |
+| Unix | Network | [187](#187) | Parse the result of the Linux route command |
+| Unix | OpenSuse | [188](#188) | List all installed packages in an OpenSuse system or zypper based system |
+| Unix | RedHat | [189](#189) | List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available) |
+| Unix | Storage | [190](#190) | Converting the Unix&#x27;s df output |
+| Unix | Storage | [191](#191) | Parses the result of the Unix ls command |
+| Unix | SystemCtl | [192](#192) | Converting the Unix&#x27;s systemctl list-timers |
+| Unix | SystemCtl | [193](#193) | Converting the Unix&#x27;s systemctl list-units |
+| Unix | SystemCtl | [194](#194) | Converting the Unix&#x27;s systemctl list-units into an overview table |
+| Unix | UBI | [195](#195) | List all installed packages in an UBI system |
+| Unix | named | [196](#196) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
+| Unix | strace | [197](#197) | Given a strace unix command will produce a summary table of the system calls invoked including a small line chart of the percentage of time of each. |
+| VSCode | Extensions | [198](#198) | Check a Visual Studio Code (vscode) extension (vsix) manifest. |
+| Windows | Network | [199](#199) | Output a table with the current route table using Windows&#x27; PowerShell |
+| Windows | Network | [200](#200) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
+| Windows | PnP | [201](#201) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
+| Windows | Storage | [202](#202) | Output a table with the attached disk information using Windows&#x27; PowerShell |
+| XML | Maven | [203](#203) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
+| nAttrMon | Plugs | [204](#204) | Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition. |
 
 ## 📗 Examples
 
@@ -1647,13 +1652,21 @@ oafp url="https://ojob.io/index.json" path="sort(init.l)[].replace(@,'^https://(
 
 ##### 162
 ### 📖 OpenAF | oPacks
+Given a folder of expanded oPacks folders will process each folder .package.yaml file and join each corresponding oPack name and dependencies into a sinlge output map.
+```bash
+oafp in=oafp data="(in:ls,data:.,path:'[?isDirectory].concat(canonicalPath,\`/.package.yaml\`)')" out=cmd outcmd="oafp {} out=json" outcmdparam=true | oafp in=ndjson ndjsonjoin=true path="[].{name:name,deps:dependencies}"
+```
+---
+
+##### 163
+### 📖 OpenAF | oPacks
 Listing all currently accessible OpenAF&#x27;s oPacks
 ```bash
 oaf -c "sprint(getOPackRemoteDB())" | oafp maptoarray=true opath="[].{name:name,description:description,version:version}" from="sort(name)" out=ctable
 ```
 ---
 
-##### 163
+##### 164
 ### 📖 OpenAF | oafp
 Filter the OpenAF&#x27;s oafp examples list by a specific word in the description
 ```bash
@@ -1661,7 +1674,7 @@ oafp url="https://ojob.io/oafp-examples.yaml" in=yaml out=template path=data tem
 ```
 ---
 
-##### 164
+##### 165
 ### 📖 OpenAF | oafp
 List the OpenAF&#x27;s oafp examples by category, sub-category and description
 ```bash
@@ -1669,7 +1682,7 @@ oafp url="https://ojob.io/oafp-examples.yaml" in=yaml path="data[].{category:c,s
 ```
 ---
 
-##### 165
+##### 166
 ### 📖 OpenAF | oafp
 Produce a colored table with all the current oafp input and output formats supported.
 ```bash
@@ -1677,7 +1690,7 @@ oafp -v path="concat(oafp.inputs[].{option:'in',type:@}, oafp.outputs[].{option:
 ```
 ---
 
-##### 166
+##### 167
 ### 📖 OpenVPN | List
 When using the container nmaguiar/openvpn it&#x27;s possible to convert the list of all clients order by expiration/end date
 ```bash
@@ -1685,7 +1698,37 @@ oafp cmd="docker exec openvpn ovpn_listclients" in=csv path="[].{name:name,begin
 ```
 ---
 
-##### 167
+##### 168
+### 📖 QR | Encode JSON
+Given a JSON input encode and decote it from a QR-code png file.
+```bash
+# opack install qr
+# Encoding an input into qr.png
+oafp in=ls data="." out=json sql="select filepath, size limit 20" | oafp libs=qr in=raw out=qr qrfile=qr.png
+# Decoding a qr.png back to json
+oafp libs=qr in=qr data=qr.png out=raw | oafp in=json out=ctable
+```
+---
+
+##### 169
+### 📖 QR | Read QR-code
+Given a QR-code png file output the corresponding contents.
+```bash
+# opack install qr
+oafp libs=qr in=qr data=qr.png out=raw
+```
+---
+
+##### 170
+### 📖 QR | URL
+Generate a QR-code for a provided URL.
+```bash
+# opack install qr
+oafp libs=qr in=raw data="https://oafp.io" out=qr qrfile=qr.png
+```
+---
+
+##### 171
 ### 📖 Unix | Activity
 Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for Debian based Linuxs
 ```bash
@@ -1693,7 +1736,7 @@ oafp cmd="last" in=lines linesjoin=true path="[:-3]|[?contains(@,'no logout')==\
 ```
 ---
 
-##### 168
+##### 172
 ### 📖 Unix | Activity
 Uses the Linux command &#x27;last&#x27; output to build a table with user, tty, from and period of activity for RedHat based Linuxs
 ```bash
@@ -1701,7 +1744,7 @@ last | sed '/^$/d;$d;$d' | oafp in=lines linesjoin=true path="[].split_re(@, '\\
 ```
 ---
 
-##### 169
+##### 173
 ### 📖 Unix | Alpine
 List all installed packages in an Alpine system
 ```bash
@@ -1709,7 +1752,7 @@ apk list -I | oafp in=lines linesjoin=true path="[].replace(@,'(.+) (.+) {(.+)} 
 ```
 ---
 
-##### 170
+##### 174
 ### 📖 Unix | Ask
 Unix bash script to ask for a path and choose between filetypes to perform an unix find command.
 ```bash
@@ -1727,7 +1770,7 @@ find "${path_answer:-.}" -type f -name "*$type_answer"
 ```
 ---
 
-##### 171
+##### 175
 ### 📖 Unix | Compute
 Parses the Linux /proc/cpuinfo into an array
 ```bash
@@ -1735,7 +1778,7 @@ cat /proc/cpuinfo | sed "s/^$/---/mg" | oafp in=yaml path="[?not_null(@)]|[?type
 ```
 ---
 
-##### 172
+##### 176
 ### 📖 Unix | Debian/Ubuntu
 List all installed packages in a Debian/Ubuntu system
 ```bash
@@ -1743,7 +1786,7 @@ apt list --installed | sed "1d" | oafp in=lines linesjoin=true path="[].split(@,
 ```
 ---
 
-##### 173
+##### 177
 ### 📖 Unix | Envs
 Converts the Linux envs command result into a table of environment variables and corresponding values
 ```bash
@@ -1751,7 +1794,7 @@ env | oafp in=ini path="map(&{key:@,value:to_string(get(@))},sort(keys(@)))" out
 ```
 ---
 
-##### 174
+##### 178
 ### 📖 Unix | Files
 Converting the Linux&#x27;s /etc/os-release to SQL insert statements.
 ```bash
@@ -1759,7 +1802,7 @@ oafp cmd="cat /etc/os-release" in=ini outkey=release path="[@]" sql="select '$HO
 ```
 ---
 
-##### 175
+##### 179
 ### 📖 Unix | Files
 Converting the Unix&#x27;s syslog into a json output.
 ```bash
@@ -1767,7 +1810,7 @@ cat syslog | oafp in=raw path="split(trim(@),'\n').map(&split(@, ' ').{ date: co
 ```
 ---
 
-##### 176
+##### 180
 ### 📖 Unix | Files
 Executes a recursive file list find command converting the result into a table.
 ```bash
@@ -1775,7 +1818,7 @@ LSPATH=/openaf && find $LSPATH -exec stat -c '{"t":"%F", "p": "%n", "s": %s, "m"
 ```
 ---
 
-##### 177
+##### 181
 ### 📖 Unix | Files
 Parses the Linux /etc/passwd to a table order by uid and gid.
 ```bash
@@ -1783,7 +1826,7 @@ oafp cmd="cat /etc/passwd" in=csv inputcsv="(withHeader: false, withDelimiter: '
 ```
 ---
 
-##### 178
+##### 182
 ### 📖 Unix | Generic
 Creates, in unix, a data.ndjson file where each record is formatted from json files in /some/data
 ```bash
@@ -1791,7 +1834,7 @@ find /some/data -name "*.json" -exec oafp {} output=json \; > data.ndjson
 ```
 ---
 
-##### 179
+##### 183
 ### 📖 Unix | Memory map
 Given an Unix process will output a table with process&#x27;s components memory address, size in bytes, permissions and owner
 ```bash
@@ -1799,7 +1842,7 @@ pmap 12345 | sed '1d;$d' | oafp in=lines linesjoin=true path="[].split_re(@, '\\
 ```
 ---
 
-##### 180
+##### 184
 ### 📖 Unix | Network
 Loop over the current Linux active network connections
 ```bash
@@ -1807,7 +1850,7 @@ oafp cmd="netstat -tun | sed \"1d\"" in=lines linesvisual=true linesjoin=true li
 ```
 ---
 
-##### 181
+##### 185
 ### 📖 Unix | Network
 Parse the Linux &#x27;arp&#x27; command output
 ```bash
@@ -1815,7 +1858,7 @@ arp | oafp in=lines linesvisual=true linesjoin=true out=ctable
 ```
 ---
 
-##### 182
+##### 186
 ### 📖 Unix | Network
 Parse the Linux &#x27;ip tcp_metrics&#x27; command
 ```bash
@@ -1823,7 +1866,7 @@ ip tcp_metrics | sed 's/^/target: /g' | sed 's/$/\n\n---\n/g' | sed 's/ \([a-z]*
 ```
 ---
 
-##### 183
+##### 187
 ### 📖 Unix | Network
 Parse the result of the Linux route command
 ```bash
@@ -1831,7 +1874,7 @@ route | sed "1d" | oafp in=lines linesjoin=true linesvisual=true linesvisualsepr
 ```
 ---
 
-##### 184
+##### 188
 ### 📖 Unix | OpenSuse
 List all installed packages in an OpenSuse system or zypper based system
 ```bash
@@ -1839,7 +1882,7 @@ zypper se -is | egrep "^i" | oafp in=lines linesjoin=true path="[].split(@,'|').
 ```
 ---
 
-##### 185
+##### 189
 ### 📖 Unix | RedHat
 List all installed packages in a RedHat system or rpm based system (use rpm --querytags to list all fields available)
 ```bash
@@ -1847,7 +1890,7 @@ rpm -qa --qf "%{NAME}|%{VERSION}|%{PACKAGER}|%{VENDOR}|%{ARCH}\n" | oafp in=line
 ```
 ---
 
-##### 186
+##### 190
 ### 📖 Unix | Storage
 Converting the Unix&#x27;s df output
 ```bash
@@ -1855,7 +1898,7 @@ df --output=target,fstype,size,used,avail,pcent | tail -n +2 | oafp in=lines lin
 ```
 ---
 
-##### 187
+##### 191
 ### 📖 Unix | Storage
 Parses the result of the Unix ls command
 ```bash
@@ -1863,7 +1906,7 @@ ls -lad --time-style="+%Y-%m-%d %H:%M" * | oafp in=lines path="map(&split_re(@,'
 ```
 ---
 
-##### 188
+##### 192
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-timers
 ```bash
@@ -1871,7 +1914,7 @@ systemctl list-timers | head -n -3 | oafp in=lines linesvisual=true linesjoin=tr
 ```
 ---
 
-##### 189
+##### 193
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-units
 ```bash
@@ -1879,7 +1922,7 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ```
 ---
 
-##### 190
+##### 194
 ### 📖 Unix | SystemCtl
 Converting the Unix&#x27;s systemctl list-units into an overview table
 ```bash
@@ -1887,7 +1930,7 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ```
 ---
 
-##### 191
+##### 195
 ### 📖 Unix | UBI
 List all installed packages in an UBI system
 ```bash
@@ -1895,7 +1938,7 @@ microdnf repoquery --setopt=cachedir=/tmp --installed | oafp in=lines linesjoin=
 ```
 ---
 
-##### 192
+##### 196
 ### 📖 Unix | named
 Converts a Linux&#x27;s named log, for client queries, into a CSV
 ```bash
@@ -1903,7 +1946,7 @@ cat named.log | oafp in=lines linesjoin=true path="[?contains(@,' client ')==\`t
 ```
 ---
 
-##### 193
+##### 197
 ### 📖 Unix | strace
 Given a strace unix command will produce a summary table of the system calls invoked including a small line chart of the percentage of time of each.
 ```bash
@@ -1911,7 +1954,15 @@ strace -c -o '!oafp in=lines linesvisual=true linesjoin=true opath="[1:-2].merge
 ```
 ---
 
-##### 194
+##### 198
+### 📖 VSCode | Extensions
+Check a Visual Studio Code (vscode) extension (vsix) manifest.
+```bash
+oafp in=xml file="Org.my-extension.vsix::extension.vsixmanifest" out=ctree
+```
+---
+
+##### 199
 ### 📖 Windows | Network
 Output a table with the current route table using Windows&#x27; PowerShell
 ```bash
@@ -1919,7 +1970,7 @@ Get-NetRoute | ConvertTo-Json | .\oafp.bat path="[].{destination:DestinationPref
 ```
 ---
 
-##### 195
+##### 200
 ### 📖 Windows | Network
 Output a table with the list of network interfaces using Windows&#x27; PowerShell
 ```bash
@@ -1927,7 +1978,7 @@ Get-NetIPAddress | ConvertTo-Json | .\oafp.bat path="[].{ipAddress:IPAddress,pre
 ```
 ---
 
-##### 196
+##### 201
 ### 📖 Windows | PnP
 Output a table with USB/PnP devices using Windows&#x27; PowerShell
 ```bash
@@ -1935,7 +1986,7 @@ Get-PnpDevice -PresentOnly | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=cs
 ```
 ---
 
-##### 197
+##### 202
 ### 📖 Windows | Storage
 Output a table with the attached disk information using Windows&#x27; PowerShell
 ```bash
@@ -1943,7 +1994,7 @@ Get-Disk | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=csv path="[].{id:tri
 ```
 ---
 
-##### 198
+##### 203
 ### 📖 XML | Maven
 Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId.
 ```bash
@@ -1951,7 +2002,7 @@ oafp pom.xml path="project.dependencies.dependency" out=ctable sql="select * ord
 ```
 ---
 
-##### 199
+##### 204
 ### 📖 nAttrMon | Plugs
 Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition.
 ```bash
