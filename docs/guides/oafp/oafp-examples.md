@@ -207,16 +207,17 @@ Examples of use of _oafp_ avaiable also in [https://ojob.io/oafp-examples.yaml](
 | Unix | SystemCtl | [192](#192) | Converting the Unix&#x27;s systemctl list-timers |
 | Unix | SystemCtl | [193](#193) | Converting the Unix&#x27;s systemctl list-units |
 | Unix | SystemCtl | [194](#194) | Converting the Unix&#x27;s systemctl list-units into an overview table |
-| Unix | UBI | [195](#195) | List all installed packages in an UBI system |
-| Unix | named | [196](#196) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
-| Unix | strace | [197](#197) | Given a strace unix command will produce a summary table of the system calls invoked including a small line chart of the percentage of time of each. |
-| VSCode | Extensions | [198](#198) | Check a Visual Studio Code (vscode) extension (vsix) manifest. |
-| Windows | Network | [199](#199) | Output a table with the current route table using Windows&#x27; PowerShell |
-| Windows | Network | [200](#200) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
-| Windows | PnP | [201](#201) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
-| Windows | Storage | [202](#202) | Output a table with the attached disk information using Windows&#x27; PowerShell |
-| XML | Maven | [203](#203) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
-| nAttrMon | Plugs | [204](#204) | Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition. |
+| Unix | Threads | [195](#195) | Given an unix process id (pid) loop a table with its top 25 most cpu active threads |
+| Unix | UBI | [196](#196) | List all installed packages in an UBI system |
+| Unix | named | [197](#197) | Converts a Linux&#x27;s named log, for client queries, into a CSV |
+| Unix | strace | [198](#198) | Given a strace unix command will produce a summary table of the system calls invoked including a small line chart of the percentage of time of each. |
+| VSCode | Extensions | [199](#199) | Check a Visual Studio Code (vscode) extension (vsix) manifest. |
+| Windows | Network | [200](#200) | Output a table with the current route table using Windows&#x27; PowerShell |
+| Windows | Network | [201](#201) | Output a table with the list of network interfaces using Windows&#x27; PowerShell |
+| Windows | PnP | [202](#202) | Output a table with USB/PnP devices using Windows&#x27; PowerShell |
+| Windows | Storage | [203](#203) | Output a table with the attached disk information using Windows&#x27; PowerShell |
+| XML | Maven | [204](#204) | Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId. |
+| nAttrMon | Plugs | [205](#205) | Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition. |
 
 ## 📗 Examples
 
@@ -1931,6 +1932,14 @@ systemctl list-units | head -n -6 | oafp in=lines linesvisual=true linesjoin=tru
 ---
 
 ##### 195
+### 📖 Unix | Threads
+Given an unix process id (pid) loop a table with its top 25 most cpu active threads
+```bash
+JPID=12345 && oafp cmd="ps -L -p $JPID -o tid,pcpu,comm|tail +2" in=lines linesjoin=true path="[].split_re(trim(@),'\s+').{tid:[0],thread:join(' ',[2:]),cpu:to_number(nvl([1],\`-1\`)),cpuPerc:progress(nvl(to_number([1]),\`0\`), \`100\`, \`0\`, \`50\`, __, __)}" sql='select * order by cpu desc limit 25' out=ctable loop=1 loopcls=true
+```
+---
+
+##### 196
 ### 📖 Unix | UBI
 List all installed packages in an UBI system
 ```bash
@@ -1938,7 +1947,7 @@ microdnf repoquery --setopt=cachedir=/tmp --installed | oafp in=lines linesjoin=
 ```
 ---
 
-##### 196
+##### 197
 ### 📖 Unix | named
 Converts a Linux&#x27;s named log, for client queries, into a CSV
 ```bash
@@ -1946,7 +1955,7 @@ cat named.log | oafp in=lines linesjoin=true path="[?contains(@,' client ')==\`t
 ```
 ---
 
-##### 197
+##### 198
 ### 📖 Unix | strace
 Given a strace unix command will produce a summary table of the system calls invoked including a small line chart of the percentage of time of each.
 ```bash
@@ -1954,7 +1963,7 @@ strace -c -o '!oafp in=lines linesvisual=true linesjoin=true opath="[1:-2].merge
 ```
 ---
 
-##### 198
+##### 199
 ### 📖 VSCode | Extensions
 Check a Visual Studio Code (vscode) extension (vsix) manifest.
 ```bash
@@ -1962,7 +1971,7 @@ oafp in=xml file="Org.my-extension.vsix::extension.vsixmanifest" out=ctree
 ```
 ---
 
-##### 199
+##### 200
 ### 📖 Windows | Network
 Output a table with the current route table using Windows&#x27; PowerShell
 ```bash
@@ -1970,7 +1979,7 @@ Get-NetRoute | ConvertTo-Json | .\oafp.bat path="[].{destination:DestinationPref
 ```
 ---
 
-##### 200
+##### 201
 ### 📖 Windows | Network
 Output a table with the list of network interfaces using Windows&#x27; PowerShell
 ```bash
@@ -1978,7 +1987,7 @@ Get-NetIPAddress | ConvertTo-Json | .\oafp.bat path="[].{ipAddress:IPAddress,pre
 ```
 ---
 
-##### 201
+##### 202
 ### 📖 Windows | PnP
 Output a table with USB/PnP devices using Windows&#x27; PowerShell
 ```bash
@@ -1986,7 +1995,7 @@ Get-PnpDevice -PresentOnly | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=cs
 ```
 ---
 
-##### 202
+##### 203
 ### 📖 Windows | Storage
 Output a table with the attached disk information using Windows&#x27; PowerShell
 ```bash
@@ -1994,7 +2003,7 @@ Get-Disk | ConvertTo-Csv -NoTypeInformation | .\oafp.bat in=csv path="[].{id:tri
 ```
 ---
 
-##### 203
+##### 204
 ### 📖 XML | Maven
 Given a Maven pom.xml parses the XML content to a colored table ordering by the fields groupId and artifactId.
 ```bash
@@ -2002,7 +2011,7 @@ oafp pom.xml path="project.dependencies.dependency" out=ctable sql="select * ord
 ```
 ---
 
-##### 204
+##### 205
 ### 📖 nAttrMon | Plugs
 Given a nAttrMon config folder, with YAML files, produce a summary table with the each plug (yaml file) execFrom definition.
 ```bash
