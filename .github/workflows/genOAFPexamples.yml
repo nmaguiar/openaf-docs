@@ -29,7 +29,7 @@ jobs:
 
     # ----------------------------
     - name: Generate oafp examples
-      uses: openaf/ojob-action@v4
+      uses: openaf/ojob-action@v7
       with:
         dist: nightly
         def : |
@@ -46,7 +46,7 @@ jobs:
     - name: Commit changes
       env :
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      uses: openaf/ojob-action@v4
+      uses: openaf/ojob-action@v7
       with:
         ojob: 'ojob.io/git/hub/contentIn'
         args: 'message="Update\ OAFP\ examples" title="Automated\ generate\ oafp\ examples" paths="docs/guides/oafp/"'
