@@ -117,7 +117,9 @@ Functions description:
 
 **"init" function**
 
-```init()```
+```js
+init()
+```
 
 The *init* function doesn't take any arguments and is called when the browse functionality is initialized. You can use it to set up any variables or configurations you need.
 
@@ -169,7 +171,9 @@ Description of the fields:
 
 **"getObj" function**
 
-```getObj(request, options) : Map```
+```js
+getObj(request, options) : Map
+```
 
 The *getObj* function receives a map with the browser request (e.g. request.uri, request.params, etc...). It should return a map with one of the following structures:
 
@@ -202,7 +206,9 @@ The *type* value is the type of the file to be shown on the interface. The avail
 
 **"renderList" function**
 
-```renderList(aList, server, request, options) : Map```
+```js
+renderList(aList, server, request, options) : Map
+```
 
 The *renderList* function receives *aList* returned by the *getList* function and is responsible to render the list on the interface. The *server* value is the OpenAF http server variable. The *request* parameter contains the original request data, and the *options* parameter allows for additional configuration during rendering. 
 
@@ -214,7 +220,9 @@ The function should return a suitable OpenAF httpd server response using the ser
 
 **"renderObj" function**
 
-```renderObj(aObj, server, request, options)```
+```js
+renderObj(aObj, server, request, options)
+```
 
 The *renderObj* function receives *aObj* returned by the *getObj* function and is responsible to render the object on the interface. The *server* value is the OpenAF http server variable. The *request* parameter contains the original request data, and the *options* parameter allows for additional configuration during rendering.
 
@@ -226,6 +234,8 @@ The function should return a suitable OpenAF httpd server response using the ser
 
 **"renderEmpty" function**
 
-```renderEmpty(request, options) : String```
+```js
+renderEmpty(request, options) : String
+```
 
 The *renderEmpty* function receives a map with the browser request (e.g. request.uri, request.params, etc...). It should return a string with the content to be shown on the interface no object or list can be shown.
