@@ -1,3 +1,10 @@
+---
+layout: default
+title: Building a simple web-service to run a command-line
+parent: Beginner
+grand_parent: Guides
+---
+
 # Building a simple web-service to run a command-line
 
 _(OpenAF version >= 20241117)_
