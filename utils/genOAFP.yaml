@@ -25,7 +25,6 @@ init:
   - src/docs/USAGE.md
   - src/docs/TEMPLATE.md
   - src/docs/FILTERS.md
-  - src/docs/EXAMPLES.md
   tmpl: | #handlebars
     ---
     layout: default
