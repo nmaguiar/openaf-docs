@@ -28,6 +28,7 @@ Here are some of the available helpers:
 | $ft             | uses the $ft format function               | 
 | $path           | uses the $path function to query objects   | 
 | $from           | uses the $from & fromNLinq to query objects | 
+| $oafp           | uses the oafp function (inception) to parse the provided JSON/SLON string and return the results (tip: use with the #with helper) |
 | $toSLON         | shows the ow.format.toSLON version of an object |
 | $get            | shows the corresponding value for a key on $get |
 | $getObj         | equivalent to $get with the extra parameter for $$.get path |
@@ -62,6 +63,7 @@ Here are some of the available helpers:
 | $m2a            | shortcut to the OpenAF's $m2a function     | 
 | $m4a            | shortcut to the OpenAF's $m4a function       |
 | $pass           | shows an empty string                      |
+| $p              | shows the provided literal                  |
 | $sline          | shortcut to the OpenAF's format withSideLine |
 | $set            | block set of a provided key                  |
 | $concat         | concatenates all arguments as a single value |
