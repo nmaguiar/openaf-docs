@@ -1,0 +1,63 @@
+# Author: Nuno Aguiar
+help:
+  text   : Given a path will recursively create a single .md file, on the provided output folder, for each folder and subfolder .md files.
+  expects: 
+  - name     : path
+    desc     : Path to the folder to be processed
+    example  : a-folder
+    mandatory: false
+  - name     : output
+    desc     : Path to the output folder
+    example  : output
+    mandatory: false
+
+todo:
+- Generate a single .md for each folder
+
+ojob:
+  opacks      :
+  - openaf: 20250315
+  catch       : printErrnl("[" + job.name + "] "); if (isDef(exception.javaException)) exception.javaException.printStackTrace(); else printErr(exception)
+  logToConsole: true   # to change when finished
+        
+
+jobs:
+# --------------------------------------------
+- name : Generate a single .md for each folder
+  each : Generate a single .md
+  check:
+    in:
+      path  : isString.default(".")
+      output: isString.default("output")
+  exec : | #js
+    log(`Creating the output folder: ${args.output}`)
+    io.mkdir(args.output)
+
+    // Recursively process the folders
+    each({ base: args.path, path: args.path, output: args.output })
+    $from(listFilesRecursive(args.path))
+    .equals("isDirectory", true)
+    .select(f => {
+      each({ base: args.path, path: f.filepath, output: args.output })
+    })
+
+# ----------------------------
+- name : Generate a single .md
+  check:
+    in:
+      path  : isString
+      output: isString.default("output")
+      base  : isString.default(".")
+  exec : | #js
+    log(`Processing the folder: ${args.path}`)
+
+    var outFile = args.output
+    outFile = outFile + "/" + args.path.replace(args.base, "od_").replace(/[\.|\/]/g, "_") + ".md"
+
+    $from(io.listFiles(args.path).files)
+    .ends("filename", ".md")
+    .select(f => {
+      log(`${args.path} | Processing the file: ${f.canonicalPath}...`)
+      io.writeFileString(outFile, io.readFileString(f.canonicalPath), __, true)
+    })
+    log(`Finished processing the folder: ${args.path}`)
