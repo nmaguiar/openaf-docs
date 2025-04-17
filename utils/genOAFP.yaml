@@ -1,0 +1,54 @@
+# Author: Nuno Aguiar
+help:
+  text   : Copies documentation from oAFp.
+  expects: 
+  - name     : oafp
+    desc     : Path to the oafp folder
+    example  : the/oafp
+    mandatory: true
+  - name     : output
+    desc     : Path to the output folder
+    example  : output
+    mandatory: true
+
+todo:
+- Copy oAFp documentation
+
+ojob:
+  opacks      :
+  - openaf: 20250315
+  catch       : printErrnl("[" + job.name + "] "); if (isDef(exception.javaException)) exception.javaException.printStackTrace(); else printErr(exception)
+  logToConsole: true   # to change when finished
+        
+init:
+  docs:
+  - src/docs/USAGE.md
+  - src/docs/TEMPLATE.md
+  - src/docs/FILTERS.md
+  - src/docs/EXAMPLES.md
+  tmpl: | #handlebars
+    ---
+    layout: default
+    title: OpenAF processor {{doc}}
+    parent: oafp
+    grand_parent: Guides
+    ---
+
+    {{{content}}}
+
+jobs:
+# ------------------------------
+- name : Copy oAFp documentation
+  check:
+    in:
+      oafp  : isString
+      output: isString
+  exec : | #js
+    args.init.docs.forEach(f => {
+      var inPath = args.oafp + "/" + f
+      var outPath = args.output + "/oafp-" + f.replace("src/docs/", "").replace(".md", "").toLowerCase() + ".md"
+      io.writeFileString(outPath, $t(args.init.tmpl, { 
+        doc    : f.replace("src/docs/", "").replace(".md", "").toLowerCase(), 
+        content: io.readFileString(inPath) 
+      }))
+    })
