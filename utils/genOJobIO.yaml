@@ -1,0 +1,77 @@
+# Author: Anonymous
+help:
+  text   : Given the path to an ojob.io like folder will produce a single markdown file with all ojobs help text and expected parameters.
+  expects: 
+  - name     : path
+    desc     : To specify the path to the ojob.io folder.
+    example  : test/ojob.io
+    mandatory: true
+  - name     : prefix
+    desc     : Specify the ojob file prefix to be used in the markdown file.
+    example  : ojob.io
+    mandatory: false
+
+todo:
+- Read ojobs to markdown file
+- (template): | #markdown
+    ## 📚 {{prefix}}
+  
+    {{#each data}}
+    ---
+
+    ### 📖 {{_file}}
+    
+    {{{text}}}
+
+    {{#if expects}}
+    **Arguments expected:**
+
+    | Argument | Description | Example value | Mandatory |
+    | -------- | ----------- | ------------- | --------- |
+    {{#each expects}}
+    | {{name}}  | {{desc}}    | {{example}}   | {{#if mandatory}}yes{{else}}no{{/if}} |
+    {{/each}}
+    {{else}}
+    **No arguments expected.**
+    {{/if}}
+
+    **Example:**
+    ```bash
+    ojob {{_file}} {{#each expects}}{{#if example}}{{name}}="{{example}}"{{#unless @last}} {{/unless}}{{/if}}{{/each}}
+    ```
+    {{/each}}
+  ((key    )): data
+  ((out    )): out
+- (print    ): "{{{output}}}"
+  ((key    )): out
+
+ojob:
+  opacks      :
+  - openaf: 20250417
+  catch       : printErrnl("[" + job.name + "] " + $err(exception, __, true, job.exec))
+  logToConsole: true   # to change when finished
+
+jobs:
+# ----------------------------------
+- name : Read ojobs to markdown file
+  check:
+    in:
+      path  : isString
+      prefix: isString.default("ojob.io")
+  exec : | #js
+    data = []
+
+    $from( listFilesRecursive(args.path) )
+    .ends("filename", ".yaml")
+    .sort("filepath")
+    .select(file => {
+      var oj = io.readFileYAML(file.canonicalPath)
+      if (isDef(oj.help)) {
+        oj.help._file = args.prefix + file.filepath.replace(args.path, "").replace(/\.yaml$/, "")
+        if (!isNull(oj.help.text)) oj.help.text = oj.help.text
+
+        data.push(oj.help)
+      }
+    })
+
+    $set("data", { prefix: args.prefix, data: data })
