@@ -7,7 +7,7 @@ grand_parent: OpenAF docs
 
 # $from
 
-There are several "helpers" in OpenAF to help to "query" array of maps that help to make code cleaner. For a complete list (like JMESPath) see on the end of this document. [_nLinq_](https://github.com/nmaguiar/nLinq) is currently the most use one.
+There are several "helpers" in OpenAF to help to "query" array of maps that help to make code cleaner. OpenAF extends JavaScript with $from(), a powerful helper for working with arrays (especially arrays of maps). It simplifies filtering, sorting, grouping, and transforming — much like a blend of SQL and LINQ. For a complete list (like JMESPath) see on the end of this document. [_nLinq_](https://github.com/nmaguiar/nLinq) is currently the most use one.
 
 Quick examples:
 
@@ -23,6 +23,46 @@ $from( arrayOfContacts )
 .sort("firstName", "lastName")
 .select()
 ````
+
+## 🆚 Native JS: A Side-by-Side
+
+Why use $from() over native JavaScript?
+
+* **More declarative** - you describe what you want, not how.
+* **Chainable** - easy to build multi-step logic.
+* **Cross-platform consistent** - works the same on all OpenAF-supported platforms.
+* **Extensible** - integrates with OpenAF plugins and transformations cleanly.
+
+### Example: 🔍 Filtering items > 1KB
+
+**Native JavaScript:**
+
+```javascript
+files.filter(f => f.size > 1024);
+```
+
+**$from():**
+
+```javascript
+$from(files).greater("size", 1024).select();
+```
+
+✅ $from() version is more readable for complex filters and chains.
+
+## 🧰 Use $from() when you need:
+
+| Task | $from() benefit |
+|----------------|-----------------|
+| Filter by condition | .equals(), .greater(), .contains() etc. |
+| Sort by one or more keys | .sort("aKey", "bKey") |
+| Group items by key | .group("category") |
+| Get distinct values | .distinct("fieldName") |
+| Transform / map objects | .select(r => ({...})) |
+| Aggregate (sum, count) | .sum("amount"), .count() |
+
+## Check also:
+
+* [$from() cheat-sheet](guides/cheat-sheet/from.md)
 
 # Reference
 
