@@ -23,6 +23,8 @@ docker run --pull always --rm -ti openaf/oaf
 # ./oafc
 ````
 
+> For more options for the OpenAF container images check the [container images](docs/concepts/container-images.md) page.
+
 ## Single file download
 
 Download the specific file for your OS and architecture (see below for Windows):
