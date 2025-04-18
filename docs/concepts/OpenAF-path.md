@@ -178,6 +178,72 @@ These are **extra functions** added to the standard JMESPath syntax — think of
 
 > Check more in [oAFp filters](../guides/oafp/oafp-filters.md)
 
+### 🔌 **Using ch() in oafp for OpenAF channels access**
+
+The ch(name, op, ...) function lets you interact with any OpenAF-supported channel directly from a JMESPath expression.
+
+**🔧 Function Signature**
+
+```javascript
+ch("channelName", "operation", arg1?, arg2?)
+```
+
+| Parameter | Meaning | 
+|:---------|:--------|
+| channelName | The name of the channel you want to interact with. |
+| operation | The operation you want to perform on the channel. One of: get, set, unset, size, unsetAll, getAll, getKeys |
+| arg1 / arg2 | Additional arguments, Key/value or additional data depending on the operation. |
+
+**🔁 Operations**
+
+| Operation | Description |
+|:---------|:------------|
+| ```get``` | Get a value by key |
+| ```set``` | Set a value by key |
+| ```unset``` | Delete a key |
+| ```getAll``` | Get entire key-value map |
+| ```getKeys``` | List all keys |
+| ```unsetAll``` | Delete all keys |
+| ```size``` | Get total number of keys |
+
+**🧪 Examples using oafp**
+
+✅ *Set a key in MVStore*
+
+```bash
+oafp data='[{id: 1, name: "Alice"}]' in=json\
+  chs="(type: mvs, options: (file: db.mvs))"\
+  path="ch('store', 'set', 'user:1', [0])"
+```
+
+Then check the data on MVStore:
+
+```bash
+oafp in=ch inch="(type: mvs, options: (file: db.mvs))" data="()" inchall=true
+```
+
+🔍 *Get all keys from etcd*
+
+```bash
+oafp in=ch inch="(type: etcd3, options: (host: localhost, port: 2379), lib: 'etcd3.js')" inchall=true data="()" out=ndjson
+```
+
+🧹 *Delete a specific key*
+
+```bash
+oafp chs="(name: store, type: mvs, options: (file: db.mvs))"\
+     path="ch('store', 'unset', '(user:1)', '')"\
+     data="()"
+```
+
+📥 *Get a value from Redis*
+
+```bash
+oafp chs="(name: cache, type: redis, options: (host: redis.local, port: 6379))"\
+     path="ch('cache', 'get', '(session: abc)')"
+     data="()"
+```
+
 # Other libraries in OpenAF
 
 * _$from_ - See more in [$from](OpenAF-nLinq.md)
