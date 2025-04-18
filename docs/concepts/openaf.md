@@ -46,3 +46,16 @@ It basically allows for one or multiple YAML or JSON data files to define how di
 It also aims to make it easy to reuse code in a standard format and to move it easily to where you need it.
 
 Right after installing OpenAF you can use oJob.io (using the public or a private repository) to quickly execute and reuse "oJob"s to achieve different goals making it an ideal "DevOps" tool (e.g. building a quick pipeline, building quick micro-services, etc...).
+
+## When should each OpenAF command be used?
+
+After installing OpenAF there are a series of commands that can be utilized to perform various tasks effectively. Each command serves a specific purpose and can be chosen based on the requirements of the task at hand. Here's a breakdown of when to use each command:
+
+| Command | Purpopse | Use when | Examples |
+| ------- | -------- | -------- | -------- |
+| `oaf` | OpenAF command line | You want to run a script or command using OpenAF | `oaf -f script.js` |
+| `oafc` | Interactive OpenAF console (REPL-like, Read-Evaluate-Print Loop) | You want to interactively execute OpenAF commands | `oafc` |
+| [ojob](oJob) | Run structured YAML-based local or remote jobs (oJobs) | Running a reusable job and/or orchestrating multiple tasks with scheduling, async, daemon, dependencies, etc. | `ojob my-ojob.yaml arg1=value1`, `ojob ojob.io/oaf/info` |
+| [oafp](oafp) | OpenAF data processor | You want to take input data, filter and transformation it to another data format or representation from the command-line | `oafp in=yaml path="list[].{name: id, value: val}" out=ctable` |
+| [opack](opack) | OpenAF package manager | You want to install, update, or manage OpenAF packages (oPacks) | `opack install my-package`, `opack list` |
+| `pyoaf`| Run Python scripts accessing OpenAF | Let's you start a Python script with direct access to OpenAF libraries and functions | `pyoaf my-script.py` |
