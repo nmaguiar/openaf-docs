@@ -62,7 +62,7 @@ $from(files).greater("size", 1024).select();
 
 ## Check also:
 
-* [$from() cheat-sheet](guides/cheat-sheet/from.md)
+* [$from() cheat-sheet](../guides/cheat-sheet/from.md)
 
 # Reference
 

@@ -160,6 +160,24 @@ It's possible to apply functions to fields and arrays on the expression used in 
 | type(any) | Returns the type of any input | ````$path(obj, "type(to_number(`123`))")```` |
 | values(a) | Returns an array with all the values of a map | ````$path(obj, "values(files[0])")```` |
 
+### 🧠 Custom JMESPath functions in OpenAF
+
+These are **extra functions** added to the standard JMESPath syntax — think of them as a fusion between JMESPath and JavaScript power, tailored for data transformation.
+
+🧰 **Popular & Useful Custom Functions**
+
+| Function | Description | Example |
+|:---------|:------------|:--------|
+| ```amerge(x, y)``` | Deep merge two objects/arrays | ```amerge({a:1}, {b:2})``` → {a:1,b:2} |
+| ```assign(obj, path, val)``` | Mutate/assign a value in an object at a path | ```assign([0], "status", "done")``` |
+| ```assignp(pathExpr, key, val)``` | Assign using a path query | ```assignp('[?id=1]', "valid", true)``` |
+| ```a2m(keys, values)``` | Create a map from two arrays | ```a2m(["k1","k2"], [1,2])``` → {k1:1,k2:2} |
+| ```a4m(arr, "key")``` | Convert array to map using a field as key | ```a4m([{id:1},{id:2}], "id")``` |
+| ```concat(x, y)``` | Concatenate two arrays or strings | ```concat("foo", "bar")``` → "foobar" |
+| ```ch(name, op, arg1, arg2)``` | Interact with a channel (etcd, mvs, etc.) | ```ch("mych", "get", "key")``` |
+
+> Check more in [oAFp filters](../guides/oafp/oafp-filters.md)
+
 # Other libraries in OpenAF
 
 * _$from_ - See more in [$from](OpenAF-nLinq.md)
