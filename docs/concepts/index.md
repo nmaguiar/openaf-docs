@@ -24,3 +24,4 @@ Main concepts
 * __[Java Support](java.md)__
 * __[$path](OpenAF-path.md)__
 * __[Static installation](static-installation.md)__
+* __[Container images](container-images.md)__
