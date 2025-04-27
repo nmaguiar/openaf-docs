@@ -133,7 +133,7 @@ If the request.uri should be interpreted as a file:
 
 ```json
 { 
-    "file": true
+    "isFile": true
 }
 ```
 
